@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D723DFE82300C91316 /* AppDelegate.swift */; };
 		16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D923DFE82300C91316 /* SceneDelegate.swift */; };
-		16BCB6DC23DFE82300C91316 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6DB23DFE82300C91316 /* ViewController.swift */; };
-		16BCB6DF23DFE82300C91316 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6DD23DFE82300C91316 /* Main.storyboard */; };
+		16BCB6DC23DFE82300C91316 /* AllPetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6DB23DFE82300C91316 /* AllPetsController.swift */; };
 		16BCB6E223DFE82300C91316 /* PetMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6E023DFE82300C91316 /* PetMe.xcdatamodeld */; };
 		16BCB6E423DFE82900C91316 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6E323DFE82900C91316 /* Assets.xcassets */; };
 		16BCB6E723DFE82900C91316 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6E523DFE82900C91316 /* LaunchScreen.storyboard */; };
@@ -20,8 +19,7 @@
 		16BCB6D423DFE82300C91316 /* PetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BCB6D723DFE82300C91316 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16BCB6D923DFE82300C91316 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		16BCB6DB23DFE82300C91316 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		16BCB6DE23DFE82300C91316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16BCB6DB23DFE82300C91316 /* AllPetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetsController.swift; sourceTree = "<group>"; };
 		16BCB6E123DFE82300C91316 /* PetMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetMe.xcdatamodel; sourceTree = "<group>"; };
 		16BCB6E323DFE82900C91316 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16BCB6E623DFE82900C91316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,8 +58,7 @@
 			children = (
 				16BCB6D723DFE82300C91316 /* AppDelegate.swift */,
 				16BCB6D923DFE82300C91316 /* SceneDelegate.swift */,
-				16BCB6DB23DFE82300C91316 /* ViewController.swift */,
-				16BCB6DD23DFE82300C91316 /* Main.storyboard */,
+				16BCB6DB23DFE82300C91316 /* AllPetsController.swift */,
 				16BCB6E323DFE82900C91316 /* Assets.xcassets */,
 				16BCB6E523DFE82900C91316 /* LaunchScreen.storyboard */,
 				16BCB6E823DFE82900C91316 /* Info.plist */,
@@ -130,7 +127,6 @@
 			files = (
 				16BCB6E723DFE82900C91316 /* LaunchScreen.storyboard in Resources */,
 				16BCB6E423DFE82900C91316 /* Assets.xcassets in Resources */,
-				16BCB6DF23DFE82300C91316 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16BCB6DC23DFE82300C91316 /* ViewController.swift in Sources */,
+				16BCB6DC23DFE82300C91316 /* AllPetsController.swift in Sources */,
 				16BCB6E223DFE82300C91316 /* PetMe.xcdatamodeld in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
@@ -151,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		16BCB6DD23DFE82300C91316 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				16BCB6DE23DFE82300C91316 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		16BCB6E523DFE82900C91316 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
