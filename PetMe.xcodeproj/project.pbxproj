@@ -13,6 +13,9 @@
 		16BCB6E223DFE82300C91316 /* PetMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6E023DFE82300C91316 /* PetMe.xcdatamodeld */; };
 		16BCB6E423DFE82900C91316 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6E323DFE82900C91316 /* Assets.xcassets */; };
 		16BCB6E723DFE82900C91316 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6E523DFE82900C91316 /* LaunchScreen.storyboard */; };
+		16BCB6F123E2402E00C91316 /* PetsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6F023E2402E00C91316 /* PetsHelper.swift */; };
+		16BCB6F823E2461000C91316 /* Pet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6F623E2461000C91316 /* Pet+CoreDataClass.swift */; };
+		16BCB6F923E2461000C91316 /* Pet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6F723E2461000C91316 /* Pet+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		16BCB6E323DFE82900C91316 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16BCB6E623DFE82900C91316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16BCB6E823DFE82900C91316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16BCB6F023E2402E00C91316 /* PetsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsHelper.swift; sourceTree = "<group>"; };
+		16BCB6F623E2461000C91316 /* Pet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		16BCB6F723E2461000C91316 /* Pet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +46,8 @@
 		16BCB6CB23DFE82300C91316 = {
 			isa = PBXGroup;
 			children = (
-				16BCB6D623DFE82300C91316 /* PetMe */,
 				16BCB6D523DFE82300C91316 /* Products */,
+				16BCB6D623DFE82300C91316 /* PetMe */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +62,16 @@
 		16BCB6D623DFE82300C91316 /* PetMe */ = {
 			isa = PBXGroup;
 			children = (
+				16BCB6F623E2461000C91316 /* Pet+CoreDataClass.swift */,
+				16BCB6F723E2461000C91316 /* Pet+CoreDataProperties.swift */,
 				16BCB6D723DFE82300C91316 /* AppDelegate.swift */,
 				16BCB6D923DFE82300C91316 /* SceneDelegate.swift */,
 				16BCB6DB23DFE82300C91316 /* AllPetsController.swift */,
+				16BCB6F023E2402E00C91316 /* PetsHelper.swift */,
 				16BCB6E323DFE82900C91316 /* Assets.xcassets */,
 				16BCB6E523DFE82900C91316 /* LaunchScreen.storyboard */,
-				16BCB6E823DFE82900C91316 /* Info.plist */,
 				16BCB6E023DFE82300C91316 /* PetMe.xcdatamodeld */,
+				16BCB6E823DFE82900C91316 /* Info.plist */,
 			);
 			path = PetMe;
 			sourceTree = "<group>";
@@ -138,9 +147,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				16BCB6DC23DFE82300C91316 /* AllPetsController.swift in Sources */,
+				16BCB6F923E2461000C91316 /* Pet+CoreDataProperties.swift in Sources */,
 				16BCB6E223DFE82300C91316 /* PetMe.xcdatamodeld in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
+				16BCB6F123E2402E00C91316 /* PetsHelper.swift in Sources */,
+				16BCB6F823E2461000C91316 /* Pet+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,11 +12,14 @@ class AllPetsController: UICollectionViewController, UICollectionViewDelegateFlo
     
     private let cell_id = "pet_cell"
     
+    var pets: [Pet]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        collectionView.backgroundColor = UIColor(rgb: 0xE5E5E5)
-        navigationItem.title = "All Pets"
+        setupData()
+        collectionView.backgroundColor = UIColor(rgb: 0xF6F6F6)
+        navigationItem.title = "My Pets"
         
         collectionView.register(PetCell.self, forCellWithReuseIdentifier: cell_id)
         collectionView.alwaysBounceVertical = true
@@ -24,12 +27,20 @@ class AllPetsController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if let count = pets?.count {
+            return count
+        }
+        return 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
+        
+        if let pet = pets?[indexPath.row] {
+            cell.nameLabel.text = pet.name
+            cell.dogImageView.image = UIImage(named: pet.imgName!)
+        }
         
         return cell
         
@@ -43,6 +54,10 @@ class AllPetsController: UICollectionViewController, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         //top, left, bottom, right
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+    }
+    
+    func addPet() {
+        
     }
     
     
