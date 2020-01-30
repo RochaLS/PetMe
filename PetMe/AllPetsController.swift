@@ -2,44 +2,94 @@
 //  ViewController.swift
 //  PetMe
 //
-//  Created by Lucas Rocha on 2020-01-27.
+//  Created by Lucas Rocha on 2020-01-29.
 //  Copyright © 2020 Lucas Rocha. All rights reserved.
 //
 
 import UIKit
 
-class AllPetsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AllPetsController: UIViewController {
+    
+    weak var collectionView: UICollectionView!
     
     private let cell_id = "pet_cell"
     
     var pets: [Pet]?
     
+    
+    override func loadView() {
+        super.loadView()
+        
+        setupViews()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         setupData()
-        collectionView.backgroundColor = UIColor(rgb: 0xF6F6F6)
+        
         navigationItem.title = "My Pets"
         
-        collectionView.register(PetCell.self, forCellWithReuseIdentifier: cell_id)
-        collectionView.alwaysBounceVertical = true
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.register(PetCell.self, forCellWithReuseIdentifier: cell_id )
+        self.collectionView.alwaysBounceVertical = true
+        self.collectionView.backgroundColor = UIColor(rgb: 0xF6F6F6)
+    }
+    
+    let addButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(rgb: 0x21bf73)
+        button.layer.cornerRadius = 30
+        button.setImage(UIImage(named: "add")?.withTintColor(UIColor.white), for: .normal)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.3
+        return button
+        
+    }()
+    
+    func setupViews() {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            self.view.topAnchor.constraint(equalTo: collectionView.topAnchor),
+            self.view.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            self.view.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+            self.view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+        ])
+        self.collectionView = collectionView
+        
+        self.view.addSubview(addButton)
+        
+        self.view.addContraintsWithFormat(format: "V:[v0(60)]-\(tabBarController!.tabBar.frame.height + 10)-|", views: addButton)
+        self.view.addContraintsWithFormat(format: "H:[v0(60)]-15-|", views: addButton)
+        
+        
         
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+}
+
+
+
+extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = pets?.count {
+            print(count)
             return count
         }
-        return 0
+        return 10
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
         
         if let pet = pets?[indexPath.row] {
             cell.nameLabel.text = pet.name
-            cell.dogImageView.image = UIImage(named: pet.imgName!)
+            cell.dogImageView.image = UIImage(named: pets![indexPath.row].imgName!)
         }
         
         return cell
@@ -56,89 +106,6 @@ class AllPetsController: UICollectionViewController, UICollectionViewDelegateFlo
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
     
-    func addPet() {
-        
-    }
-    
-    
-}
-
-class PetCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.white
-        layer.cornerRadius = 5
-        layer.borderWidth = 0
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1)
-        layer.shadowRadius = 5
-        layer.shadowOpacity = 0.2
-        
-        layer.masksToBounds = false //<-
-        
-        setupViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Drika"
-        label.textColor = UIColor(rgb: 0x50D890)
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        
-        return label
-        
-    }()
-    
-    let dogImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 34
-        
-        return imageView
-    }()
-    
-    func setupViews() {
-        
-        addSubview(nameLabel)
-        addSubview(dogImageView)
-        
-        
-        dogImageView.image = UIImage(named: "drika")
-        
-        dogImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        //        addContraintsWithFormat(format: "H:|-12-[v0(68)]", views: dogImageView)
-        addContraintsWithFormat(format: "V:[v0(68)]", views: dogImageView)
-        
-        //Center ImageView:
-        
-        addConstraint(NSLayoutConstraint(item: dogImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
-        
-        addContraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
-        addContraintsWithFormat(format: "H:|-12-[v0(68)]-20-[v1]|", views: dogImageView, nameLabel)
-    }
-}
-
-extension PetCell {
-    func addContraintsWithFormat(format: String, views: UIView...) {
-        
-        var viewsDictionary = [String:UIView]()
-        
-        for (index, view) in views.enumerated() {
-            let key = "v\(index)"
-            viewsDictionary[key] = view
-            view.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        // Better to write code below just once ;)
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: .init(), metrics: nil, views: viewsDictionary))
-    }
 }
 
 //MARK: - UIColor Extension
@@ -160,4 +127,3 @@ extension UIColor {
         )
     }
 }
-
