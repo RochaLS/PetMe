@@ -10,16 +10,17 @@ import UIKit
 import FontAwesome_swift
 
 class AddPetViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.white
-        
         setupViews()
-
-        // Do any additional setup after loading the view.
     }
+    
+    let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        return view
+    }()
     
     
     let pageTitle: UILabel = {
@@ -33,7 +34,7 @@ class AddPetViewController: UIViewController {
     let nameTextField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Pet Name"
-        textfield.backgroundColor = UIColor(rgb: 0xF6F6F6)
+        textfield.backgroundColor = UIColor.white
         textfield.textAlignment = .center
         textfield.borderStyle = .roundedRect
         return textfield
@@ -43,7 +44,7 @@ class AddPetViewController: UIViewController {
         let textfield = UITextField()
         textfield.placeholder = "Pet Birth Date"
         textfield.textAlignment = .center
-        textfield.backgroundColor = UIColor(rgb: 0xF6F6F6)
+        textfield.backgroundColor = UIColor.white
         textfield.borderStyle = .roundedRect
         return textfield
     }()
@@ -78,29 +79,41 @@ class AddPetViewController: UIViewController {
     
     
     func setupViews() {
-        view.addSubview(pageTitle)
-        view.addSubview(nameTextField)
-        view.addSubview(birthDateTextField)
-        view.addSubview(addPhotoButton)
-        view.addSubview(uploadImageTextLabel)
-        view.addSubview(doneButton)
         
-        view.addContraintsWithFormat(format: "V:|-20-[v0]", views: pageTitle)
-        view.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: pageTitle)
-        view.addContraintsWithFormat(format: "V:|-80-[v0(50)]-20-[v1(50)]-20-[v2]-20-[v3(50)]", views: nameTextField, birthDateTextField, addPhotoButton, doneButton)
-        view.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: nameTextField)
-        view.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: birthDateTextField)
+        self.view.backgroundColor = UIColor.clear
         
-        view.addContraintsWithFormat(format: "H:[v1]-10-[v0]-10-|", views: addPhotoButton, uploadImageTextLabel)
         
-        view.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: doneButton)
+        view.addSubview(containerView)
         
-//        view.addContraintsWithFormat(format: "V:|-230-[v0]", views: uploadImageTextLabel)
+        
+        containerView.addSubview(pageTitle)
+        containerView.addSubview(nameTextField)
+        containerView.addSubview(birthDateTextField)
+        containerView.addSubview(addPhotoButton)
+        containerView.addSubview(uploadImageTextLabel)
+        containerView.addSubview(doneButton)
+        
+        view.addContraintsWithFormat(format: "V:[v0(\(350 + 20))]|", views: containerView)
+        view.addContraintsWithFormat(format: "H:|[v0]|", views: containerView)
+        
+        containerView.addContraintsWithFormat(format: "V:|-20-[v0]", views: pageTitle)
+        containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: pageTitle)
+        containerView.addContraintsWithFormat(format: "V:|-80-[v0(50)]-20-[v1(50)]-20-[v2]-20-[v3(50)]", views: nameTextField, birthDateTextField, addPhotoButton, doneButton)
+        containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: nameTextField)
+        containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: birthDateTextField)
+        
+        containerView.addContraintsWithFormat(format: "H:[v1]-10-[v0]-10-|", views: addPhotoButton, uploadImageTextLabel)
+        
+        containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: doneButton)
+        
+        //        view.addContraintsWithFormat(format: "V:|-230-[v0]", views: uploadImageTextLabel)
         
         view.addConstraint(NSLayoutConstraint(item: uploadImageTextLabel, attribute: .top, relatedBy: .equal, toItem: addPhotoButton, attribute: .top, multiplier: 1, constant: 10))
+        
+        containerView.layer.cornerRadius = 10
         
         
     }
     
-
+    
 }
