@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AllPetsController: UIViewController {
     
@@ -46,9 +47,12 @@ class AllPetsController: UIViewController {
         button.layer.shadowOffset = CGSize(width: 0, height: 0)
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.3
+        button.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
         return button
         
     }()
+    
+
     
     func setupViews() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -67,8 +71,11 @@ class AllPetsController: UIViewController {
         self.view.addContraintsWithFormat(format: "V:[v0(60)]-\(tabBarController!.tabBar.frame.height + 10)-|", views: addButton)
         self.view.addContraintsWithFormat(format: "H:[v0(60)]-15-|", views: addButton)
         
-        
-        
+    }
+    
+    @objc func plusButtonPressed() {
+        let addPetViewController = AddPetViewController()
+        self.present(addPetViewController, animated: true, completion: nil)
     }
 }
 
