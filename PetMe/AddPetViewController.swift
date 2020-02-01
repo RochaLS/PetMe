@@ -11,10 +11,7 @@ import FontAwesome_swift
 
 class AddPetViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-    }
+    var bottomConstraint: NSLayoutConstraint?
     
     let containerView: UIView = {
         let view = UIView()
@@ -76,12 +73,9 @@ class AddPetViewController: UIViewController {
     }()
     
     
-    
-    
     func setupViews() {
         
         self.view.backgroundColor = UIColor.clear
-        
         
         view.addSubview(containerView)
         
@@ -93,7 +87,12 @@ class AddPetViewController: UIViewController {
         containerView.addSubview(uploadImageTextLabel)
         containerView.addSubview(doneButton)
         
-        view.addContraintsWithFormat(format: "V:[v0(\(350 + 20))]|", views: containerView)
+        view.addContraintsWithFormat(format: "V:[v0(\(350 + 20))]", views: containerView)
+        
+        bottomConstraint = NSLayoutConstraint(item: containerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        
+        view.addConstraint(bottomConstraint!)
+        
         view.addContraintsWithFormat(format: "H:|[v0]|", views: containerView)
         
         containerView.addContraintsWithFormat(format: "V:|-20-[v0]", views: pageTitle)
@@ -111,9 +110,41 @@ class AddPetViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: uploadImageTextLabel, attribute: .top, relatedBy: .equal, toItem: addPhotoButton, attribute: .top, multiplier: 1, constant: 10))
         
         containerView.layer.cornerRadius = 10
+        containerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    
+    @objc func handleKeyboard(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+            let keyboardHeight = keyboardFrame?.cgRectValue.height
+            
+            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+            
+            bottomConstraint?.constant = isKeyboardShowing ? -keyboardHeight! : 0
+            
+            UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                
+                self.view.layoutIfNeeded()
+                
+            })
+        }
         
         
     }
     
     
 }
+
+
