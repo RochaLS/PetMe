@@ -18,11 +18,13 @@ class AllPetsController: UIViewController {
     var pets: [Pet]?
     
     
+    
     override func loadView() {
         super.loadView()
         
         setupViews()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

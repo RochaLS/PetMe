@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import FontAwesome_swift
 
 class AddPetViewController: UIViewController {
@@ -69,8 +70,27 @@ class AddPetViewController: UIViewController {
         button.setTitle("Done", for: .normal)
         button.backgroundColor = UIColor(rgb: 0x21bf73)
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button
     }()
+    
+    @objc func doneButtonPressed() {
+        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        
+        let newPet = NSEntityDescription.insertNewObject(forEntityName: "Pet", into: context!) as! Pet
+        newPet.name = nameTextField.text
+        newPet.created_at = Date()
+        newPet.imgName = "cat"
+        
+        do {
+            try context?.save()
+        } catch let error {
+            print(error)
+        }
+        
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     func setupViews() {
@@ -122,6 +142,10 @@ class AddPetViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        view.isUserInteractionEnabled = true
+
     }
     
     
@@ -146,5 +170,3 @@ class AddPetViewController: UIViewController {
     
     
 }
-
-
