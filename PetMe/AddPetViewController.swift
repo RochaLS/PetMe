@@ -13,6 +13,7 @@ import FontAwesome_swift
 class AddPetViewController: UIViewController {
     
     var bottomConstraint: NSLayoutConstraint?
+    var petImage: UIImage?
     
     let containerView: UIView = {
         let view = UIView()
@@ -52,6 +53,7 @@ class AddPetViewController: UIViewController {
         button.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
         button.setTitleColor(UIColor(rgb: 0x21bf73), for: .normal)
         button.setTitle(String.fontAwesomeIcon(name: .cameraRetro), for: .normal)
+        button.addTarget(self, action: #selector(addPhotoButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -74,6 +76,13 @@ class AddPetViewController: UIViewController {
         return button
     }()
     
+    @objc func addPhotoButtonPressed() {
+        CameraHandler.shared.showActionSheet(vc: self)
+        CameraHandler.shared.imagePickedBlock = { (image) in
+            self.petImage = image
+        }
+    }
+    
     @objc func doneButtonPressed() {
         let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
@@ -84,9 +93,12 @@ class AddPetViewController: UIViewController {
         
         do {
             try context?.save()
+            NotificationCenter.default.post(name: .didAddNewPet, object: nil)
         } catch let error {
             print(error)
         }
+        
+        
         
         
         self.dismiss(animated: true, completion: nil)

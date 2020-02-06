@@ -38,6 +38,8 @@ class AllPetsController: UIViewController {
         self.collectionView.register(PetCell.self, forCellWithReuseIdentifier: cell_id )
         self.collectionView.alwaysBounceVertical = true
         self.collectionView.backgroundColor = UIColor(rgb: 0xF6F6F6)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionView), name: .didAddNewPet, object: nil)
     }
     
     let addButton: UIButton = {
@@ -115,6 +117,18 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = PetProfileViewController()
+        controller.pet = pets?[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    @objc func reloadCollectionView() {
+        loadData()
+        collectionView.reloadData()
+    }
+    
 }
 
 //MARK: - UIColor Extension
@@ -135,4 +149,8 @@ extension UIColor {
             blue: rgb & 0xFF
         )
     }
+}
+
+extension Notification.Name {
+    static let didAddNewPet = Notification.Name("didAddNewPet")
 }

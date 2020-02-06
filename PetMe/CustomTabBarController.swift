@@ -24,5 +24,15 @@ class CustomTabBarController: UITabBarController {
         viewControllers = [allPetsNavController]
         
     }
+    
+    private func createNavControllerWithTitle(title: String, imgName: String) -> UINavigationController {
+        let viewController = UIViewController()
+        let navController = UINavigationController(rootViewController: viewController)
+        
+        navController.tabBarItem.title = title
+        navController.tabBarItem.image = UIImage(named: imgName)
+        
+        return navController
+    }
 
 }
