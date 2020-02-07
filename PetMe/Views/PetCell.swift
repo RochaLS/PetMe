@@ -31,42 +31,34 @@ class PetCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Drika"
-        label.textColor = UIColor(rgb: 0x21bf73)
+        label.textColor = AppColors.primaryColor
         label.font = UIFont.boldSystemFont(ofSize: 24)
         
         return label
         
     }()
     
-    let dogImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 34
-        
-        return imageView
-    }()
+    let petImageView = PetAvatarImageView()
     
     func setupViews() {
         
         addSubview(nameLabel)
-        addSubview(dogImageView)
+        addSubview(petImageView)
         
+
         
-        dogImageView.image = UIImage(named: "drika")
-        
-        dogImageView.translatesAutoresizingMaskIntoConstraints = false
+        petImageView.translatesAutoresizingMaskIntoConstraints = false
         
         
         //        addContraintsWithFormat(format: "H:|-12-[v0(68)]", views: dogImageView)
-        addContraintsWithFormat(format: "V:[v0(68)]", views: dogImageView)
+        addContraintsWithFormat(format: "V:[v0(68)]", views: petImageView)
         
         //Center ImageView:
         
-        addConstraint(NSLayoutConstraint(item: dogImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: petImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
         addContraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
-        addContraintsWithFormat(format: "H:|-12-[v0(68)]-20-[v1]|", views: dogImageView, nameLabel)
+        addContraintsWithFormat(format: "H:|-12-[v0(68)]-20-[v1]|", views: petImageView, nameLabel)
     }
 }
 

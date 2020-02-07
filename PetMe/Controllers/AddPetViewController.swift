@@ -51,7 +51,7 @@ class AddPetViewController: UIViewController {
     let addPhotoButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
-        button.setTitleColor(UIColor(rgb: 0x21bf73), for: .normal)
+        button.setTitleColor(AppColors.primaryColor, for: .normal)
         button.setTitle(String.fontAwesomeIcon(name: .cameraRetro), for: .normal)
         button.addTarget(self, action: #selector(addPhotoButtonPressed), for: .touchUpInside)
         return button
@@ -61,7 +61,7 @@ class AddPetViewController: UIViewController {
         let label = UILabel()
         label.text = "Upload Photo"
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        label.textColor = UIColor(rgb: 0x333333)
+        label.textColor = AppColors.black
         label.textAlignment = .right
         return label
     }()
@@ -70,7 +70,7 @@ class AddPetViewController: UIViewController {
         let button = UIButton()
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitle("Done", for: .normal)
-        button.backgroundColor = UIColor(rgb: 0x21bf73)
+        button.backgroundColor = AppColors.primaryColor
         button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button

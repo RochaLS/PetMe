@@ -23,6 +23,9 @@
 		16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */; };
 		16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFDE23ECE5090035DA5A /* UIColor+Hex.swift */; };
 		16D7CFE123ECE5650035DA5A /* CustomNotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFE023ECE5650035DA5A /* CustomNotificationNames.swift */; };
+		16D7CFE323ECE7E10035DA5A /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFE223ECE7E10035DA5A /* Assets.swift */; };
+		16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFE723ECEE290035DA5A /* PetAvatarImageView.swift */; };
+		16D7CFEA23ED08730035DA5A /* PetAvatarWithShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFE923ED08730035DA5A /* PetAvatarWithShadowImageView.swift */; };
 		16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E85FE123E3A90E0026F52A /* AddPetViewController.swift */; };
 		4C23223184101B9DF9195E06 /* Pods_PetMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CF660D490BDDFE224520CC /* Pods_PetMe.framework */; };
 /* End PBXBuildFile section */
@@ -36,7 +39,7 @@
 		16BCB6E623DFE82900C91316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16BCB6E823DFE82900C91316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16BCB6F023E2402E00C91316 /* PetsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsHelper.swift; sourceTree = "<group>"; };
-		16BCB6F623E2461000C91316 /* Pet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		16BCB6F623E2461000C91316 /* Pet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pet+CoreDataClass.swift"; path = "PetMe/Pet+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		16BCB6F723E2461000C91316 /* Pet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		16BCB6FE23E2874800C91316 /* AllPetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetsController.swift; sourceTree = "<group>"; };
@@ -46,6 +49,9 @@
 		16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+DelegateMethods.swift"; sourceTree = "<group>"; };
 		16D7CFDE23ECE5090035DA5A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		16D7CFE023ECE5650035DA5A /* CustomNotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotificationNames.swift; sourceTree = "<group>"; };
+		16D7CFE223ECE7E10035DA5A /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		16D7CFE723ECEE290035DA5A /* PetAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarImageView.swift; sourceTree = "<group>"; };
+		16D7CFE923ED08730035DA5A /* PetAvatarWithShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarWithShadowImageView.swift; sourceTree = "<group>"; };
 		16E85FE123E3A90E0026F52A /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		32CF660D490BDDFE224520CC /* Pods_PetMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D81A0855DA202E2CC32FD5C /* Pods-PetMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMe.release.xcconfig"; path = "Target Support Files/Pods-PetMe/Pods-PetMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,13 +91,14 @@
 		16BCB6D623DFE82300C91316 /* PetMe */ = {
 			isa = PBXGroup;
 			children = (
-				16BCB6F623E2461000C91316 /* Pet+CoreDataClass.swift */,
 				16BCB6F723E2461000C91316 /* Pet+CoreDataProperties.swift */,
+				16BCB6F623E2461000C91316 /* Pet+CoreDataClass.swift */,
 				16BCB6E023DFE82300C91316 /* PetMe.xcdatamodeld */,
+				16D7CFD923ECE35A0035DA5A /* Views */,
 				16D7CFD523ECE2030035DA5A /* Controllers */,
 				16D7CFD723ECE23B0035DA5A /* Extensions */,
-				16D7CFD923ECE35A0035DA5A /* Views */,
 				16D7CFD823ECE34E0035DA5A /* Camera */,
+				16D7CFE423ECE7EA0035DA5A /* Assets */,
 				16D7CFD623ECE2130035DA5A /* Support */,
 				16BCB6E323DFE82900C91316 /* Assets.xcassets */,
 				16BCB6E523DFE82900C91316 /* LaunchScreen.storyboard */,
@@ -143,8 +150,18 @@
 			isa = PBXGroup;
 			children = (
 				16BCB70023E28B7F00C91316 /* PetCell.swift */,
+				16D7CFE723ECEE290035DA5A /* PetAvatarImageView.swift */,
+				16D7CFE923ED08730035DA5A /* PetAvatarWithShadowImageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		16D7CFE423ECE7EA0035DA5A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				16D7CFE223ECE7E10035DA5A /* Assets.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		3071757E6021C64609FD0EDB /* Pods */ = {
@@ -283,16 +300,19 @@
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
 				16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */,
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
+				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
 				16BCB6E223DFE82300C91316 /* PetMe.xcdatamodeld in Sources */,
 				16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */,
 				16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,
+				16D7CFE323ECE7E10035DA5A /* Assets.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
 				16BCB6F123E2402E00C91316 /* PetsHelper.swift in Sources */,
 				16D7CFD223EBD2AE0035DA5A /* PetProfileViewController.swift in Sources */,
 				16BCB6F823E2461000C91316 /* Pet+CoreDataClass.swift in Sources */,
 				16D7CFE123ECE5650035DA5A /* CustomNotificationNames.swift in Sources */,
+				16D7CFEA23ED08730035DA5A /* PetAvatarWithShadowImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

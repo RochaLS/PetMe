@@ -37,14 +37,20 @@ class AllPetsController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.register(PetCell.self, forCellWithReuseIdentifier: cell_id )
         self.collectionView.alwaysBounceVertical = true
-        self.collectionView.backgroundColor = UIColor(rgb: 0xF6F6F6)
+        self.collectionView.backgroundColor = AppColors.backgroundColor
+        
+        self.navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionView), name: .didAddNewPet, object: nil)
     }
     
     let addButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(rgb: 0x21bf73)
+        button.backgroundColor = AppColors.primaryColor
         button.layer.cornerRadius = 30
         button.setImage(UIImage(named: "add")?.withTintColor(UIColor.white), for: .normal)
         button.layer.shadowColor = UIColor.black.cgColor

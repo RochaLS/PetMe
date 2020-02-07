@@ -18,7 +18,7 @@ class CustomTabBarController: UITabBarController {
         let allPetsNavController = UINavigationController(rootViewController: allPetsController)
         allPetsController.tabBarItem.title = "My pets"
         allPetsController.tabBarItem.image = UIImage(named: "pets")
-        tabBar.tintColor = UIColor(rgb: 0x333333)
+        tabBar.tintColor = AppColors.black
         
         
         viewControllers = [allPetsNavController]

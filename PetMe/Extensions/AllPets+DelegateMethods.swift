@@ -22,7 +22,7 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         
         if let pet = pets?[indexPath.row] {
             cell.nameLabel.text = pet.name
-            cell.dogImageView.image = UIImage(named: pets![indexPath.row].imgName!)
+            cell.petImageView.image = UIImage(named: pets![indexPath.row].imgName!)
         }
         
         return cell
