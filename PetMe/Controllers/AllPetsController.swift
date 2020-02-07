@@ -13,7 +13,7 @@ class AllPetsController: UIViewController {
     
     weak var collectionView: UICollectionView!
     
-    private let cell_id = "pet_cell"
+    let cell_id = "pet_cell"
     
     var pets: [Pet]?
     
@@ -85,72 +85,4 @@ class AllPetsController: UIViewController {
 
 
 
-extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = pets?.count {
-            print(count)
-            return count
-        }
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
-        
-        if let pet = pets?[indexPath.row] {
-            cell.nameLabel.text = pet.name
-            cell.dogImageView.image = UIImage(named: pets![indexPath.row].imgName!)
-        }
-        
-        return cell
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: view.frame.width - 20, height: 100)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        //top, left, bottom, right
-        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = PetProfileViewController()
-        controller.pet = pets?[indexPath.row]
-        navigationController?.pushViewController(controller, animated: true)
-        
-    }
-    
-    @objc func reloadCollectionView() {
-        loadData()
-        collectionView.reloadData()
-    }
-    
-}
 
-//MARK: - UIColor Extension
-
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
-    }
-}
-
-extension Notification.Name {
-    static let didAddNewPet = Notification.Name("didAddNewPet")
-}
