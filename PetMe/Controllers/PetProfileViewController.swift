@@ -10,6 +10,10 @@ import UIKit
 
 class PetProfileViewController: UIViewController {
     
+    weak var collectionView: UICollectionView!
+    
+    let cell_id = "button_cell_id"
+    
     var pet: Pet!
     
     let topContainer: UIView = {
@@ -20,7 +24,14 @@ class PetProfileViewController: UIViewController {
         view.layer.shadowRadius = 5
         view.layer.shadowOpacity = 0.3
         
+        
+        return view
+    }()
     
+    let bottomContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColors.backgroundColor
+        
         return view
     }()
     
@@ -42,9 +53,12 @@ class PetProfileViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         // apple default
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupViews()
+        setupCollectionView()
         
         self.navigationController?.navigationBar.barTintColor = AppColors.primaryColor
         self.navigationController?.navigationBar.isTranslucent = false
@@ -52,27 +66,52 @@ class PetProfileViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
+        self.collectionView.register(ProfileButtonCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
         
-        setupViews()
+        
+    }
+    
+    func setupCollectionView() {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.bottomContainer.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            self.topContainer.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -10),
+            self.bottomContainer.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            self.bottomContainer.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+            self.bottomContainer.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+        ])
+        
+        self.collectionView = collectionView
+        
+        //Customize collectionView from here:
+        
+        self.collectionView.backgroundColor = AppColors.backgroundColor
         
     }
     
     func setupViews() {
-        view.backgroundColor = UIColor.white
+        
+        view.backgroundColor = AppColors.backgroundColor
         view.addSubview(topContainer)
+        view.addSubview(bottomContainer)
         
         topContainer.addSubview(petAvatarPic)
         topContainer.addSubview(petNameLabel)
         
-    
+        
         
         petAvatarPic.image = UIImage(named: pet.imgName ?? "preto") // need to change this later
         
         petNameLabel.text = pet.name!
         
         view.addContraintsWithFormat(format: "H:|[v0]|", views: topContainer)
-        view.addContraintsWithFormat(format: "V:|[v0(280)]", views: topContainer)
+        view.addContraintsWithFormat(format: "V:|[v0(250)][v1]|", views: topContainer, bottomContainer)
+        
+        view.addContraintsWithFormat(format: "H:|[v0]|", views: bottomContainer)
         
         topContainer.addContraintsWithFormat(format: "H:[v0(150)]", views: petAvatarPic)
         topContainer.addContraintsWithFormat(format: "V:|-30-[v0(150)]-15-[v1]", views: petAvatarPic, petNameLabel)
@@ -80,14 +119,9 @@ class PetProfileViewController: UIViewController {
         
         
         
-//        topContainer.addConstraint(NSLayoutConstraint(item: petAvatarPic, attribute: .centerY, relatedBy: .equal, toItem: topContainer, attribute: .centerY, multiplier: 1, constant: 0))
-//
+        //        topContainer.addConstraint(NSLayoutConstraint(item: petAvatarPic, attribute: .centerY, relatedBy: .equal, toItem: topContainer, attribute: .centerY, multiplier: 1, constant: 0))
+        //
         topContainer.addConstraint(NSLayoutConstraint(item: petAvatarPic, attribute: .centerX, relatedBy: .equal, toItem: topContainer, attribute: .centerX, multiplier: 1, constant: 0))
         
-        
-        
     }
-    
-    
-    
 }
