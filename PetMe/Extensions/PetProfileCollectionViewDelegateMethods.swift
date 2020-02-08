@@ -7,16 +7,28 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! ProfileButtonCollectionViewCell
+        
+        
+        if indexPath.row == 0 {
+            cell.optionName.attributedText = createAttrString(string: "Vaccination  ", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .syringe))
+        } else if indexPath.row == 1 {
+            cell.optionName.attributedText = createAttrString(string: "Feeding  ", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .bone))
+        } else if indexPath.row == 2 {
+            cell.optionName.attributedText = createAttrString(string: "Mood  ", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .paw))
+        }
+        
+        
         return cell
     }
     
@@ -29,8 +41,19 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-         return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
+    
+    
+    //This function only works with solid fontAwesome icons
+    func createAttrString(string: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
+        let string =  NSMutableAttributedString(string: "\(string)  ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold), NSAttributedString.Key.foregroundColor: AppColors.black])
+        
+        string.append(NSAttributedString(string: fontAwesomeIconToAppend, attributes: [.font: UIFont.fontAwesome(ofSize: 24, style: .solid)]))
+        
+        return string
+    }
+    
     
     
     

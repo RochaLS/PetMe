@@ -19,11 +19,11 @@ class PetProfileViewController: UIViewController {
     let topContainer: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.primaryColor
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0)
-        view.layer.shadowRadius = 5
-        view.layer.shadowOpacity = 0.3
-        
+//        view.layer.shadowColor = UIColor.black.cgColor
+//        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        view.layer.shadowRadius = 5
+//        view.layer.shadowOpacity = 0.3
+//        
         
         return view
     }()
@@ -45,6 +45,7 @@ class PetProfileViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)

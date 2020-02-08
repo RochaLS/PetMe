@@ -17,9 +17,9 @@ class ProfileButtonCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 5
         layer.borderWidth = 0
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowRadius = 5
-        layer.shadowOpacity = 0.2
+        layer.shadowOffset = CGSize(width: 0, height: 1)
+        layer.shadowRadius = 2
+        layer.shadowOpacity = 0.3
         layer.masksToBounds = false //<-
         
         setupViews()

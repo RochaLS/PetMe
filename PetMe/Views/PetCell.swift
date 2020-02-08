@@ -16,8 +16,8 @@ class PetCell: UICollectionViewCell {
         layer.borderWidth = 0
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 1)
-        layer.shadowRadius = 5
-        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 2
+        layer.shadowOpacity = 0.3
         
         layer.masksToBounds = false //<-
         
