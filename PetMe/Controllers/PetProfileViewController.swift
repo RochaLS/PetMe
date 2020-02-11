@@ -12,9 +12,20 @@ class PetProfileViewController: UIViewController {
     
     weak var collectionView: UICollectionView!
     
+    
+    
     let cell_id = "button_cell_id"
     
     var pet: Pet!
+    
+    let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.contentSize.height = view.frame.height
+        view.backgroundColor = AppColors.primaryColor
+        
+        return view
+    }()
+    
     
     let topContainer: UIView = {
         let view = UIView()
@@ -34,6 +45,13 @@ class PetProfileViewController: UIViewController {
         
         return view
     }()
+    
+    let contentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.blue
+        return view
+    }()
+    
     
     let petAvatarPic: UIImageView = PetAvatarWithBorderImageView()
     
@@ -70,6 +88,11 @@ class PetProfileViewController: UIViewController {
         self.collectionView.register(ProfileButtonCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.isScrollEnabled = false
+        
+        if view.frame.height > 736 { // iphone 8 plus screen height
+            scrollView.isScrollEnabled = false
+        }
         
         
         
@@ -97,32 +120,38 @@ class PetProfileViewController: UIViewController {
     func setupViews() {
         
         view.backgroundColor = AppColors.backgroundColor
-        view.addSubview(topContainer)
-        view.addSubview(bottomContainer)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(topContainer)
+        contentView.addSubview(bottomContainer)
+        
+        
+        view.addContraintsWithFormat(format: "V:|[v0]|", views: scrollView)
+        view.addContraintsWithFormat(format: "H:|[v0]|", views: scrollView)
+        scrollView.addContraintsWithFormat(format: "V:|[v0]|", views: contentView)
+        scrollView.addContraintsWithFormat(format: "H:|[v0]|", views: contentView)
+        
+        scrollView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0))
+        scrollView.addConstraint(NSLayoutConstraint(item: contentView, attribute: .centerY, relatedBy: .equal, toItem: scrollView, attribute: .centerY, multiplier: 1, constant: 0))
         
         topContainer.addSubview(petAvatarPic)
         topContainer.addSubview(petNameLabel)
         
         
-        
-        petAvatarPic.image = UIImage(named: pet.imgName ?? "preto") // need to change this later
-        
-        petNameLabel.text = pet.name!
-        
-        view.addContraintsWithFormat(format: "H:|[v0]|", views: topContainer)
-        view.addContraintsWithFormat(format: "V:|[v0(250)][v1]|", views: topContainer, bottomContainer)
-        
-        view.addContraintsWithFormat(format: "H:|[v0]|", views: bottomContainer)
+        contentView.addContraintsWithFormat(format: "H:|[v0]|", views: topContainer)
+        contentView.addContraintsWithFormat(format: "V:|[v0(250)][v1]|", views: topContainer, bottomContainer)
+        contentView.addContraintsWithFormat(format: "H:|[v0]|", views: bottomContainer)
         
         topContainer.addContraintsWithFormat(format: "H:[v0(150)]", views: petAvatarPic)
         topContainer.addContraintsWithFormat(format: "V:|-30-[v0(150)]-15-[v1]", views: petAvatarPic, petNameLabel)
         topContainer.addContraintsWithFormat(format: "H:|[v0]|", views: petNameLabel)
         
         
-        
-        //        topContainer.addConstraint(NSLayoutConstraint(item: petAvatarPic, attribute: .centerY, relatedBy: .equal, toItem: topContainer, attribute: .centerY, multiplier: 1, constant: 0))
-        //
         topContainer.addConstraint(NSLayoutConstraint(item: petAvatarPic, attribute: .centerX, relatedBy: .equal, toItem: topContainer, attribute: .centerX, multiplier: 1, constant: 0))
+        
+        petAvatarPic.image = UIImage(named: pet.imgName ?? "preto") // need to change this later
+
+        petNameLabel.text = pet.name!
         
     }
 }
