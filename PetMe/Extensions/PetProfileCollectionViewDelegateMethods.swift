@@ -21,11 +21,11 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
         
         
         if indexPath.row == 0 {
-            cell.optionName.attributedText = createAttrString(string: "Vaccination  ", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .syringe))
+            cell.optionName.attributedText = createAttrString(word: "Vaccination", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .syringe))
         } else if indexPath.row == 1 {
-            cell.optionName.attributedText = createAttrString(string: "Feeding  ", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .bone))
+            cell.optionName.attributedText = createAttrString(word: "Feeding", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .bone))
         } else if indexPath.row == 2 {
-            cell.optionName.attributedText = createAttrString(string: "Mood  ", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .paw))
+            cell.optionName.attributedText = createAttrString(word: "Mood", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .paw))
         }
         
         
@@ -46,10 +46,13 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     //This function only works with solid fontAwesome icons
-    func createAttrString(string: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
-        let string =  NSMutableAttributedString(string: "\(string)  ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold), NSAttributedString.Key.foregroundColor: AppColors.black])
+    func createAttrString(word: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
+        let string =  NSMutableAttributedString(string: "\(fontAwesomeIconToAppend) ", attributes:         [.font: UIFont.fontAwesome(ofSize: 24, style: .solid)]  )
         
-        string.append(NSAttributedString(string: fontAwesomeIconToAppend, attributes: [.font: UIFont.fontAwesome(ofSize: 24, style: .solid)]))
+        string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold), NSAttributedString.Key.foregroundColor: AppColors.black]
+))
+        
+        
         
         return string
     }
