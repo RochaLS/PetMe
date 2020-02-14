@@ -8,6 +8,8 @@ target 'PetMe' do
   # Pods for PetMe
 
   pod 'FontAwesome.swift'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 
 
 
