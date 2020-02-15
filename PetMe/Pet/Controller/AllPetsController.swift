@@ -15,7 +15,7 @@ class AllPetsController: UIViewController {
     
     let cell_id = "pet_cell"
     
-    var pets: [Pet]?
+    var pets = [Pet]()
     
     
     
@@ -29,7 +29,7 @@ class AllPetsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupData()
+//        setupData()
         
         navigationItem.title = "My Pets"
         
@@ -45,7 +45,7 @@ class AllPetsController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionView), name: .didAddNewPet, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNewData), name: .didAddNewPet, object: nil)
     }
     
     let addButton: UIButton = {

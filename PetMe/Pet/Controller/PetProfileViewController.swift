@@ -94,6 +94,8 @@ class PetProfileViewController: UIViewController {
             scrollView.isScrollEnabled = false
         }
         
+        petAvatarPic.image = pet.img
+        
         
         
     }
@@ -149,9 +151,9 @@ class PetProfileViewController: UIViewController {
         
         topContainer.addConstraint(NSLayoutConstraint(item: petAvatarPic, attribute: .centerX, relatedBy: .equal, toItem: topContainer, attribute: .centerX, multiplier: 1, constant: 0))
         
-        petAvatarPic.image = UIImage(named: pet.imgName ?? "preto") // need to change this later
+        petAvatarPic.image = UIImage(named: "preto") // need to change this later
 
-        petNameLabel.text = pet.name!
+        petNameLabel.text = pet.name
         
     }
 }

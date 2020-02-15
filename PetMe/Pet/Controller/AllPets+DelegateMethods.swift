@@ -9,21 +9,17 @@ import UIKit
 
 extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = pets?.count {
-            print(count)
-            return count
-        }
-        return 10
+        
+        return pets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
         
-        if let pet = pets?[indexPath.row] {
+        let pet = pets[indexPath.row]
             cell.nameLabel.text = pet.name
-            cell.petImageView.image = UIImage(named: pets![indexPath.row].imgName!)
-        }
+        cell.petImageView.image = pets[indexPath.row].img
         
         return cell
         
@@ -41,14 +37,19 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = PetProfileViewController()
-        controller.pet = pets?[indexPath.row]
+        controller.pet = pets[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
         
     }
     
-    @objc func reloadCollectionView() {
-        loadData()
-        collectionView.reloadData()
+    @objc func didReceiveNewData(notification: Notification) {
+        if let data = notification.userInfo as? [String:Pet] {
+            
+            let newPet = data["NewPet"]
+            pets.append(newPet!)
+            
+            collectionView.reloadData()
+        }
     }
     
 }

@@ -84,23 +84,10 @@ class AddPetViewController: UIViewController {
     }
     
     @objc func doneButtonPressed() {
-        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
-        let newPet = NSEntityDescription.insertNewObject(forEntityName: "Pet", into: context!) as! Pet
-        newPet.name = nameTextField.text
-        newPet.created_at = Date()
-        newPet.imgName = "cat"
+        let newPet = Pet(name: nameTextField.text!, img: petImage ?? UIImage(named: "drika")!, created_at: Date())
         
-        do {
-            try context?.save()
-            NotificationCenter.default.post(name: .didAddNewPet, object: nil)
-        } catch let error {
-            print(error)
-        }
-        
-        
-        
-        
+        NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["NewPet": newPet])
         self.dismiss(animated: true, completion: nil)
     }
     
