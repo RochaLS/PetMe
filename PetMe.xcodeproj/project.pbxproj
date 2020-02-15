@@ -28,6 +28,9 @@
 		16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFE723ECEE290035DA5A /* PetAvatarImageView.swift */; };
 		16D7CFEA23ED08730035DA5A /* PetAvatarWithShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFE923ED08730035DA5A /* PetAvatarWithShadowImageView.swift */; };
 		16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E85FE123E3A90E0026F52A /* AddPetViewController.swift */; };
+		16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D323F7A65500AAEBAF /* DataProvider.swift */; };
+		16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D623F7B13000AAEBAF /* DataProviderDelegate.swift */; };
+		16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */; };
 		4C23223184101B9DF9195E06 /* Pods_PetMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CF660D490BDDFE224520CC /* Pods_PetMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		16D7CFE723ECEE290035DA5A /* PetAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarImageView.swift; sourceTree = "<group>"; };
 		16D7CFE923ED08730035DA5A /* PetAvatarWithShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarWithShadowImageView.swift; sourceTree = "<group>"; };
 		16E85FE123E3A90E0026F52A /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
+		16F962D323F7A65500AAEBAF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		16F962D623F7B13000AAEBAF /* DataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderDelegate.swift; sourceTree = "<group>"; };
+		16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+DataProviderDelegate.swift"; sourceTree = "<group>"; };
 		32CF660D490BDDFE224520CC /* Pods_PetMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D81A0855DA202E2CC32FD5C /* Pods-PetMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMe.release.xcconfig"; path = "Target Support Files/Pods-PetMe/Pods-PetMe.release.xcconfig"; sourceTree = "<group>"; };
 		A2D8A468AF8ADB1655BFDEB4 /* Pods-PetMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMe.debug.xcconfig"; path = "Target Support Files/Pods-PetMe/Pods-PetMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 			children = (
 				16BCB6FE23E2874800C91316 /* AllPetsController.swift */,
 				16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */,
+				16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */,
 				16BCB6F023E2402E00C91316 /* PetsHelper.swift */,
 				16E85FE123E3A90E0026F52A /* AddPetViewController.swift */,
 				16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */,
@@ -170,6 +177,8 @@
 				166C920423F6533E00964FC8 /* Model */,
 				16D7CFD923ECE35A0035DA5A /* View */,
 				16D7CFD523ECE2030035DA5A /* Controller */,
+				16F962D523F7A66700AAEBAF /* DataProvider */,
+				16F962D823F7B13500AAEBAF /* Protocols */,
 			);
 			path = Pet;
 			sourceTree = "<group>";
@@ -181,6 +190,22 @@
 				16D7CFDE23ECE5090035DA5A /* UIColor+Hex.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		16F962D523F7A66700AAEBAF /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				16F962D323F7A65500AAEBAF /* DataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		16F962D823F7B13500AAEBAF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				16F962D623F7B13000AAEBAF /* DataProviderDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		3071757E6021C64609FD0EDB /* Pods */ = {
@@ -322,6 +347,9 @@
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
+				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
+				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
+				16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */,
 				16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */,
 				16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,

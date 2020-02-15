@@ -13,6 +13,8 @@ class AllPetsController: UIViewController {
     
     weak var collectionView: UICollectionView!
     
+    var provider: DataProvider! = nil
+    
     let cell_id = "pet_cell"
     
     var pets = [Pet]()
@@ -21,7 +23,6 @@ class AllPetsController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
         setupViews()
     }
     
@@ -29,9 +30,16 @@ class AllPetsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.provider = DataProvider()
+        
+        self.provider.delegate = self
+        provider.setPetData()
+        
 //        setupData()
         
         navigationItem.title = "My Pets"
+        
+        
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self

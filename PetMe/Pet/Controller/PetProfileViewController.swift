@@ -94,7 +94,7 @@ class PetProfileViewController: UIViewController {
             scrollView.isScrollEnabled = false
         }
         
-        petAvatarPic.image = pet.img
+        petAvatarPic.image = UIImage(named: pet.imgName!)
         
         
         

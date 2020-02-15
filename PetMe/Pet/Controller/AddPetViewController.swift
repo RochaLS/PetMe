@@ -9,11 +9,15 @@
 import UIKit
 import CoreData
 import FontAwesome_swift
+import Firebase
 
 class AddPetViewController: UIViewController {
     
     var bottomConstraint: NSLayoutConstraint?
     var petImage: UIImage?
+    
+    var petsRef: DocumentReference? = nil
+    var db = Firestore.firestore()
     
     let containerView: UIView = {
         let view = UIView()
@@ -85,7 +89,21 @@ class AddPetViewController: UIViewController {
     
     @objc func doneButtonPressed() {
         
-        let newPet = Pet(name: nameTextField.text!, img: petImage ?? UIImage(named: "drika")!, created_at: Date())
+        let newPet = Pet(name: nameTextField.text!, imgName: "drika",created_at: Date(), age: 0)
+        
+        petsRef = db.collection("pets").addDocument(data: [
+            "name": newPet.name,
+            "img_name": newPet.imgName!,
+            "age": newPet.age!
+        ]) { error in
+            if let error = error {
+                  print("Error adding document: \(error)")
+            } else {
+                print("Document added with ID: \(self.petsRef!.documentID)")
+            }
+        }
+        
+        
         
         NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["NewPet": newPet])
         self.dismiss(animated: true, completion: nil)

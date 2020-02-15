@@ -13,14 +13,14 @@ class Pet {
     
     var name: String
     var age: Int?
-//    var imgName: String?
-    var img: UIImage // will change that
+    var imgName: String?
     var created_at: Date
     
-    init(name: String, img: UIImage, created_at: Date) {
+    init(name: String, imgName: String, created_at: Date, age: Int?) {
         self.name = name
-        self.img = img
+        self.imgName = imgName
         self.created_at = created_at
+        self.age = age
     }
     
 

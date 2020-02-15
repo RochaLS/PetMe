@@ -52,12 +52,6 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
         string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold), NSAttributedString.Key.foregroundColor: AppColors.black]
 ))
         
-        
-        
         return string
     }
-    
-    
-    
-    
 }

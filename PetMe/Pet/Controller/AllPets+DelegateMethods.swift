@@ -19,7 +19,7 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         
         let pet = pets[indexPath.row]
             cell.nameLabel.text = pet.name
-        cell.petImageView.image = pets[indexPath.row].img
+        cell.petImageView.image = UIImage(named:pets[indexPath.row].imgName!)
         
         return cell
         
