@@ -13,7 +13,7 @@ class AllPetsController: UIViewController {
     
     weak var collectionView: UICollectionView!
     
-    var provider: DataProvider! = nil
+    var provider: DataManager! = nil
     
     let cell_id = "pet_cell"
     
@@ -30,7 +30,7 @@ class AllPetsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.provider = DataProvider()
+        self.provider = DataManager()
         
         self.provider.delegate = self
         provider.setPetData()
@@ -52,8 +52,6 @@ class AllPetsController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNewData), name: .didAddNewPet, object: nil)
     }
     
     let addButton: UIButton = {

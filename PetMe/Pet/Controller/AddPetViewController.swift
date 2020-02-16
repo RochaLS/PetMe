@@ -16,8 +16,7 @@ class AddPetViewController: UIViewController {
     var bottomConstraint: NSLayoutConstraint?
     var petImage: UIImage?
     
-    var petsRef: DocumentReference? = nil
-    var db = Firestore.firestore()
+    var provider: DataManager!
     
     let containerView: UIView = {
         let view = UIView()
@@ -89,23 +88,10 @@ class AddPetViewController: UIViewController {
     
     @objc func doneButtonPressed() {
         
+        provider = DataManager()
         let newPet = Pet(name: nameTextField.text!, imgName: "drika",created_at: Date(), age: 0)
-        
-        petsRef = db.collection("pets").addDocument(data: [
-            "name": newPet.name,
-            "img_name": newPet.imgName!,
-            "age": newPet.age!
-        ]) { error in
-            if let error = error {
-                  print("Error adding document: \(error)")
-            } else {
-                print("Document added with ID: \(self.petsRef!.documentID)")
-            }
-        }
-        
-        
-        
-        NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["NewPet": newPet])
+        provider.addPetDataToFirestore(petToAdd: newPet)
+        provider = nil
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -10,6 +10,7 @@ target 'PetMe' do
   pod 'FontAwesome.swift'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
 
 

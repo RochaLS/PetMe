@@ -172,6 +172,9 @@ PODS:
   - Firebase/Firestore (6.13.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.8.0)
+  - Firebase/Storage (6.13.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 3.4.2)
   - FirebaseAuth (6.4.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.2)
@@ -204,6 +207,10 @@ PODS:
     - "gRPC-C++ (= 0.0.9)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 0.3.901)
+  - FirebaseStorage (3.4.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FontAwesome.swift (1.8.2)
   - GoogleDataTransport (3.2.0)
   - GoogleDataTransportCCTSupport (1.2.2):
@@ -250,6 +257,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - Firebase/Storage
   - FontAwesome.swift
 
 SPEC REPOS:
@@ -263,6 +271,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
     - FirebaseFirestore
+    - FirebaseStorage
     - FontAwesome.swift
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
@@ -283,6 +292,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 511f4f3ed7d440bb69127e8b97c2bc8befae639e
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
   FirebaseFirestore: 2e92e977280d63ecbf3fd58bdbfaf9145abb880f
+  FirebaseStorage: 046abe9ac4e2a1a0e47d72f536490ffa50896632
   FontAwesome.swift: 7938d6a03113ff3f39001bde7f50be8a0903d605
   GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
   GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
@@ -293,6 +303,6 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
-PODFILE CHECKSUM: 5aa64e3662d19656023e56c438b1611ad4f17252
+PODFILE CHECKSUM: 946758947824470c83902364fcf6c140462cb021
 
 COCOAPODS: 1.7.4
