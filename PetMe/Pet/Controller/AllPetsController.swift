@@ -30,11 +30,13 @@ class AllPetsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.provider = DataManager()
         
         self.provider.delegate = self
         provider.setPetData()
         
+
 //        setupData()
         
         navigationItem.title = "My Pets"

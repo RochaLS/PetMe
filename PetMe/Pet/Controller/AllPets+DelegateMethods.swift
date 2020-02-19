@@ -6,6 +6,7 @@
 //  Copyright © 2020 Lucas Rocha. All rights reserved.
 //
 import UIKit
+import FirebaseUI
 
 extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -18,8 +19,17 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
         
         let pet = pets[indexPath.row]
-            cell.nameLabel.text = pet.name
-        cell.petImageView.image = UIImage(named:pets[indexPath.row].imgName!)
+        let imgRef = provider.storageRef.child("pets/\(pet.imgName!).png")
+        cell.nameLabel.text = pet.name
+        
+        imgRef.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                cell.petImageView.image = UIImage(data: data!)
+            }
+            
+        }
         
         return cell
         

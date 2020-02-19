@@ -8,13 +8,16 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
+import FirebaseUI
 
 class DataManager {
     
     var db = Firestore.firestore()
     var petsRef: DocumentReference? = nil
-    var user_id = ""
     var delegate: DataProviderDelegate?
+    var storageRef = Storage.storage().reference()
+    
     
     
     //MARK: - Get Data
@@ -62,4 +65,27 @@ class DataManager {
             }
         }
     }
+    
+    //MARK: - Get Image and Push Image
+    
+    func pushImageToStorage(data: Data, img_name: String) {
+        let imgRef = storageRef.child("pets/\(img_name).png")
+        imgRef.putData(data, metadata: nil)
+    }
+    
+//    func getPetImage(from pet: Pet) -> UIImage {
+////        let imgRef = storageRef.child("pets/\(pet.imgName!)")
+////
+////        imgRef.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
+////            let imgView = UIImageView()
+////            imgView.image = UIImage(data: data!)
+////
+////            return imgView.image!
+////        }
+//        
+////        let imgView = UIImageView()
+////
+////        imgView.sd_setImage(with: imgRef, placeholderImage: UIImage(named: "drika"))
+////        return imgView.image!
+//    }
 }
