@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DataProviderDelegate {
     
     func didGetPetData(allPets: [Pet])
+    
+    func didLoadImage(image: UIImage, reference: UIImageView)
 }

@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 import FirebaseStorage
-import FirebaseUI
 
 class DataManager {
     
@@ -25,7 +24,9 @@ class DataManager {
         
         var pets = [Pet]()
         
-        db.collection("pets").addSnapshotListener { (querySnapshot, error) in
+        let ref = db.collection("pets").order(by: "name")
+        
+        ref.addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
                 return
@@ -50,42 +51,59 @@ class DataManager {
         }
     }
     
-//MARK:- Push Data
     
-    func addPetDataToFirestore(petToAdd pet: Pet) {
-        petsRef = db.collection("pets").addDocument(data: [
-            "name": pet.name,
-            "img_name": pet.imgName!,
-            "age": pet.age!
-        ]) { error in
-            if let error = error {
-                print("Error adding document: \(error)")
+    //MARK: - Push Data
+    
+    
+    func addPetDataToFirebase(data: Data?, img_name: String, petToAdd pet: Pet) {
+        // Just save the data if user doesn't provide me a photo
+        if img_name == "placeholder" {
+            petsRef = self.db.collection("pets").addDocument(data: [
+                "name": pet.name,
+                "img_name": pet.imgName!,
+                "age": pet.age!
+            ]) { error in
+                if let error = error {
+                    print("Error adding document: \(error)")
+                } else {
+                    print("Document added with ID: \(self.petsRef!.documentID)")
+                }
+            }
+        } else {
+            // Only saving the rest of the data after the image is for sure at the storage, to avoid not being to get the image on the collectionView
+            let imgRef = storageRef.child("pets/\(img_name)")
+            imgRef.putData(data!, metadata: nil) { (metadata, error ) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                } else {
+                    self.petsRef = self.db.collection("pets").addDocument(data: [
+                        "name": pet.name,
+                        "img_name": pet.imgName!,
+                        "age": pet.age!
+                    ]) { error in
+                        if let error = error {
+                            print("Error adding document: \(error)")
+                        } else {
+                            print("Document added with ID: \(self.petsRef!.documentID)")
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func getPetImage(from pet: Pet, to imageView: UIImageView) {
+        let imgRef = storageRef.child("pets/\(pet.imgName!)")
+        
+        
+        imgRef.getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+            if error != nil {
+                print(error?.localizedDescription as Any)
             } else {
-                print("Document added with ID: \(self.petsRef!.documentID)")
+                let img = UIImage(data: data!)
+                self.delegate?.didLoadImage(image: img!, reference: imageView)
             }
         }
     }
-    
-    //MARK: - Get Image and Push Image
-    
-    func pushImageToStorage(data: Data, img_name: String) {
-        let imgRef = storageRef.child("pets/\(img_name).png")
-        imgRef.putData(data, metadata: nil)
-    }
-    
-//    func getPetImage(from pet: Pet) -> UIImage {
-////        let imgRef = storageRef.child("pets/\(pet.imgName!)")
-////
-////        imgRef.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
-////            let imgView = UIImageView()
-////            imgView.image = UIImage(data: data!)
-////
-////            return imgView.image!
-////        }
-//        
-////        let imgView = UIImageView()
-////
-////        imgView.sd_setImage(with: imgRef, placeholderImage: UIImage(named: "drika"))
-////        return imgView.image!
-//    }
 }

@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 extension AllPetsController: DataProviderDelegate {
+    func didLoadImage(image: UIImage, reference: UIImageView) {
+        reference.image = image
+    }
+    
     
     func didGetPetData(allPets: [Pet]) {
         pets = allPets
         collectionView.reloadData()
     }
-    
-    
 }

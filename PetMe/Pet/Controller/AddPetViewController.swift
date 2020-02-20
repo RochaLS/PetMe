@@ -14,7 +14,8 @@ import Firebase
 class AddPetViewController: UIViewController {
     
     var bottomConstraint: NSLayoutConstraint?
-    var petImageData: Data?
+    var petImageData: Data? = nil
+    var petImageName = "placeholder"
     
     var provider: DataManager!
     
@@ -82,17 +83,20 @@ class AddPetViewController: UIViewController {
     @objc func addPhotoButtonPressed() {
         CameraHandler.shared.showActionSheet(vc: self)
         CameraHandler.shared.imagePickedBlock = { (image) in
-            self.petImageData = image.pngData()!
+            self.petImageData = image.jpegData(compressionQuality: 0.75)
+            self.petImageName = UUID().uuidString + ".jpeg"
         }
     }
     
     @objc func doneButtonPressed() {
         
         provider = DataManager()
-        let newPet = Pet(name: nameTextField.text!, imgName: (UUID().uuidString),created_at: Date(), age: 0)
-        provider.addPetDataToFirestore(petToAdd: newPet)
-        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
-        provider = nil
+        let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0)
+//        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
+        provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
+        
+       
+//        provider = nil
         self.dismiss(animated: true, completion: nil)
     }
     

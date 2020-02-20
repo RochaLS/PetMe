@@ -18,18 +18,17 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
         
-        let pet = pets[indexPath.row]
-        let imgRef = provider.storageRef.child("pets/\(pet.imgName!).png")
-        cell.nameLabel.text = pet.name
         
-        imgRef.getData(maxSize: 15 * 1024 * 1024) { (data, error) in
-            if error != nil {
-                print(error?.localizedDescription)
-            } else {
-                cell.petImageView.image = UIImage(data: data!)
-            }
-            
+        cell.nameLabel.text = pets[indexPath.row].name
+        
+        if pets[indexPath.row].imgName == "placeholder" {
+            cell.petImageView.image = UIImage(named: "placeholder")
+        } else {
+            provider.getPetImage(from: pets[indexPath.row], to: cell.petImageView)
         }
+        
+      
+        
         
         return cell
         

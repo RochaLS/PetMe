@@ -19,6 +19,8 @@ class AllPetsController: UIViewController {
     
     var pets = [Pet]()
     
+    var petImage: UIImage!
+    
     
     
     override func loadView() {
