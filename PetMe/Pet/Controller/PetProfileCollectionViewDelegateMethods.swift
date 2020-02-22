@@ -50,8 +50,17 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
         let string =  NSMutableAttributedString(string: "\(fontAwesomeIconToAppend) ", attributes:         [.font: UIFont.fontAwesome(ofSize: 24, style: .solid)]  )
         
         string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold), NSAttributedString.Key.foregroundColor: AppColors.black]
-))
+        ))
         
         return string
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            let controller = MoodsViewController()
+            controller.pet = pet
+            navigationController?.pushViewController(controller, animated: true)
+        }
+        
     }
 }

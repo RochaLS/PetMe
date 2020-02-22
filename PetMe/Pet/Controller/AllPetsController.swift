@@ -43,8 +43,6 @@ class AllPetsController: UIViewController {
         
         navigationItem.title = "My Pets"
         
-        
-        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(PetCell.self, forCellWithReuseIdentifier: cell_id )
