@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Pet {
+class Pet: NSObject {
     
     var name: String
     var age: Int?

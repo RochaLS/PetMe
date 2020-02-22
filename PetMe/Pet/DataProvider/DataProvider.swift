@@ -22,6 +22,10 @@ class DataManager {
     //MARK: - Get Data
     func setPetData() {
         
+        guard let _ = self.delegate?.didGetPetData else {
+            return
+        }
+        
         var pets = [Pet]()
         
         let ref = db.collection("pets").order(by: "name")
@@ -47,7 +51,7 @@ class DataManager {
                 
                 pets.append(pet)
             }
-            self.delegate?.didGetPetData(allPets: pets)
+            self.delegate?.didGetPetData!(allPets: pets)
         }
     }
     
@@ -93,7 +97,7 @@ class DataManager {
         
     }
     
-    func getPetImage(from pet: Pet, to imageView: UIImageView) {
+    func getPetImageToImageView(from pet: Pet, to imageView: UIImageView) {
         let imgRef = storageRef.child("pets/\(pet.imgName!)")
         
         

@@ -8,13 +8,13 @@
 
 import UIKit
 
-class PetProfileViewController: UIViewController {
+class PetProfileViewController: UIViewController, DataProviderDelegate {
     
     weak var collectionView: UICollectionView!
     
-    
-    
     let cell_id = "button_cell_id"
+    
+    var provider: DataManager! = nil
     
     var pet: Pet!
     
@@ -30,12 +30,6 @@ class PetProfileViewController: UIViewController {
     let topContainer: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.primaryColor
-//        view.layer.shadowColor = UIColor.black.cgColor
-//        view.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        view.layer.shadowRadius = 5
-//        view.layer.shadowOpacity = 0.3
-//        
-        
         return view
     }()
     
@@ -76,6 +70,10 @@ class PetProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        provider = DataManager()
+        provider.delegate = self
+        
+        
         setupViews()
         setupCollectionView()
         
@@ -94,13 +92,16 @@ class PetProfileViewController: UIViewController {
             scrollView.isScrollEnabled = false
         }
         
-        petAvatarPic.image = UIImage(named: pet.imgName!)
         
+        petAvatarPic.image = UIImage(named: "placeholder")
+        
+        provider.getPetImageToImageView(from: pet, to: petAvatarPic)
         
         
     }
     
     func setupCollectionView() {
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.bottomContainer.addSubview(collectionView)
@@ -151,9 +152,12 @@ class PetProfileViewController: UIViewController {
         
         topContainer.addConstraint(NSLayoutConstraint(item: petAvatarPic, attribute: .centerX, relatedBy: .equal, toItem: topContainer, attribute: .centerX, multiplier: 1, constant: 0))
         
-        petAvatarPic.image = UIImage(named: "preto") // need to change this later
-
+        
         petNameLabel.text = pet.name
         
+    }
+    
+    func didLoadImage(image: UIImage, reference: UIImageView) {
+        reference.image = image
     }
 }

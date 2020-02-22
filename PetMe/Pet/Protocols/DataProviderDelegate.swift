@@ -9,9 +9,13 @@
 import Foundation
 import UIKit
 
-protocol DataProviderDelegate {
+@objc protocol DataProviderDelegate {
     
-    func didGetPetData(allPets: [Pet])
+    @objc optional func didGetPetData(allPets: [Pet])
     
     func didLoadImage(image: UIImage, reference: UIImageView)
 }
+
+
+
+

@@ -24,7 +24,7 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         if pets[indexPath.row].imgName == "placeholder" {
             cell.petImageView.image = UIImage(named: "placeholder")
         } else {
-            provider.getPetImage(from: pets[indexPath.row], to: cell.petImageView)
+            provider.getPetImageToImageView(from: pets[indexPath.row], to: cell.petImageView)
         }
         
       

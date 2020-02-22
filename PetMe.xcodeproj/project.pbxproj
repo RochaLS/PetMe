@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160D0A272400EEF900BADA5F /* MoodsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160D0A262400EEF900BADA5F /* MoodsCollectionViewController.swift */; };
 		1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */; };
 		166C91FF23F6369100964FC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C91FE23F6369100964FC8 /* GoogleService-Info.plist */; };
 		166C920323F6533600964FC8 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C920223F6533500964FC8 /* Pet.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160D0A262400EEF900BADA5F /* MoodsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsCollectionViewController.swift; sourceTree = "<group>"; };
 		1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		166C91FE23F6369100964FC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		166C920223F6533500964FC8 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */,
 				16D7CFD123EBD2AE0035DA5A /* PetProfileViewController.swift */,
 				16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */,
+				160D0A262400EEF900BADA5F /* MoodsCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				166C920323F6533600964FC8 /* Pet.swift in Sources */,
 				16BCB70123E28B7F00C91316 /* PetCell.swift in Sources */,
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
+				160D0A272400EEF900BADA5F /* MoodsCollectionViewController.swift in Sources */,
 				16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */,
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
