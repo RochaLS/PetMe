@@ -13,7 +13,10 @@
 		1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */; };
 		166C91FF23F6369100964FC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C91FE23F6369100964FC8 /* GoogleService-Info.plist */; };
 		166C920323F6533600964FC8 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C920223F6533500964FC8 /* Pet.swift */; };
+		1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */; };
 		16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */; };
+		16A591A42404C6A000B9A239 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591A32404C6A000B9A239 /* AddButton.swift */; };
+		16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */; };
 		16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D723DFE82300C91316 /* AppDelegate.swift */; };
 		16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D923DFE82300C91316 /* SceneDelegate.swift */; };
 		16BCB6E423DFE82900C91316 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6E323DFE82900C91316 /* Assets.xcassets */; };
@@ -36,13 +39,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		160D0A282400F0A600BADA5F /* MoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsViewController.swift; sourceTree = SOURCE_ROOT; };
+		160D0A282400F0A600BADA5F /* MoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoodsViewController.swift; path = PetMe/Moods/Controller/MoodsViewController.swift; sourceTree = SOURCE_ROOT; };
 		160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsViewCVDelegateMethods.swift; sourceTree = "<group>"; };
 		160D0A2C2400F6C000BADA5F /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		166C91FE23F6369100964FC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		166C920223F6533500964FC8 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMoodButton.swift; sourceTree = "<group>"; };
 		16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileCollectionViewDelegateMethods.swift; sourceTree = "<group>"; };
+		16A591A32404C6A000B9A239 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoodViewController.swift; sourceTree = "<group>"; };
 		16BCB6D423DFE82300C91316 /* PetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BCB6D723DFE82300C91316 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16BCB6D923DFE82300C91316 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +94,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		16A591A52404CC2000B9A239 /* Moods */ = {
+			isa = PBXGroup;
+			children = (
+				16A591A62404CC7700B9A239 /* Model */,
+				16A591A92404CC9600B9A239 /* View */,
+				16A591AA2404CCC100B9A239 /* Controller */,
+			);
+			path = Moods;
+			sourceTree = "<group>";
+		};
+		16A591A62404CC7700B9A239 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16A591A92404CC9600B9A239 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				160D0A2C2400F6C000BADA5F /* MoodCollectionViewCell.swift */,
+				1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16A591AA2404CCC100B9A239 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				160D0A282400F0A600BADA5F /* MoodsViewController.swift */,
+				160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */,
+				16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		16BCB6CB23DFE82300C91316 = {
 			isa = PBXGroup;
 			children = (
@@ -110,9 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				16F962D023F7868300AAEBAF /* General */,
-				16F962CF23F7861300AAEBAF /* Pet */,
-				16D7CFD823ECE34E0035DA5A /* Camera */,
 				16D7CFE423ECE7EA0035DA5A /* Assets */,
+				16F962CF23F7861300AAEBAF /* Pets */,
+				16A591A52404CC2000B9A239 /* Moods */,
+				16D7CFD823ECE34E0035DA5A /* Camera */,
 				16D7CFD623ECE2130035DA5A /* Support */,
 				16BCB6E323DFE82900C91316 /* Assets.xcassets */,
 				16BCB6E523DFE82900C91316 /* LaunchScreen.storyboard */,
@@ -132,8 +175,6 @@
 				16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */,
 				16D7CFD123EBD2AE0035DA5A /* PetProfileViewController.swift */,
 				16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */,
-				160D0A282400F0A600BADA5F /* MoodsViewController.swift */,
-				160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,7 +203,6 @@
 				16D7CFE723ECEE290035DA5A /* PetAvatarImageView.swift */,
 				16D7CFE923ED08730035DA5A /* PetAvatarWithShadowImageView.swift */,
 				1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */,
-				160D0A2C2400F6C000BADA5F /* MoodCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,7 +215,7 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		16F962CF23F7861300AAEBAF /* Pet */ = {
+		16F962CF23F7861300AAEBAF /* Pets */ = {
 			isa = PBXGroup;
 			children = (
 				166C920423F6533E00964FC8 /* Model */,
@@ -184,12 +224,13 @@
 				16F962D523F7A66700AAEBAF /* DataProvider */,
 				16F962D823F7B13500AAEBAF /* Protocols */,
 			);
-			path = Pet;
+			path = Pets;
 			sourceTree = "<group>";
 		};
 		16F962D023F7868300AAEBAF /* General */ = {
 			isa = PBXGroup;
 			children = (
+				16A591A32404C6A000B9A239 /* AddButton.swift */,
 				16D7CFDE23ECE5090035DA5A /* UIColor+Hex.swift */,
 			);
 			path = General;
@@ -346,6 +387,7 @@
 				166C920323F6533600964FC8 /* Pet.swift in Sources */,
 				160D0A292400F0A600BADA5F /* MoodsViewController.swift in Sources */,
 				16BCB70123E28B7F00C91316 /* PetCell.swift in Sources */,
+				1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */,
 				160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */,
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
 				16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */,
@@ -354,6 +396,7 @@
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
+				16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */,
 				16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */,
 				16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */,
 				16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */,
@@ -362,6 +405,7 @@
 				1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
 				16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */,
+				16A591A42404C6A000B9A239 /* AddButton.swift in Sources */,
 				16D7CFD223EBD2AE0035DA5A /* PetProfileViewController.swift in Sources */,
 				16D7CFEA23ED08730035DA5A /* PetAvatarWithShadowImageView.swift in Sources */,
 				160D0A2B2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift in Sources */,

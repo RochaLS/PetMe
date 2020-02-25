@@ -15,19 +15,26 @@ class MoodsViewController: UIViewController {
     weak var collectionView: UICollectionView!
     
     let cell_id = "mood_cell"
-
+    
+    let addButton: UIButton = {
+        let button = AddButton()
+        button.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
+        return button
+        
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Moods History"
         view.backgroundColor = AppColors.backgroundColor
         
-        setupCollectionView()
-
+        setupViews()
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
-           self.collectionView.register(MoodCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
+        self.collectionView.register(MoodCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,7 +43,7 @@ class MoodsViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
-    func setupCollectionView() {
+    func setupViews() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
@@ -51,20 +58,19 @@ class MoodsViewController: UIViewController {
         
         self.collectionView = collectionView
         
+        self.view.addSubview(addButton)
+        
+        self.view.addContraintsWithFormat(format: "V:[v0(60)]-\(tabBarController!.tabBar.frame.height + 10)-|", views: addButton)
+        self.view.addContraintsWithFormat(format: "H:[v0(60)]-15-|", views: addButton)
+        
         
     }
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func plusButtonPressed() {
+        let vc = CreateMoodViewController()
+        vc.pet = self.pet
+        self.present(vc, animated: true, completion: nil)
     }
-    */
-
+    
+    
 }

@@ -57,20 +57,11 @@ class AllPetsController: UIViewController {
     }
     
     let addButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = AppColors.primaryColor
-        button.layer.cornerRadius = 30
-        button.setImage(UIImage(named: "add")?.withTintColor(UIColor.white), for: .normal)
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 0)
-        button.layer.shadowRadius = 4
-        button.layer.shadowOpacity = 0.3
+        let button = AddButton()
         button.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
         return button
         
     }()
-    
-
     
     func setupViews() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())

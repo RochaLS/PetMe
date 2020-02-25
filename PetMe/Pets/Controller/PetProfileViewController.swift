@@ -86,7 +86,13 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         self.collectionView.register(ProfileButtonCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.isScrollEnabled = false
+        
+        if view.frame.height <= 568 {
+            self.collectionView.isScrollEnabled = true
+        } else {
+            self.collectionView.isScrollEnabled = false
+        }
+        
         
         if view.frame.height > 736 { // iphone 8 plus screen height
             scrollView.isScrollEnabled = false
