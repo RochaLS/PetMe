@@ -54,14 +54,14 @@ class MoodCollectionViewCell: UICollectionViewCell {
         addConstraint(NSLayoutConstraint(item: moodLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
         
         addContraintsWithFormat(format: "V:|[v0]|", views: moodLabel)
-        addContraintsWithFormat(format: "V:|-10-[v0]", views: datelabel)
-        addContraintsWithFormat(format: "H:[v0]-10-|", views: datelabel)
-        addContraintsWithFormat(format: "V:|-10-[v0]", views: timelabel)
-        addContraintsWithFormat(format: "H:|-10-[v0]", views: timelabel)
+        addContraintsWithFormat(format: "V:|-15-[v0]", views: datelabel)
+        addContraintsWithFormat(format: "H:[v0]-15-|", views: datelabel)
+        addContraintsWithFormat(format: "V:|-15-[v0]", views: timelabel)
+        addContraintsWithFormat(format: "H:|-15-[v0]", views: timelabel)
         
         
          backgroundColor = UIColor.white
-         layer.cornerRadius = 5
+         layer.cornerRadius = 20
          layer.borderWidth = 0
          layer.shadowColor = UIColor.black.cgColor
          layer.shadowOffset = CGSize(width: 0, height: 1)
