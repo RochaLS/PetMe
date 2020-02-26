@@ -28,7 +28,7 @@ class DataManager {
         
         var pets = [Pet]()
         
-        let ref = db.collection("pets").order(by: "name")
+        let ref = db.collection("pets").order(by: "created_at", descending: true)
         
         ref.addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
@@ -45,9 +45,12 @@ class DataManager {
                 let name = data["name"] as! String
                 let age = data["age"] as! Int
                 let img_name = data["img_name"] as! String
+                let timestamp = data["created_at"] as! Timestamp
+                let date = timestamp.dateValue()
+
                 let id = data["id"] as! String
                 
-                let pet = Pet(name: name, imgName: img_name, created_at: Date(), age: age, id: id)
+                let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id)
                 
                 
                 pets.append(pet)
@@ -67,6 +70,7 @@ class DataManager {
                 "name": pet.name,
                 "img_name": pet.imgName!,
                 "age": pet.age!,
+                "created_at": pet.created_at,
                 "id": pet.id
             ]) { error in
                 if let error = error {
@@ -86,6 +90,7 @@ class DataManager {
                         "name": pet.name,
                         "img_name": pet.imgName!,
                         "age": pet.age!,
+                        "created_at": pet.created_at,
                         "id": pet.id
                     ]) { error in
                         if let error = error {

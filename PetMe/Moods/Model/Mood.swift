@@ -10,10 +10,12 @@ import Foundation
 
 class Mood {
     var status: String
-    var created_at: Date
+    let created_at: Date
+    let id: String
     
-    init(status: String, created_at: Date) {
+    init(status: String, created_at: Date, id : String) {
         self.status = status
         self.created_at = created_at
+        self.id = id
     }
 }
