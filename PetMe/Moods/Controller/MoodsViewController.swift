@@ -12,9 +12,13 @@ class MoodsViewController: UIViewController {
     
     var pet: Pet!
     
-    weak var collectionView: UICollectionView!
+    var moods = [Mood]()
     
+    weak var collectionView: UICollectionView!
+
     let cell_id = "mood_cell"
+    
+    var provider: MoodDataProvider! = nil
     
     let addButton: UIButton = {
         let button = AddButton()
@@ -35,6 +39,12 @@ class MoodsViewController: UIViewController {
         self.collectionView.delegate = self
         
         self.collectionView.register(MoodCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
+        provider = MoodDataProvider()
+        provider.delegate = self
+        
+        provider.setMoodData(pet: pet)
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

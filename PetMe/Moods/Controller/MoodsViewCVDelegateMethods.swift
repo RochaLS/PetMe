@@ -12,11 +12,31 @@ extension MoodsViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return moods.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: cell_id, for: indexPath)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id, for: indexPath) as! MoodCollectionViewCell
+        
+        let mood = moods[indexPath.row]
+        cell.moodLabel.text = mood.status
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        cell.datelabel.text = dateFormatter.string(from: mood.created_at)
+        cell.timelabel.text = timeFormatter.string(from: mood.created_at)
+        
+        cell.datelabel.textColor = UIColor.white
+        cell.timelabel.textColor = UIColor.white
+        cell.moodLabel.textColor = UIColor.white
+        
+        changeCellBasedOnMoodStatus(mood: mood, cell: cell)
+        
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -29,5 +49,18 @@ extension MoodsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
     
+    func changeCellBasedOnMoodStatus(mood: Mood, cell: MoodCollectionViewCell) {
+        
+        switch mood.status {
+        case "Happy":
+            cell.backgroundColor = AppColors.green
+        case "Sad":
+            cell.backgroundColor = AppColors.blue
+        case "Sleepy":
+            cell.backgroundColor = AppColors.darkBlue
+        default:
+            print("should not get here")
+        }
+    }
     
 }

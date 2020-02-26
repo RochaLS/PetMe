@@ -12,7 +12,7 @@ class PetCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white
-        layer.cornerRadius = 20
+        layer.cornerRadius = 5
         layer.borderWidth = 0
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -31,8 +31,8 @@ class PetCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Drika"
-        label.textColor = AppColors.primaryColor
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.textColor = AppColors.black
+        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         
         return label
         

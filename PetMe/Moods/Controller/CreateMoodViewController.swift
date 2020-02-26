@@ -39,7 +39,7 @@ class CreateMoodViewController: UIViewController {
     func setupViews() {
         let happyButton = ChooseMoodButton()
         happyButton.setTitle("Happy", for: .normal)
-        happyButton.backgroundColor = AppColors.primaryColor
+        happyButton.backgroundColor = AppColors.green
         
         let sadButton = ChooseMoodButton()
         sadButton.setTitle("Sad", for: .normal)

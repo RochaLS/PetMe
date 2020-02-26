@@ -91,7 +91,7 @@ class AddPetViewController: UIViewController {
     @objc func doneButtonPressed() {
         
         provider = DataManager()
-        let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0)
+        let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString)
 //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
         provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
         

@@ -22,7 +22,7 @@ class MoodCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Happy"
         label.textColor = AppColors.primaryColor
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         
         return label
     }()
@@ -31,7 +31,7 @@ class MoodCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "10:54"
         label.textColor = AppColors.black
-        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         
         return label
     }()
@@ -40,7 +40,7 @@ class MoodCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "01/02/2020"
         label.textColor = AppColors.black
-        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         
         return label
     }()
@@ -61,7 +61,7 @@ class MoodCollectionViewCell: UICollectionViewCell {
         
         
          backgroundColor = UIColor.white
-         layer.cornerRadius = 20
+         layer.cornerRadius = 5
          layer.borderWidth = 0
          layer.shadowColor = UIColor.black.cgColor
          layer.shadowOffset = CGSize(width: 0, height: 1)

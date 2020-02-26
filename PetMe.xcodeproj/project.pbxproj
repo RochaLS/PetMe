@@ -14,6 +14,10 @@
 		166C91FF23F6369100964FC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C91FE23F6369100964FC8 /* GoogleService-Info.plist */; };
 		166C920323F6533600964FC8 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C920223F6533500964FC8 /* Pet.swift */; };
 		1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */; };
+		1690B9B9240619B900F16BC5 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B8240619B900F16BC5 /* Mood.swift */; };
+		1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */; };
+		1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */; };
+		1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */; };
 		16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */; };
 		16A591A42404C6A000B9A239 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591A32404C6A000B9A239 /* AddButton.swift */; };
 		16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */; };
@@ -46,6 +50,10 @@
 		166C91FE23F6369100964FC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		166C920223F6533500964FC8 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMoodButton.swift; sourceTree = "<group>"; };
+		1690B9B8240619B900F16BC5 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProvider.swift; sourceTree = "<group>"; };
+		1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProviderDelegate.swift; sourceTree = "<group>"; };
+		1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+ProviderDelegateMethods.swift"; sourceTree = "<group>"; };
 		16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileCollectionViewDelegateMethods.swift; sourceTree = "<group>"; };
 		16A591A32404C6A000B9A239 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoodViewController.swift; sourceTree = "<group>"; };
@@ -94,9 +102,27 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1690B9BB2406245500F16BC5 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		1690B9BE2406259600F16BC5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		16A591A52404CC2000B9A239 /* Moods */ = {
 			isa = PBXGroup;
 			children = (
+				1690B9BE2406259600F16BC5 /* Protocols */,
+				1690B9BB2406245500F16BC5 /* DataProvider */,
 				16A591A62404CC7700B9A239 /* Model */,
 				16A591A92404CC9600B9A239 /* View */,
 				16A591AA2404CCC100B9A239 /* Controller */,
@@ -107,6 +133,7 @@
 		16A591A62404CC7700B9A239 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1690B9B8240619B900F16BC5 /* Mood.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +153,7 @@
 				160D0A282400F0A600BADA5F /* MoodsViewController.swift */,
 				160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */,
 				16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */,
+				1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -384,16 +412,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */,
 				166C920323F6533600964FC8 /* Pet.swift in Sources */,
 				160D0A292400F0A600BADA5F /* MoodsViewController.swift in Sources */,
+				1690B9B9240619B900F16BC5 /* Mood.swift in Sources */,
 				16BCB70123E28B7F00C91316 /* PetCell.swift in Sources */,
 				1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */,
+				1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */,
 				160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */,
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
 				16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */,
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
+				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
 				16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */,

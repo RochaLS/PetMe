@@ -45,8 +45,9 @@ class DataManager {
                 let name = data["name"] as! String
                 let age = data["age"] as! Int
                 let img_name = data["img_name"] as! String
+                let id = data["id"] as! String
                 
-                let pet = Pet(name: name, imgName: img_name, created_at: Date(), age: age)
+                let pet = Pet(name: name, imgName: img_name, created_at: Date(), age: age, id: id)
                 
                 
                 pets.append(pet)
@@ -62,15 +63,16 @@ class DataManager {
     func addPetDataToFirebase(data: Data?, img_name: String, petToAdd pet: Pet) {
         // Just save the data if user doesn't provide me a photo
         if img_name == "placeholder" {
-            petsRef = self.db.collection("pets").addDocument(data: [
+            self.db.collection("pets").document(pet.id).setData([
                 "name": pet.name,
                 "img_name": pet.imgName!,
-                "age": pet.age!
+                "age": pet.age!,
+                "id": pet.id
             ]) { error in
                 if let error = error {
                     print("Error adding document: \(error)")
                 } else {
-                    print("Document added with ID: \(self.petsRef!.documentID)")
+                    print("Document added!")
                 }
             }
         } else {
@@ -80,21 +82,21 @@ class DataManager {
                 if error != nil {
                     print(error!.localizedDescription)
                 } else {
-                    self.petsRef = self.db.collection("pets").addDocument(data: [
+                    self.db.collection("pets").document(pet.id).setData([
                         "name": pet.name,
                         "img_name": pet.imgName!,
-                        "age": pet.age!
+                        "age": pet.age!,
+                        "id": pet.id
                     ]) { error in
                         if let error = error {
                             print("Error adding document: \(error)")
                         } else {
-                            print("Document added with ID: \(self.petsRef!.documentID)")
+                            print("Document added")
                         }
                     }
                 }
             }
         }
-        
     }
     
     func getPetImageToImageView(from pet: Pet, to imageView: UIImageView) {
