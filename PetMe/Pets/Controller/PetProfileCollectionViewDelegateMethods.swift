@@ -56,7 +56,11 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
+        if indexPath.row == 0 {
+            let controller = VaccinationsViewController()
+            controller.pet = pet
+            navigationController?.pushViewController(controller, animated: true)
+        } else if indexPath.row == 2 {
             let controller = MoodsViewController()
             controller.pet = pet
             navigationController?.pushViewController(controller, animated: true)
