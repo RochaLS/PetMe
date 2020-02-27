@@ -48,7 +48,7 @@ class CreateMoodViewController: UIViewController {
         
         let sadButton = ChooseMoodButton()
         sadButton.setTitle("Sad", for: .normal)
-        sadButton.backgroundColor = AppColors.blue
+        sadButton.backgroundColor = AppColors.red
         sadButton.addTarget(self, action: #selector(sadPressed), for: .touchUpInside)
         
         let sleepyButton = ChooseMoodButton()

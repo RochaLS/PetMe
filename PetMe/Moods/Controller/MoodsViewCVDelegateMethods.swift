@@ -29,9 +29,10 @@ extension MoodsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         cell.datelabel.text = dateFormatter.string(from: mood.created_at)
         cell.timelabel.text = timeFormatter.string(from: mood.created_at)
         
-        cell.datelabel.textColor = UIColor.white
-        cell.timelabel.textColor = UIColor.white
-        cell.moodLabel.textColor = UIColor.white
+//        cell.datelabel.textColor = UIColor.white
+//        cell.timelabel.textColor = UIColor.white
+//        cell.moodLabel.textColor = UIColor.white
+        cell.backgroundColor = UIColor.white
         
         changeCellBasedOnMoodStatus(mood: mood, cell: cell)
         
@@ -53,11 +54,17 @@ extension MoodsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         switch mood.status {
         case "Happy":
-            cell.backgroundColor = AppColors.green
+            cell.datelabel.textColor = AppColors.green
+            cell.timelabel.textColor = AppColors.green
+            cell.moodLabel.textColor = AppColors.green
         case "Sad":
-            cell.backgroundColor = AppColors.blue
+            cell.datelabel.textColor = AppColors.red
+            cell.timelabel.textColor = AppColors.red
+            cell.moodLabel.textColor = AppColors.red
         case "Sleepy":
-            cell.backgroundColor = AppColors.darkBlue
+            cell.datelabel.textColor = AppColors.darkBlue
+            cell.timelabel.textColor = AppColors.darkBlue
+            cell.moodLabel.textColor = AppColors.darkBlue
         default:
             print("should not get here")
         }
