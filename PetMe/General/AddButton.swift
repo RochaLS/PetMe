@@ -19,6 +19,7 @@ class AddButton: UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 4
         layer.shadowOpacity = 0.3
+       
     }
     
     required init?(coder: NSCoder) {

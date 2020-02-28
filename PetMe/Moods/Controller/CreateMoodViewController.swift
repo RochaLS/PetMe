@@ -43,7 +43,7 @@ class CreateMoodViewController: UIViewController {
     func setupViews() {
         let happyButton = ChooseMoodButton()
         happyButton.setTitle("Happy", for: .normal)
-        happyButton.backgroundColor = AppColors.green
+        happyButton.backgroundColor = AppColors.orange
         happyButton.addTarget(self, action: #selector(happyPressed), for: .touchUpInside)
         
         let sadButton = ChooseMoodButton()
@@ -53,7 +53,7 @@ class CreateMoodViewController: UIViewController {
         
         let sleepyButton = ChooseMoodButton()
         sleepyButton.setTitle("Sleepy", for: .normal)
-        sleepyButton.backgroundColor = AppColors.darkBlue
+        sleepyButton.backgroundColor = AppColors.babyBlue
         sleepyButton.addTarget(self, action: #selector(sleepyPressed), for: .touchUpInside)
         
         questionTextView.text = "How do you think is \(pet.name) feeling right now?"
