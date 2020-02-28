@@ -137,10 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				1690B9BE2406259600F16BC5 /* Protocols */,
-				1690B9BB2406245500F16BC5 /* DataProvider */,
 				16A591A62404CC7700B9A239 /* Model */,
 				16A591A92404CC9600B9A239 /* View */,
 				16A591AA2404CCC100B9A239 /* Controller */,
+				1690B9BB2406245500F16BC5 /* DataProvider */,
 			);
 			path = Moods;
 			sourceTree = "<group>";
@@ -176,10 +176,10 @@
 		16B808AC2407702300C6A1EA /* Vaccinations */ = {
 			isa = PBXGroup;
 			children = (
-				169916B72408E74F00F3EBAF /* DataProvider */,
 				16B808B1240771C000C6A1EA /* Model */,
 				16B808B0240771B000C6A1EA /* View */,
 				16B808AF240771A000C6A1EA /* Controller */,
+				169916B72408E74F00F3EBAF /* DataProvider */,
 			);
 			path = Vaccinations;
 			sourceTree = "<group>";
