@@ -14,21 +14,24 @@ class VaccineTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Vaccine Name"
         label.textColor = AppColors.black
-        label.font = UIFont.systemFont(ofSize: 24 , weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 20 , weight: .regular)
         return label
         
     }()
     
     let isDone: UILabel = {
         let label = UILabel()
-        label.text = "●"
-        label.textColor = UIColor.gray
+//        label.text = "●"
+        label.font = UIFont.fontAwesome(ofSize: 20, style: .solid)
+        label.text = String.fontAwesomeIcon(name: .syringe
+        )
+        label.textColor = AppColors.red
         return label
     }()
     
     let status: UILabel = {
         let label = UILabel()
-        label.text = "status"
+        label.text = "Status"
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         return label
@@ -54,10 +57,9 @@ class VaccineTableViewCell: UITableViewCell {
         addContraintsWithFormat(format: "V:|[v0]|", views: isDone)
         addContraintsWithFormat(format: "V:|[v0]|", views: vaccineName)
         addContraintsWithFormat(format: "V:|[v0]|", views: status)
-        addContraintsWithFormat(format: "H:|[v0]-20-[v1]", views: isDone, vaccineName)
-        addContraintsWithFormat(format: "H:[v0]|", views: status)
+        addContraintsWithFormat(format: "H:|-20-[v0]-20-[v1]", views: isDone, vaccineName)
+        addContraintsWithFormat(format: "H:[v0]-20-|", views: status)
     }
-    
-    
+
 
 }

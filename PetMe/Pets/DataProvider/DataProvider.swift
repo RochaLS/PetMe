@@ -47,10 +47,11 @@ class DataManager {
                 let img_name = data["img_name"] as! String
                 let timestamp = data["created_at"] as! Timestamp
                 let date = timestamp.dateValue()
+                let species = data["species"] as! String
 
                 let id = data["id"] as! String
                 
-                let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id)
+                let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species)
                 
                 
                 pets.append(pet)
@@ -71,7 +72,8 @@ class DataManager {
                 "img_name": pet.imgName!,
                 "age": pet.age!,
                 "created_at": pet.created_at,
-                "id": pet.id
+                "id": pet.id,
+                "species": pet.species
             ]) { error in
                 if let error = error {
                     print("Error adding document: \(error)")
@@ -91,7 +93,8 @@ class DataManager {
                         "img_name": pet.imgName!,
                         "age": pet.age!,
                         "created_at": pet.created_at,
-                        "id": pet.id
+                        "id": pet.id,
+                        "species": pet.species
                     ]) { error in
                         if let error = error {
                             print("Error adding document: \(error)")

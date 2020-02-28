@@ -15,7 +15,7 @@ class ChooseMoodButton: UIButton {
         backgroundColor = UIColor.black
         setTitleColor(UIColor.white, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        layer.cornerRadius = 5
+        layer.cornerRadius = 8
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowRadius = 2

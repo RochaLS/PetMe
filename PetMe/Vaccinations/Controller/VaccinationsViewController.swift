@@ -16,6 +16,16 @@ class VaccinationsViewController: UIViewController {
     
     weak var tableView: UITableView!
     
+    let dogVaccines: [String:[Vaccine]] = ["core": [Vaccine(name: "Canine Distemper"),
+                                                    Vaccine(name: "Infectious Canine Hepatitis"),
+                                                    Vaccine(name: "Canine Parvovirus"),
+                                                    Vaccine(name: "Rabies")],
+                                           "non-core": [Vaccine(name: "Bordetellosis"),
+                                                        Vaccine(name: "Canine Parainfluenza Virus"),
+                                                        Vaccine(name: "Leptospirosis"),
+                                                        Vaccine(name: "Borreliosis")]
+    ]
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Vaccinations"
@@ -66,13 +76,15 @@ class VaccinationsViewController: UIViewController {
                view.addSubview(tableView)
                NSLayoutConstraint.activate([
                 self.titleLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -20),
-                self.view.bottomAnchor.constraint(equalTo: tableView.bottomAnchor, constant:  20 + (self.tabBarController?.tabBar.frame.size.height)!),
-                self.view.leadingAnchor.constraint(equalTo: tableView.leadingAnchor, constant: -20),
-                self.view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: 20)
+                self.view.bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
+                self.view.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+                self.view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor)
                ])
         
         tableView.backgroundColor = UIColor.white
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.rowHeight = 80
+        tableView.layer.cornerRadius = 8
+//        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.tableView = tableView
     }

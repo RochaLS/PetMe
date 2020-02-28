@@ -17,6 +17,15 @@ class AddPetViewController: UIViewController {
     var petImageData: Data? = nil
     var petImageName = "placeholder"
     
+    let dogVaccines: [String:[Vaccine]] = ["core": [Vaccine(name: "Canine Distemper"),
+                                                    Vaccine(name: "Infectious Canine Hepatitis"),
+                                                    Vaccine(name: "Canine Parvovirus"),
+                                                    Vaccine(name: "Rabies")],
+                                           "non-core": [Vaccine(name: "Bordetellosis"),
+                                                        Vaccine(name: "Canine Parainfluenza Virus"),
+                                                        Vaccine(name: "Leptospirosis"),
+                                                        Vaccine(name: "Borreliosis")]
+    ]
     var provider: DataManager!
     
     let containerView: UIView = {
@@ -91,12 +100,12 @@ class AddPetViewController: UIViewController {
     @objc func doneButtonPressed() {
         
         provider = DataManager()
-        let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString)
-//        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
+        let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: "dog")
+        //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
         provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
         
-       
-//        provider = nil
+        
+        //        provider = nil
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -153,7 +162,7 @@ class AddPetViewController: UIViewController {
         
         
         view.isUserInteractionEnabled = true
-
+        
     }
     
     

@@ -15,6 +15,7 @@
 		166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */; };
 		166C91FF23F6369100964FC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C91FE23F6369100964FC8 /* GoogleService-Info.plist */; };
 		166C920323F6533600964FC8 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C920223F6533500964FC8 /* Pet.swift */; };
+		167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BAACD2408CE9300519EA6 /* Vaccine.swift */; };
 		1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */; };
 		1690B9B9240619B900F16BC5 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B8240619B900F16BC5 /* Mood.swift */; };
 		1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */; };
@@ -54,6 +55,7 @@
 		166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTableViewCell.swift; sourceTree = "<group>"; };
 		166C91FE23F6369100964FC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		166C920223F6533500964FC8 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		167BAACD2408CE9300519EA6 /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
 		1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMoodButton.swift; sourceTree = "<group>"; };
 		1690B9B8240619B900F16BC5 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProvider.swift; sourceTree = "<group>"; };
@@ -124,6 +126,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		169916B72408E74F00F3EBAF /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
 		16A591A52404CC2000B9A239 /* Moods */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +176,7 @@
 		16B808AC2407702300C6A1EA /* Vaccinations */ = {
 			isa = PBXGroup;
 			children = (
+				169916B72408E74F00F3EBAF /* DataProvider */,
 				16B808B1240771C000C6A1EA /* Model */,
 				16B808B0240771B000C6A1EA /* View */,
 				16B808AF240771A000C6A1EA /* Controller */,
@@ -194,6 +204,7 @@
 		16B808B1240771C000C6A1EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				167BAACD2408CE9300519EA6 /* Vaccine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -483,6 +494,7 @@
 				16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */,
 				16A591A42404C6A000B9A239 /* AddButton.swift in Sources */,
 				16D7CFD223EBD2AE0035DA5A /* PetProfileViewController.swift in Sources */,
+				167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */,
 				16D7CFEA23ED08730035DA5A /* PetAvatarWithShadowImageView.swift in Sources */,
 				160D0A2B2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift in Sources */,
 			);

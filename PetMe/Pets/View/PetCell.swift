@@ -12,7 +12,7 @@ class PetCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white
-        layer.cornerRadius = 5
+        layer.cornerRadius = 8
         layer.borderWidth = 0
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 1)
