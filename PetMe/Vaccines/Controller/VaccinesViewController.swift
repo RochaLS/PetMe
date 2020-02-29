@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VaccinationsViewController: UIViewController {
+class VaccinesViewController: UIViewController {
     
     var pet: Pet!
     
@@ -16,15 +16,22 @@ class VaccinationsViewController: UIViewController {
     
     weak var tableView: UITableView!
     
-    let dogVaccines: [String:[Vaccine]] = ["core": [Vaccine(name: "Canine Distemper"),
-                                                    Vaccine(name: "Infectious Canine Hepatitis"),
-                                                    Vaccine(name: "Canine Parvovirus"),
-                                                    Vaccine(name: "Rabies")],
-                                           "non-core": [Vaccine(name: "Bordetellosis"),
-                                                        Vaccine(name: "Canine Parainfluenza Virus"),
-                                                        Vaccine(name: "Leptospirosis"),
-                                                        Vaccine(name: "Borreliosis")]
+     var provider: VaccinesDataProvider! = nil
+    
+    let dogVaccines: [String:[Vaccine]] = ["core": [Vaccine(name: "Canine Distemper", isCore: true),
+                                                    Vaccine(name: "Infectious Canine Hepatitis", isCore: true),
+                                                    Vaccine(name: "Canine Parvovirus", isCore: true),
+                                                    Vaccine(name: "Rabies", isCore: true)],
+                                           "non-core": [Vaccine(name: "Bordetellosis", isCore: false),
+                                                        Vaccine(name: "Canine Parainfluenza Virus", isCore: false),
+                                                        Vaccine(name: "Leptospirosis", isCore: false),
+                                                        Vaccine(name: "Borreliosis", isCore: false)]
     ]
+    
+    var vaccines = [Vaccine]()
+    
+    var coreVaccines = [Vaccine]()
+    var non_coreVaccines = [Vaccine]()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -49,9 +56,15 @@ class VaccinationsViewController: UIViewController {
         setupViews()
         setupTableView()
         
+        
          self.tableView.dataSource = self
          self.tableView.delegate = self
          self.tableView.register(VaccineTableViewCell.self, forCellReuseIdentifier: cell_id)
+        
+        self.provider = VaccinesDataProvider()
+        self.provider.delegate = self
+        
+        self.provider.setVaccineData()
 
         // Do any additional setup after loading the view.
     }

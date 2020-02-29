@@ -14,19 +14,33 @@ import Firebase
 class AddPetViewController: UIViewController {
     
     var bottomConstraint: NSLayoutConstraint?
+    var centerConstraint: NSLayoutConstraint?
     var petImageData: Data? = nil
     var petImageName = "placeholder"
+    var speciesSelected: String?
     
-    let dogVaccines: [String:[Vaccine]] = ["core": [Vaccine(name: "Canine Distemper"),
-                                                    Vaccine(name: "Infectious Canine Hepatitis"),
-                                                    Vaccine(name: "Canine Parvovirus"),
-                                                    Vaccine(name: "Rabies")],
-                                           "non-core": [Vaccine(name: "Bordetellosis"),
-                                                        Vaccine(name: "Canine Parainfluenza Virus"),
-                                                        Vaccine(name: "Leptospirosis"),
-                                                        Vaccine(name: "Borreliosis")]
+    let dogVaccines: [Vaccine] = [Vaccine(name: "Canine Distemper", isCore: true),
+                                  Vaccine(name: "Infectious Canine Hepatitis", isCore: true),
+                                  Vaccine(name: "Canine Parvovirus", isCore: true),
+                                  Vaccine(name: "Rabies", isCore: true),
+                                  Vaccine(name: "Bordetellosis", isCore: false),
+                                  Vaccine(name: "Canine Parainfluenza Virus", isCore: false),
+                                  Vaccine(name: "Leptospirosis", isCore: false),
+                                  Vaccine(name: "Borreliosis", isCore: false)
     ]
+
+    
+    let catVaccines: [Vaccine] = [Vaccine(name: "Feline Distemper", isCore: true),
+                                  Vaccine(name: "Feline Viral Rhinotracheitis", isCore: true),
+                                  Vaccine(name: "Feline calicivirus", isCore: true),
+                                  Vaccine(name: "Rabies", isCore: true),
+                                  Vaccine(name: "Chlamydia", isCore: false),
+                                  Vaccine(name: "Feline leukemia", isCore: false),
+                                  Vaccine(name: "Bordetella", isCore: false)
+    ]
+
     var provider: DataManager!
+    var vaccinesProvider: VaccinesDataProvider!
     
     let containerView: UIView = {
         let view = UIView()
@@ -79,6 +93,18 @@ class AddPetViewController: UIViewController {
         return label
     }()
     
+    let dogButton: AnimalButton = {
+        let button = AnimalButton(title:  String.fontAwesomeIcon(name: .dog))
+        button.addTarget(self, action: #selector(dogButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    let catButton: AnimalButton = {
+        let button = AnimalButton(title: String.fontAwesomeIcon(name: .cat))
+        button.addTarget(self, action: #selector(catButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     let doneButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(UIColor.white, for: .normal)
@@ -100,13 +126,33 @@ class AddPetViewController: UIViewController {
     @objc func doneButtonPressed() {
         
         provider = DataManager()
-        let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: "dog")
-        //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
-        provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
         
-        
-        //        provider = nil
-        self.dismiss(animated: true, completion: nil)
+        if speciesSelected != nil, nameTextField.text != "" {
+            let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: speciesSelected!)
+            //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
+            provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
+            
+            vaccinesProvider = VaccinesDataProvider()
+            
+            var vaccines = [Vaccine]()
+            
+            if newPet.species == "dog" {
+                vaccines = dogVaccines
+            } else if newPet.species == "cat" {
+                vaccines = catVaccines
+            }
+            
+            for vaccine in vaccines {
+                vaccine.pet_id = newPet.id
+                vaccine.id = UUID().uuidString
+            }
+            
+            vaccinesProvider.addDataToFirestore(vaccines: vaccines)
+            
+            
+            //        provider = nil
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     
@@ -123,28 +169,43 @@ class AddPetViewController: UIViewController {
         containerView.addSubview(addPhotoButton)
         containerView.addSubview(uploadImageTextLabel)
         containerView.addSubview(doneButton)
+        containerView.addSubview(dogButton)
+        containerView.addSubview(catButton)
         
-        view.addContraintsWithFormat(format: "V:[v0(\(350 + 20))]", views: containerView)
+        view.addContraintsWithFormat(format: "V:[v0(\(410 + 20))]", views: containerView)
         
         bottomConstraint = NSLayoutConstraint(item: containerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         
         view.addConstraint(bottomConstraint!)
+        //        centerConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+        //        view.addConstraint(centerConstraint!)
         
         view.addContraintsWithFormat(format: "H:|[v0]|", views: containerView)
         
         containerView.addContraintsWithFormat(format: "V:|-20-[v0]", views: pageTitle)
         containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: pageTitle)
-        containerView.addContraintsWithFormat(format: "V:|-80-[v0(50)]-20-[v1(50)]-20-[v2]-20-[v3(50)]", views: nameTextField, birthDateTextField, addPhotoButton, doneButton)
+        containerView.addContraintsWithFormat(format: "V:|-80-[v0(50)]-20-[v1(50)]-20-[v2(50)]", views: nameTextField, birthDateTextField, dogButton)
         containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: nameTextField)
         containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: birthDateTextField)
+        containerView.addContraintsWithFormat(format: "H:|-10-[v0]-20-[v1]-10-|", views: dogButton, catButton)
+        
+        
+        NSLayoutConstraint.activate([
+            catButton.topAnchor.constraint(equalTo: birthDateTextField.bottomAnchor, constant: 20),
+            catButton.widthAnchor.constraint(equalTo: dogButton.widthAnchor),
+            catButton.heightAnchor.constraint(equalTo: dogButton.heightAnchor)
+        ])
+        
+        containerView.addContraintsWithFormat(format: "H:[v0]-10-[v1]-10-|", views: uploadImageTextLabel,addPhotoButton)
+        catButton.bottomAnchor.constraint(equalTo: addPhotoButton.topAnchor, constant: -20).isActive = true
+        catButton.bottomAnchor.constraint(equalTo: uploadImageTextLabel.topAnchor, constant: -30).isActive = true
         
         containerView.addContraintsWithFormat(format: "H:[v1]-10-[v0]-10-|", views: addPhotoButton, uploadImageTextLabel)
         
         containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: doneButton)
         
-        //        view.addContraintsWithFormat(format: "V:|-230-[v0]", views: uploadImageTextLabel)
-        
-        view.addConstraint(NSLayoutConstraint(item: uploadImageTextLabel, attribute: .top, relatedBy: .equal, toItem: addPhotoButton, attribute: .top, multiplier: 1, constant: 10))
+        doneButton.topAnchor.constraint(equalTo: uploadImageTextLabel.bottomAnchor, constant: 20).isActive = true
+        doneButton.heightAnchor.constraint(equalTo: nameTextField.heightAnchor).isActive = true
         
         containerView.layer.cornerRadius = 10
         containerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -181,7 +242,28 @@ class AddPetViewController: UIViewController {
                 
             })
         }
+    }
+    
+    @objc func catButtonPressed() {
+        if dogButton.isSelected == true {
+            dogButton.isSelected = false
+            dogButton.backgroundColor = UIColor.white
+        }
+        catButton.isSelected = true
+        catButton.backgroundColor = AppColors.primaryColor
+        speciesSelected = "cat"
+    }
+    
+    @objc func dogButtonPressed() {
         
+        if catButton.isSelected == true {
+            catButton.isSelected = false
+            catButton.backgroundColor = UIColor.white
+        }
         
+        dogButton.isSelected = true
+        dogButton.backgroundColor = AppColors.primaryColor
+        
+        speciesSelected = "dog"
     }
 }

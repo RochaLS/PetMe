@@ -11,11 +11,13 @@
 		160D0A2B2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */; };
 		160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160D0A2C2400F6C000BADA5F /* MoodCollectionViewCell.swift */; };
 		1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */; };
-		166A86EC24077C9B009BEEBA /* VaccinationsTBDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86EB24077C9B009BEEBA /* VaccinationsTBDelegateMethods.swift */; };
+		166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */; };
 		166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */; };
 		166C91FF23F6369100964FC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C91FE23F6369100964FC8 /* GoogleService-Info.plist */; };
 		166C920323F6533600964FC8 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C920223F6533500964FC8 /* Pet.swift */; };
 		167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BAACD2408CE9300519EA6 /* Vaccine.swift */; };
+		168463592409EE8C00936530 /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168463582409EE8C00936530 /* GeneralHelper.swift */; };
+		1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684635A2409EFEC00936530 /* AnimalButton.swift */; };
 		1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */; };
 		1690B9B9240619B900F16BC5 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B8240619B900F16BC5 /* Mood.swift */; };
 		1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */; };
@@ -24,7 +26,7 @@
 		16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */; };
 		16A591A42404C6A000B9A239 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591A32404C6A000B9A239 /* AddButton.swift */; };
 		16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */; };
-		16B808AE240770B600C6A1EA /* VaccinationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B808AD240770B600C6A1EA /* VaccinationsViewController.swift */; };
+		16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B808AD240770B600C6A1EA /* VaccinesViewController.swift */; };
 		16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D723DFE82300C91316 /* AppDelegate.swift */; };
 		16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D923DFE82300C91316 /* SceneDelegate.swift */; };
 		16BCB6E423DFE82900C91316 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6E323DFE82900C91316 /* Assets.xcassets */; };
@@ -32,6 +34,9 @@
 		16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */; };
 		16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6FE23E2874800C91316 /* AllPetsController.swift */; };
 		16BCB70123E28B7F00C91316 /* PetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB70023E28B7F00C91316 /* PetCell.swift */; };
+		16BCC3D7240A342F00071E8A /* VaccinesDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCC3D6240A342F00071E8A /* VaccinesDataProviderDelegate.swift */; };
+		16BCC3D9240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCC3D8240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift */; };
+		16C30B42240A1995006E22D3 /* VaccinesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C30B41240A1995006E22D3 /* VaccinesDataProvider.swift */; };
 		16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFCD23EBCB820035DA5A /* CameraHandler.swift */; };
 		16D7CFD223EBD2AE0035DA5A /* PetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFD123EBD2AE0035DA5A /* PetProfileViewController.swift */; };
 		16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */; };
@@ -51,11 +56,13 @@
 		160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsViewCVDelegateMethods.swift; sourceTree = "<group>"; };
 		160D0A2C2400F6C000BADA5F /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonCollectionViewCell.swift; sourceTree = "<group>"; };
-		166A86EB24077C9B009BEEBA /* VaccinationsTBDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationsTBDelegateMethods.swift; sourceTree = "<group>"; };
+		166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesTBViewDelegateMethods.swift; sourceTree = "<group>"; };
 		166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTableViewCell.swift; sourceTree = "<group>"; };
 		166C91FE23F6369100964FC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		166C920223F6533500964FC8 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		167BAACD2408CE9300519EA6 /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
+		168463582409EE8C00936530 /* GeneralHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
+		1684635A2409EFEC00936530 /* AnimalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalButton.swift; sourceTree = "<group>"; };
 		1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMoodButton.swift; sourceTree = "<group>"; };
 		1690B9B8240619B900F16BC5 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProvider.swift; sourceTree = "<group>"; };
@@ -64,7 +71,7 @@
 		16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileCollectionViewDelegateMethods.swift; sourceTree = "<group>"; };
 		16A591A32404C6A000B9A239 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoodViewController.swift; sourceTree = "<group>"; };
-		16B808AD240770B600C6A1EA /* VaccinationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationsViewController.swift; sourceTree = "<group>"; };
+		16B808AD240770B600C6A1EA /* VaccinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesViewController.swift; sourceTree = "<group>"; };
 		16BCB6D423DFE82300C91316 /* PetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BCB6D723DFE82300C91316 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16BCB6D923DFE82300C91316 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +81,9 @@
 		16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		16BCB6FE23E2874800C91316 /* AllPetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetsController.swift; sourceTree = "<group>"; };
 		16BCB70023E28B7F00C91316 /* PetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCell.swift; sourceTree = "<group>"; };
+		16BCC3D6240A342F00071E8A /* VaccinesDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesDataProviderDelegate.swift; sourceTree = "<group>"; };
+		16BCC3D8240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccinesVC+DataProviderDelegateMethods.swift"; sourceTree = "<group>"; };
+		16C30B41240A1995006E22D3 /* VaccinesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesDataProvider.swift; sourceTree = "<group>"; };
 		16D7CFCD23EBCB820035DA5A /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		16D7CFD123EBD2AE0035DA5A /* PetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileViewController.swift; sourceTree = "<group>"; };
 		16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+DelegateMethods.swift"; sourceTree = "<group>"; };
@@ -129,6 +139,7 @@
 		169916B72408E74F00F3EBAF /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				16C30B41240A1995006E22D3 /* VaccinesDataProvider.swift */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -173,22 +184,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		16B808AC2407702300C6A1EA /* Vaccinations */ = {
+		16B808AC2407702300C6A1EA /* Vaccines */ = {
 			isa = PBXGroup;
 			children = (
+				16BCC3D5240A341400071E8A /* Protocols */,
 				16B808B1240771C000C6A1EA /* Model */,
 				16B808B0240771B000C6A1EA /* View */,
 				16B808AF240771A000C6A1EA /* Controller */,
 				169916B72408E74F00F3EBAF /* DataProvider */,
 			);
-			path = Vaccinations;
+			path = Vaccines;
 			sourceTree = "<group>";
 		};
 		16B808AF240771A000C6A1EA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				16B808AD240770B600C6A1EA /* VaccinationsViewController.swift */,
-				166A86EB24077C9B009BEEBA /* VaccinationsTBDelegateMethods.swift */,
+				16B808AD240770B600C6A1EA /* VaccinesViewController.swift */,
+				166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */,
+				16BCC3D8240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -234,7 +247,7 @@
 				16D7CFE423ECE7EA0035DA5A /* Assets */,
 				16F962CF23F7861300AAEBAF /* Pets */,
 				16A591A52404CC2000B9A239 /* Moods */,
-				16B808AC2407702300C6A1EA /* Vaccinations */,
+				16B808AC2407702300C6A1EA /* Vaccines */,
 				16D7CFD823ECE34E0035DA5A /* Camera */,
 				16D7CFD623ECE2130035DA5A /* Support */,
 				16BCB6E323DFE82900C91316 /* Assets.xcassets */,
@@ -243,6 +256,14 @@
 				166C91FE23F6369100964FC8 /* GoogleService-Info.plist */,
 			);
 			path = PetMe;
+			sourceTree = "<group>";
+		};
+		16BCC3D5240A341400071E8A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				16BCC3D6240A342F00071E8A /* VaccinesDataProviderDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		16D7CFD523ECE2030035DA5A /* Controller */ = {
@@ -283,6 +304,7 @@
 				16D7CFE723ECEE290035DA5A /* PetAvatarImageView.swift */,
 				16D7CFE923ED08730035DA5A /* PetAvatarWithShadowImageView.swift */,
 				1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */,
+				1684635A2409EFEC00936530 /* AnimalButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +334,7 @@
 			children = (
 				16A591A32404C6A000B9A239 /* AddButton.swift */,
 				16D7CFDE23ECE5090035DA5A /* UIColor+Hex.swift */,
+				168463582409EE8C00936530 /* GeneralHelper.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -464,10 +487,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16BCC3D7240A342F00071E8A /* VaccinesDataProviderDelegate.swift in Sources */,
 				1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */,
 				166C920323F6533600964FC8 /* Pet.swift in Sources */,
 				160D0A292400F0A600BADA5F /* MoodsViewController.swift in Sources */,
 				1690B9B9240619B900F16BC5 /* Mood.swift in Sources */,
+				16C30B42240A1995006E22D3 /* VaccinesDataProvider.swift in Sources */,
 				16BCB70123E28B7F00C91316 /* PetCell.swift in Sources */,
 				1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */,
 				1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */,
@@ -477,21 +502,24 @@
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
+				1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */,
 				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
 				16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */,
 				166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */,
+				168463592409EE8C00936530 /* GeneralHelper.swift in Sources */,
 				16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */,
 				16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */,
 				16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,
 				16D7CFE323ECE7E10035DA5A /* Assets.swift in Sources */,
-				16B808AE240770B600C6A1EA /* VaccinationsViewController.swift in Sources */,
-				166A86EC24077C9B009BEEBA /* VaccinationsTBDelegateMethods.swift in Sources */,
+				16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */,
+				166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */,
 				1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
 				16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */,
+				16BCC3D9240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift in Sources */,
 				16A591A42404C6A000B9A239 /* AddButton.swift in Sources */,
 				16D7CFD223EBD2AE0035DA5A /* PetProfileViewController.swift in Sources */,
 				167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */,

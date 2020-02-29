@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension VaccinationsViewController: UITableViewDelegate, UITableViewDataSource {
+extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -16,15 +16,12 @@ extension VaccinationsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            if let vaccines = dogVaccines["core"] {
-                return vaccines.count
-            }
+            return coreVaccines.count
         }
         
+        
         if section == 1 {
-            if let vaccines = dogVaccines["non-core"] {
-                return vaccines.count
-            }
+            return non_coreVaccines.count
         }
         
         return 0
@@ -33,23 +30,23 @@ extension VaccinationsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cell_id, for: indexPath) as! VaccineTableViewCell
         if indexPath.section == 0 {
-            if let vaccines = dogVaccines["core"] {
-                cell.vaccineName.text = vaccines[indexPath.row].name
-                if vaccines[indexPath.row].date == nil {
-                    cell.status.isHidden = true
-                } else {
-                    cell.status.text = dateToString(date: vaccines[indexPath.row].date!)
-                }
+            
+            cell.vaccineName.text = coreVaccines[indexPath.row].name
+            if coreVaccines[indexPath.row].date == nil {
+                cell.status.isHidden = true
+            } else {
+                cell.status.text = dateToString(date: coreVaccines[indexPath.row].date!)
             }
+            
         } else {
-            if let vaccines = dogVaccines["non-core"] {
-                cell.vaccineName.text = vaccines[indexPath.row].name
-                if vaccines[indexPath.row].date == nil {
-                    cell.status.isHidden = true
-                } else {
-                    cell.status.text = dateToString(date: vaccines[indexPath.row].date!)
-                }
+            
+            cell.vaccineName.text = non_coreVaccines[indexPath.row].name
+            if non_coreVaccines[indexPath.row].date == nil {
+                cell.status.isHidden = true
+            } else {
+                cell.status.text = dateToString(date: non_coreVaccines[indexPath.row].date!)
             }
+            
         }
         
         

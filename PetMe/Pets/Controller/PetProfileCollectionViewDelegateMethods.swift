@@ -46,7 +46,7 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     //This function only works with solid fontAwesome icons
-    func createAttrString(word: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
+   func createAttrString(word: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
         let string =  NSMutableAttributedString(string: "\(fontAwesomeIconToAppend) ", attributes:         [.font: UIFont.fontAwesome(ofSize: 24, style: .solid)]  )
         
         string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .medium), NSAttributedString.Key.foregroundColor: AppColors.black]
@@ -57,7 +57,7 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let controller = VaccinationsViewController()
+            let controller = VaccinesViewController()
             controller.pet = pet
             navigationController?.pushViewController(controller, animated: true)
         } else if indexPath.row == 2 {
