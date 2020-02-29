@@ -13,8 +13,8 @@ class VaccinesDataProvider {
     let db = Firestore.firestore()
     var delegate: VaccinesDataProviderDelegate?
     
-    func setVaccineData() {
-        let ref = db.collection("vaccines")
+    func setVaccineData(petID: String) {
+        let ref = db.collection("vaccines").whereField("pet_id", isEqualTo: petID)
         var vaccines = [Vaccine]()
         
         ref.addSnapshotListener { (querySnapshot, error) in

@@ -64,7 +64,7 @@ class VaccinesViewController: UIViewController {
         self.provider = VaccinesDataProvider()
         self.provider.delegate = self
         
-        self.provider.setVaccineData()
+        self.provider.setVaccineData(petID: pet.id)
 
         // Do any additional setup after loading the view.
     }
