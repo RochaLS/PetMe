@@ -74,5 +74,11 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
         return formatter.string(from: date)
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = VaccineInfoViewController()
+        controller.vaccine = indexPath.section == 0 ? coreVaccines[indexPath.row] :  non_coreVaccines[indexPath.row]
+        controller.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
 }

@@ -24,6 +24,9 @@
 		1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */; };
 		1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */; };
 		16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */; };
+		16A211DB240E05EA009EFEE2 /* VaccineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */; };
+		16A211DD240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A211DC240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift */; };
+		16A211DF240E0EF1009EFEE2 /* VaccineInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A211DE240E0EF1009EFEE2 /* VaccineInfoTableViewCell.swift */; };
 		16A591A42404C6A000B9A239 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591A32404C6A000B9A239 /* AddButton.swift */; };
 		16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */; };
 		16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B808AD240770B600C6A1EA /* VaccinesViewController.swift */; };
@@ -69,6 +72,9 @@
 		1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProviderDelegate.swift; sourceTree = "<group>"; };
 		1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+ProviderDelegateMethods.swift"; sourceTree = "<group>"; };
 		16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileCollectionViewDelegateMethods.swift; sourceTree = "<group>"; };
+		16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineInfoViewController.swift; sourceTree = "<group>"; };
+		16A211DC240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccineInfo+TableViewDelegateMethods.swift"; sourceTree = "<group>"; };
+		16A211DE240E0EF1009EFEE2 /* VaccineInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineInfoTableViewCell.swift; sourceTree = "<group>"; };
 		16A591A32404C6A000B9A239 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoodViewController.swift; sourceTree = "<group>"; };
 		16B808AD240770B600C6A1EA /* VaccinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +208,8 @@
 				16B808AD240770B600C6A1EA /* VaccinesViewController.swift */,
 				166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */,
 				16BCC3D8240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift */,
+				16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */,
+				16A211DC240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */,
+				16A211DE240E0EF1009EFEE2 /* VaccineInfoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,11 +527,14 @@
 				166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */,
 				1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
+				16A211DD240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift in Sources */,
+				16A211DF240E0EF1009EFEE2 /* VaccineInfoTableViewCell.swift in Sources */,
 				16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */,
 				16BCC3D9240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift in Sources */,
 				16A591A42404C6A000B9A239 /* AddButton.swift in Sources */,
 				16D7CFD223EBD2AE0035DA5A /* PetProfileViewController.swift in Sources */,
 				167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */,
+				16A211DB240E05EA009EFEE2 /* VaccineInfoViewController.swift in Sources */,
 				16D7CFEA23ED08730035DA5A /* PetAvatarWithShadowImageView.swift in Sources */,
 				160D0A2B2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift in Sources */,
 			);

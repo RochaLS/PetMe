@@ -16,7 +16,7 @@ class VaccinesViewController: UIViewController {
     
     weak var tableView: UITableView!
     
-     var provider: VaccinesDataProvider! = nil
+    var provider: VaccinesDataProvider! = nil
     
     let dogVaccines: [String:[Vaccine]] = ["core": [Vaccine(name: "Canine Distemper", isCore: true),
                                                     Vaccine(name: "Infectious Canine Hepatitis", isCore: true),
