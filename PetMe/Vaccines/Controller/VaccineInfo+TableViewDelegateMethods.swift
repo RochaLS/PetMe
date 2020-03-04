@@ -27,10 +27,16 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
             cell.switchButton.isHidden = true
         }
         
+        cell.switchButton.addTarget(self, action: #selector(switchButtonValueChanged), for: .valueChanged)
+        
+        
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
                 cell.mainLabel.text = "Vaccine Received"
+                if vaccine.taken == true {
+                    cell.switchButton.isOn = true
+                }
             case 1:
                 cell.mainLabel.text = "Date"
                 cell.mainLabel.textColor = UIColor.lightGray
@@ -65,7 +71,5 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
         header.textLabel?.textColor = AppColors.black
         header.textLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
     }
-    
-    
     
 }

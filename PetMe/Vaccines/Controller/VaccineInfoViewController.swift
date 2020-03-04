@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RLBAlertsPickers
 
 class VaccineInfoViewController: UIViewController {
     
@@ -14,7 +15,11 @@ class VaccineInfoViewController: UIViewController {
     
     weak var tableView: UITableView!
     
+    var provider: VaccinesDataProvider!
+    
     let cell_id = "vaccineInfo_Cell"
+    
+    var dateSelected: Date?
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -30,6 +35,7 @@ class VaccineInfoViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.provider = VaccinesDataProvider()
         view.backgroundColor = AppColors.primaryColor
         setupViews()
         setupTableView()
@@ -39,6 +45,7 @@ class VaccineInfoViewController: UIViewController {
         self.tableView.register(VaccineInfoTableViewCell.self, forCellReuseIdentifier: cell_id)
         
         self.tableView.tableFooterView = UIView() // Remove extra lines from table view
+        
     }
     
     func setupViews() {
@@ -68,4 +75,31 @@ class VaccineInfoViewController: UIViewController {
         
     }
     
+    @objc func switchButtonValueChanged(mySwitch: UISwitch) {
+        if mySwitch.isOn == true {
+            showAlertWithPicker()
+        }
+    }
+    
+    func showAlertWithPicker() {
+        let alert = UIAlertController()
+        alert.addDatePicker(mode: .date, date: Date(), minimumDate: nil, maximumDate: Date()) { date in
+            
+            self.dateSelected = date
+            
+        }
+        
+        alert.addAction(UIAlertAction(title: "Select Date", style: .default, handler: { (_ action) in
+            
+            if self.dateSelected == nil {
+                self.dateSelected = Date()
+            }
+            self.provider.updateData(isTaken: true, date: self.dateSelected!, id: self.vaccine.id!)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.show()
+        
+    }
+    
 }
+

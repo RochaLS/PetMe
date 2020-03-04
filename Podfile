@@ -12,6 +12,7 @@ target 'PetMe' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'FirebaseUI/Storage', '~> 8.0'
+  pod 'RLBAlertsPickers', '~> 1.1.1'
 
 
 

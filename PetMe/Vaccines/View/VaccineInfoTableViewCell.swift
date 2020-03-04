@@ -18,7 +18,11 @@ class VaccineInfoTableViewCell: UITableViewCell {
         return label
     }()
     
-    let switchButton = UISwitch()
+    let switchButton: UISwitch = {
+        let button = UISwitch()
+        button.onTintColor = AppColors.primaryColor
+        return button
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,8 +43,6 @@ class VaccineInfoTableViewCell: UITableViewCell {
     func setupView() {
         addSubview(mainLabel)
         addSubview(switchButton)
-        
-        switchButton.onTintColor = AppColors.primaryColor
         
         addContraintsWithFormat(format: "V:|[v0]|", views: mainLabel)
         addContraintsWithFormat(format: "H:|-20-[v0][v1]-20-|", views: mainLabel, switchButton)

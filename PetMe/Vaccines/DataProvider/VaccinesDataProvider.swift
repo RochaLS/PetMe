@@ -65,4 +65,19 @@ class VaccinesDataProvider {
             }
         }
     }
+    
+    func updateData(isTaken: Bool, date: Date, id: String) {
+        let ref = db.collection("vaccines").document(id)
+        ref.updateData(["taken" : isTaken]) { (error) in
+            if error != nil {
+                print(error!)
+            }
+        }
+        
+        ref.updateData(["dateTaken" : date]) { (error) in
+            if error != nil {
+                print(error!)
+            }
+        }
+    }
 }

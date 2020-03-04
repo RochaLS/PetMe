@@ -38,6 +38,8 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.status.text = dateToString(date: coreVaccines[indexPath.row].date!)
             }
             
+            checkIfVaccineIsTaken(cell: cell, vaccine: coreVaccines[indexPath.row])
+            
         } else {
             
             cell.vaccineName.text = non_coreVaccines[indexPath.row].name
@@ -46,6 +48,8 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 cell.status.text = dateToString(date: non_coreVaccines[indexPath.row].date!)
             }
+            
+            checkIfVaccineIsTaken(cell: cell, vaccine: coreVaccines[indexPath.row])
             
         }
         
@@ -80,5 +84,11 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
         controller.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(controller, animated: true)
         
+    }
+    
+    func checkIfVaccineIsTaken(cell: VaccineTableViewCell, vaccine: Vaccine) {
+        if vaccine.taken == true {
+            cell.isDone.textColor = AppColors.primaryColor
+        }
     }
 }

@@ -256,6 +256,7 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - RLBAlertsPickers (1.1.2)
   - SDWebImage (5.3.2):
     - SDWebImage/Core (= 5.3.2)
   - SDWebImage/Core (5.3.2)
@@ -266,6 +267,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Storage (~> 8.0)
   - FontAwesome.swift
+  - RLBAlertsPickers (~> 1.1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -289,6 +291,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - RLBAlertsPickers
     - SDWebImage
 
 SPEC CHECKSUMS:
@@ -312,8 +315,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  RLBAlertsPickers: 2548943b0cb16620904cbd926a645362d1b43963
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
 
-PODFILE CHECKSUM: 9e5c23e50eccd3f22fac31df0e96e04ae084639c
+PODFILE CHECKSUM: ab9a27009b21a875c08df2ac0d735d94d6aa3241
 
 COCOAPODS: 1.7.4
