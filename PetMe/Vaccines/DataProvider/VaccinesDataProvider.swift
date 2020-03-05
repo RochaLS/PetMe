@@ -42,6 +42,7 @@ class VaccinesDataProvider {
                 vaccines.append(vaccine)
             }
             self.delegate?.didGetVaccinesData(allVaccines: vaccines)
+            print(vaccines.count)
             
         }
     }

@@ -49,7 +49,7 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.status.text = dateToString(date: non_coreVaccines[indexPath.row].date!)
             }
             
-            checkIfVaccineIsTaken(cell: cell, vaccine: coreVaccines[indexPath.row])
+            checkIfVaccineIsTaken(cell: cell, vaccine: non_coreVaccines[indexPath.row])
             
         }
         
@@ -87,7 +87,7 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func checkIfVaccineIsTaken(cell: VaccineTableViewCell, vaccine: Vaccine) {
-        if vaccine.taken == true {
+        if vaccine.taken == true  {
             cell.isDone.textColor = AppColors.primaryColor
         }
     }

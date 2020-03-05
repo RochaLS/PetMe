@@ -10,7 +10,8 @@ import Foundation
 
 extension VaccinesViewController: VaccinesDataProviderDelegate {
     func didGetVaccinesData(allVaccines: [Vaccine]) {
-        
+        coreVaccines.removeAll()
+        non_coreVaccines.removeAll()
         for vaccine in allVaccines {
             if vaccine.isCore == true {
                 coreVaccines.append(vaccine)
