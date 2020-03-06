@@ -18,6 +18,7 @@ class VaccineInfoViewController: UIViewController {
     var provider: VaccinesDataProvider!
     
     let cell_id = "vaccineInfo_Cell"
+    let about_id = "about_cell"
     
     var dateSelected: Date?
     
@@ -43,6 +44,7 @@ class VaccineInfoViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(VaccineInfoTableViewCell.self, forCellReuseIdentifier: cell_id)
+        self.tableView.register(AboutTableViewCell.self, forCellReuseIdentifier: about_id)
         
         self.tableView.tableFooterView = UIView() // Remove extra lines from table view
         

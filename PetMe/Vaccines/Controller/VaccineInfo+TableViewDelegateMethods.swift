@@ -20,17 +20,17 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cell_id, for: indexPath) as! VaccineInfoTableViewCell
-        cell.setupView()
-        
-        if (indexPath.section == 0 && indexPath.row != 0) || indexPath.section == 1 {
-            cell.switchButton.isHidden = true
-        }
-        
-        cell.switchButton.addTarget(self, action: #selector(switchButtonValueChanged), for: .valueChanged)
-        
         
         if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cell_id, for: indexPath) as! VaccineInfoTableViewCell
+            
+            cell.setupView()
+            
+            if indexPath.row != 0 || indexPath.section == 1 {
+                cell.switchButton.isHidden = true
+            }
+            cell.switchButton.addTarget(self, action: #selector(switchButtonValueChanged), for: .valueChanged)
+            
             switch indexPath.row {
             case 0:
                 cell.mainLabel.text = "Vaccine Received"
@@ -41,7 +41,7 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd.MM.yy"
                 if dateSelected == nil && vaccine.date == nil {
-                     cell.mainLabel.text = "Date"
+                    cell.mainLabel.text = "Date"
                 } else if vaccine.date == nil {
                     cell.mainLabel.text = dateFormatter.string(from: dateSelected!)
                 } else {
@@ -51,12 +51,16 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
             default:
                 cell.mainLabel.text = "Vaccine"
             }
+            return cell
         } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: about_id, for: indexPath) as! AboutTableViewCell
+            cell.setupView()
             cell.mainLabel.numberOfLines = 0
             cell.mainLabel.text = "Humans,humans, humans oh how much they love us felines we are the center of attention they feed, they clean if human is on laptop sit on the keyboard and lick the other cats. Damn that dog run up and down stairs for eat half my food and ask for more yet kitty power, catto munch salmono"
+            return cell
         }
         
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

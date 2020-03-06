@@ -18,6 +18,7 @@
 		167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BAACD2408CE9300519EA6 /* Vaccine.swift */; };
 		168463592409EE8C00936530 /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168463582409EE8C00936530 /* GeneralHelper.swift */; };
 		1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684635A2409EFEC00936530 /* AnimalButton.swift */; };
+		1687A2D42412E63B0038E146 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687A2D32412E63B0038E146 /* AboutTableViewCell.swift */; };
 		1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */; };
 		1690B9B9240619B900F16BC5 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B8240619B900F16BC5 /* Mood.swift */; };
 		1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */; };
@@ -66,6 +67,7 @@
 		167BAACD2408CE9300519EA6 /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
 		168463582409EE8C00936530 /* GeneralHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
 		1684635A2409EFEC00936530 /* AnimalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalButton.swift; sourceTree = "<group>"; };
+		1687A2D32412E63B0038E146 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMoodButton.swift; sourceTree = "<group>"; };
 		1690B9B8240619B900F16BC5 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProvider.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */,
 				16A211DE240E0EF1009EFEE2 /* VaccineInfoTableViewCell.swift */,
+				1687A2D32412E63B0038E146 /* AboutTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
+				1687A2D42412E63B0038E146 /* AboutTableViewCell.swift in Sources */,
 				1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */,
 				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
