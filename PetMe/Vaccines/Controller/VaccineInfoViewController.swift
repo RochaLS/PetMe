@@ -79,7 +79,9 @@ class VaccineInfoViewController: UIViewController {
         if mySwitch.isOn == true {
             showAlertWithPicker()
         } else {
+            self.dateSelected = nil
             provider.updateData(isTaken: false, date: nil, id: vaccine.id!)
+            self.tableView.reloadData()
         }
     }
     
