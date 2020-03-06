@@ -48,8 +48,6 @@ class VaccineInfoTableViewCell: UITableViewCell {
         addContraintsWithFormat(format: "H:|-20-[v0]-10-[v1]-20-|", views: mainLabel, switchButton)
         
         self.centerYAnchor.constraint(equalTo: switchButton.centerYAnchor).isActive = true
-        
-        selectionStyle = .none
     }
 
 }

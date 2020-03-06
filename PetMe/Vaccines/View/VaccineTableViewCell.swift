@@ -59,6 +59,8 @@ class VaccineTableViewCell: UITableViewCell {
         addContraintsWithFormat(format: "V:|[v0]|", views: status)
         addContraintsWithFormat(format: "H:|-20-[v0]-20-[v1]", views: isDone, vaccineName)
         addContraintsWithFormat(format: "H:[v0]-20-|", views: status)
+        
+        selectionStyle = .none
     }
 
 
