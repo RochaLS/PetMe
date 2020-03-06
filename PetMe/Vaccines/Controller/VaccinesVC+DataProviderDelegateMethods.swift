@@ -21,6 +21,4 @@ extension VaccinesViewController: VaccinesDataProviderDelegate {
         }
         self.tableView.reloadData()
     }
-    
-    
 }

@@ -35,6 +35,7 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
             if coreVaccines[indexPath.row].date == nil {
                 cell.status.isHidden = true
             } else {
+                cell.status.isHidden = false
                 cell.status.text = dateToString(date: coreVaccines[indexPath.row].date!)
             }
             
@@ -46,6 +47,7 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
             if non_coreVaccines[indexPath.row].date == nil {
                 cell.status.isHidden = true
             } else {
+                cell.status.isHidden = false
                 cell.status.text = dateToString(date: non_coreVaccines[indexPath.row].date!)
             }
             
@@ -89,6 +91,8 @@ extension VaccinesViewController: UITableViewDelegate, UITableViewDataSource {
     func checkIfVaccineIsTaken(cell: VaccineTableViewCell, vaccine: Vaccine) {
         if vaccine.taken == true  {
             cell.isDone.textColor = AppColors.primaryColor
+        } else {
+            cell.isDone.textColor = AppColors.red
         }
     }
 }

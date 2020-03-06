@@ -34,11 +34,14 @@ class VaccinesDataProvider {
                 let isCore = data["isCore"] as! Bool
                 let id = data["id"] as! String
                 let pet_id = data["pet_id"] as! String
+                let dateTaken = data["dateTaken"] as? Timestamp
                 
                 let vaccine = Vaccine(name: name, isCore: isCore)
                 vaccine.taken = taken
                 vaccine.id = id
                 vaccine.pet_id = pet_id
+                vaccine.date = dateTaken?.dateValue()
+                
                 vaccines.append(vaccine)
             }
             self.delegate?.didGetVaccinesData(allVaccines: vaccines)
@@ -67,7 +70,7 @@ class VaccinesDataProvider {
         }
     }
     
-    func updateData(isTaken: Bool, date: Date, id: String) {
+    func updateData(isTaken: Bool, date: Date?, id: String) {
         let ref = db.collection("vaccines").document(id)
         ref.updateData(["taken" : isTaken]) { (error) in
             if error != nil {
@@ -75,9 +78,11 @@ class VaccinesDataProvider {
             }
         }
         
-        ref.updateData(["dateTaken" : date]) { (error) in
-            if error != nil {
-                print(error!)
+        if date != nil {
+            ref.updateData(["dateTaken" : date!]) { (error) in
+                if error != nil {
+                    print(error!)
+                }
             }
         }
     }

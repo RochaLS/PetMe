@@ -38,7 +38,15 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
                     cell.switchButton.isOn = true
                 }
             case 1:
-                cell.mainLabel.text = "Date"
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yy"
+                if dateSelected == nil && vaccine.date == nil {
+                     cell.mainLabel.text = "Date"
+                } else if vaccine.date == nil {
+                    cell.mainLabel.text = dateFormatter.string(from: dateSelected!)
+                } else {
+                    cell.mainLabel.text = dateFormatter.string(from: vaccine.date!)
+                }
                 cell.mainLabel.textColor = UIColor.lightGray
             default:
                 cell.mainLabel.text = "Vaccine"
@@ -58,7 +66,7 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
-            return "About this Vaccine"
+            return "About"
         }
         
         return ""
@@ -70,6 +78,8 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = AppColors.black
         header.textLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        header.backgroundColor = .red
+        header.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
 }

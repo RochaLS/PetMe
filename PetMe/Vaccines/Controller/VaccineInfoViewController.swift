@@ -78,6 +78,8 @@ class VaccineInfoViewController: UIViewController {
     @objc func switchButtonValueChanged(mySwitch: UISwitch) {
         if mySwitch.isOn == true {
             showAlertWithPicker()
+        } else {
+            provider.updateData(isTaken: false, date: nil, id: vaccine.id!)
         }
     }
     
@@ -95,9 +97,12 @@ class VaccineInfoViewController: UIViewController {
                 self.dateSelected = Date()
             }
             self.provider.updateData(isTaken: true, date: self.dateSelected!, id: self.vaccine.id!)
+            self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.show()
+        
+        
         
     }
     

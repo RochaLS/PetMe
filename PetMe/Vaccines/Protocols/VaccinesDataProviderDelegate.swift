@@ -11,4 +11,6 @@ import Foundation
 protocol VaccinesDataProviderDelegate {
     
     func didGetVaccinesData(allVaccines: [Vaccine])
+    
+    
 }

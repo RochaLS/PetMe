@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Vaccine {
+class Vaccine: NSObject {
     let name: String
     var taken: Bool = false
     var date: Date?
