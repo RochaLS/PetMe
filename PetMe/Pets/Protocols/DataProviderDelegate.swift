@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@objc protocol DataProviderDelegate {
+@objc protocol DataProviderDelegate: class {
     
     @objc optional func didGetPetData(allPets: [Pet])
     

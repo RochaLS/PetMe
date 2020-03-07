@@ -11,7 +11,7 @@ import Firebase
 
 class VaccinesDataProvider {
     let db = Firestore.firestore()
-    var delegate: VaccinesDataProviderDelegate?
+    weak var delegate: VaccinesDataProviderDelegate?
     
     func setVaccineData(petID: String) {
         let ref = db.collection("vaccines").whereField("pet_id", isEqualTo: petID)

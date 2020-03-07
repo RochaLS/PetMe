@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MoodDataProviderDelegate {
+protocol MoodDataProviderDelegate: class {
     
     func didLoadMoodData(allMoods: [Mood])
 }

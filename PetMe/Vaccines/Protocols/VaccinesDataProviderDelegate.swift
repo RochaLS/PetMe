@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol VaccinesDataProviderDelegate {
+protocol VaccinesDataProviderDelegate: class {
     
     func didGetVaccinesData(allVaccines: [Vaccine])
     

@@ -14,7 +14,7 @@ class DataManager {
     
     var db = Firestore.firestore()
     var petsRef: DocumentReference? = nil
-    var delegate: DataProviderDelegate?
+    weak var delegate: DataProviderDelegate?
     var storageRef = Storage.storage().reference()
     
     
@@ -48,7 +48,7 @@ class DataManager {
                 let timestamp = data["created_at"] as! Timestamp
                 let date = timestamp.dateValue()
                 let species = data["species"] as! String
-
+                
                 let id = data["id"] as! String
                 
                 let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species)

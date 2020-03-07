@@ -11,7 +11,7 @@ import Firebase
 
 class MoodDataProvider {
     var db = Firestore.firestore()
-    var delegate: MoodDataProviderDelegate?
+    weak var delegate: MoodDataProviderDelegate?
     
     func setMoodData(pet: Pet) {
         var moods = [Mood]()
