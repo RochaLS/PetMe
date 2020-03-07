@@ -26,10 +26,6 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         } else {
             provider.getPetImageToImageView(from: pets[indexPath.row], to: cell.petImageView)
         }
-        
-      
-        
-        
         return cell
         
     }

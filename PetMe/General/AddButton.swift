@@ -16,9 +16,9 @@ class AddButton: UIButton {
         layer.cornerRadius = 30
         setImage(UIImage(named: "add")?.withTintColor(UIColor.white), for: .normal)
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowRadius = 4
-        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 3, height: 3)
+        layer.shadowRadius = 6
+        layer.shadowOpacity = 0.2
        
     }
     
