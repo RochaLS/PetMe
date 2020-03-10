@@ -22,6 +22,11 @@ extension RemindersViewController: UICollectionViewDataSource, UICollectionViewD
         return CGSize(width: view.frame.width - 20, height: 100)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+           //top, left, bottom, right
+           return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+       }
+    
     
     
 }
