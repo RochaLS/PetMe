@@ -16,12 +16,16 @@ class CustomTabBarController: UITabBarController {
 //        let layout = UICollectionViewFlowLayout()
         let allPetsController = AllPetsController()
         let allPetsNavController = UINavigationController(rootViewController: allPetsController)
+        let remindersController = RemindersViewController()
+        let remindersNavController = UINavigationController(rootViewController: remindersController)
+        remindersController.tabBarItem.title = "Reminders"
+        remindersController.tabBarItem.image = UIImage.fontAwesomeIcon(name: .listAlt, style: .regular, textColor: AppColors.black, size: CGSize(width: 35, height: 35))
         allPetsController.tabBarItem.title = "My pets"
-        allPetsController.tabBarItem.image = UIImage(named: "pets")
+        allPetsController.tabBarItem.image = UIImage.fontAwesomeIcon(name: .paw, style: .solid, textColor: AppColors.black, size: CGSize(width: 35, height: 35))
         tabBar.tintColor = AppColors.black
         
         
-        viewControllers = [allPetsNavController]
+        viewControllers = [allPetsNavController, remindersNavController]
         
     }
     

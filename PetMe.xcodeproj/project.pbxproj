@@ -19,6 +19,11 @@
 		168463592409EE8C00936530 /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168463582409EE8C00936530 /* GeneralHelper.swift */; };
 		1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684635A2409EFEC00936530 /* AnimalButton.swift */; };
 		1687A2D42412E63B0038E146 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687A2D32412E63B0038E146 /* AboutTableViewCell.swift */; };
+		168AB7292417337B000B7618 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AB7282417337B000B7618 /* RemindersViewController.swift */; };
+		168AB72B24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AB72A24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift */; };
+		168AB73224173CBF000B7618 /* ReminderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AB73124173CBF000B7618 /* ReminderCollectionViewCell.swift */; };
+		168AB73424173EB8000B7618 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AB73324173EB8000B7618 /* Reminder.swift */; };
+		168AB73824175084000B7618 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AB73724175084000B7618 /* AddReminderViewController.swift */; };
 		1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */; };
 		1690B9B9240619B900F16BC5 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9B8240619B900F16BC5 /* Mood.swift */; };
 		1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */; };
@@ -68,6 +73,11 @@
 		168463582409EE8C00936530 /* GeneralHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
 		1684635A2409EFEC00936530 /* AnimalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalButton.swift; sourceTree = "<group>"; };
 		1687A2D32412E63B0038E146 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
+		168AB7282417337B000B7618 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		168AB72A24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		168AB73124173CBF000B7618 /* ReminderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCollectionViewCell.swift; sourceTree = "<group>"; };
+		168AB73324173EB8000B7618 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		168AB73724175084000B7618 /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		1690B9B62404CEA800F16BC5 /* ChooseMoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMoodButton.swift; sourceTree = "<group>"; };
 		1690B9B8240619B900F16BC5 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProvider.swift; sourceTree = "<group>"; };
@@ -120,19 +130,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1634CC69240F5FCF002C41B1 /* Alerts and Pickers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Alerts and Pickers";
-			sourceTree = "<group>";
-		};
 		166C920423F6533E00964FC8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				166C920223F6533500964FC8 /* Pet.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		168AB72724173304000B7618 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				168AB72F24173C65000B7618 /* Model */,
+				168AB73024173C86000B7618 /* View */,
+				168AB72C24173C30000B7618 /* Controller */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		168AB72C24173C30000B7618 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				168AB7282417337B000B7618 /* RemindersViewController.swift */,
+				168AB72A24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift */,
+				168AB73724175084000B7618 /* AddReminderViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		168AB72F24173C65000B7618 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				168AB73324173EB8000B7618 /* Reminder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		168AB73024173C86000B7618 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				168AB73124173CBF000B7618 /* ReminderCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1690B9BB2406245500F16BC5 /* DataProvider */ = {
@@ -267,6 +306,7 @@
 				16F962CF23F7861300AAEBAF /* Pets */,
 				16A591A52404CC2000B9A239 /* Moods */,
 				16B808AC2407702300C6A1EA /* Vaccines */,
+				168AB72724173304000B7618 /* Reminders */,
 				16D7CFD823ECE34E0035DA5A /* Camera */,
 				16D7CFD623ECE2130035DA5A /* Support */,
 				16BCB6E323DFE82900C91316 /* Assets.xcassets */,
@@ -292,7 +332,6 @@
 				16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */,
 				16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */,
 				16E85FE123E3A90E0026F52A /* AddPetViewController.swift */,
-				16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */,
 				16D7CFD123EBD2AE0035DA5A /* PetProfileViewController.swift */,
 				16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */,
 			);
@@ -351,10 +390,10 @@
 		16F962D023F7868300AAEBAF /* General */ = {
 			isa = PBXGroup;
 			children = (
-				1634CC69240F5FCF002C41B1 /* Alerts and Pickers */,
 				16A591A32404C6A000B9A239 /* AddButton.swift */,
 				16D7CFDE23ECE5090035DA5A /* UIColor+Hex.swift */,
 				168463582409EE8C00936530 /* GeneralHelper.swift */,
+				16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -510,6 +549,7 @@
 				16BCC3D7240A342F00071E8A /* VaccinesDataProviderDelegate.swift in Sources */,
 				1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */,
 				166C920323F6533600964FC8 /* Pet.swift in Sources */,
+				168AB73424173EB8000B7618 /* Reminder.swift in Sources */,
 				160D0A292400F0A600BADA5F /* MoodsViewController.swift in Sources */,
 				1690B9B9240619B900F16BC5 /* Mood.swift in Sources */,
 				16C30B42240A1995006E22D3 /* VaccinesDataProvider.swift in Sources */,
@@ -527,8 +567,12 @@
 				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
+				168AB73824175084000B7618 /* AddReminderViewController.swift in Sources */,
 				16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */,
 				166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */,
+				168AB72B24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift in Sources */,
+				168AB7292417337B000B7618 /* RemindersViewController.swift in Sources */,
+				168AB73224173CBF000B7618 /* ReminderCollectionViewCell.swift in Sources */,
 				168463592409EE8C00936530 /* GeneralHelper.swift in Sources */,
 				16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */,
 				16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */,

@@ -67,6 +67,12 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         // apple default
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(true)
+         self.navigationController?.navigationBar.barTintColor = AppColors.primaryColor
+         self.navigationController?.navigationBar.tintColor = UIColor.white
+     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

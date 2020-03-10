@@ -21,8 +21,6 @@ class AllPetsController: UIViewController {
     
     var petImage: UIImage!
     
-    
-    
     override func loadView() {
         super.loadView()
         setupViews()
