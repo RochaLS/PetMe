@@ -10,11 +10,13 @@ import Foundation
 
 class Reminder {
     let title: String
+    let id: String
     let createdBy: String
     let createdAt: Date
     
-    init(title: String, createdBy: String, createdAt: Date) {
+    init(title: String, id: String, createdBy: String, createdAt: Date) {
         self.title = title
+        self.id = id
         self.createdBy = createdBy
         self.createdAt = createdAt
     }

@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class ReminderCollectionViewCell: UICollectionViewCell {
+class ReminderCollectionViewCell: SwipeCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
-        layer.cornerRadius = 8
-        layer.borderWidth = 0
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1)
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.3
+        contentView.backgroundColor = UIColor.white
+        contentView.layer.cornerRadius = 8
+        contentView.layer.borderWidth = 0
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        contentView.layer.shadowRadius = 2
+        contentView.layer.shadowOpacity = 0.3
         
         layer.masksToBounds = false //<-
         
@@ -56,14 +57,14 @@ class ReminderCollectionViewCell: UICollectionViewCell {
     }()
     
     func setupViews() {
-        addSubview(titleLabel)
-        addSubview(createdByLabel)
-        addSubview(createdAtLabel)
-        addContraintsWithFormat(format: "V:|[v0]|", views: titleLabel)
-        addContraintsWithFormat(format: "H:|-15-[v0]-15-|", views: titleLabel)
-        addContraintsWithFormat(format: "V:|-10-[v0]", views: createdAtLabel)
-        addContraintsWithFormat(format: "H:[v0]-15-|", views: createdAtLabel)
-        addContraintsWithFormat(format: "V:|-10-[v0]", views: createdByLabel)
-        addContraintsWithFormat(format: "H:|-15-[v0]", views: createdByLabel)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(createdByLabel)
+        contentView.addSubview(createdAtLabel)
+        contentView.addContraintsWithFormat(format: "V:|[v0]|", views: titleLabel)
+        contentView.addContraintsWithFormat(format: "H:|-15-[v0]-15-|", views: titleLabel)
+        contentView.addContraintsWithFormat(format: "V:|-10-[v0]", views: createdAtLabel)
+        contentView.addContraintsWithFormat(format: "H:[v0]-15-|", views: createdAtLabel)
+        contentView.addContraintsWithFormat(format: "V:|-10-[v0]", views: createdByLabel)
+        contentView.addContraintsWithFormat(format: "H:|-15-[v0]", views: createdByLabel)
     }
 }

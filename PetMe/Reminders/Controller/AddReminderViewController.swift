@@ -11,6 +11,7 @@ import UIKit
 class AddReminderViewController: UIViewController {
     
     var bottomConstraint: NSLayoutConstraint?
+    var provider: ReminderDataProvider! = nil
     
     let container : UIView = {
         let view = UIView()
@@ -52,6 +53,7 @@ class AddReminderViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.clear
         setupViews()
+        provider = ReminderDataProvider()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -86,7 +88,10 @@ class AddReminderViewController: UIViewController {
     
     @objc func doneButtonPressed() {
         //TODO Create reminder here:
-    
+        if reminderTextField.text?.isEmpty == false && reminderTextField.text != "" {
+            let newReminder = Reminder(title: reminderTextField.text!, id: UUID().uuidString, createdBy: "Lucas", createdAt: Date())
+            provider.addReminderDataToFirestore(reminder: newReminder)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -260,6 +260,7 @@ PODS:
   - SDWebImage (5.3.2):
     - SDWebImage/Core (= 5.3.2)
   - SDWebImage/Core (5.3.2)
+  - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -268,6 +269,7 @@ DEPENDENCIES:
   - FirebaseUI/Storage (~> 8.0)
   - FontAwesome.swift
   - RLBAlertsPickers (~> 1.1.1)
+  - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -293,6 +295,7 @@ SPEC REPOS:
     - nanopb
     - RLBAlertsPickers
     - SDWebImage
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -317,7 +320,8 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   RLBAlertsPickers: 2548943b0cb16620904cbd926a645362d1b43963
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: ab9a27009b21a875c08df2ac0d735d94d6aa3241
+PODFILE CHECKSUM: c534c0f68bb0f34829d47fd8b90c2318a7ef8c97
 
 COCOAPODS: 1.7.4

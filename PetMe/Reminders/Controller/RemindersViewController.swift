@@ -14,6 +14,13 @@ class RemindersViewController: UIViewController {
     
     let cell_id = "reminderCell"
     
+    var provider: ReminderDataProvider! = nil
+    
+    var reminders = [Reminder]()
+    
+    
+    
+    
     let addButton: UIButton = {
         let button = AddButton()
         button.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
@@ -33,6 +40,9 @@ class RemindersViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ReminderCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
+        provider = ReminderDataProvider()
+        provider.delegate = self
+        provider.setReminderData()
     }
     
     func setupViews() {
