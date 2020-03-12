@@ -21,7 +21,8 @@ class AddReminderViewController: UIViewController {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = AppFonts.mainFontBold
+        label.font = label.font.withSize(24)
         label.text = "Add a Reminder"
         label.textColor = AppColors.black
         label.textAlignment = .center
@@ -43,6 +44,7 @@ class AddReminderViewController: UIViewController {
         button.setTitle("Done", for: .normal)
         button.backgroundColor = AppColors.primaryColor
         button.layer.cornerRadius = 5
+        button.titleLabel?.font = AppFonts.mainFontMedium
         button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button
     }()

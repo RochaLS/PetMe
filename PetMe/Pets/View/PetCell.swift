@@ -32,7 +32,8 @@ class PetCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Drika"
         label.textColor = AppColors.black
-        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(22)
         
         return label
         

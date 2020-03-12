@@ -14,7 +14,8 @@ class AboutTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Option Name"
         label.textColor = AppColors.black
-        label.font = UIFont.systemFont(ofSize: 20 , weight: .regular)
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(20)
         label.textAlignment = .justified
         return label
     }()

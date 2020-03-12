@@ -52,7 +52,8 @@ class AddPetViewController: UIViewController {
     let pageTitle: UILabel = {
         let label = UILabel()
         label.text = "Add Pet"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = AppFonts.mainFontBold
+        label.font = label.font.withSize(20)
         label.textAlignment = .center
         return label
     }()
@@ -87,8 +88,8 @@ class AddPetViewController: UIViewController {
     let uploadImageTextLabel: UILabel = {
         let label = UILabel()
         label.text = "Upload Photo"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        label.textColor = AppColors.black
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(20)
         label.textAlignment = .right
         return label
     }()
@@ -111,6 +112,7 @@ class AddPetViewController: UIViewController {
         button.setTitle("Done", for: .normal)
         button.backgroundColor = AppColors.primaryColor
         button.layer.cornerRadius = 5
+        button.titleLabel?.font = AppFonts.mainFontMedium
         button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button
     }()

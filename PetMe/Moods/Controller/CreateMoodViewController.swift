@@ -16,7 +16,8 @@ class CreateMoodViewController: UIViewController {
     
     let questionTextView: UITextView = {
         let textView = UITextView()
-        textView.font = UIFont.boldSystemFont(ofSize: 24)
+        textView.font = AppFonts.mainFontBold
+        textView.font = textView.font!.withSize(24)
         textView.text = "Some text"
         textView.textColor = AppColors.black
         textView.textAlignment = .center

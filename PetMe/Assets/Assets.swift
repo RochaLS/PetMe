@@ -18,3 +18,10 @@ class AppColors {
     static let red = UIColor(rgb: 0xfa4252)
     static let orange = UIColor(rgb: 0xf8b400)
 }
+
+class AppFonts {
+    static let mainFontRegular = UIFont(name: "Roboto-Regular", size: 19)
+    static let mainFontMedium = UIFont(name: "Roboto-Medium", size: 19)
+    static let mainFontBold = UIFont(name: "Roboto-Bold", size: 19)
+    
+}

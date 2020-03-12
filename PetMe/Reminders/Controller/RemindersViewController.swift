@@ -33,6 +33,7 @@ class RemindersViewController: UIViewController {
         view.backgroundColor = AppColors.backgroundColor
         navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
         navigationController?.navigationBar.shadowImage = UIImage()
+           self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
         navigationItem.title = "Reminders"
         
 

@@ -13,12 +13,11 @@ extension RemindersViewController: SwipeCollectionViewCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
-
+        
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
-//            self.provider.deleteData(reminder: self.reminders[indexPath.row])
+            self.provider.deleteData(reminder: self.reminders[indexPath.row])
             self.reminders.remove(at: indexPath.row)
-            self.collectionView.reloadData()
         }
         
         deleteAction.image = UIImage.fontAwesomeIcon(name: .trash, style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
@@ -30,7 +29,7 @@ extension RemindersViewController: SwipeCollectionViewCellDelegate {
     func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
         var options = SwipeOptions()
         options.expansionStyle = .destructiveAfterFill
-
+        
         return options
     }
     

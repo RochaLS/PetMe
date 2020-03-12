@@ -14,7 +14,8 @@ class VaccineTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Vaccine Name"
         label.textColor = AppColors.black
-        label.font = UIFont.systemFont(ofSize: 20 , weight: .regular)
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(20)
         return label
         
     }()
@@ -33,7 +34,8 @@ class VaccineTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Status"
         label.textColor = UIColor.gray
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(18)
         return label
     }()
 

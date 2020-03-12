@@ -36,7 +36,8 @@ class VaccinesViewController: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Vaccinations"
-        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        label.font = AppFonts.mainFontBold
+        label.font = label.font.withSize(22)
         label.textAlignment = .center
         label.textColor = UIColor.white
         return label

@@ -52,7 +52,8 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
     let petNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Pet Name"
-        label.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        label.font = AppFonts.mainFontBold
+        label.font = label.font.withSize(26)
         label.textColor = UIColor.white
         label.textAlignment = .center
         return label

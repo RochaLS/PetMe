@@ -14,11 +14,11 @@ class ReminderCollectionViewCell: SwipeCollectionViewCell {
         super.init(frame: frame)
         contentView.backgroundColor = UIColor.white
         contentView.layer.cornerRadius = 8
-        contentView.layer.borderWidth = 0
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
-        contentView.layer.shadowRadius = 2
-        contentView.layer.shadowOpacity = 0.3
+         contentView.layer.borderWidth = 0
+         contentView.layer.shadowColor = UIColor.black.cgColor
+         contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
+         contentView.layer.shadowRadius = 2
+         contentView.layer.shadowOpacity = 0.3
         
         layer.masksToBounds = false //<-
         
@@ -34,7 +34,7 @@ class ReminderCollectionViewCell: SwipeCollectionViewCell {
         label.text = "Buy Food"
         label.numberOfLines = 0
         label.textColor = AppColors.black
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = AppFonts.mainFontRegular
         return label
     }()
     
@@ -43,7 +43,8 @@ class ReminderCollectionViewCell: SwipeCollectionViewCell {
         label.text = "Gabriel"
         label.numberOfLines = 0
         label.textColor = AppColors.primaryColor
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(17)
         return label
     }()
     
@@ -52,7 +53,8 @@ class ReminderCollectionViewCell: SwipeCollectionViewCell {
         label.text = "20/10/20"
         label.numberOfLines = 0
         label.textColor = UIColor.gray
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(17)
         return label
     }()
     

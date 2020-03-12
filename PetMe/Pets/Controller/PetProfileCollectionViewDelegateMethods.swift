@@ -49,7 +49,7 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
    func createAttrString(word: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
         let string =  NSMutableAttributedString(string: "\(fontAwesomeIconToAppend) ", attributes:         [.font: UIFont.fontAwesome(ofSize: 24, style: .solid)]  )
         
-        string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .medium), NSAttributedString.Key.foregroundColor: AppColors.black]
+    string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 22)!, NSAttributedString.Key.foregroundColor: AppColors.black]
         ))
         
         return string

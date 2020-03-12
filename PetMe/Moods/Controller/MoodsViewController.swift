@@ -15,7 +15,7 @@ class MoodsViewController: UIViewController {
     var moods = [Mood]()
     
     weak var collectionView: UICollectionView!
-
+    
     let cell_id = "mood_cell"
     
     var provider: MoodDataProvider! = nil
@@ -31,9 +31,12 @@ class MoodsViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Moods History"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 22)!]
         view.backgroundColor = AppColors.backgroundColor
         
         setupViews()
+        
+        
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self

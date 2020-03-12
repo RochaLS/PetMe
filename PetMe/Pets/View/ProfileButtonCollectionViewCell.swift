@@ -35,7 +35,8 @@ class ProfileButtonCollectionViewCell: UICollectionViewCell {
         label.text = "Option"
         label.textColor = AppColors.primaryColor
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = AppFonts.mainFontBold
+        label.font = label.font.withSize(22)
         
         return label
         
