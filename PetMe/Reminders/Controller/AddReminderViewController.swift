@@ -39,12 +39,8 @@ class AddReminderViewController: UIViewController {
     }()
     
     let doneButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(UIColor.white, for: .normal)
+        let button = DoneButton()
         button.setTitle("Done", for: .normal)
-        button.backgroundColor = AppColors.primaryColor
-        button.layer.cornerRadius = 5
-        button.titleLabel?.font = AppFonts.mainFontMedium
         button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button
     }()

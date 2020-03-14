@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             
             
-            window.rootViewController = CustomTabBarController()
+//            window.rootViewController = CustomTabBarController()
+            window.rootViewController = LoginViewController()
             
             self.window = window
             window.makeKeyAndVisible()

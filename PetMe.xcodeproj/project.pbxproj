@@ -53,6 +53,12 @@
 		16A591A42404C6A000B9A239 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591A32404C6A000B9A239 /* AddButton.swift */; };
 		16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */; };
 		16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B808AD240770B600C6A1EA /* VaccinesViewController.swift */; };
+		16BC2F84241C341100222798 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC2F83241C341100222798 /* SignUpViewController.swift */; };
+		16BC2F86241C35ED00222798 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC2F85241C35ED00222798 /* DoneButton.swift */; };
+		16BC2F88241C3F7200222798 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC2F87241C3F7200222798 /* DefaultTextField.swift */; };
+		16BC2F8B241C470900222798 /* UserDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC2F8A241C470900222798 /* UserDataProvider.swift */; };
+		16BC2F8D241C525600222798 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC2F8C241C525600222798 /* UIViewController+HideKeyboard.swift */; };
+		16BC2F8F241C55EC00222798 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC2F8E241C55EC00222798 /* LoginViewController.swift */; };
 		16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D723DFE82300C91316 /* AppDelegate.swift */; };
 		16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB6D923DFE82300C91316 /* SceneDelegate.swift */; };
 		16BCB6E423DFE82900C91316 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BCB6E323DFE82900C91316 /* Assets.xcassets */; };
@@ -124,6 +130,12 @@
 		16A591A32404C6A000B9A239 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoodViewController.swift; sourceTree = "<group>"; };
 		16B808AD240770B600C6A1EA /* VaccinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesViewController.swift; sourceTree = "<group>"; };
+		16BC2F83241C341100222798 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		16BC2F85241C35ED00222798 /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
+		16BC2F87241C3F7200222798 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		16BC2F8A241C470900222798 /* UserDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataProvider.swift; sourceTree = "<group>"; };
+		16BC2F8C241C525600222798 /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
+		16BC2F8E241C55EC00222798 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		16BCB6D423DFE82300C91316 /* PetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BCB6D723DFE82300C91316 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16BCB6D923DFE82300C91316 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -354,6 +366,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		16BC2F7E241C330600222798 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				16BC2F7F241C333700222798 /* View */,
+				16BC2F80241C334000222798 /* Controller */,
+				16BC2F89241C46D000222798 /* DataProvider */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		16BC2F7F241C333700222798 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16BC2F80241C334000222798 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16BC2F83241C341100222798 /* SignUpViewController.swift */,
+				16BC2F8E241C55EC00222798 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		16BC2F89241C46D000222798 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				16BC2F8A241C470900222798 /* UserDataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
 		16BCB6CB23DFE82300C91316 = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +423,7 @@
 			children = (
 				16F962D023F7868300AAEBAF /* General */,
 				16D7CFE423ECE7EA0035DA5A /* Assets */,
+				16BC2F7E241C330600222798 /* Authentication */,
 				16F962CF23F7861300AAEBAF /* Pets */,
 				16A591A52404CC2000B9A239 /* Moods */,
 				16B808AC2407702300C6A1EA /* Vaccines */,
@@ -469,6 +516,9 @@
 				16D7CFDE23ECE5090035DA5A /* UIColor+Hex.swift */,
 				168463582409EE8C00936530 /* GeneralHelper.swift */,
 				16BCB6FA23E250C900C91316 /* CustomTabBarController.swift */,
+				16BC2F85241C35ED00222798 /* DoneButton.swift */,
+				16BC2F87241C3F7200222798 /* DefaultTextField.swift */,
+				16BC2F8C241C525600222798 /* UIViewController+HideKeyboard.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -634,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16BC2F8B241C470900222798 /* UserDataProvider.swift in Sources */,
 				16BCC3D7240A342F00071E8A /* VaccinesDataProviderDelegate.swift in Sources */,
 				1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */,
 				166C920323F6533600964FC8 /* Pet.swift in Sources */,
@@ -643,11 +694,14 @@
 				16C30B42240A1995006E22D3 /* VaccinesDataProvider.swift in Sources */,
 				16BCB70123E28B7F00C91316 /* PetCell.swift in Sources */,
 				1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */,
+				16BC2F86241C35ED00222798 /* DoneButton.swift in Sources */,
 				1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */,
 				160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */,
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
+				16BC2F88241C3F7200222798 /* DefaultTextField.swift in Sources */,
 				16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */,
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
+				16BC2F8D241C525600222798 /* UIViewController+HideKeyboard.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
@@ -672,6 +726,7 @@
 				16D7CFE323ECE7E10035DA5A /* Assets.swift in Sources */,
 				1642B99C2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift in Sources */,
 				16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */,
+				16BC2F8F241C55EC00222798 /* LoginViewController.swift in Sources */,
 				166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */,
 				1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
@@ -684,6 +739,7 @@
 				167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */,
 				16A211DB240E05EA009EFEE2 /* VaccineInfoViewController.swift in Sources */,
 				16D7CFEA23ED08730035DA5A /* PetAvatarWithShadowImageView.swift in Sources */,
+				16BC2F84241C341100222798 /* SignUpViewController.swift in Sources */,
 				160D0A2B2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
