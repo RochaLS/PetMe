@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoneButton: UIButton {
+class DefaultButton: UIButton {
     
     init() {
         super.init(frame: .zero)

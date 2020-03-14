@@ -39,7 +39,7 @@ class AddReminderViewController: UIViewController {
     }()
     
     let doneButton: UIButton = {
-        let button = DoneButton()
+        let button = DefaultButton()
         button.setTitle("Done", for: .normal)
         button.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
         return button

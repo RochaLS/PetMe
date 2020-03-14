@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseFirestore
 
 class UserDataProvider {
@@ -21,6 +22,16 @@ class UserDataProvider {
                 print("Error saving user info! \(error!)")
             }
         }
+    }
+    
+    func isLogged() -> Bool {
+        return Auth.auth().currentUser != nil
+    }
+    
+    func goToPets(from vc: UIViewController) {
+        let controller = CustomTabBarController()
+        controller.modalPresentationStyle = .fullScreen
+        vc.present(controller, animated: true, completion: nil)
     }
 }
 

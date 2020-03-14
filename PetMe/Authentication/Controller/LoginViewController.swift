@@ -42,10 +42,19 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    let signUpButton: UIButton = {
-        let button = DoneButton()
+    let loginButton: UIButton = {
+        let button = DefaultButton()
         button.setTitle("Login", for: .normal)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    let goToSignUpButton: UIButton = {
+        let button = DefaultButton()
+        button.setTitle("Sign Up", for: .normal)
+        button.backgroundColor = UIColor.white
+        button.setTitleColor(AppColors.primaryColor, for: .normal)
+        button.addTarget(self, action: #selector(goToSignUpPressed), for: .touchUpInside)
         return button
     }()
     
@@ -54,15 +63,24 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        provider = UserDataProvider()
+        
         view.backgroundColor = UIColor.white
         setupViews()
         self.hideKeyboardWhenTappedAround()
-        provider = UserDataProvider()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if provider.isLogged() {
+            self.provider.goToPets(from: self)
+        }
     }
     
     func setupViews() {
@@ -81,26 +99,29 @@ class LoginViewController: UIViewController {
         container.addSubview(titleLabel)
         container.addSubview(emailTextField)
         container.addSubview(passwordTextField)
-        container.addSubview(signUpButton)
+        container.addSubview(loginButton)
+        container.addSubview(goToSignUpButton)
         
-        container.addContraintsWithFormat(format: "V:|-10-[v0][v1(50)]-30-[v2(50)]-60-[v3(60)]-10-|", views: titleLabel, emailTextField, passwordTextField, signUpButton)
+        container.addContraintsWithFormat(format: "V:|-10-[v0][v1(50)]-30-[v2(50)]-60-[v3(60)]-10-[v4(50)]|", views: titleLabel, emailTextField, passwordTextField, loginButton, goToSignUpButton )
         container.addContraintsWithFormat(format: "H:|[v0]|", views: titleLabel)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: emailTextField)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: passwordTextField)
-        container.addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: signUpButton)
+        container.addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: loginButton)
+        container.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: goToSignUpButton)
     }
     
     
     @objc func buttonPressed() {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-//              guard let strongSelf = self else { return }
                 if error != nil {
                     print(error!)
                 }
                 
-                if let result = authResult?.user {
-                    print(result.email!)
+                if authResult != nil {
+                    self.provider.goToPets(from: self)
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
                 }
                 
             }
@@ -125,6 +146,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
-    
+    @objc func goToSignUpPressed() {
+        
+        let controller = SignUpViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
+    }
 }

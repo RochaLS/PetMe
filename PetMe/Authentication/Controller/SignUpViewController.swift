@@ -49,9 +49,18 @@ class SignUpViewController: UIViewController {
     }()
     
     let signUpButton: UIButton = {
-        let button = DoneButton()
+        let button = DefaultButton()
         button.setTitle("Sign Up", for: .normal)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    let goToLoginButton: UIButton = {
+        let button = DefaultButton()
+        button.setTitle("Login", for: .normal)
+        button.backgroundColor = UIColor.white
+        button.setTitleColor(AppColors.primaryColor, for: .normal)
+        button.addTarget(self, action: #selector(goToLoginPressed), for: .touchUpInside)
         return button
     }()
     
@@ -89,13 +98,15 @@ class SignUpViewController: UIViewController {
         container.addSubview(emailTextField)
         container.addSubview(passwordTextField)
         container.addSubview(signUpButton)
+        container.addSubview(goToLoginButton)
         
-        container.addContraintsWithFormat(format: "V:|-10-[v0][v1(50)]-30-[v2(50)]-30-[v3(50)]-60-[v4(60)]-10-|", views: titleLabel, nameTextField, emailTextField, passwordTextField, signUpButton)
+        container.addContraintsWithFormat(format: "V:|-10-[v0][v1(50)]-30-[v2(50)]-30-[v3(50)]-60-[v4(60)]-10-[v5(50)]|", views: titleLabel, nameTextField, emailTextField, passwordTextField, signUpButton, goToLoginButton)
         container.addContraintsWithFormat(format: "H:|[v0]|", views: titleLabel)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: nameTextField)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: emailTextField)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: passwordTextField)
         container.addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: signUpButton)
+        container.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: goToLoginButton)
     }
     
     
@@ -112,7 +123,11 @@ class SignUpViewController: UIViewController {
                     }
                     
                     print("\(authResult!.user) created!")
+                    
                     self.provider.saveUserData(userID: authResult!.user.uid, userName: name)
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
+                    self.provider.goToPets(from: self)
                     
                 }
                 
@@ -136,5 +151,11 @@ class SignUpViewController: UIViewController {
                 
             })
         }
+    }
+    
+    @objc func goToLoginPressed() {
+        let controller = LoginViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
     }
 }
