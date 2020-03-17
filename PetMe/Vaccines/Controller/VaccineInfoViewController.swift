@@ -108,7 +108,8 @@ class VaccineInfoViewController: UIViewController {
             self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.show()
+        self.present(alert, animated: true, completion: nil)
+//        alert.show()
         
         
         
