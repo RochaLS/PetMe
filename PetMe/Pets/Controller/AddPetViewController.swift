@@ -17,6 +17,7 @@ class AddPetViewController: UIViewController {
     var petImageData: Data? = nil
     var petImageName = "placeholder"
     var speciesSelected: String?
+    var currentUserGroupID: String!
     
     let dogVaccines: [Vaccine] = [Vaccine(name: "Canine Distemper", isCore: true),
                                   Vaccine(name: "Infectious Canine Hepatitis", isCore: true),
@@ -40,6 +41,8 @@ class AddPetViewController: UIViewController {
 
     var provider: DataManager!
     var vaccinesProvider: VaccinesDataProvider!
+    var userDataProvider: UserDataProvider!
+    
     
     let containerView: UIView = {
         let view = UIView()
@@ -124,8 +127,9 @@ class AddPetViewController: UIViewController {
         
         provider = DataManager()
         
-        if speciesSelected != nil, nameTextField.text != "" {
-            let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: speciesSelected!)
+        if speciesSelected != nil, nameTextField.text != "", Auth.auth().currentUser != nil {
+            userDataProvider.getUserGroupID(userID: Auth.auth().currentUser!.uid)
+            let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: speciesSelected!, groupID: currentUserGroupID)
             //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
             provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
             
@@ -213,6 +217,8 @@ class AddPetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        userDataProvider = UserDataProvider()
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         

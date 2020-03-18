@@ -12,9 +12,9 @@ class ReminderDataProvider {
     var db = Firestore.firestore()
     var delegate: ReminderDataProviderDelegate?
     
-    func setReminderData() {
+    func setReminderData(groupID: String) {
         
-        let ref = db.collection("reminders").order(by: "createdAt", descending: true)
+        let ref = db.collection("reminders").order(by: "createdAt", descending: true).whereField("groupID", isEqualTo: groupID)
         var reminders = [Reminder]()
         
         ref.addSnapshotListener { (querySnapshot, error) in
@@ -32,8 +32,9 @@ class ReminderDataProvider {
                 let createdBy = data["createdBy"] as! String
                 let timestamp = data["createdAt"] as! Timestamp
                 let createdAt = timestamp.dateValue()
+                let groupID = data["groupID"] as! String
                 
-                let reminder = Reminder(title: title, id: id, createdBy: createdBy, createdAt: createdAt)
+                let reminder = Reminder(title: title, id: id, createdBy: createdBy, createdAt: createdAt, groupID: groupID)
                 reminders.append(reminder)
                 self.delegate?.setReminderData(allReminders: reminders)
             }
@@ -45,7 +46,8 @@ class ReminderDataProvider {
             "title" : reminder.title,
             "id" : reminder.id,
             "createdBy" : reminder.createdBy, //Will use user ID in the future instead of the name when saving in DB
-            "createdAt" : reminder.createdAt
+            "createdAt" : reminder.createdAt,
+            "groupID" : reminder.groupID
         ]) { (error) in
             if error != nil {
                 print("Couldn't save data! Error: \(error!)")

@@ -7,19 +7,19 @@
 //
 
 import UIKit
-import CoreData
+import FirebaseAuth
 
 class AllPetsController: UIViewController {
     
     weak var collectionView: UICollectionView!
     
     var provider: DataManager! = nil
-    
+    var userDataProvider: UserDataProvider! = nil
     let cell_id = "pet_cell"
-    
     var pets = [Pet]()
-    
     var petImage: UIImage!
+    var currentUserGroupID: String?
+    
     
     override func loadView() {
         super.loadView()
@@ -31,13 +31,20 @@ class AllPetsController: UIViewController {
         super.viewDidLoad()
         
         
-        self.provider = DataManager()
+        provider = DataManager()
+        userDataProvider = UserDataProvider()
+        userDataProvider.delegate = self
         
-        self.provider.delegate = self
-        provider.setPetData()
+        provider.delegate = self
         
-
-//        setupData()
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser != nil {
+            userDataProvider.getUserGroupID(userID: currentUser!.uid)
+        }
+        
+        
+        //        setupData()
         
         navigationItem.title = "My Pets"
         
@@ -82,6 +89,9 @@ class AllPetsController: UIViewController {
     
     @objc func plusButtonPressed() {
         let addPetViewController = AddPetViewController()
+        if currentUserGroupID != nil {
+            addPetViewController.currentUserGroupID = currentUserGroupID!
+        }
         self.present(addPetViewController, animated: true, completion: nil)
     }
 }

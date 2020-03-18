@@ -20,7 +20,7 @@ class DataManager {
     
     
     //MARK: - Get Data
-    func setPetData() {
+    func setPetData(groupID: String) {
         
         guard let _ = self.delegate?.didGetPetData else {
             return
@@ -28,7 +28,7 @@ class DataManager {
         
         var pets = [Pet]()
         
-        let ref = db.collection("pets").order(by: "created_at", descending: true)
+        let ref = db.collection("pets").order(by: "created_at", descending: true).whereField("groupID", isEqualTo: groupID)
         
         ref.addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
@@ -50,8 +50,9 @@ class DataManager {
                 let species = data["species"] as! String
                 
                 let id = data["id"] as! String
+                let groupID = data["groupID"] as! String
                 
-                let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species)
+                let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species, groupID: groupID )
                 
                 
                 pets.append(pet)
@@ -73,7 +74,8 @@ class DataManager {
                 "age": pet.age!,
                 "created_at": pet.created_at,
                 "id": pet.id,
-                "species": pet.species
+                "species": pet.species,
+                "groupID": pet.groupID
             ]) { error in
                 if let error = error {
                     print("Error adding document: \(error)")
@@ -94,7 +96,8 @@ class DataManager {
                         "age": pet.age!,
                         "created_at": pet.created_at,
                         "id": pet.id,
-                        "species": pet.species
+                        "species": pet.species,
+                        "groupID": pet.groupID
                     ]) { error in
                         if let error = error {
                             print("Error adding document: \(error)")

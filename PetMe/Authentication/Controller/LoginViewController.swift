@@ -62,6 +62,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Auth.auth().currentUser?.email)
         
         provider = UserDataProvider()
         

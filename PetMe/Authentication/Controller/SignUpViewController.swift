@@ -124,7 +124,10 @@ class SignUpViewController: UIViewController {
                     
                     print("\(authResult!.user) created!")
                     
-                    self.provider.saveUserData(userID: authResult!.user.uid, userName: name)
+                    let newUser = User(name: name, userID: authResult!.user.uid , groupID: UUID().uuidString)
+                    
+                    self.provider.saveUserData(user: newUser)
+                    self.provider.setGroupData(user: newUser)
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     self.provider.goToPets(from: self)

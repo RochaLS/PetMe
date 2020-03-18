@@ -7,16 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RemindersViewController: UIViewController {
     
     weak var collectionView: UICollectionView!
-    
     let cell_id = "reminderCell"
-    
     var provider: ReminderDataProvider! = nil
-    
+    var userDataProvider: UserDataProvider! = nil
     var reminders = [Reminder]()
+    var currentUserGroupID: String?
     
     
     
@@ -43,7 +43,14 @@ class RemindersViewController: UIViewController {
         collectionView.register(ReminderCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         provider = ReminderDataProvider()
         provider.delegate = self
-        provider.setReminderData()
+        userDataProvider = UserDataProvider()
+        userDataProvider.delegate = self
+        
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser != nil {
+            userDataProvider.getUserGroupID(userID: currentUser!.uid)
+        }
     }
     
     func setupViews() {
@@ -68,7 +75,9 @@ class RemindersViewController: UIViewController {
     }
     
     @objc func plusButtonPressed() {
-        self.present(AddReminderViewController(), animated: true, completion: nil)
+        let controller = AddReminderViewController()
+        controller.currentUserGroupID = currentUserGroupID!
+        self.present(controller, animated: true, completion: nil)
     }
     
 }

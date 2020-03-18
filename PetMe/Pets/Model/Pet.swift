@@ -18,14 +18,16 @@ class Pet: NSObject {
     var id: String
     var species: String
     var vaccines: [String:[Vaccine]]?
+    var groupID: String
     
-    init(name: String, imgName: String, created_at: Date, age: Int?, id: String, species: String) {
+    init(name: String, imgName: String, created_at: Date, age: Int?, id: String, species: String, groupID:String) {
         self.name = name
         self.imgName = imgName
         self.created_at = created_at
         self.age = age
         self.id = id
         self.species = species
+        self.groupID = groupID
     }
     
 

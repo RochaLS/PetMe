@@ -13,11 +13,13 @@ class Reminder {
     let id: String
     let createdBy: String
     let createdAt: Date
+    let groupID: String
     
-    init(title: String, id: String, createdBy: String, createdAt: Date) {
+    init(title: String, id: String, createdBy: String, createdAt: Date, groupID: String) {
         self.title = title
         self.id = id
         self.createdBy = createdBy
         self.createdAt = createdAt
+        self.groupID = groupID
     }
 }
