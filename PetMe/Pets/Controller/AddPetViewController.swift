@@ -159,7 +159,7 @@ class AddPetViewController: UIViewController {
     
     func setupViews() {
         
-        self.view.backgroundColor = UIColor.clear
+//        self.view.backgroundColor = UIColor.clear
         
         view.addSubview(containerView)
         
@@ -216,6 +216,7 @@ class AddPetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.view.backgroundColor = UIColor.clear
         setupViews()
         userDataProvider = UserDataProvider()
         

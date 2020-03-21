@@ -164,6 +164,7 @@
 		16E3C208242095DD00F1B4C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		16E3C20B2420AC4200F1B4C4 /* UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataProviderDelegate.swift; sourceTree = "<group>"; };
 		16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
+		16E4FF952425BC8A0073C9F2 /* PetMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetMe.entitlements; sourceTree = "<group>"; };
 		16E85FE123E3A90E0026F52A /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		16F962D323F7A65500AAEBAF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
@@ -234,10 +235,10 @@
 			isa = PBXGroup;
 			children = (
 				1642B9982418888600E71EA3 /* Protocols */,
-				1642B99524187F4100E71EA3 /* DataProvider */,
 				168AB72F24173C65000B7618 /* Model */,
 				168AB73024173C86000B7618 /* View */,
 				168AB72C24173C30000B7618 /* Controller */,
+				1642B99524187F4100E71EA3 /* DataProvider */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -435,9 +436,11 @@
 		16BCB6D623DFE82300C91316 /* PetMe */ = {
 			isa = PBXGroup;
 			children = (
+				16E4FF952425BC8A0073C9F2 /* PetMe.entitlements */,
 				16F962D023F7868300AAEBAF /* General */,
 				16D7CFE423ECE7EA0035DA5A /* Assets */,
 				16BC2F7E241C330600222798 /* Authentication */,
+				16E4FF922425B8B10073C9F2 /* Notifications */,
 				16F962CF23F7861300AAEBAF /* Pets */,
 				16A591A52404CC2000B9A239 /* Moods */,
 				16B808AC2407702300C6A1EA /* Vaccines */,
@@ -526,6 +529,13 @@
 				16E3C20B2420AC4200F1B4C4 /* UserDataProviderDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		16E4FF922425B8B10073C9F2 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		16F962CF23F7861300AAEBAF /* Pets */ = {
@@ -913,6 +923,7 @@
 			baseConfigurationReference = A2D8A468AF8ADB1655BFDEB4 /* Pods-PetMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PetMe/PetMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJUJ6544SG;
 				INFOPLIST_FILE = PetMe/Info.plist;
@@ -932,6 +943,7 @@
 			baseConfigurationReference = 9D81A0855DA202E2CC32FD5C /* Pods-PetMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PetMe/PetMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJUJ6544SG;
 				INFOPLIST_FILE = PetMe/Info.plist;
