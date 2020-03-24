@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseInstanceID
+import FirebaseMessaging
 
 class LogoutViewController: UIViewController {
     
@@ -30,6 +32,16 @@ class LogoutViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            let provider = TokenDataProvider()
+            
+            if let token = Messaging.messaging().fcmToken {
+                provider.deleteTokenFromDB(deviceToken: token)
+                InstanceID.instanceID().deleteID { error in
+                    if let error = error {
+                        print("Error deleting instance ID: \(error)")
+                    }
+                }
+            }
             goToLogin()
             
         } catch let error {

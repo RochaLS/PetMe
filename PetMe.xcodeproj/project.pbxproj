@@ -80,6 +80,7 @@
 		16E3C209242095DD00F1B4C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3C208242095DD00F1B4C4 /* User.swift */; };
 		16E3C20C2420AC4200F1B4C4 /* UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3C20B2420AC4200F1B4C4 /* UserDataProviderDelegate.swift */; };
 		16E3C2102420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */; };
+		16E4FF972429A4F30073C9F2 /* TokenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E4FF962429A4F30073C9F2 /* TokenDataProvider.swift */; };
 		16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E85FE123E3A90E0026F52A /* AddPetViewController.swift */; };
 		16EC98B82421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */; };
 		16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D323F7A65500AAEBAF /* DataProvider.swift */; };
@@ -165,6 +166,7 @@
 		16E3C20B2420AC4200F1B4C4 /* UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataProviderDelegate.swift; sourceTree = "<group>"; };
 		16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		16E4FF952425BC8A0073C9F2 /* PetMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetMe.entitlements; sourceTree = "<group>"; };
+		16E4FF962429A4F30073C9F2 /* TokenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataProvider.swift; sourceTree = "<group>"; };
 		16E85FE123E3A90E0026F52A /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		16F962D323F7A65500AAEBAF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 			children = (
 				16BCB6D723DFE82300C91316 /* AppDelegate.swift */,
 				16BCB6D923DFE82300C91316 /* SceneDelegate.swift */,
+				16E4FF962429A4F30073C9F2 /* TokenDataProvider.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */,
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
 				16BC2F8D241C525600222798 /* UIViewController+HideKeyboard.swift in Sources */,
+				16E4FF972429A4F30073C9F2 /* TokenDataProvider.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
