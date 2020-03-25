@@ -12,10 +12,11 @@ import FirebaseFirestore
 class TokenDataProvider {
     let db = Firestore.firestore()
     
-    func saveRegistrationToken(deviceToken: String) {
+    func saveRegistrationToken(deviceToken: String, userID: String) {
         let ref = db.collection("tokens").document()
         ref.setData([
-            "deviceToken" : deviceToken
+            "deviceToken" : deviceToken,
+            "userID" : userID
         ]) { (error) in
             if error != nil {
                 print(error!)

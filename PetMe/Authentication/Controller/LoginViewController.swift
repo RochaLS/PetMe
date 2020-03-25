@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseInstanceID
 
 class LoginViewController: UIViewController {
     
@@ -125,6 +126,10 @@ class LoginViewController: UIViewController {
                     self.passwordTextField.text = ""
                 }
                 
+            }
+            let instance = InstanceID.instanceID()
+            instance.deleteID { (error) in
+                print(error.debugDescription)
             }
             
         }
