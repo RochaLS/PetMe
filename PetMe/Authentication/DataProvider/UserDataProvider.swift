@@ -39,8 +39,11 @@ class UserDataProvider {
     func getUserGroupID(userID: String) {
         db.collection("users").document(userID).getDocument { (snapshot, error) in
             guard let data = snapshot?.data() else {
-                print("Error geting user data! \(error!)")
                 return
+            }
+            
+            if error != nil {
+                print("Error geting user data! \(error!)")
             }
             
             
