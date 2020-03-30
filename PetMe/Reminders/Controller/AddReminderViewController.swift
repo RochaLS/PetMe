@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class AddReminderViewController: UIViewController {
     
@@ -89,7 +90,7 @@ class AddReminderViewController: UIViewController {
     @objc func doneButtonPressed() {
         //TODO Create reminder here:
         if reminderTextField.text?.isEmpty == false && reminderTextField.text != "" {
-            let newReminder = Reminder(title: reminderTextField.text!, id: UUID().uuidString, createdBy: "Lucas", createdAt: Date(), groupID: currentUserGroupID)
+            let newReminder = Reminder(title: reminderTextField.text!, id: UUID().uuidString, createdBy: "Lucas", createdAt: Date(), groupID: currentUserGroupID, userID: Auth.auth().currentUser!.uid)
             provider.addReminderDataToFirestore(reminder: newReminder)
         }
         self.dismiss(animated: true, completion: nil)

@@ -33,8 +33,9 @@ class ReminderDataProvider {
                 let timestamp = data["createdAt"] as! Timestamp
                 let createdAt = timestamp.dateValue()
                 let groupID = data["groupID"] as! String
+                let userID = data["userID"] as! String
                 
-                let reminder = Reminder(title: title, id: id, createdBy: createdBy, createdAt: createdAt, groupID: groupID)
+                let reminder = Reminder(title: title, id: id, createdBy: createdBy, createdAt: createdAt, groupID: groupID, userID: userID)
                 reminders.append(reminder)
                 self.delegate?.setReminderData(allReminders: reminders)
             }
@@ -47,7 +48,8 @@ class ReminderDataProvider {
             "id" : reminder.id,
             "createdBy" : reminder.createdBy, //Will use user ID in the future instead of the name when saving in DB
             "createdAt" : reminder.createdAt,
-            "groupID" : reminder.groupID
+            "groupID" : reminder.groupID,
+            "userID" : reminder.userID
         ]) { (error) in
             if error != nil {
                 print("Couldn't save data! Error: \(error!)")

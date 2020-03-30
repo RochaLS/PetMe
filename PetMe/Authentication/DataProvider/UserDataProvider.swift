@@ -26,16 +26,6 @@ class UserDataProvider {
         }
     }
     
-    func setGroupData(user: User) {
-        db.collection("groups").document(user.groupID).setData([
-            "users" : [user.userID]
-        ]) { (error) in
-            if error != nil {
-                print("Error setting group data! \(error!)")
-            }
-        }
-    }
-    
     func getUserGroupID(userID: String) {
         db.collection("users").document(userID).getDocument { (snapshot, error) in
             guard let data = snapshot?.data() else {
