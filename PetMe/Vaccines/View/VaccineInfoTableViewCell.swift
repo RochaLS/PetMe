@@ -28,7 +28,7 @@ class VaccineInfoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setupView()
+//        setupView()
     }
     
    

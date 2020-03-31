@@ -42,7 +42,7 @@ class VaccineTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setupView()
+//        setupView()
     }
 
 //    override func setSelected(_ selected: Bool, animated: Bool) {

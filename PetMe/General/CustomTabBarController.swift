@@ -26,7 +26,7 @@ class CustomTabBarController: UITabBarController {
         viewControllers = [
             createNavControllerWithTitle(title: "My Pets", img: UIImage.fontAwesomeIcon(name: .paw, style: .solid, textColor: AppColors.black, size: CGSize(width: 35, height: 35)), controller: AllPetsController()),
             createNavControllerWithTitle(title: "Reminders", img: UIImage.fontAwesomeIcon(name: .listAlt, style: .regular, textColor: AppColors.black, size: CGSize(width: 35, height: 35)), controller: RemindersViewController()),
-            createNavControllerWithTitle(title: "Settings", img: UIImage.fontAwesomeIcon(name: .cog, style: .solid, textColor: AppColors.black, size: CGSize(width: 35, height: 35)), controller: LogoutViewController())]
+            createNavControllerWithTitle(title: "Settings", img: UIImage.fontAwesomeIcon(name: .cog, style: .solid, textColor: AppColors.black, size: CGSize(width: 35, height: 35)), controller: SettingsViewController())]
         
         
     }
