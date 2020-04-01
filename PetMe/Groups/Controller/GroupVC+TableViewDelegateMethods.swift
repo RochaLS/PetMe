@@ -11,13 +11,13 @@ import UIKit
 extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupTableViewCell
         
-        cell.nameLabel.text = "Member Name"
+        cell.nameLabel.text = "Member's Name"
         cell.selectionStyle = .none
         cell.setupView()
         

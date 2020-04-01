@@ -22,7 +22,7 @@ class GroupTableViewCell: UITableViewCell {
     let deleteButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.text = "Remove"
-        button.setImage(UIImage.fontAwesomeIcon(name: .timesCircle, style: .solid, textColor: AppColors.red, size: CGSize(width: 38, height: 38)), for: .normal)
+        button.setImage(UIImage.fontAwesomeIcon(name: .times, style: .solid, textColor: AppColors.red, size: CGSize(width: 38, height: 38)), for: .normal)
         return button
     }()
 
