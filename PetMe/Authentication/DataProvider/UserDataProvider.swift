@@ -17,6 +17,7 @@ class UserDataProvider {
     func saveUserData(user: User) {
         db.collection("users").document(user.userID).setData([
             "name": user.name,
+            "email": user.email,
             "userID": user.userID,
             "groupID": user.groupID
         ]) { (error) in

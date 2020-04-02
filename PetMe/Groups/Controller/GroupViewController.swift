@@ -32,6 +32,7 @@ class GroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         provider = GroupDataProvider()
+        self.hideKeyboardWhenTappedAround()
         
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
@@ -76,10 +77,9 @@ class GroupViewController: UIViewController {
     @objc func sendInviteButtonPressed() {
         let receiverUserInfo = addMemberTextField.text
         if let userID =  Auth.auth().currentUser?.uid {
-            if receiverUserInfo != nil || receiverUserInfo != "" {
+            if receiverUserInfo != nil && receiverUserInfo != "" {
                 provider.saveInviteRequest(receiverUserInfo: receiverUserInfo!, senderUserID: userID)
                 addMemberTextField.text = ""
-                //Need to make text field exit the isEditing mode
             }
         }
     }

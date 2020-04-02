@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseInstanceID
 
 class SignUpViewController: UIViewController {
     
@@ -124,13 +125,18 @@ class SignUpViewController: UIViewController {
                     
                     print("\(authResult!.user) created!")
                     
-                    let newUser = User(name: name, userID: authResult!.user.uid , groupID: UUID().uuidString)
+                    let newUser = User(name: name, userID: authResult!.user.uid , groupID: UUID().uuidString, email: email)
                     
                     self.provider.saveUserData(user: newUser)
-//                    self.provider.setGroupData(user: newUser)
+                    //                    self.provider.setGroupData(user: newUser)
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     self.provider.goToPets(from: self)
+                    
+                    let instance = InstanceID.instanceID()
+                    instance.deleteID { (error) in
+                        print(error.debugDescription)
+                    }
                     
                 }
                 
