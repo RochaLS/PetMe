@@ -39,6 +39,7 @@ class SignUpViewController: UIViewController {
     let emailTextField: UITextField = {
         let textField = DefaultTextField()
         textField.placeholder = "Your E-mail..."
+        textField.autocapitalizationType = .none
         return textField
     }()
     

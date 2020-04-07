@@ -11,7 +11,7 @@ import FontAwesome_swift
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,6 +20,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             cell.textLabel?.attributedText = AttrStringHelper.createStringWithIcon(word: "My Group", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .users), fontSize: 20)
         } else if indexPath.row == 1 {
+            cell.textLabel?.attributedText = AttrStringHelper.createStringWithIcon(word: "Invitations", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .envelope), fontSize: 20)
+        } else if indexPath.row == 2 {
             cell.textLabel?.attributedText =  AttrStringHelper.createStringWithIcon(word: "Sign Out", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .signOutAlt), fontSize: 20)
         }
         cell.selectionStyle = .none
@@ -34,6 +36,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             goToGroup()
         } else if indexPath.row == 1 {
+            goToInvites()
+        } else if indexPath.row == 2 {
             signOutUser()
         }
     }

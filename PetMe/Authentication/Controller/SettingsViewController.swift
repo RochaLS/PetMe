@@ -81,4 +81,10 @@ class SettingsViewController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    func goToInvites() {
+        let controller = InvitesViewController()
+        controller.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }

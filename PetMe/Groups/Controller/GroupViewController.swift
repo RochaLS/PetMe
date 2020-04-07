@@ -12,12 +12,16 @@ import FirebaseAuth
 class GroupViewController: UIViewController {
     
     weak var tableView: UITableView!
-    
+    var members = [User]()
     var provider: GroupDataProvider! = nil
+    var userDataProvider: UserDataProvider! = nil
+    var username = "User"
+    var groupID = "id"
     
     let addMemberTextField: UITextField = {
         let textField = DefaultTextField()
         textField.placeholder = "User's Email"
+        textField.autocapitalizationType = .none
         return textField
     }()
     
@@ -32,13 +36,23 @@ class GroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         provider = GroupDataProvider()
+        provider.delegate = self
+        userDataProvider = UserDataProvider()
+        userDataProvider.delegate = self
+        
+        if let currentUser = Auth.auth().currentUser {
+            userDataProvider.getUserName(userID: currentUser.uid)
+            userDataProvider.getUserGroupID(userID: currentUser.uid)
+        }
         self.hideKeyboardWhenTappedAround()
+        
         
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
         navigationItem.title = "My Group"
         view.backgroundColor = UIColor.white
+        print(groupID)
         setupViews()
     }
     
@@ -78,7 +92,7 @@ class GroupViewController: UIViewController {
         let receiverUserInfo = addMemberTextField.text
         if let userID =  Auth.auth().currentUser?.uid {
             if receiverUserInfo != nil && receiverUserInfo != "" {
-                provider.saveInviteRequest(receiverUserInfo: receiverUserInfo!, senderUserID: userID)
+                provider.saveInviteRequest(receiverUserInfo: receiverUserInfo!.lowercased(), senderUserID: userID, senderName: username)
                 addMemberTextField.text = ""
             }
         }

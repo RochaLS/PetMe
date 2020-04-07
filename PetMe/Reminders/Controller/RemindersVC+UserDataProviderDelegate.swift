@@ -10,7 +10,7 @@ import Foundation
 
 extension RemindersViewController: UserDataProviderDelegate {
     func didGetUserGroupID(id: String) {
-        provider.setReminderData(groupID: id) // Same flow as the pet one, first get user group ID an after show reminders
+        provider.setReminderData(groupID: id) // Same flow as the pet one, first get user group ID and after show reminders
         currentUserGroupID = id
     }
     

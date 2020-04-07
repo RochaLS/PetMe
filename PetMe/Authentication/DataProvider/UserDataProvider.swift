@@ -17,7 +17,7 @@ class UserDataProvider {
     func saveUserData(user: User) {
         db.collection("users").document(user.userID).setData([
             "name": user.name,
-            "email": user.email,
+            "email": user.email.lowercased(),
             "userID": user.userID,
             "groupID": user.groupID
         ]) { (error) in
@@ -39,9 +39,27 @@ class UserDataProvider {
             
             
             let currentUserGroupID = data["groupID"] as! String
-            self.delegate?.didGetUserGroupID(id: currentUserGroupID )
+            self.delegate?.didGetUserGroupID?(id: currentUserGroupID )
             
         }
+    }
+    
+    func getUserName(userID: String) {
+        db.collection("users").document(userID).getDocument { (snapshot, error) in
+            guard let data = snapshot?.data() else {
+                return
+            }
+            
+            if error != nil {
+                print("Error geting user data! \(error!)")
+            }
+            
+            
+            let currentUserName = data["name"] as! String
+            self.delegate?.didGetUserName?(name: currentUserName)
+            
+        }
+        
     }
     
     
@@ -49,10 +67,12 @@ class UserDataProvider {
         return Auth.auth().currentUser != nil
     }
     
+    
     func goToPets(from vc: UIViewController) {
         let controller = CustomTabBarController()
         controller.modalPresentationStyle = .fullScreen
         vc.present(controller, animated: true, completion: nil)
     }
+    
 }
 

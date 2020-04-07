@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol UserDataProviderDelegate: class {
+@objc protocol UserDataProviderDelegate: class {
     
-    func didGetUserGroupID(id: String)
+    @objc optional func didGetUserGroupID(id: String)
+    
+    @objc optional func didGetUserName(name: String)
 }

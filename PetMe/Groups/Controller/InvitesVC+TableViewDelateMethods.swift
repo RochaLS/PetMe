@@ -1,24 +1,23 @@
 //
-//  GroupVC+TableViewDelegateMethods.swift
+//  InvitesVC+TableViewDelateMethods.swift
 //  PetMe
 //
-//  Created by Lucas Rocha on 2020-03-30.
+//  Created by Lucas Rocha on 2020-04-05.
 //  Copyright © 2020 Lucas Rocha. All rights reserved.
 //
 
 import UIKit
 
-extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
+extension InvitesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return members.count
+        return requests.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupTableViewCell
         
-        cell.nameLabel.text = members[indexPath.row].name
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! InvitesTableViewCell
+        cell.mainLabel.text = "Join \(requests[indexPath.row].senderName)'s group?"
         cell.setupView()
         
         return cell

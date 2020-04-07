@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class User: NSObject {
     let name: String
     let userID: String
     let groupID: String
