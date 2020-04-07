@@ -19,6 +19,11 @@ class InvitesViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
+        navigationItem.title = "Invitations"
+        
         setupViews()
         
         requestsProvider = GroupDataProvider()
