@@ -275,6 +275,7 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - PMAlertController (4.0.0)
   - Protobuf (3.11.0)
   - RLBAlertsPickers (1.1.2)
   - SDWebImage (5.3.2):
@@ -289,6 +290,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Storage (~> 8.0)
   - FontAwesome.swift
+  - PMAlertController
   - RLBAlertsPickers (~> 1.1.1)
   - SwipeCellKit
 
@@ -317,6 +319,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PMAlertController
     - Protobuf
     - RLBAlertsPickers
     - SDWebImage
@@ -346,11 +349,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  PMAlertController: 5fad2da8b9eb687134ed50c3462fed12c3afe976
   Protobuf: 394b2bf29ec303f4325e3ee4892c09e675647152
   RLBAlertsPickers: 2548943b0cb16620904cbd926a645362d1b43963
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: 370a5da72bbf02e8dd8e8afdea44717a28ee5c41
+PODFILE CHECKSUM: ff3bfcf9ff60db5ed145f8018f2122a8a1e2e167
 
 COCOAPODS: 1.7.4

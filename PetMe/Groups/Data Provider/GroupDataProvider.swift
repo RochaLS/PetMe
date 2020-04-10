@@ -16,13 +16,15 @@ class GroupDataProvider {
     
     
     
-    func saveInviteRequest(receiverUserInfo: String, senderUserID: String, senderName: String) {
+    func saveInviteRequest(request: Request) {
         let ref = db.collection("requests")
         
-        ref.document().setData([
-            "senderID" :  senderUserID,
-            "receiverUserInfo": receiverUserInfo,
-            "senderName": senderName
+        ref.document(request.id).setData([
+            "senderID" :  request.senderID,
+            "receiverUserInfo": request.receiverUserInfo,
+            "senderName": request.senderName,
+            "senderGroupID": request.senderGroupID,
+            "requestID": request.id
         ]) { (error) in
             if error != nil {
                 print("Error saving Request: \(error!)")
@@ -34,7 +36,7 @@ class GroupDataProvider {
         var requests = [Request]()
         let query = db.collection("requests").whereField("receiverUserInfo", isEqualTo: email)
         
-        query.getDocuments { (snapshot, error) in
+        query.addSnapshotListener() { (snapshot, error) in
             if error != nil {
                 print("Error getting requests \(error!)")
             }
@@ -51,8 +53,10 @@ class GroupDataProvider {
                     let receiverInfo = data["receiverUserInfo"] as! String
                     let senderID = data["senderID"] as! String
                     let senderName = data["senderName"] as! String
+                    let senderGroupID = data["senderGroupID"] as! String
+                    let requestID = data["requestID"] as! String
                     
-                    let request = Request(receiverUserInfo: receiverInfo, senderID: senderID, senderName: senderName)
+                    let request = Request(receiverUserInfo: receiverInfo, senderID: senderID, senderName: senderName, senderGroupID: senderGroupID, id: requestID)
                     
                     requests.append(request)
                     
@@ -66,7 +70,7 @@ class GroupDataProvider {
         var users = [User]()
         let query = db.collection("users").whereField("groupID", isEqualTo: groupID)
         
-        query.getDocuments { (snapshot, error) in
+        query.addSnapshotListener() { (snapshot, error) in
             if error != nil {
                 print("Error getting group members: \(error!)")
             }
@@ -87,6 +91,14 @@ class GroupDataProvider {
                 }
                 self.delegate?.didGetGroupMembers?(allMembers: users)
                 
+            }
+        }
+    }
+    
+    func deleteRequest(id: String) {
+        db.collection("requests").document(id).delete { (error) in
+            if error != nil {
+                print("Error deleting request: \(id) - \(error!)")
             }
         }
     }

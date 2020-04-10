@@ -15,6 +15,7 @@ target 'PetMe' do
   pod 'Firebase/Messaging'
   pod 'RLBAlertsPickers', '~> 1.1.1'
   pod 'SwipeCellKit'
+  pod 'PMAlertController'
 
 
 

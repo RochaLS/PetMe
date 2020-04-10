@@ -92,7 +92,8 @@ class GroupViewController: UIViewController {
         let receiverUserInfo = addMemberTextField.text
         if let userID =  Auth.auth().currentUser?.uid {
             if receiverUserInfo != nil && receiverUserInfo != "" {
-                provider.saveInviteRequest(receiverUserInfo: receiverUserInfo!.lowercased(), senderUserID: userID, senderName: username)
+                let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: groupID, id: UUID().uuidString)
+                provider.saveInviteRequest(request: newRequest)
                 addMemberTextField.text = ""
             }
         }

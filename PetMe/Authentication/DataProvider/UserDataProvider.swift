@@ -62,6 +62,16 @@ class UserDataProvider {
         
     }
     
+    func updateUserGroupID(groupID: String, userID: String) {
+        db.collection("users").document(userID).updateData([
+            "groupID" : groupID
+        ]) { (error) in
+            if error != nil {
+                print("Error updating group id \(error!)")
+            }
+        }
+    }
+    
     
     func isLogged() -> Bool {
         return Auth.auth().currentUser != nil

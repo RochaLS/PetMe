@@ -10,6 +10,10 @@ import UIKit
 
 class InvitesTableViewCell: UITableViewCell {
     
+    var tapAction: ((UITableViewCell) -> Void)?
+    weak var delegate: InviteCellDelegate?
+    var request: Request!
+    
     let mainLabel: UILabel = {
           let label = UILabel()
           label.text = "Join name's group?"
@@ -59,6 +63,10 @@ class InvitesTableViewCell: UITableViewCell {
         addSubview(acceptButton)
         addSubview(declineButton)
         
+        acceptButton.addTarget(self, action: #selector(acceptButtonPressed), for: .touchUpInside)
+        declineButton.addTarget(self, action: #selector(declineButtonPressed), for: .touchUpInside)
+        
+        
         addContraintsWithFormat(format: "V:|[v0]|", views: mainLabel)
         addContraintsWithFormat(format: "V:[v0(40)]", views: acceptButton)
         addContraintsWithFormat(format: "V:[v0(40)]", views: declineButton)
@@ -68,6 +76,18 @@ class InvitesTableViewCell: UITableViewCell {
         addConstraint(NSLayoutConstraint(item: acceptButton, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
         
         addConstraint(NSLayoutConstraint(item: declineButton, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+    }
+    
+    func setupRequest(request: Request) {
+        self.request = request
+    }
+    
+    @objc func acceptButtonPressed() {
+        self.delegate?.didTapAccept(request: request)
+    }
+    
+    @objc func declineButtonPressed() {
+        self.delegate?.didTapDecline(request: request)
     }
 
 }

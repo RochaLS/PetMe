@@ -16,9 +16,13 @@ extension InvitesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let request = requests[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! InvitesTableViewCell
         cell.mainLabel.text = "Join \(requests[indexPath.row].senderName)'s group?"
         cell.setupView()
+        cell.delegate = self
+        cell.setupRequest(request: request)
         
         return cell
     }
@@ -26,6 +30,5 @@ extension InvitesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
     }
-    
     
 }

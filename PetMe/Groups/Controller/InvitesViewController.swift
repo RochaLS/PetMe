@@ -13,6 +13,7 @@ class InvitesViewController: UIViewController {
     
     weak var tableView: UITableView!
     var requestsProvider: GroupDataProvider! = nil
+    var userDataProvider: UserDataProvider! = nil
     let cellID = "InviteCell"
     var requests = [Request]()
     
@@ -26,8 +27,9 @@ class InvitesViewController: UIViewController {
         
         setupViews()
         
+        userDataProvider = UserDataProvider()
         requestsProvider = GroupDataProvider()
-        requestsProvider.delegate = self
+        requestsProvider.delegate = self 
         
         if let currentUserEmail = Auth.auth().currentUser?.email {
             requestsProvider.getRequests(email: currentUserEmail)
