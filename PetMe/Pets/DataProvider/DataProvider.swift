@@ -37,7 +37,6 @@ class DataManager {
             }
             
             pets.removeAll()
-            
             for document in snapshot.documents {
                 print("\(document.documentID) => \(document.data())")
                 
@@ -122,5 +121,24 @@ class DataManager {
                 self.delegate?.didLoadImage(image: img!, reference: imageView)
             }
         }
+    }
+    
+    func deletePets(groupID: String) {
+        let query = db.collection("pets").whereField("groupID", isEqualTo: groupID)
+        
+    
+        
+        query.getDocuments { (snapshot, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                if let documents = snapshot?.documents {
+                    for doc in documents {
+                        doc.reference.delete()
+                    }
+                }
+            }
+        }
+        
     }
 }

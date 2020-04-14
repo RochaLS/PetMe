@@ -49,6 +49,7 @@
 		1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */; };
 		1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */; };
 		1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */; };
+		16951CC924416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16951CC824416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift */; };
 		16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */; };
 		16A211DB240E05EA009EFEE2 /* VaccineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */; };
 		16A211DD240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A211DC240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift */; };
@@ -100,6 +101,8 @@
 		16E4FF972429A4F30073C9F2 /* TokenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E4FF962429A4F30073C9F2 /* TokenDataProvider.swift */; };
 		16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E85FE123E3A90E0026F52A /* AddPetViewController.swift */; };
 		16EC98B82421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */; };
+		16F6BA10244634330020E445 /* GroupCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F6BA0F244634330020E445 /* GroupCellDelegate.swift */; };
+		16F6BA12244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F6BA11244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift */; };
 		16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D323F7A65500AAEBAF /* DataProvider.swift */; };
 		16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D623F7B13000AAEBAF /* DataProviderDelegate.swift */; };
 		16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */; };
@@ -149,6 +152,7 @@
 		1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProvider.swift; sourceTree = "<group>"; };
 		1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProviderDelegate.swift; sourceTree = "<group>"; };
 		1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+ProviderDelegateMethods.swift"; sourceTree = "<group>"; };
+		16951CC824416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvitesVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileCollectionViewDelegateMethods.swift; sourceTree = "<group>"; };
 		16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineInfoViewController.swift; sourceTree = "<group>"; };
 		16A211DC240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaccineInfo+TableViewDelegateMethods.swift"; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 		16E4FF962429A4F30073C9F2 /* TokenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataProvider.swift; sourceTree = "<group>"; };
 		16E85FE123E3A90E0026F52A /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
+		16F6BA0F244634330020E445 /* GroupCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellDelegate.swift; sourceTree = "<group>"; };
+		16F6BA11244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupVC+GroupCellDelegateMethods.swift"; sourceTree = "<group>"; };
 		16F962D323F7A65500AAEBAF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		16F962D623F7B13000AAEBAF /* DataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderDelegate.swift; sourceTree = "<group>"; };
 		16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+DataProviderDelegate.swift"; sourceTree = "<group>"; };
@@ -399,10 +405,12 @@
 				16B41CD12432C9AA00325004 /* GroupVC+TableViewDelegateMethods.swift */,
 				16D5F0E8243BF9F9008D6470 /* GroupVC+UserDataProviderDelegateMethods.swift */,
 				16D5F0F2243C0F81008D6470 /* GroupVC+GroupDataProviderDelegateMethods.swift */,
+				16F6BA11244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift */,
 				16DA5225243A62640032C1C1 /* InvitesViewController.swift */,
 				16DA5227243A648C0032C1C1 /* InvitesVC+TableViewDelateMethods.swift */,
 				16D5F0F0243C05E8008D6470 /* InvitesVC+GroupDataProviderDelegate.swift */,
 				16D27B8D243E5E220034E48D /* InvitesVC+InviteCellDelegateMethods.swift */,
+				16951CC824416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -558,6 +566,7 @@
 			children = (
 				16D5F0EE243C0405008D6470 /* GroupDataProviderDelegate.swift */,
 				16D27B89243E5D5E0034E48D /* InviteCellDelegate.swift */,
+				16F6BA0F244634330020E445 /* GroupCellDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -853,11 +862,13 @@
 				16E4FF972429A4F30073C9F2 /* TokenDataProvider.swift in Sources */,
 				16D5F0EF243C0405008D6470 /* GroupDataProviderDelegate.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
+				16F6BA12244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift in Sources */,
 				16119C8A2434474E00B8DAE7 /* UIViewController+TopBarHeight.swift in Sources */,
 				1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */,
 				16D27B8A243E5D5E0034E48D /* InviteCellDelegate.swift in Sources */,
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
 				1642B99724187F8200E71EA3 /* ReminderDataProvider.swift in Sources */,
+				16951CC924416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift in Sources */,
 				1687A2D42412E63B0038E146 /* AboutTableViewCell.swift in Sources */,
 				1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */,
 				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
@@ -872,6 +883,7 @@
 				16119C8D243458AC00B8DAE7 /* GroupDataProvider.swift in Sources */,
 				16B41CD52432CD6700325004 /* GroupTableViewCell.swift in Sources */,
 				166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */,
+				16F6BA10244634330020E445 /* GroupCellDelegate.swift in Sources */,
 				16B41CD02432C8FC00325004 /* GroupViewController.swift in Sources */,
 				168AB72B24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift in Sources */,
 				168AB7292417337B000B7618 /* RemindersViewController.swift in Sources */,

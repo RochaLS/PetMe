@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 extension GroupViewController: UserDataProviderDelegate {
     
@@ -17,7 +18,16 @@ extension GroupViewController: UserDataProviderDelegate {
     func didGetUserGroupID(id: String) {
         groupID = id
         provider.getGroupMembers(groupID: groupID)
+        
+        if let currentUser = Auth.auth().currentUser {
+            provider.isUserGroupOwner(userID: currentUser.uid, groupID: id)
+        }
     }
+    
+    func didUpdateUserGroupID() {
+        self.tableView.reloadData()
+    }
+    
     
     
 }

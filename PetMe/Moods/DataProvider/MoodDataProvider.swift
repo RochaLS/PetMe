@@ -16,7 +16,7 @@ class MoodDataProvider {
     func setMoodData(pet: Pet) {
         var moods = [Mood]()
         
-        let ref = db.collection("pets").document(pet.id).collection("moods").order(by: "created_at", descending: true)
+        let ref = db.collection("moods").order(by: "created_at", descending: true).whereField("petID", isEqualTo: pet.id)
         
         ref.addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
@@ -34,21 +34,24 @@ class MoodDataProvider {
                 let timeStamp = data["created_at"] as! Timestamp
                 let date = timeStamp.dateValue()
                 let id = data["id"] as! String
+                let petID = data["petID"] as! String
                 
-                let mood = Mood(status: status, created_at: date, id: id)
+                let mood = Mood(status: status, created_at: date, id: id, petID: petID)
                 
                 moods.append(mood)
                 
             }
+            print(moods.count)
             self.delegate?.didLoadMoodData(allMoods: moods)
         }
     }
     
     func addMoodDataToFirestore(moodToAdd mood: Mood, pet: Pet) {
-        self.db.collection("pets").document(pet.id).collection("moods").document(mood.id).setData([
+        self.db.collection("moods").document(mood.id).setData([
             "status": mood.status,
             "created_at": mood.created_at,
-            "id": mood.id
+            "id": mood.id,
+            "petID": pet.id
         ]) { (error) in
             if error != nil {
                 print("Error when saving: \(error!)")

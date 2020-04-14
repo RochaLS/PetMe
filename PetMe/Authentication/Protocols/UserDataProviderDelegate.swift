@@ -13,4 +13,8 @@ import Foundation
     @objc optional func didGetUserGroupID(id: String)
     
     @objc optional func didGetUserName(name: String)
+    
+    @objc optional func didGetNumberOfMembers(num: Int)
+    
+    @objc optional func didUpdateUserGroupID()
 }

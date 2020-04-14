@@ -17,6 +17,7 @@ class GroupViewController: UIViewController {
     var userDataProvider: UserDataProvider! = nil
     var username = "User"
     var groupID = "id"
+    var isOwner: Bool!
     
     let addMemberTextField: UITextField = {
         let textField = DefaultTextField()

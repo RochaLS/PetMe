@@ -102,4 +102,34 @@ class GroupDataProvider {
             }
         }
     }
+    
+    func createGroupWithOwner(user: User) {
+        db.collection("groups").document(user.groupID).setData([
+            "ownerID" : user.userID,
+            "groupID" : user.groupID
+        ]) { (error) in
+            if error != nil {
+                print("Error creating group with owner! \(error!)")
+            }
+        }
+    }
+    
+    func isUserGroupOwner(userID: String, groupID: String) {
+        let ref = db.collection("groups").whereField("groupID", isEqualTo: groupID)
+        
+        ref.getDocuments { (snapshot, error) in
+            
+            if let docs = snapshot?.documents {
+                for doc in docs {
+                    let data = doc.data()
+                    if data["ownerID"] as! String == userID {
+                        self.delegate?.didCheckForOwner?(bool: true)
+                    } else {
+                        self.delegate?.didCheckForOwner?(bool: false)
+                    }
+                }
+            }
+            
+        }
+    }
 }

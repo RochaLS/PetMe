@@ -13,4 +13,6 @@ import Foundation
     @objc optional func didGetRequests(allRequests: [Request])
     
     @objc optional func didGetGroupMembers(allMembers: [User])
+    
+    @objc optional func didCheckForOwner(bool: Bool) 
 }

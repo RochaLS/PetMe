@@ -13,4 +13,9 @@ extension GroupViewController: GroupDataProviderDelegate {
         members = allMembers
         tableView.reloadData()
     }
+    
+    func didCheckForOwner(bool: Bool) {
+        isOwner = bool
+        self.tableView.reloadData()
+    }
 }

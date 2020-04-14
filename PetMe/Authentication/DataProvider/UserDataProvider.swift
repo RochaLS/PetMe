@@ -39,7 +39,7 @@ class UserDataProvider {
             
             
             let currentUserGroupID = data["groupID"] as! String
-            self.delegate?.didGetUserGroupID?(id: currentUserGroupID )
+            self.delegate?.didGetUserGroupID?(id: currentUserGroupID)
             
         }
     }
@@ -68,6 +68,22 @@ class UserDataProvider {
         ]) { (error) in
             if error != nil {
                 print("Error updating group id \(error!)")
+            } else {
+                self.delegate?.didUpdateUserGroupID?()
+            }
+        }
+    }
+    
+    func checkForNumOfUsersIn(groupID: String) {
+        var numOfUsers = 0
+        db.collection("users").whereField("groupID", isEqualTo: groupID).getDocuments { (snapshot, error) in
+            if error != nil {
+                print("Error getting users \(error!)")
+            }
+            print(groupID)
+            if let documents = snapshot?.documents {
+                numOfUsers = documents.count
+                self.delegate?.didGetNumberOfMembers?(num: numOfUsers)
             }
         }
     }

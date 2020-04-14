@@ -67,6 +67,7 @@ class SignUpViewController: UIViewController {
     }()
     
     var provider: UserDataProvider!
+    var groupProvider: GroupDataProvider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,7 @@ class SignUpViewController: UIViewController {
         setupViews()
         self.hideKeyboardWhenTappedAround()
         provider = UserDataProvider()
+        groupProvider = GroupDataProvider()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -129,7 +131,7 @@ class SignUpViewController: UIViewController {
                     let newUser = User(name: name, userID: authResult!.user.uid , groupID: UUID().uuidString, email: email)
                     
                     self.provider.saveUserData(user: newUser)
-                    //                    self.provider.setGroupData(user: newUser)
+                    self.groupProvider.createGroupWithOwner(user: newUser)
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     self.provider.goToPets(from: self)

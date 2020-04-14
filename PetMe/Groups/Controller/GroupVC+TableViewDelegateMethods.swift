@@ -17,9 +17,18 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupTableViewCell
         
+    
+        
+        if isOwner == false {
+            cell.deleteButton.isHidden = true
+            cell.deleteButton.isEnabled = false
+        }
+        
         cell.nameLabel.text = members[indexPath.row].name
         cell.selectionStyle = .none
         cell.setupView()
+        cell.delegate = self
+        cell.setupMember(member: members[indexPath.row])
         
         return cell
     }

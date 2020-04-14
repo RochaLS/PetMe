@@ -13,7 +13,22 @@ import PMAlertController
 extension InvitesViewController: InviteCellDelegate {
     
     func didTapAccept(request: Request) {
+        
         if let currentUser = Auth.auth().currentUser {
+            
+            userDataProvider.getUserGroupID(userID: currentUser.uid)
+            
+        }
+    }
+    
+    func didTapDecline(request: Request) {
+        requestsProvider.deleteRequest(id: request.id)
+        
+    }
+    
+    func showAlert(request: Request) {
+        if let currentUser = Auth.auth().currentUser {
+            
             
             let alertVC = PMAlertController(title: "Are you sure?", description: "If you join \(request.senderName)'s group all your data will replaced by the new group's data. This includes pets, vaccinations and reminders.", image: UIImage.fontAwesomeIcon(name: .exclamationTriangle, style: .solid, textColor: AppColors.red, size: CGSize(width: 500, height: 500)), style: .walkthrough)
             
@@ -24,30 +39,34 @@ extension InvitesViewController: InviteCellDelegate {
             alertVC.alertDescription.font = AppFonts.mainFontRegular
             alertVC.alertDescription.font = alertVC.alertDescription.font.withSize(18)
             
-
             
-
+            
+            
             
             alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
                 print("cancel pressed")
             }))
             
-            let confirmAction = PMAlertAction(title: "Comfirm", style: .default, action: { () in
+            let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
+                let petDataProvider = DataManager()
+                
+                if let groupID = self.currentUserGroupID {
+                    if self.numOfMembers == 1 {
+                        petDataProvider.deletePets(groupID: groupID)
+                    }
+                }
                 self.userDataProvider.updateUserGroupID(groupID: request.senderGroupID, userID: currentUser.uid)
                 self.requestsProvider.deleteRequest(id: request.id)
             })
             
-            confirmAction.setTitleColor(AppColors.primaryColor, for: .normal)
+            confirmAction.setTitleColor(AppColors.red, for: .normal)
             
             alertVC.addAction(confirmAction)
             
             self.present(alertVC, animated: true, completion: nil)
+            
+            
         }
-    }
-    
-    func didTapDecline(request: Request) {
-        requestsProvider.deleteRequest(id: request.id)
-        
     }
     
     

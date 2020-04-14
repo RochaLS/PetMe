@@ -71,16 +71,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "225B59B4-E4D7-496B-A001-CA4949638913"
-            shouldBeEnabled = "No"
+            uuid = "B2C6EBFD-28A6-42C8-90FB-680D574AD624"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PetMe/Groups/Controller/InvitesVC+GroupDataProviderDelegate.swift"
+            filePath = "PetMe/Groups/Data Provider/GroupDataProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "didGetRequests(allRequests:)"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "isUserGroupOwner(userID:groupID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

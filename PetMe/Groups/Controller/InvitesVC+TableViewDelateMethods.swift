@@ -23,6 +23,7 @@ extension InvitesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setupView()
         cell.delegate = self
         cell.setupRequest(request: request)
+        tappedRequest = request
         
         return cell
     }

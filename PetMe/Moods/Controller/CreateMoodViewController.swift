@@ -84,19 +84,19 @@ class CreateMoodViewController: UIViewController {
     }
     
     @objc func happyPressed() {
-        let mood = Mood(status: "Happy", created_at: Date(), id: UUID().uuidString)
+        let mood = Mood(status: "Happy", created_at: Date(), id: UUID().uuidString, petID: pet.id)
         provider.addMoodDataToFirestore(moodToAdd: mood, pet: pet)
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func sadPressed() {
-        let mood = Mood(status: "Sad", created_at: Date(), id: UUID().uuidString)
+        let mood = Mood(status: "Sad", created_at: Date(), id: UUID().uuidString, petID: pet.id)
         provider.addMoodDataToFirestore(moodToAdd: mood, pet: pet)
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc func sleepyPressed() {
-        let mood = Mood(status: "Sleepy", created_at: Date(), id: UUID().uuidString)
+        let mood = Mood(status: "Sleepy", created_at: Date(), id: UUID().uuidString, petID: pet.id)
         provider.addMoodDataToFirestore(moodToAdd: mood, pet: pet)
         self.dismiss(animated: true, completion: nil)
     }

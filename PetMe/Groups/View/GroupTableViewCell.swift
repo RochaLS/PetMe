@@ -10,6 +10,9 @@ import UIKit
 
 class GroupTableViewCell: UITableViewCell {
     
+    weak var delegate: GroupCellDelegate?
+    var member: User!
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Option Name"
@@ -37,12 +40,24 @@ class GroupTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
     func setupView() {
         addSubview(nameLabel)
         addSubview(deleteButton)
+        
+        deleteButton.addTarget(self, action: #selector(deletePressed), for: .touchUpInside)
+        
         addContraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
         addContraintsWithFormat(format: "H:|-20-[v0][v1]-20-|", views: nameLabel, deleteButton)
         addContraintsWithFormat(format: "V:|[v0]|", views: deleteButton)
+    }
+    
+    func setupMember(member: User) {
+         self.member = member
+     }
+    
+    @objc func deletePressed() {
+        self.delegate?.didTapRemove(member: member)
     }
 
 }

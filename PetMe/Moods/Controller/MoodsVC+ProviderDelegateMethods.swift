@@ -9,6 +9,11 @@
 import Foundation
 
 extension MoodsViewController: MoodDataProviderDelegate {
+    
+    func didAddNewMood() {
+        self.collectionView.reloadData()
+    }
+    
     func didLoadMoodData(allMoods: [Mood]) {
         moods = allMoods
         self.collectionView.reloadData()
