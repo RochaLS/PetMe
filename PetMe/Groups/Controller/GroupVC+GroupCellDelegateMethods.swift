@@ -33,7 +33,7 @@ extension GroupViewController: GroupCellDelegate {
         }))
         
         let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
-            self.userDataProvider.updateUserGroupID(groupID: UUID().uuidString, userID: user.userID)
+            self.userDataProvider.updateUserGroupID(groupToDelete: nil, newGroupID: UUID().uuidString, userID: user.userID)
             self.tableView.reloadData()
         })
         

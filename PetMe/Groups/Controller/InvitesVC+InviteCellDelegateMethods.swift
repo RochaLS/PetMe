@@ -53,9 +53,10 @@ extension InvitesViewController: InviteCellDelegate {
                 if let groupID = self.currentUserGroupID {
                     if self.numOfMembers == 1 {
                         petDataProvider.deletePets(groupID: groupID)
+                           self.userDataProvider.updateUserGroupID(groupToDelete: groupID, newGroupID: request.senderGroupID, userID: currentUser.uid)
                     }
                 }
-                self.userDataProvider.updateUserGroupID(groupID: request.senderGroupID, userID: currentUser.uid)
+             
                 self.requestsProvider.deleteRequest(id: request.id)
             })
             

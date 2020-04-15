@@ -62,14 +62,40 @@ class UserDataProvider {
         
     }
     
-    func updateUserGroupID(groupID: String, userID: String) {
+    func getUser(id: String, completionHandler: @escaping (_ user: User) -> ()) {
+        db.collection("users").document(id).getDocument { (snapshot, error) in
+            if error != nil {
+                print("Error getting user! \(error!)")
+            }
+            
+            if let data = snapshot?.data() {
+                let name = data["name"] as! String
+                let id = data["userID"] as! String
+                let groupID = data["groupID"] as! String
+                let email = data["email"] as! String
+                
+               let user = User(name: name, userID: id, groupID: groupID, email: email)
+                completionHandler(user)
+            }
+        }
+    }
+    
+    func updateUserGroupID(groupToDelete: String?, newGroupID: String, userID: String) {
         db.collection("users").document(userID).updateData([
-            "groupID" : groupID
+            "groupID" : newGroupID
         ]) { (error) in
             if error != nil {
                 print("Error updating group id \(error!)")
             } else {
-                self.delegate?.didUpdateUserGroupID?()
+                self.delegate?.didUpdateUserGroupID?(userID: userID)
+            }
+        }
+        
+        if let group = groupToDelete {
+            db.collection("groups").document(group).delete { (error) in
+                if error != nil {
+                    print("Error deleting group! \(error!)")
+                }
             }
         }
     }

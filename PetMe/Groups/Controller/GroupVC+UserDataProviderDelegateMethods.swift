@@ -24,7 +24,13 @@ extension GroupViewController: UserDataProviderDelegate {
         }
     }
     
-    func didUpdateUserGroupID() {
+    func didUpdateUserGroupID(userID: String?) {
+        if let id = userID {
+            userDataProvider.getUser(id: id) { (user) in
+                print(user.name)
+                self.provider.createGroupWithOwner(user: user)
+            }
+        }
         self.tableView.reloadData()
     }
     
