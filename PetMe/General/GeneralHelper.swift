@@ -17,4 +17,6 @@ class GeneralHelper {
          
          return string
      }
+    
+    
 }

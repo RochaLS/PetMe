@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import PMAlertController
 
 class GroupViewController: UIViewController {
     
@@ -47,14 +48,19 @@ class GroupViewController: UIViewController {
         }
         self.hideKeyboardWhenTappedAround()
         
-        
-        // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
         navigationItem.title = "My Group"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.fontAwesomeIcon(
+        name: .doorOpen, style: .solid, textColor: AppColors.black, size: CGSize(width: 30, height: 30)), style: .plain, target: self, action: #selector(leaveGroupButtonPressed))
+        
+        
+        
+        
         view.backgroundColor = UIColor.white
         print(groupID)
         setupViews()
+       
     }
     
     
@@ -98,6 +104,41 @@ class GroupViewController: UIViewController {
                 addMemberTextField.text = ""
             }
         }
+    }
+    
+    @objc func leaveGroupButtonPressed() {
+        showCustomAlert(title: "Are you sure?", description: "Are you sure you want to leave this group?", image:  UIImage.fontAwesomeIcon(name: .doorOpen, style: .solid, textColor: UIColor.gray, size: CGSize(width: 500, height: 500)))
+    }
+    
+    func showCustomAlert(title: String, description: String, image: UIImage) {
+        let alertVC = PMAlertController(title: title, description: description, image: image, style: .walkthrough)
+        
+        alertVC.alertTitle.font = AppFonts.mainFontMedium
+        alertVC.alertTitle.font = alertVC.alertTitle.font.withSize(22)
+        alertVC.alertTitle.textColor = AppColors.black
+        
+        alertVC.alertDescription.font = AppFonts.mainFontRegular
+        alertVC.alertDescription.font = alertVC.alertDescription.font.withSize(18)
+        
+        
+        
+        
+        
+        alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+            print("cancel pressed")
+        }))
+        
+        let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
+            if let currentUser = Auth.auth().currentUser {
+                self.userDataProvider.updateUserGroupID(groupToDelete: nil, newGroupID: UUID().uuidString, userID: currentUser.uid)
+            }
+        })
+        
+        confirmAction.setTitleColor(AppColors.primaryColor, for: .normal)
+        
+        alertVC.addAction(confirmAction)
+        
+        self.present(alertVC, animated: true, completion: nil)
     }
     
 }

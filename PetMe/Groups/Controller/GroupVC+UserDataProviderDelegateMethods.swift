@@ -22,6 +22,7 @@ extension GroupViewController: UserDataProviderDelegate {
         if let currentUser = Auth.auth().currentUser {
             provider.isUserGroupOwner(userID: currentUser.uid, groupID: id)
         }
+         self.tableView.reloadData()
     }
     
     func didUpdateUserGroupID(userID: String?) {
@@ -30,8 +31,10 @@ extension GroupViewController: UserDataProviderDelegate {
                 print(user.name)
                 self.provider.createGroupWithOwner(user: user)
             }
+             self.userDataProvider.getUserGroupID(userID: id)
         }
-        self.tableView.reloadData()
+        
+//        self.tableView.reloadData()
     }
     
     

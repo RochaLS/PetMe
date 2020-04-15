@@ -6,11 +6,16 @@
 //  Copyright © 2020 Lucas Rocha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension GroupViewController: GroupDataProviderDelegate {
     func didGetGroupMembers(allMembers: [User]) {
         members = allMembers
+        if members.count > 1 {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
         tableView.reloadData()
     }
     
