@@ -94,7 +94,7 @@ class SuppliesViewController: UIViewController {
         //        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.collectionView = collectionView
-        self.collectionView.register(FavoriteFoodsCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
+        self.collectionView.register(FavoriteFoodsWithImageCell.self, forCellWithReuseIdentifier: cell_id)
         self.collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headView")
     }
     

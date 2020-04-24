@@ -15,14 +15,14 @@ extension SuppliesViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! FavoriteFoodsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! FavoriteFoodsWithImageCell
         cell.setupViews()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: view.frame.width - 20, height: 120)
+        return CGSize(width: view.frame.width - 20, height: 300)
     }
     
     
@@ -40,13 +40,24 @@ extension SuppliesViewController: UICollectionViewDelegate, UICollectionViewData
             
             let headView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headView", for: indexPath) as! HeaderCollectionReusableView
             
-            headView.titleLabel.text = "Favorite Foods"
+            
+            if indexPath.section == 0 {
+                headView.titleLabel.text = "Favorite Foods"
+            } else if indexPath.section == 1 {
+                headView.titleLabel.text = "Favorite Treats"
+            } else if indexPath.section == 2 {
+                headView.titleLabel.text = "Favorite Toys"
+            }
             return headView
             
         default:
             
             fatalError("Unexpected element kind")
         }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
     }
     
     
