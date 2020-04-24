@@ -48,6 +48,9 @@ extension InvitesViewController: InviteCellDelegate {
             }))
             
             let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
+                
+                self.requestsProvider.isUserGroupOwner(userID: currentUser.uid, groupID: self.currentUserGroupID!)
+                
                 let petDataProvider = DataManager()
                 
                 if let groupID = self.currentUserGroupID {

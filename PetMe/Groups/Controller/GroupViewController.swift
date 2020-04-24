@@ -19,6 +19,8 @@ class GroupViewController: UIViewController {
     var username = "User"
     var groupID = "id"
     var isOwner: Bool!
+    var ownerID: String?
+    
     
     let addMemberTextField: UITextField = {
         let textField = DefaultTextField()
@@ -52,7 +54,7 @@ class GroupViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
         navigationItem.title = "My Group"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.fontAwesomeIcon(
-        name: .doorOpen, style: .solid, textColor: AppColors.black, size: CGSize(width: 30, height: 30)), style: .plain, target: self, action: #selector(leaveGroupButtonPressed))
+            name: .doorOpen, style: .solid, textColor: AppColors.black, size: CGSize(width: 30, height: 30)), style: .plain, target: self, action: #selector(leaveGroupButtonPressed))
         
         
         
@@ -60,7 +62,7 @@ class GroupViewController: UIViewController {
         view.backgroundColor = UIColor.white
         print(groupID)
         setupViews()
-       
+        
     }
     
     
@@ -130,6 +132,9 @@ class GroupViewController: UIViewController {
         
         let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
             if let currentUser = Auth.auth().currentUser {
+                if currentUser.uid == self.ownerID {
+                    self.provider.pickNewGroupOwner(currentUserID: currentUser.uid, ownerID: &self.ownerID!, members: self.members, groupID: self.groupID)
+                }
                 self.userDataProvider.updateUserGroupID(groupToDelete: nil, newGroupID: UUID().uuidString, userID: currentUser.uid)
             }
         })
@@ -140,5 +145,7 @@ class GroupViewController: UIViewController {
         
         self.present(alertVC, animated: true, completion: nil)
     }
+    
+    
     
 }

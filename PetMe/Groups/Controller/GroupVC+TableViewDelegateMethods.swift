@@ -22,14 +22,27 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
             if isOwner == false {
                 cell.deleteButton.isHidden = true
                 cell.deleteButton.isEnabled = false
-            } else if isOwner == true && members[indexPath.row].userID == currentUser.uid {
+            } else if isOwner == true && members[indexPath.row].userID == currentUser.uid { // if current user is owner
                 cell.deleteButton.isHidden = true
                 cell.deleteButton.isEnabled = false
+                cell.nameLabel.textColor = AppColors.blue
             } else {
                 cell.deleteButton.isHidden = false
                 cell.deleteButton.isEnabled = true
             }
+            
+            if currentUser.uid == members[indexPath.row].userID {
+                cell.nameLabel.font = AppFonts.mainFontMedium
+            }
         }
+        
+        if let owner = ownerID {
+            if members[indexPath.row].userID ==  owner {
+                cell.nameLabel.textColor = AppColors.blue
+            }
+        }
+        
+        
         
         cell.nameLabel.text = members[indexPath.row].name
         cell.selectionStyle = .none

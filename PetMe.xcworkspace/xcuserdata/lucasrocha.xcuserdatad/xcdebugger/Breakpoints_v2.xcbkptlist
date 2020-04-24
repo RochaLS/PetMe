@@ -68,5 +68,69 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D518C9AD-72C6-4EB5-AD02-81A5C159FB70"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetMe/Groups/Controller/GroupVC+TableViewDelegateMethods.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57F6F567-5461-4553-888D-2676012EEC82"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetMe/Groups/Data Provider/GroupDataProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "57F6F567-5461-4553-888D-2676012EEC82 - 93c16b7ab410b8ac"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PetMe.GroupDataProvider.getGroupMembers(groupID: Swift.String) -&gt; ()"
+                  moduleName = "PetMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucasrocha/code/RochaLS/projects-swift/PetMe/PetMe/Groups/Data%20Provider/GroupDataProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "555">
+               </Location>
+               <Location
+                  uuid = "57F6F567-5461-4553-888D-2676012EEC82 - a86b84eb59be08e1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PetMe.GroupDataProvider.getGroupMembers(groupID: Swift.String) -&gt; ()"
+                  moduleName = "PetMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucasrocha/code/RochaLS/projects-swift/PetMe/PetMe/Groups/Data%20Provider/GroupDataProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "410">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

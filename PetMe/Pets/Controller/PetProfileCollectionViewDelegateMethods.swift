@@ -23,7 +23,7 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
         if indexPath.row == 0 {
             cell.optionName.attributedText = createStringWithIcon(word: "Vaccination", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .syringe))
         } else if indexPath.row == 1 {
-            cell.optionName.attributedText = createStringWithIcon(word: "Feeding", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .bone))
+            cell.optionName.attributedText = createStringWithIcon(word: "Supplies", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .bone))
         } else if indexPath.row == 2 {
             cell.optionName.attributedText = createStringWithIcon(word: "Mood", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .paw))
         }
@@ -46,10 +46,10 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     //This function only works with solid fontAwesome icons
-   func createStringWithIcon(word: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
+    func createStringWithIcon(word: String, fontAwesomeIconToAppend: String) -> NSMutableAttributedString {
         let string =  NSMutableAttributedString(string: "\(fontAwesomeIconToAppend) ", attributes:         [.font: UIFont.fontAwesome(ofSize: 24, style: .solid)]  )
         
-    string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 22)!, NSAttributedString.Key.foregroundColor: AppColors.black]
+        string.append(NSAttributedString(string: word, attributes: [NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 22)!, NSAttributedString.Key.foregroundColor: AppColors.black]
         ))
         
         return string
@@ -58,6 +58,10 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let controller = VaccinesViewController()
+            controller.pet = pet
+            navigationController?.pushViewController(controller, animated: true)
+        } else if indexPath.row == 1 {
+            let controller = SuppliesViewController()
             controller.pet = pet
             navigationController?.pushViewController(controller, animated: true)
         } else if indexPath.row == 2 {

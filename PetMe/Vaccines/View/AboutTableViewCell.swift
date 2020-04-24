@@ -19,24 +19,24 @@ class AboutTableViewCell: UITableViewCell {
         label.textAlignment = .justified
         return label
     }()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     func setupView() {
-           addSubview(mainLabel)
-           
-           addContraintsWithFormat(format: "V:|-20-[v0]-20-|", views: mainLabel)
-           addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: mainLabel)
-           
-       }
-
+        addSubview(mainLabel)
+        
+        addContraintsWithFormat(format: "V:|-20-[v0]-20-|", views: mainLabel)
+        addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: mainLabel)
+        
+    }
+    
 }

@@ -17,6 +17,7 @@ class InvitesViewController: UIViewController {
     var userDataProvider: UserDataProvider! = nil
     let cellID = "InviteCell"
     var requests = [Request]()
+    var members = [User]()
     var numOfMembers: Int!
     var tappedRequest: Request!
     var currentUserGroupID: String?
@@ -39,6 +40,9 @@ class InvitesViewController: UIViewController {
         if let currentUserEmail = Auth.auth().currentUser?.email {
             requestsProvider.getRequests(email: currentUserEmail)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMembersData), name: .didReceiveMembersData , object: nil)
+        
     }
     
     func setupViews() {
@@ -63,6 +67,16 @@ class InvitesViewController: UIViewController {
         
         self.tableView = tableView
         
+    }
+    
+    @objc func didReceiveMembersData(_ notification: Notification) {
+        if let data = notification.userInfo as? [String:Any] {
+            let allMembers = data["members"] as! [User]
+            let groupID = data["groupID"] as! String
+            
+            members = allMembers
+            currentUserGroupID = groupID
+        }
     }
     
 }

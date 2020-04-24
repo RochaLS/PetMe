@@ -122,14 +122,35 @@ class GroupDataProvider {
             if let docs = snapshot?.documents {
                 for doc in docs {
                     let data = doc.data()
-                    if data["ownerID"] as! String == userID {
-                        self.delegate?.didCheckForOwner?(bool: true)
+                    let ownerID = data["ownerID"] as! String
+                    if ownerID == userID {
+                        self.delegate?.didCheckForOwner?(bool: true, ownerID: ownerID)
                     } else {
-                        self.delegate?.didCheckForOwner?(bool: false)
+                        self.delegate?.didCheckForOwner?(bool: false, ownerID: ownerID)
                     }
                 }
             }
             
         }
+    }
+    
+    func pickNewGroupOwner(currentUserID: String, ownerID: inout String, members: [User], groupID: String) {
+        while currentUserID == ownerID {
+            ownerID = members.randomItem!.userID
+        }
+        assignNewOwner(newOwnerID: ownerID, groupID: groupID)
+    }
+    
+    func assignNewOwner(newOwnerID: String, groupID: String) {
+        let ref =  db.collection("groups").document(groupID)
+        ref.updateData([
+            "ownerID" : newOwnerID
+        ]) { (error) in
+            if error != nil {
+                print("Couldn't update owner! \(error!)")
+            }
+            self.delegate?.didUpdateOwner?()
+        }
+        
     }
 }
