@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name {
     static let didReceiveMembersData = Notification.Name("didReceiveMembersData")
+    static let willChangePageTitle = Notification.Name("willChangePageTitle")
 }

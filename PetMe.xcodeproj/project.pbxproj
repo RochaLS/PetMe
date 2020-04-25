@@ -13,6 +13,7 @@
 		16119C8A2434474E00B8DAE7 /* UIViewController+TopBarHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16119C892434474E00B8DAE7 /* UIViewController+TopBarHeight.swift */; };
 		16119C8D243458AC00B8DAE7 /* GroupDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16119C8C243458AC00B8DAE7 /* GroupDataProvider.swift */; };
 		1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */; };
+		162BD6B42454BB6D00CDB209 /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162BD6B32454BB6D00CDB209 /* GeneralCell.swift */; };
 		163563E424317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */; };
 		1642B99724187F8200E71EA3 /* ReminderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */; };
 		1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */; };
@@ -124,6 +125,7 @@
 		16119C892434474E00B8DAE7 /* UIViewController+TopBarHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopBarHeight.swift"; sourceTree = "<group>"; };
 		16119C8C243458AC00B8DAE7 /* GroupDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataProvider.swift; sourceTree = "<group>"; };
 		1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		162BD6B32454BB6D00CDB209 /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
 		163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+TableViewDelegateMethods.swift"; sourceTree = "<group>"; };
 		1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProvider.swift; sourceTree = "<group>"; };
 		1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProviderDelegate.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				1693761A2453669200971AB1 /* AnswerLabel.swift */,
 				1693761E24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift */,
 				169376222453A3D900971AB1 /* FavoriteFoodsWithImageCell.swift */,
+				162BD6B32454BB6D00CDB209 /* GeneralCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 				16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */,
 				1693761B2453669200971AB1 /* AnswerLabel.swift in Sources */,
 				16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */,
+				162BD6B42454BB6D00CDB209 /* GeneralCell.swift in Sources */,
 				16D5F0F3243C0F81008D6470 /* GroupVC+GroupDataProviderDelegateMethods.swift in Sources */,
 				16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,

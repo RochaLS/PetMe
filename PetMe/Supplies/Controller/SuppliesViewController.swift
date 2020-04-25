@@ -12,7 +12,9 @@ class SuppliesViewController: UIViewController {
     
     var pet: Pet!
     
-    let cell_id = "Supply_Cell"
+    let cell_id = "BaseCell"
+    
+    let titles = ["Favorite Rations", "Favorite Treats", "Favorite Toys"]
     
     weak var collectionView: UICollectionView!
     
@@ -80,6 +82,11 @@ class SuppliesViewController: UIViewController {
     
     func setupCollectionView() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .horizontal
+            flowLayout.minimumLineSpacing = 0
+        }
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
@@ -90,12 +97,10 @@ class SuppliesViewController: UIViewController {
         ])
         
         collectionView.backgroundColor = AppColors.backgroundColor
-        collectionView.layer.cornerRadius = 8
-        //        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        collectionView.isPagingEnabled = true
         
         self.collectionView = collectionView
-        self.collectionView.register(FavoriteFoodsWithImageCell.self, forCellWithReuseIdentifier: cell_id)
-        self.collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headView")
+        self.collectionView.register(GeneralCell.self, forCellWithReuseIdentifier: cell_id)     
     }
     
 }

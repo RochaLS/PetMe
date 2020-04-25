@@ -11,66 +11,29 @@ import UIKit
 extension SuppliesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! FavoriteFoodsWithImageCell
-        cell.setupViews()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id, for: indexPath) as! GeneralCell
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height - 130)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        return CGSize(width: view.frame.width - 20, height: 300)
-    }
-    
-    
-    // For header size (required)
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let index = targetContentOffset.pointee.x / view.frame.width // pointee.x is basically the distance of the scroll performed by the the user.
         
-        return CGSize(width:collectionView.frame.size.width, height: 80.0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-            
-        case UICollectionView.elementKindSectionHeader:
-            
-            let headView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headView", for: indexPath) as! HeaderCollectionReusableView
-            
-            
-            if indexPath.section == 0 {
-                headView.titleLabel.text = "Favorite Foods"
-            } else if indexPath.section == 1 {
-                headView.titleLabel.text = "Favorite Treats"
-            } else if indexPath.section == 2 {
-                headView.titleLabel.text = "Favorite Toys"
-            }
-            return headView
-            
-        default:
-            
-            fatalError("Unexpected element kind")
-        }
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        NotificationCenter.default.post(name: .willChangePageTitle, object: nil, userInfo: ["title": titles[Int(index)]])
     }
     
     
     
-    //    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-    //        view.tintColor = UIColor.white
-    //        let header = view as! UITableViewHeaderFooterView
-    //        header.textLabel?.textColor = AppColors.black
-    //        header.textLabel?.font = AppFonts.mainFontMedium?.withSize(20)
-    //        header.addSubview(viewLine2)
-    //        header.addContraintsWithFormat(format: "V:[v0]|", views: viewLine2)
-    //        header.addContraintsWithFormat(format: "H:|-10-[v0(2)]-10-|", views: viewLine2)
-    //    }
+    
+   
     
     
 }
