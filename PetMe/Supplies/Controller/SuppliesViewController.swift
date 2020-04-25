@@ -14,7 +14,7 @@ class SuppliesViewController: UIViewController {
     
     let cell_id = "BaseCell"
     
-    let titles = ["Favorite Rations", "Favorite Treats", "Favorite Toys"]
+    let titles = ["Favorite Foods", "Favorite Treats", "Favorite Toys"]
     
     weak var collectionView: UICollectionView!
     
