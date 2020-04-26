@@ -32,6 +32,9 @@
 		1642B9B82419ED8F00E71EA3 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1642B9AB2419ED8F00E71EA3 /* Roboto-Black.ttf */; };
 		1642B9B92419ED8F00E71EA3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1642B9AC2419ED8F00E71EA3 /* Roboto-Light.ttf */; };
 		1642B9BA2419ED8F00E71EA3 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1642B9AD2419ED8F00E71EA3 /* Roboto-ThinItalic.ttf */; };
+		164393692455F8E600F67171 /* TreatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164393682455F8E600F67171 /* TreatsCell.swift */; };
+		1643936B2455F94E00F67171 /* BasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643936A2455F94E00F67171 /* BasicCollectionViewCell.swift */; };
+		1643936D2456044A00F67171 /* ToyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643936C2456044A00F67171 /* ToyCell.swift */; };
 		166A39C6244A5EF400B2048E /* Notifications+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A39C5244A5EF400B2048E /* Notifications+Name.swift */; };
 		166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */; };
 		166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */; };
@@ -144,6 +147,9 @@
 		1642B9AB2419ED8F00E71EA3 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		1642B9AC2419ED8F00E71EA3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		1642B9AD2419ED8F00E71EA3 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		164393682455F8E600F67171 /* TreatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatsCell.swift; sourceTree = "<group>"; };
+		1643936A2455F94E00F67171 /* BasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewCell.swift; sourceTree = "<group>"; };
+		1643936C2456044A00F67171 /* ToyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyCell.swift; sourceTree = "<group>"; };
 		166A39C5244A5EF400B2048E /* Notifications+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Name.swift"; sourceTree = "<group>"; };
 		166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesTBViewDelegateMethods.swift; sourceTree = "<group>"; };
 		166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTableViewCell.swift; sourceTree = "<group>"; };
@@ -374,6 +380,8 @@
 				1693761E24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift */,
 				169376222453A3D900971AB1 /* FavoriteFoodsWithImageCell.swift */,
 				162BD6B32454BB6D00CDB209 /* GeneralCell.swift */,
+				164393682455F8E600F67171 /* TreatsCell.swift */,
+				1643936C2456044A00F67171 /* ToyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -730,6 +738,7 @@
 				16BC2F8C241C525600222798 /* UIViewController+HideKeyboard.swift */,
 				16119C892434474E00B8DAE7 /* UIViewController+TopBarHeight.swift */,
 				16B41CCB2432BC0A00325004 /* AttrStringHelper.swift */,
+				1643936A2455F94E00F67171 /* BasicCollectionViewCell.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -936,6 +945,7 @@
 				16EC98B82421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
+				164393692455F8E600F67171 /* TreatsCell.swift in Sources */,
 				168AB73824175084000B7618 /* AddReminderViewController.swift in Sources */,
 				16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */,
 				16D5F0EC243C01B2008D6470 /* Request.swift in Sources */,
@@ -951,12 +961,14 @@
 				168463592409EE8C00936530 /* GeneralHelper.swift in Sources */,
 				166A39C6244A5EF400B2048E /* Notifications+Name.swift in Sources */,
 				16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */,
+				1643936B2455F94E00F67171 /* BasicCollectionViewCell.swift in Sources */,
 				1693761B2453669200971AB1 /* AnswerLabel.swift in Sources */,
 				16D7CFDF23ECE5090035DA5A /* UIColor+Hex.swift in Sources */,
 				162BD6B42454BB6D00CDB209 /* GeneralCell.swift in Sources */,
 				16D5F0F3243C0F81008D6470 /* GroupVC+GroupDataProviderDelegateMethods.swift in Sources */,
 				16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,
+				1643936D2456044A00F67171 /* ToyCell.swift in Sources */,
 				16D7CFE323ECE7E10035DA5A /* Assets.swift in Sources */,
 				16B41CD22432C9AA00325004 /* GroupVC+TableViewDelegateMethods.swift in Sources */,
 				1642B99C2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift in Sources */,

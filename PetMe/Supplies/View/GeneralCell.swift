@@ -8,10 +8,13 @@
 
 import UIKit
 
-class GeneralCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    let cellID = "ContentCellID"
+    let cellID = "FavoriteCellID"
+    let treatsCellID = "TreatsCellID"
+    let toysCellID = "ToysCellID"
     var pageTitle = "Favorite Foods"
+    var currentIndex: Int = 0
 
     
     override init(frame: CGRect) {
@@ -34,13 +37,15 @@ class GeneralCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     
     
     func setupViews() {
-        backgroundColor = .brown
+        self.collectionView.backgroundColor = AppColors.backgroundColor
         
         addSubview(collectionView)
         addContraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         addContraintsWithFormat(format: "H:|[v0]|", views: collectionView)
         
         collectionView.register(FavoriteFoodsWithImageCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(TreatsCell.self, forCellWithReuseIdentifier: treatsCellID)
+        collectionView.register(ToyCell.self, forCellWithReuseIdentifier: toysCellID)
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headView")
         
         NotificationCenter.default.addObserver(self, selector: #selector(changePageTitle), name: .willChangePageTitle, object: nil)
@@ -52,14 +57,28 @@ class GeneralCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID , for: indexPath) as! FavoriteFoodsWithImageCell
-        cell.setupViews()
-        return cell
+        
+        if currentIndex == 0 {
+             return collectionView.dequeueReusableCell(withReuseIdentifier: cellID , for: indexPath)
+        } else if currentIndex == 1 {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: treatsCellID, for: indexPath)
+        } else {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: toysCellID , for: indexPath)
+        }
+       
+        
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: frame.width - 20, height: 300)
+        if currentIndex == 0 {
+            return CGSize(width: frame.width - 20, height: 300)
+        } else if currentIndex == 1 {
+            return CGSize(width:frame.width - 20 , height: 260)
+        } else {
+             return CGSize(width:frame.width - 20 , height: 220)
+        }
     }
     
     
@@ -89,8 +108,9 @@ class GeneralCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionV
     
     
     @objc func changePageTitle(notification: Notification) {
-        if let data = notification.userInfo as? [String:String] {
-            pageTitle = data["title"]!
+        if let data = notification.userInfo as? [String:Any] {
+            pageTitle = data["title"] as! String
+            currentIndex = data["index"] as! Int
             collectionView.reloadData()
         }
     }

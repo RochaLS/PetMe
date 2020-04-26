@@ -100,7 +100,7 @@ class SuppliesViewController: UIViewController {
         collectionView.isPagingEnabled = true
         
         self.collectionView = collectionView
-        self.collectionView.register(GeneralCell.self, forCellWithReuseIdentifier: cell_id)     
+        self.collectionView.register(GeneralCell.self, forCellWithReuseIdentifier: cell_id)
     }
     
 }
