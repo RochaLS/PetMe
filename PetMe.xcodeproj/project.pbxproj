@@ -35,6 +35,9 @@
 		164393692455F8E600F67171 /* TreatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164393682455F8E600F67171 /* TreatsCell.swift */; };
 		1643936B2455F94E00F67171 /* BasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643936A2455F94E00F67171 /* BasicCollectionViewCell.swift */; };
 		1643936D2456044A00F67171 /* ToyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643936C2456044A00F67171 /* ToyCell.swift */; };
+		1643936F2456099800F67171 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643936E2456099800F67171 /* Food.swift */; };
+		16439371245609B500F67171 /* Treat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439370245609B500F67171 /* Treat.swift */; };
+		16439373245609D000F67171 /* Toy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439372245609D000F67171 /* Toy.swift */; };
 		166A39C6244A5EF400B2048E /* Notifications+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A39C5244A5EF400B2048E /* Notifications+Name.swift */; };
 		166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */; };
 		166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */; };
@@ -150,6 +153,9 @@
 		164393682455F8E600F67171 /* TreatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatsCell.swift; sourceTree = "<group>"; };
 		1643936A2455F94E00F67171 /* BasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewCell.swift; sourceTree = "<group>"; };
 		1643936C2456044A00F67171 /* ToyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyCell.swift; sourceTree = "<group>"; };
+		1643936E2456099800F67171 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		16439370245609B500F67171 /* Treat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treat.swift; sourceTree = "<group>"; };
+		16439372245609D000F67171 /* Toy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toy.swift; sourceTree = "<group>"; };
 		166A39C5244A5EF400B2048E /* Notifications+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Name.swift"; sourceTree = "<group>"; };
 		166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesTBViewDelegateMethods.swift; sourceTree = "<group>"; };
 		166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTableViewCell.swift; sourceTree = "<group>"; };
@@ -389,6 +395,9 @@
 		169376152452740400971AB1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1643936E2456099800F67171 /* Food.swift */,
+				16439370245609B500F67171 /* Treat.swift */,
+				16439372245609D000F67171 /* Toy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -951,6 +960,7 @@
 				16D5F0EC243C01B2008D6470 /* Request.swift in Sources */,
 				1642B99E2418919D00E71EA3 /* RemindersVC+SwipeCellKitDelegateMethods.swift in Sources */,
 				16119C8D243458AC00B8DAE7 /* GroupDataProvider.swift in Sources */,
+				16439371245609B500F67171 /* Treat.swift in Sources */,
 				16B41CD52432CD6700325004 /* GroupTableViewCell.swift in Sources */,
 				166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */,
 				16F6BA10244634330020E445 /* GroupCellDelegate.swift in Sources */,
@@ -975,12 +985,14 @@
 				16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */,
 				16BC2F8F241C55EC00222798 /* LoginViewController.swift in Sources */,
 				166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */,
+				16439373245609D000F67171 /* Toy.swift in Sources */,
 				16DA5226243A62640032C1C1 /* InvitesViewController.swift in Sources */,
 				1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */,
 				16937619245361B600971AB1 /* FixedLabel.swift in Sources */,
 				16937621245371A500971AB1 /* HeaderCollectionReusableView.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
 				16BC2F91241C7C7800222798 /* SettingsViewController.swift in Sources */,
+				1643936F2456099800F67171 /* Food.swift in Sources */,
 				16E3C20C2420AC4200F1B4C4 /* UserDataProviderDelegate.swift in Sources */,
 				16A211DD240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift in Sources */,
 				16A211DF240E0EF1009EFEE2 /* VaccineInfoTableViewCell.swift in Sources */,
