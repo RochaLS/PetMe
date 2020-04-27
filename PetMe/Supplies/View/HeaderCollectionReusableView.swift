@@ -18,6 +18,8 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         return label
     }()
     
+    let addButton = DefaultButton()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -29,7 +31,13 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     
     func setupView() {
         addSubview(titleLabel)
+        addButton.setTitle("Add", for: .normal)
+        addSubview(addButton)
+        
+        addContraintsWithFormat(format: "V:|-20-[v0]-20-|", views: addButton)
         addContraintsWithFormat(format: "V:|[v0]|", views: titleLabel)
-        addContraintsWithFormat(format: "H:|[v0]|", views: titleLabel)
+        addContraintsWithFormat(format: "H:[v0][v1(80)]-10-|", views: titleLabel, addButton)
+        
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
     }
 }

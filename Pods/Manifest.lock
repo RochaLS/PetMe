@@ -281,6 +281,7 @@ PODS:
   - SDWebImage (5.3.2):
     - SDWebImage/Core (= 5.3.2)
   - SDWebImage/Core (5.3.2)
+  - SwiftSpinner (2.1.0)
   - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
@@ -292,6 +293,7 @@ DEPENDENCIES:
   - FontAwesome.swift
   - PMAlertController
   - RLBAlertsPickers (~> 1.1.1)
+  - SwiftSpinner
   - SwipeCellKit
 
 SPEC REPOS:
@@ -323,6 +325,7 @@ SPEC REPOS:
     - Protobuf
     - RLBAlertsPickers
     - SDWebImage
+    - SwiftSpinner
     - SwipeCellKit
 
 SPEC CHECKSUMS:
@@ -353,8 +356,9 @@ SPEC CHECKSUMS:
   Protobuf: 394b2bf29ec303f4325e3ee4892c09e675647152
   RLBAlertsPickers: 2548943b0cb16620904cbd926a645362d1b43963
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
+  SwiftSpinner: 0f15c006307f8d8bbac075638927ec1361b565d7
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: ff3bfcf9ff60db5ed145f8018f2122a8a1e2e167
+PODFILE CHECKSUM: 552f30566bd186874c1e545f756399f8a3469231
 
 COCOAPODS: 1.7.4

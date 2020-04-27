@@ -38,6 +38,7 @@
 		1643936F2456099800F67171 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643936E2456099800F67171 /* Food.swift */; };
 		16439371245609B500F67171 /* Treat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439370245609B500F67171 /* Treat.swift */; };
 		16439373245609D000F67171 /* Toy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439372245609D000F67171 /* Toy.swift */; };
+		165D9A432457606E0086EFAA /* CreateFavoriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */; };
 		166A39C6244A5EF400B2048E /* Notifications+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A39C5244A5EF400B2048E /* Notifications+Name.swift */; };
 		166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */; };
 		166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */; };
@@ -156,6 +157,7 @@
 		1643936E2456099800F67171 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		16439370245609B500F67171 /* Treat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treat.swift; sourceTree = "<group>"; };
 		16439372245609D000F67171 /* Toy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toy.swift; sourceTree = "<group>"; };
+		165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteFoodViewController.swift; sourceTree = "<group>"; };
 		166A39C5244A5EF400B2048E /* Notifications+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Name.swift"; sourceTree = "<group>"; };
 		166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesTBViewDelegateMethods.swift; sourceTree = "<group>"; };
 		166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTableViewCell.swift; sourceTree = "<group>"; };
@@ -303,6 +305,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		165D9A3D24575F5E0086EFAA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		166C920423F6533E00964FC8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +382,7 @@
 			children = (
 				16F8C84E2450C05900A13CCC /* SuppliesViewController.swift */,
 				16F8C8502451019800A13CCC /* Supplies+CollectionViewDelegateMethods.swift */,
+				165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -716,6 +726,7 @@
 		16F8C84B2450BF8400A13CCC /* Supplies */ = {
 			isa = PBXGroup;
 			children = (
+				165D9A3D24575F5E0086EFAA /* Protocols */,
 				169376152452740400971AB1 /* Model */,
 				16937614245273F600971AB1 /* View */,
 				16937613245273EA00971AB1 /* Controller */,
@@ -977,6 +988,7 @@
 				162BD6B42454BB6D00CDB209 /* GeneralCell.swift in Sources */,
 				16D5F0F3243C0F81008D6470 /* GroupVC+GroupDataProviderDelegateMethods.swift in Sources */,
 				16D7CFDB23ECE3E70035DA5A /* AllPets+DelegateMethods.swift in Sources */,
+				165D9A432457606E0086EFAA /* CreateFavoriteFoodViewController.swift in Sources */,
 				16BCB6D823DFE82300C91316 /* AppDelegate.swift in Sources */,
 				1643936D2456044A00F67171 /* ToyCell.swift in Sources */,
 				16D7CFE323ECE7E10035DA5A /* Assets.swift in Sources */,

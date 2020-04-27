@@ -7,6 +7,7 @@ ${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework
 ${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework
 ${BUILT_PRODUCTS_DIR}/RLBAlertsPickers/RLBAlertsPickers.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework
 ${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework
 ${BUILT_PRODUCTS_DIR}/abseil/absl.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework

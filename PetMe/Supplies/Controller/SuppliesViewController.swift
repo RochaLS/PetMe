@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class SuppliesViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class SuppliesViewController: UIViewController {
     let titles = ["Favorite Foods", "Favorite Treats", "Favorite Toys"]
     
     weak var collectionView: UICollectionView!
+    
+    var generalCell: GeneralCell?
     
     let headerView: UIView = {
         let view = UIView()
@@ -52,6 +55,10 @@ class SuppliesViewController: UIViewController {
         setupCollectionView()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didTapOnAdd), name: .didTapOnAdd, object: nil)
+        
+        
     }
     
     func setupView() {
@@ -101,6 +108,12 @@ class SuppliesViewController: UIViewController {
         
         self.collectionView = collectionView
         self.collectionView.register(GeneralCell.self, forCellWithReuseIdentifier: cell_id)
+    }
+    
+    @objc func didTapOnAdd(notification: Notification) {
+        let controller = CreateFavoriteFoodViewController()
+        controller.pet = pet
+        self.present(CreateFavoriteFoodViewController(), animated: true, completion: nil)
     }
     
 }

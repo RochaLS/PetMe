@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -96,7 +97,7 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
             
             let headView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headView", for: indexPath) as! HeaderCollectionReusableView
             
-            
+            headView.addButton.addTarget(self, action: #selector(goToCreateItem), for: .touchUpInside)
             headView.titleLabel.text = pageTitle
             return headView
             
@@ -113,5 +114,9 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
             currentIndex = data["index"] as! Int
             collectionView.reloadData()
         }
+    }
+    
+    @objc func goToCreateItem() {
+        NotificationCenter.default.post(name: .didTapOnAdd, object: nil, userInfo: ["index":currentIndex])
     }
 }

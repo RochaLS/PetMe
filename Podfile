@@ -16,6 +16,7 @@ target 'PetMe' do
   pod 'RLBAlertsPickers', '~> 1.1.1'
   pod 'SwipeCellKit'
   pod 'PMAlertController'
+  pod "SwiftSpinner"
 
 
 
