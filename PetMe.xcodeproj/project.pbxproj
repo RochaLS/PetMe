@@ -39,6 +39,9 @@
 		16439371245609B500F67171 /* Treat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439370245609B500F67171 /* Treat.swift */; };
 		16439373245609D000F67171 /* Toy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439372245609D000F67171 /* Toy.swift */; };
 		165D9A432457606E0086EFAA /* CreateFavoriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */; };
+		165D9A452457B2240086EFAA /* CreateFavoriteTreatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */; };
+		165D9A472457B6AD0086EFAA /* CreateFavoriteToyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */; };
+		165D9A492457B8100086EFAA /* AddBasicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A482457B8100086EFAA /* AddBasicPageViewController.swift */; };
 		166A39C6244A5EF400B2048E /* Notifications+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A39C5244A5EF400B2048E /* Notifications+Name.swift */; };
 		166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */; };
 		166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */; };
@@ -158,6 +161,9 @@
 		16439370245609B500F67171 /* Treat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treat.swift; sourceTree = "<group>"; };
 		16439372245609D000F67171 /* Toy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toy.swift; sourceTree = "<group>"; };
 		165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteFoodViewController.swift; sourceTree = "<group>"; };
+		165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteTreatViewController.swift; sourceTree = "<group>"; };
+		165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteToyViewController.swift; sourceTree = "<group>"; };
+		165D9A482457B8100086EFAA /* AddBasicPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBasicPageViewController.swift; sourceTree = "<group>"; };
 		166A39C5244A5EF400B2048E /* Notifications+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Name.swift"; sourceTree = "<group>"; };
 		166A86EB24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinesTBViewDelegateMethods.swift; sourceTree = "<group>"; };
 		166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTableViewCell.swift; sourceTree = "<group>"; };
@@ -383,6 +389,8 @@
 				16F8C84E2450C05900A13CCC /* SuppliesViewController.swift */,
 				16F8C8502451019800A13CCC /* Supplies+CollectionViewDelegateMethods.swift */,
 				165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */,
+				165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */,
+				165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -759,6 +767,7 @@
 				16119C892434474E00B8DAE7 /* UIViewController+TopBarHeight.swift */,
 				16B41CCB2432BC0A00325004 /* AttrStringHelper.swift */,
 				1643936A2455F94E00F67171 /* BasicCollectionViewCell.swift */,
+				165D9A482457B8100086EFAA /* AddBasicPageViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -960,6 +969,7 @@
 				16951CC924416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift in Sources */,
 				1687A2D42412E63B0038E146 /* AboutTableViewCell.swift in Sources */,
 				1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */,
+				165D9A492457B8100086EFAA /* AddBasicPageViewController.swift in Sources */,
 				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
 				16E3C209242095DD00F1B4C4 /* User.swift in Sources */,
 				16EC98B82421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift in Sources */,
@@ -972,6 +982,7 @@
 				1642B99E2418919D00E71EA3 /* RemindersVC+SwipeCellKitDelegateMethods.swift in Sources */,
 				16119C8D243458AC00B8DAE7 /* GroupDataProvider.swift in Sources */,
 				16439371245609B500F67171 /* Treat.swift in Sources */,
+				165D9A472457B6AD0086EFAA /* CreateFavoriteToyViewController.swift in Sources */,
 				16B41CD52432CD6700325004 /* GroupTableViewCell.swift in Sources */,
 				166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */,
 				16F6BA10244634330020E445 /* GroupCellDelegate.swift in Sources */,
@@ -1021,6 +1032,7 @@
 				16F8C84F2450C05900A13CCC /* SuppliesViewController.swift in Sources */,
 				169376232453A3D900971AB1 /* FavoriteFoodsWithImageCell.swift in Sources */,
 				16BC2F84241C341100222798 /* SignUpViewController.swift in Sources */,
+				165D9A452457B2240086EFAA /* CreateFavoriteTreatViewController.swift in Sources */,
 				16F8C8512451019800A13CCC /* Supplies+CollectionViewDelegateMethods.swift in Sources */,
 				160D0A2B2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift in Sources */,
 			);

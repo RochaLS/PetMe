@@ -111,9 +111,24 @@ class SuppliesViewController: UIViewController {
     }
     
     @objc func didTapOnAdd(notification: Notification) {
-        let controller = CreateFavoriteFoodViewController()
-        controller.pet = pet
-        self.present(CreateFavoriteFoodViewController(), animated: true, completion: nil)
+        if let data = notification.userInfo {
+            let index = data["index"] as! Int
+            
+            if index == 0 {
+                let controller = CreateFavoriteFoodViewController()
+                controller.pet = pet
+                self.present(CreateFavoriteFoodViewController(), animated: true, completion: nil)
+            } else if index == 1 {
+                let controller = CreateFavoriteTreatViewController()
+                controller.pet = pet
+                self.present(CreateFavoriteTreatViewController(), animated: true, completion: nil)
+            } else if index == 2 {
+                let controller = CreateFavoriteToyViewController()
+                controller.pet = pet
+                self.present(CreateFavoriteToyViewController(), animated: true, completion: nil)
+            }
+        }
+        
     }
     
 }
