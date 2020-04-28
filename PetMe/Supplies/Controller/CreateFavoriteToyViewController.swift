@@ -15,7 +15,7 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
     
     let nameTextField: UITextField = {
         let textField = DefaultTextField()
-        textField.placeholder = "Treat Name"
+        textField.placeholder = "Toy Name"
         return textField
     }()
     
