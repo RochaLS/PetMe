@@ -12,6 +12,9 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
     
     var pet: Pet!
     var centerConstraint: NSLayoutConstraint?
+    var treatImageData: Data? = nil
+    var treatImageName = "placeholder"
+    var provider: SuppliesDataProvider!
     
     let brandTextField: UITextField = {
         let textField = DefaultTextField()
@@ -31,6 +34,7 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
         setupViews()
+        provider = SuppliesDataProvider()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -56,7 +60,7 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
         
         centerConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
         view.addConstraint(centerConstraint!)
-    
+        
         containerView.addSubview(brandTextField)
         containerView.addSubview(nameTextField)
         containerView.addSubview(photoButton)
@@ -68,6 +72,7 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
         
         dismissButton.addTarget(self, action: #selector(didTapDismiss), for: .touchUpInside)
         addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+        photoButton.addTarget(self, action: #selector(addPhotoButtonPressed), for: .touchUpInside)
         
         
     }
@@ -78,6 +83,28 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
     
     @objc func didTapAdd() {
         //Save Stuff...
+        if treatImageData == nil {
+            treatImageName = "-"
+        }
+        
+        if let brand = brandTextField.text, let name = nameTextField.text {
+            let newTreat = Treat(name: name, brand: brand, imgName: treatImageName, petID: pet.id, id: UUID().uuidString)
+            provider.saveTreatData(petID: pet.id , imgData: treatImageData, imgName: treatImageName, treat: newTreat)
+            self.dismiss(animated: true) {
+                self.brandTextField.text = ""
+                self.nameTextField.text = ""
+            }
+            
+            
+        }
+    }
+    
+    @objc func addPhotoButtonPressed() {
+        CameraHandler.shared.showActionSheet(vc: self)
+        CameraHandler.shared.imagePickedBlock = { (image) in
+            self.treatImageData = image.jpegData(compressionQuality: 0.75)
+            self.treatImageName = UUID().uuidString + ".jpeg"
+        }
     }
     
     @objc func handleKeyboard(notification: Notification) {
@@ -96,6 +123,6 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
             })
         }
     }
-
+    
     
 }

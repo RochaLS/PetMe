@@ -12,9 +12,13 @@ class Toy {
     
     let name: String
     let imgName: String
+    let petID: String
+    let id: String
     
-    init(name: String, imgName: String) {
+    init(name: String, imgName: String, petID: String, id: String) {
         self.name = name
         self.imgName = imgName
+        self.petID = petID
+        self.id = id
     }
 }

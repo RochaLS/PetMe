@@ -14,11 +14,15 @@ class Food {
     let breedSize: String
     let flavour: String
     let imgName: String
+    let petID: String
+    let id: String
     
-    init(brand: String, breedSize: String, flavour: String, imgName: String) {
+    init(brand: String, breedSize: String, flavour: String, imgName: String, id: String, petID: String) {
         self.brand = brand
         self.breedSize = breedSize
         self.flavour = flavour
         self.imgName = imgName
+        self.id = id
+        self.petID = petID
     }
 }

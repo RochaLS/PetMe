@@ -12,6 +12,9 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
     
     var pet: Pet!
     var centerConstraint: NSLayoutConstraint?
+    var foodImageData: Data? = nil
+    var foodImageName = ""
+    var provider: SuppliesDataProvider!
     
     
     let brandTextField: UITextField = {
@@ -41,10 +44,11 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         setupViews()
+        provider = SuppliesDataProvider()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -84,6 +88,7 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
         
         dismissButton.addTarget(self, action: #selector(didTapDismiss), for: .touchUpInside)
         addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+        photoButton.addTarget(self, action: #selector(addPhotoButtonPressed), for: .touchUpInside)
         
     }
     
@@ -93,6 +98,33 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
     
     @objc func didTapAdd() {
         //Save Stuff...
+        if foodImageData == nil {
+            foodImageName = "-"
+        }
+        
+        if let brand = brandTextField.text, let breedSize = breedSizeTextField.text, let flavour = flavourTextField.text {
+            let newFood = Food(brand: brand, breedSize: breedSize, flavour: flavour , imgName: foodImageName, id: UUID().uuidString, petID: pet.id)
+            provider.saveFoodData(petID: pet.id, imgData: foodImageData ?? nil, imgName: foodImageName , food: newFood)
+            self.dismiss(animated: true) {
+                self.brandTextField.text = ""
+                self.breedSizeTextField.text = ""
+                self.flavourTextField.text = ""
+                self.typeTextField.text = ""
+            }
+            
+            
+        } else {
+            print("You need to fill all the forms!")
+        }
+        
+    }
+    
+    @objc func addPhotoButtonPressed() {
+        CameraHandler.shared.showActionSheet(vc: self)
+        CameraHandler.shared.imagePickedBlock = { (image) in
+            self.foodImageData = image.jpegData(compressionQuality: 0.75)
+            self.foodImageName = UUID().uuidString + ".jpeg"
+        }
     }
     
     @objc func handleKeyboard(notification: Notification) {
@@ -111,7 +143,7 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
             })
         }
     }
-
     
-
+    
+    
 }

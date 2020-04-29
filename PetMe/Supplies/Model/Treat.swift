@@ -13,10 +13,14 @@ class Treat {
     let name: String
     let brand: String
     let imgName: String
+    let id: String
+    let petID: String
     
-    init(name: String, brand: String, imgName: String) {
+    init(name: String, brand: String, imgName: String, petID: String, id: String) {
         self.name = name
         self.brand = brand
         self.imgName = imgName
+        self.petID = petID
+        self.id = id
     }
 }

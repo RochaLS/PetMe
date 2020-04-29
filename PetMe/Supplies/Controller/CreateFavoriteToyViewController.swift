@@ -12,6 +12,9 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
     
     var pet: Pet!
     var centerConstraint: NSLayoutConstraint?
+    var toyImageData: Data? = nil
+    var toyImageName = "placeholder"
+    var provider: SuppliesDataProvider!
     
     let nameTextField: UITextField = {
         let textField = DefaultTextField()
@@ -25,6 +28,7 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.white
         setupViews()
+        provider = SuppliesDataProvider()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -45,7 +49,7 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
         view.addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: containerView)
         view.addContraintsWithFormat(format: "V:[v0]-40-[v1(90)]-40-[v2(50)]", views: pageTitle, containerView, addButton)
         view.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: addButton)
-       
+        
         centerConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
         view.addConstraint(centerConstraint!)
         
@@ -60,6 +64,7 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
         
         dismissButton.addTarget(self, action: #selector(didTapDismiss), for: .touchUpInside)
         addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
+        photoButton.addTarget(self, action: #selector(addPhotoButtonPressed), for: .touchUpInside)
     }
     
     @objc func didTapDismiss() {
@@ -68,6 +73,28 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
     
     @objc func didTapAdd() {
         //Save Stuff...
+        
+        if toyImageData == nil {
+            toyImageName = "-"
+        }
+        
+        if let name = nameTextField.text {
+            let newToy = Toy(name: name, imgName: toyImageName, petID: pet.id, id: UUID().uuidString)
+            provider.saveToyData(petID: pet.id, imgData: toyImageData!, imgName: toyImageName, toy: newToy)
+            
+            self.dismiss(animated: true) {
+                self.nameTextField.text = ""
+            }
+            
+        }
+    }
+    
+    @objc func addPhotoButtonPressed() {
+        CameraHandler.shared.showActionSheet(vc: self)
+        CameraHandler.shared.imagePickedBlock = { (image) in
+            self.toyImageData = image.jpegData(compressionQuality: 0.75)
+            self.toyImageName = UUID().uuidString + ".jpeg"
+        }
     }
     
     @objc func handleKeyboard(notification: Notification) {
@@ -86,7 +113,7 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
             })
         }
     }
-
+    
     
     
 }
