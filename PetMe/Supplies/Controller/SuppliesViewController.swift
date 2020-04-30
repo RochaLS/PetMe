@@ -48,7 +48,7 @@ class SuppliesViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = AppColors.primaryColor
         navigationController?.navigationBar.tintColor = UIColor.white
         self.view.backgroundColor = AppColors.backgroundColor
-        self.navigationItem.title = "Info and Supplies"
+        self.navigationItem.title = "Supplies"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 22)!]
     }
     
