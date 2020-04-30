@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import SwiftSpinner
 import Firebase
+import PMAlertController
 
 class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -22,6 +22,7 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
     var treats = [Treat]()
     var toys = [Toy]()
     var petID: String!
+    weak var suppliesRef: SuppliesViewController!
     
     
     override init(frame: CGRect) {
@@ -63,7 +64,7 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
     
     func setData() {
         if currentIndex == 0 {
-             provider.getFoodData(petID: GlobalVariables.petID)
+            provider.getFoodData(petID: GlobalVariables.petID)
         } else if currentIndex == 1 {
             provider.getTreatData(petID: GlobalVariables.petID)
         } else if currentIndex ==  2 {
@@ -87,13 +88,15 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         
         if currentIndex == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID , for: indexPath) as! FavoriteFoodsWithImageCell
-
+            
             cell.brandAnswer.text = foods[indexPath.item].brand
             cell.breedSizeAnswer.text = foods[indexPath.item].breedSize
             cell.flavourAnswer.text = foods[indexPath.item].flavour
             cell.typeAnswer.text = foods[indexPath.item].type
+            cell.setupFood(food: foods[indexPath.item])
+            cell.delegate = self
             provider.getSupplyImage(of: foods[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "foods")
-
+            
             return cell
             
         } else if currentIndex == 1 {
@@ -101,15 +104,19 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
             
             cell.brandAnswer.text = treats[indexPath.item].brand
             cell.nameAnswer.text = treats[indexPath.item].name
+            cell.setupTreat(treat: treats[indexPath.item])
+            cell.delegate = self
             provider.getSupplyImage(of: treats[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "treats")
             
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: toysCellID , for: indexPath) as! ToyCell
-
+            
             cell.nameAnswer.text = toys[indexPath.item].name
-             provider.getSupplyImage(of: toys[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "toys")
-
+            cell.setupToy(toy: toys[indexPath.item])
+            cell.delegate = self
+            provider.getSupplyImage(of: toys[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "toys")
+            
             return cell
         }
     }
@@ -155,13 +162,13 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         if let data = notification.userInfo as? [String:Any] {
             pageTitle = data["title"] as! String
             currentIndex = data["index"] as! Int
+            suppliesRef = data["suppliesRef"] as? SuppliesViewController
             setData()
         }
-            
+        
     }
     
     @objc func goToCreateItem() {
         NotificationCenter.default.post(name: .didTapOnAdd, object: nil, userInfo: ["index":currentIndex])
     }
-    
 }

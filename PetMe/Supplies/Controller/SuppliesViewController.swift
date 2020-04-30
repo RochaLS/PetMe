@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import PMAlertController
 
 class SuppliesViewController: UIViewController {
     
@@ -30,6 +31,8 @@ class SuppliesViewController: UIViewController {
     let petImageView: UIImageView = PetAvatarImageView()
     
     var avatarRawImage: UIImage?
+    
+    var provider: SuppliesDataProvider!
     
     let titleText: UILabel = {
         let label = UILabel()
@@ -57,8 +60,10 @@ class SuppliesViewController: UIViewController {
         setupCollectionView()
         collectionView.delegate = self
         collectionView.dataSource = self
+        provider = SuppliesDataProvider()
         
         NotificationCenter.default.addObserver(self, selector: #selector(didTapOnAdd), name: .didTapOnAdd, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willShowAlert), name: .willShowAlert, object: nil)
         
         GlobalVariables.petID = pet.id
         
@@ -137,6 +142,112 @@ class SuppliesViewController: UIViewController {
             }
         }
         
+    }
+    
+    @objc func willShowAlert(notification: Notification) {
+        if let data = notification.userInfo {
+            if let foodToRemove = data["itemToRemove"] as? Food {
+                showAlertToRemoveFood(itemToRemove: foodToRemove)
+            } else if let treatToRemove = data["itemToRemove"] as? Treat {
+                showAlertToRemoveTreat(itemToRemove: treatToRemove)
+            } else if let toyToRemove = data["itemToRemove"] as? Toy {
+                showAlertToRemoveToy(itemToRemove: toyToRemove)
+            }
+            
+        }
+    }
+    
+    
+    // MARK: - Refactor this later ....
+    
+    func showAlertToRemoveFood(itemToRemove: Food) {
+        let alertVC = PMAlertController(title: "Remove this item?", description: "Are you sure you want to remove this item?", image: nil, style: .alert)
+        
+        alertVC.alertTitle.font = AppFonts.mainFontMedium
+        alertVC.alertTitle.font = alertVC.alertTitle.font.withSize(22)
+        alertVC.alertTitle.textColor = AppColors.black
+        
+        alertVC.alertDescription.font = AppFonts.mainFontRegular
+        alertVC.alertDescription.font = alertVC.alertDescription.font.withSize(18)
+        
+        
+        
+        
+        
+        alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+            print("cancel pressed")
+        }))
+        
+        let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
+            self.provider.deleteFood(food: itemToRemove)
+            self.collectionView.reloadData()
+        })
+        
+        confirmAction.setTitleColor(AppColors.red, for: .normal)
+        
+        alertVC.addAction(confirmAction)
+        
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    func showAlertToRemoveTreat(itemToRemove: Treat) {
+        let alertVC = PMAlertController(title: "Remove this item?", description: "Are you sure you want to remove this item?", image: nil, style: .alert)
+        
+        alertVC.alertTitle.font = AppFonts.mainFontMedium
+        alertVC.alertTitle.font = alertVC.alertTitle.font.withSize(22)
+        alertVC.alertTitle.textColor = AppColors.black
+        
+        alertVC.alertDescription.font = AppFonts.mainFontRegular
+        alertVC.alertDescription.font = alertVC.alertDescription.font.withSize(18)
+        
+        
+        
+        
+        
+        alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+            print("cancel pressed")
+        }))
+        
+        let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
+            self.provider.deleteTreat(treat: itemToRemove)
+            self.collectionView.reloadData()
+        })
+        
+        confirmAction.setTitleColor(AppColors.red, for: .normal)
+        
+        alertVC.addAction(confirmAction)
+        
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    func showAlertToRemoveToy(itemToRemove: Toy) {
+        let alertVC = PMAlertController(title: "Remove this item?", description: "Are you sure you want to remove this item?", image: nil, style: .alert)
+        
+        alertVC.alertTitle.font = AppFonts.mainFontMedium
+        alertVC.alertTitle.font = alertVC.alertTitle.font.withSize(22)
+        alertVC.alertTitle.textColor = AppColors.black
+        
+        alertVC.alertDescription.font = AppFonts.mainFontRegular
+        alertVC.alertDescription.font = alertVC.alertDescription.font.withSize(18)
+        
+        
+        
+        
+        
+        alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+            print("cancel pressed")
+        }))
+        
+        let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
+            self.provider.deleteToy(toy: itemToRemove)
+            self.collectionView.reloadData()
+        })
+        
+        confirmAction.setTitleColor(AppColors.red, for: .normal)
+        
+        alertVC.addAction(confirmAction)
+        
+        self.present(alertVC, animated: true, completion: nil)
     }
     
 }

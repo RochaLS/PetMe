@@ -193,4 +193,52 @@ class SuppliesDataProvider {
                }
            }
     }
+    
+    func deleteFood(food: Food) {
+       let query = db.collection("foods").whereField("id", isEqualTo: food.id)
+        
+        query.getDocuments { (querySnapshot, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                if let snapshot = querySnapshot {
+                    for doc in snapshot.documents {
+                        doc.reference.delete()
+                    }
+                }
+            }
+        }
+    }
+    
+    func deleteTreat(treat: Treat) {
+        let query = db.collection("treats").whereField("id", isEqualTo: treat.id)
+        
+        query.getDocuments { (querySnapshot, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                if let snapshot = querySnapshot {
+                    for doc in snapshot.documents {
+                        doc.reference.delete()
+                    }
+                }
+            }
+        }
+    }
+    
+    func deleteToy(toy: Toy) {
+        let query = db.collection("toys").whereField("id", isEqualTo: toy.id)
+        
+        query.getDocuments { (querySnapshot, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                if let snapshot = querySnapshot {
+                    for doc in snapshot.documents {
+                        doc.reference.delete()
+                    }
+                }
+            }
+        }
+    }
 }

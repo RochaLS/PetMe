@@ -10,6 +10,7 @@ import UIKit
 
 class FavoriteFoodsWithImageCell: UICollectionViewCell {
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white
@@ -28,6 +29,8 @@ class FavoriteFoodsWithImageCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    weak var delegate: FoodCellDelegate?
     
     let petImageView: UIImageView = {
         let imgview = UIImageView()
@@ -61,11 +64,15 @@ class FavoriteFoodsWithImageCell: UICollectionViewCell {
         return label
     }()
     
+    let trashButton = TrashButton()
+    
     
     let brandAnswer = AnswerLabel()
     let flavourAnswer = AnswerLabel()
     let breedSizeAnswer = AnswerLabel()
     let typeAnswer = AnswerLabel()
+    
+    var food: Food!
     
     
     func setupViews() {
@@ -79,16 +86,29 @@ class FavoriteFoodsWithImageCell: UICollectionViewCell {
         addSubview(breedSizeAnswer)
         addSubview(typeAnswer)
         addSubview(petImageView)
+        addSubview(trashButton)
         
         
         addContraintsWithFormat(format: "V:|-10-[v0(20)]-5-[v1(20)]-5-[v2(20)]-5-[v3(20)]", views: brandLabel, flavourLabel, breedSizeLabel, typeLabel)
-        addContraintsWithFormat(format:"V:|-10-[v0(20)]-5-[v1(20)]-5-[v2(20)]-5-[v3(20)]-10-[v4]-10-|" , views: brandAnswer, flavourAnswer, breedSizeAnswer, typeAnswer, petImageView)
+        addContraintsWithFormat(format: "V:|-10-[v0(20)]-5-[v1(20)]-5-[v2(20)]-5-[v3(20)]-10-[v4]-10-|" , views: brandAnswer, flavourAnswer, breedSizeAnswer, typeAnswer, petImageView)
         addContraintsWithFormat(format: "H:|-10-[v0]-5-[v1]", views: brandLabel, brandAnswer)
         addContraintsWithFormat(format: "H:|-10-[v0]-5-[v1]", views: flavourLabel, flavourAnswer)
         addContraintsWithFormat(format: "H:|-10-[v0]-5-[v1]", views: breedSizeLabel, breedSizeAnswer)
         addContraintsWithFormat(format: "H:|-10-[v0]-5-[v1]", views: typeLabel, typeAnswer)
         addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: petImageView)
+        addContraintsWithFormat(format: "V:|-10-[v0]", views: trashButton)
+        addContraintsWithFormat(format: "H:[v0]-10-|", views: trashButton)
         
+        trashButton.addTarget(self, action: #selector(deletePressed), for: .touchUpInside)
+        
+    }
+    
+    func setupFood(food: Food) {
+        self.food = food
+    }
+    
+    @objc func deletePressed() {
+        self.delegate?.didTapRemove(itemToRemove: food)
     }
     
     

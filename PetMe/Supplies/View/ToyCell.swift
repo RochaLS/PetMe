@@ -24,20 +24,35 @@ class ToyCell: GeneralCell {
         return imgview
     }()
     
-     let nameAnswer = AnswerLabel()
+    let nameAnswer = AnswerLabel()
+    
+    let trashButton = TrashButton()
+    
+    weak var delegate: ToyCellDelegate?
+    
+    var toy: Toy!
     
     override func setupViews() {
         addSubview(nameLabel)
         addSubview(nameAnswer)
         addSubview(petImageView)
+        addSubview(trashButton)
         
         addContraintsWithFormat(format: "V:|-10-[v0]-10-[v1]-10-|", views: nameLabel, petImageView)
         addContraintsWithFormat(format: "V:|-10-[v0]", views: nameAnswer)
         addContraintsWithFormat(format: "H:|-10-[v0]-5-[v1]", views: nameLabel, nameAnswer)
         addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: petImageView)
+        addContraintsWithFormat(format: "V:|-10-[v0]", views: trashButton)
+        addContraintsWithFormat(format: "H:[v0]-10-|", views: trashButton)
+        
+        trashButton.addTarget(self, action: #selector(deletePressed), for: .touchUpInside)
     }
     
-//    override func setData() {
-//        provider.getToyData(petID: GlobalVariables.petID)
-//    }
+    func setupToy(toy: Toy) {
+        self.toy = toy
+    }
+    
+    @objc func deletePressed() {
+        self.delegate?.didTapRemove(itemToRemove: toy)
+    }
 }

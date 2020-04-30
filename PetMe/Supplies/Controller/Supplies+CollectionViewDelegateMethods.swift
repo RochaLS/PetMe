@@ -30,7 +30,7 @@ extension SuppliesViewController: UICollectionViewDelegate, UICollectionViewData
         
         let index = targetContentOffset.pointee.x / view.frame.width // pointee.x is basically the distance of the scroll performed by the the user.
         
-        NotificationCenter.default.post(name: .willChangePageTitle, object: nil, userInfo: ["title": titles[Int(index)], "index": Int(index)])
+        NotificationCenter.default.post(name: .willChangePageTitle, object: nil, userInfo: ["title": titles[Int(index)], "index": Int(index), "suppliesRef": self])
     }
     
     
