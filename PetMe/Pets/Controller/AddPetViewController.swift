@@ -169,7 +169,6 @@ class AddPetViewController: UIViewController {
         
         containerView.addSubview(pageTitle)
         containerView.addSubview(nameTextField)
-        containerView.addSubview(birthDateTextField)
         containerView.addSubview(addPhotoButton)
         containerView.addSubview(uploadImageTextLabel)
         containerView.addSubview(doneButton)
@@ -188,14 +187,13 @@ class AddPetViewController: UIViewController {
         
         containerView.addContraintsWithFormat(format: "V:|-20-[v0]", views: pageTitle)
         containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: pageTitle)
-        containerView.addContraintsWithFormat(format: "V:|-80-[v0(50)]-20-[v1(50)]-20-[v2(50)]", views: nameTextField, birthDateTextField, dogButton)
+        containerView.addContraintsWithFormat(format: "V:|-80-[v0(50)]-20-[v1(50)]", views: nameTextField, dogButton)
         containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: nameTextField)
-        containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: birthDateTextField)
         containerView.addContraintsWithFormat(format: "H:|-10-[v0]-20-[v1]-10-|", views: dogButton, catButton)
         
         
         NSLayoutConstraint.activate([
-            catButton.topAnchor.constraint(equalTo: birthDateTextField.bottomAnchor, constant: 20),
+            catButton.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
             catButton.widthAnchor.constraint(equalTo: dogButton.widthAnchor),
             catButton.heightAnchor.constraint(equalTo: dogButton.heightAnchor)
         ])
