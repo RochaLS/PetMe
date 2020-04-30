@@ -13,6 +13,102 @@ class SuppliesDataProvider {
     
     let db = Firestore.firestore()
     var storageRef = Storage.storage().reference()
+    weak var delegate: SuppliesViewControllerDelegate?
+
+    
+    func getFoodData(petID: String) {
+        let ref = db.collection("foods").whereField("petID", isEqualTo: petID)
+        
+        var foods = [Food]()
+        ref.addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                return
+            }
+            
+            foods.removeAll()
+            for document in snapshot.documents {
+                print("\(document.documentID) => \(document.data())")
+                
+                let data = document.data()
+                
+                let brand = data["brand"] as! String
+                let breedSize = data["breedSize"] as! String
+                let flavour = data["flavour"] as! String
+                let imgName = data["imgName"] as! String
+                let type = data["type"] as! String
+                let id = data["id"] as! String
+                let petID = data["petID"] as! String
+                
+                let food = Food(brand: brand, breedSize: breedSize, flavour: flavour, type: type, imgName: imgName , id: id, petID: petID)
+                
+                foods.append(food)
+                
+            }
+            self.delegate?.didGetFoodsData(allFoods: foods)
+        }
+    }
+    
+    func getTreatData(petID: String) {
+        let ref = db.collection("treats").whereField("petID", isEqualTo: petID)
+        
+        var treats = [Treat]()
+        ref.addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                return
+            }
+            
+            treats.removeAll()
+            for document in snapshot.documents {
+                print("\(document.documentID) => \(document.data())")
+                
+                let data = document.data()
+                
+                let brand = data["brand"] as! String
+                let name = data["name"] as! String
+                let imgName = data["imgName"] as! String
+                let id = data["id"] as! String
+                let petID = data["petID"] as! String
+                
+                let treat = Treat(name: name, brand: brand, imgName: imgName, petID: petID, id: id)
+                
+                treats.append(treat)
+                
+            }
+            self.delegate?.didGetTreatsData(allTreats: treats)
+        }
+    }
+    
+    func getToyData(petID: String) {
+        let ref = db.collection("toys").whereField("petID", isEqualTo: petID)
+        
+        var toys = [Toy]()
+        ref.addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                return
+            }
+            
+            toys.removeAll()
+            for document in snapshot.documents {
+                print("\(document.documentID) => \(document.data())")
+                
+                let data = document.data()
+ 
+                let name = data["name"] as! String
+                let imgName = data["imgName"] as! String
+                let id = data["id"] as! String
+                let petID = data["petID"] as! String
+                
+                let toy = Toy(name: name, imgName: imgName, petID: petID, id: id)
+                
+                toys.append(toy)
+                
+            }
+            self.delegate?.didGetToysData(allToys: toys)
+        }
+    }
     
     func saveFoodData(petID: String, imgData: Data?, imgName: String, food: Food) {
         let imgRef = storageRef.child("foods/\(imgName)")
@@ -24,6 +120,7 @@ class SuppliesDataProvider {
                     "brand": food.brand,
                     "breedSize": food.breedSize,
                     "flavour": food.flavour,
+                    "type": food.type,
                     "id": food.id,
                     "petID": petID,
                     "imgName": food.imgName

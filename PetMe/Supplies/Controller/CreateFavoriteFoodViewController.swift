@@ -102,8 +102,8 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
             foodImageName = "-"
         }
         
-        if let brand = brandTextField.text, let breedSize = breedSizeTextField.text, let flavour = flavourTextField.text {
-            let newFood = Food(brand: brand, breedSize: breedSize, flavour: flavour , imgName: foodImageName, id: UUID().uuidString, petID: pet.id)
+        if let brand = brandTextField.text, let breedSize = breedSizeTextField.text, let flavour = flavourTextField.text, let type = typeTextField.text {
+            let newFood = Food(brand: brand, breedSize: breedSize, flavour: flavour, type: type, imgName: foodImageName, id: UUID().uuidString, petID: pet.id)
             provider.saveFoodData(petID: pet.id, imgData: foodImageData ?? nil, imgName: foodImageName , food: newFood)
             self.dismiss(animated: true) {
                 self.brandTextField.text = ""

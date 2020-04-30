@@ -36,4 +36,8 @@ class ToyCell: GeneralCell {
         addContraintsWithFormat(format: "H:|-10-[v0]-5-[v1]", views: nameLabel, nameAnswer)
         addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: petImageView)
     }
+    
+//    override func setData() {
+//        provider.getToyData(petID: GlobalVariables.petID)
+//    }
 }

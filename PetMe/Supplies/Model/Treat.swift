@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Treat {
+class Treat: Item {
     
     let name: String
     let brand: String

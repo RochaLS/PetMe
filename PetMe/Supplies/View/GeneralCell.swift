@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import Firebase
 
 class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -16,11 +17,18 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
     let toysCellID = "ToysCellID"
     var pageTitle = "Favorite Foods"
     var currentIndex: Int = 0
-
+    var provider = SuppliesDataProvider()
+    var foods = [Food]()
+    var treats = [Treat]()
+    var toys = [Toy]()
+    var petID: String!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        setData()
+        provider.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -53,22 +61,54 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         
     }
     
+    func setData() {
+        if currentIndex == 0 {
+             provider.getFoodData(petID: GlobalVariables.petID)
+        } else if currentIndex == 1 {
+            provider.getTreatData(petID: GlobalVariables.petID)
+        } else if currentIndex ==  2 {
+            provider.getToyData(petID: GlobalVariables.petID)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        if currentIndex == 0 {
+            return foods.count
+        } else if currentIndex == 1 {
+            return treats.count
+        } else if currentIndex == 2 {
+            return toys.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if currentIndex == 0 {
-             return collectionView.dequeueReusableCell(withReuseIdentifier: cellID , for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID , for: indexPath) as! FavoriteFoodsWithImageCell
+
+            cell.brandAnswer.text = foods[indexPath.item].brand
+            cell.breedSizeAnswer.text = foods[indexPath.item].breedSize
+            cell.flavourAnswer.text = foods[indexPath.item].flavour
+            cell.typeAnswer.text = foods[indexPath.item].type
+
+            return cell
+            
         } else if currentIndex == 1 {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: treatsCellID, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: treatsCellID, for: indexPath) as! TreatsCell
+            
+            cell.brandAnswer.text = treats[indexPath.item].brand
+            cell.nameAnswer.text = treats[indexPath.item].name
+            
+            return cell
         } else {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: toysCellID , for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: toysCellID , for: indexPath) as! ToyCell
+
+            cell.nameAnswer.text = toys[indexPath.item].name
+
+            return cell
         }
-       
-        
-       
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -78,7 +118,7 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         } else if currentIndex == 1 {
             return CGSize(width:frame.width - 20 , height: 260)
         } else {
-             return CGSize(width:frame.width - 20 , height: 220)
+            return CGSize(width:frame.width - 20 , height: 220)
         }
     }
     
@@ -112,11 +152,13 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         if let data = notification.userInfo as? [String:Any] {
             pageTitle = data["title"] as! String
             currentIndex = data["index"] as! Int
-            collectionView.reloadData()
+            setData()
         }
+            
     }
     
     @objc func goToCreateItem() {
         NotificationCenter.default.post(name: .didTapOnAdd, object: nil, userInfo: ["index":currentIndex])
     }
+    
 }

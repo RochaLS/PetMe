@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Toy {
+class Toy: Item {
     
     let name: String
     let imgName: String

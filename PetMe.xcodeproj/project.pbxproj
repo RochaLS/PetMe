@@ -14,6 +14,10 @@
 		16119C8D243458AC00B8DAE7 /* GroupDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16119C8C243458AC00B8DAE7 /* GroupDataProvider.swift */; };
 		1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */; };
 		162BD6B42454BB6D00CDB209 /* GeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162BD6B32454BB6D00CDB209 /* GeneralCell.swift */; };
+		162DA5BE245A1F6000C656BB /* SuppliesViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5BD245A1F6000C656BB /* SuppliesViewControllerDelegate.swift */; };
+		162DA5C0245A22EB00C656BB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5BF245A22EB00C656BB /* Item.swift */; };
+		162DA5C2245A2E5700C656BB /* GeneralCell+SuppliesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5C1245A2E5700C656BB /* GeneralCell+SuppliesDelegate.swift */; };
+		162DA5C4245A3D4B00C656BB /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5C3245A3D4B00C656BB /* GlobalVariables.swift */; };
 		163563E424317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */; };
 		1642B99724187F8200E71EA3 /* ReminderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */; };
 		1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */; };
@@ -137,6 +141,10 @@
 		16119C8C243458AC00B8DAE7 /* GroupDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDataProvider.swift; sourceTree = "<group>"; };
 		1613131323EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		162BD6B32454BB6D00CDB209 /* GeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCell.swift; sourceTree = "<group>"; };
+		162DA5BD245A1F6000C656BB /* SuppliesViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuppliesViewControllerDelegate.swift; sourceTree = "<group>"; };
+		162DA5BF245A22EB00C656BB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		162DA5C1245A2E5700C656BB /* GeneralCell+SuppliesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeneralCell+SuppliesDelegate.swift"; sourceTree = "<group>"; };
+		162DA5C3245A3D4B00C656BB /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+TableViewDelegateMethods.swift"; sourceTree = "<group>"; };
 		1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProvider.swift; sourceTree = "<group>"; };
 		1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProviderDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +324,7 @@
 		165D9A3D24575F5E0086EFAA /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				162DA5BD245A1F6000C656BB /* SuppliesViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -401,6 +410,7 @@
 				165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */,
 				165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */,
 				165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */,
+				162DA5C1245A2E5700C656BB /* GeneralCell+SuppliesDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -426,6 +436,7 @@
 				1643936E2456099800F67171 /* Food.swift */,
 				16439370245609B500F67171 /* Treat.swift */,
 				16439372245609D000F67171 /* Toy.swift */,
+				162DA5BF245A22EB00C656BB /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -779,6 +790,7 @@
 				16B41CCB2432BC0A00325004 /* AttrStringHelper.swift */,
 				1643936A2455F94E00F67171 /* BasicCollectionViewCell.swift */,
 				165D9A482457B8100086EFAA /* AddBasicPageViewController.swift */,
+				162DA5C3245A3D4B00C656BB /* GlobalVariables.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -960,14 +972,18 @@
 				16D5F0F1243C05E8008D6470 /* InvitesVC+GroupDataProviderDelegate.swift in Sources */,
 				1693761F24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift in Sources */,
 				163563E424317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift in Sources */,
+				162DA5C2245A2E5700C656BB /* GeneralCell+SuppliesDelegate.swift in Sources */,
 				1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */,
 				160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */,
 				16D5F0E9243BF9F9008D6470 /* GroupVC+UserDataProviderDelegateMethods.swift in Sources */,
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
 				16BC2F88241C3F7200222798 /* DefaultTextField.swift in Sources */,
 				16BCB6FB23E250C900C91316 /* CustomTabBarController.swift in Sources */,
+				162DA5BE245A1F6000C656BB /* SuppliesViewControllerDelegate.swift in Sources */,
+				162DA5C4245A3D4B00C656BB /* GlobalVariables.swift in Sources */,
 				16D7CFCE23EBCB820035DA5A /* CameraHandler.swift in Sources */,
 				16BC2F8D241C525600222798 /* UIViewController+HideKeyboard.swift in Sources */,
+				162DA5C0245A22EB00C656BB /* Item.swift in Sources */,
 				16E4FF972429A4F30073C9F2 /* TokenDataProvider.swift in Sources */,
 				16D5F0EF243C0405008D6470 /* GroupDataProviderDelegate.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,

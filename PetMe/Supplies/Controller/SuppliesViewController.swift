@@ -58,6 +58,8 @@ class SuppliesViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(didTapOnAdd), name: .didTapOnAdd, object: nil)
         
+        GlobalVariables.petID = pet.id
+        
         
     }
     
