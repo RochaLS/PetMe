@@ -32,6 +32,8 @@ class CreateMoodViewController: UIViewController {
         return view
     }()
     
+    let dismissButton = DismissButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,8 +62,9 @@ class CreateMoodViewController: UIViewController {
         questionTextView.text = "How do you think is \(pet.name) feeling right now?"
         
         view.addSubview(questionTextView)
-        
         view.addSubview(container)
+        view.addSubview(dismissButton)
+        
         container.addSubview(happyButton)
         container.addSubview(sadButton)
         container.addSubview(sleepyButton)
@@ -71,6 +74,8 @@ class CreateMoodViewController: UIViewController {
         questionTextView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         view.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: questionTextView)
         view.addContraintsWithFormat(format: "H:|[v0]|", views: container)
+        view.addContraintsWithFormat(format: "V:|-5-[v0]", views: dismissButton)
+        view.addContraintsWithFormat(format: "H:[v0]-5-|", views: dismissButton)
         
         
         container.heightAnchor.constraint(equalToConstant: 250).isActive = true
@@ -80,6 +85,8 @@ class CreateMoodViewController: UIViewController {
         container.addContraintsWithFormat(format: "H:|-40-[v0]-40-|", views: sadButton)
         container.addContraintsWithFormat(format: "H:|-40-[v0]-40-|", views: sleepyButton)
         container.addContraintsWithFormat(format: "V:|-10-[v0]-20-[v1]-20-[v2]", views: happyButton, sadButton, sleepyButton)
+        
+        self.dismissButton.addTarget(self, action: #selector(dismissPressed), for: .touchUpInside)
         
     }
     
@@ -98,6 +105,10 @@ class CreateMoodViewController: UIViewController {
     @objc func sleepyPressed() {
         let mood = Mood(status: "Sleepy", created_at: Date(), id: UUID().uuidString, petID: pet.id)
         provider.addMoodDataToFirestore(moodToAdd: mood, pet: pet)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func dismissPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     

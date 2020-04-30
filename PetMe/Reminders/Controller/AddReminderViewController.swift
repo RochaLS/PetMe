@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class AddReminderViewController: UIViewController {
     
-    var bottomConstraint: NSLayoutConstraint?
+    var centerConstraint: NSLayoutConstraint?
     var provider: ReminderDataProvider! = nil
     var currentUserGroupID: String!
     
@@ -47,11 +47,13 @@ class AddReminderViewController: UIViewController {
         return button
     }()
     
+    let dismissButton = DismissButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.white
         setupViews()
         provider = ReminderDataProvider()
         
@@ -63,17 +65,20 @@ class AddReminderViewController: UIViewController {
     
     func setupViews() {
         view.addSubview(container)
+        view.addSubview(dismissButton)
         container.addSubview(titleLabel)
         container.addSubview(reminderTextField)
         container.addSubview(doneButton)
         
         // Container Constraints
+        view.addContraintsWithFormat(format: "V:|-5-[v0]", views: dismissButton)
+        view.addContraintsWithFormat(format: "H:[v0]-5-|", views: dismissButton)
         view.addContraintsWithFormat(format: "V:[v0(\(310 + 20))]", views: container)
         view.addContraintsWithFormat(format: "H:|[v0]|", views: container)
         
-        bottomConstraint = NSLayoutConstraint(item: container, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        centerConstraint = NSLayoutConstraint(item: container, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
         
-        view.addConstraint(bottomConstraint!)
+        view.addConstraint(centerConstraint!)
         
         container.layer.cornerRadius = 10
         container.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -84,7 +89,9 @@ class AddReminderViewController: UIViewController {
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: titleLabel)
         
         container.addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: reminderTextField)
-        container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: doneButton)
+        container.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: doneButton)
+        
+        dismissButton.addTarget(self, action: #selector(dismissPressed), for: .touchUpInside)
     }
     
     @objc func doneButtonPressed() {
@@ -104,7 +111,7 @@ class AddReminderViewController: UIViewController {
             
             let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
             
-            bottomConstraint?.constant = isKeyboardShowing ? -keyboardHeight! : 0
+            centerConstraint?.constant = isKeyboardShowing ? -keyboardHeight! : 0
             
             UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 
@@ -112,5 +119,9 @@ class AddReminderViewController: UIViewController {
                 
             })
         }
+    }
+    
+    @objc func dismissPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

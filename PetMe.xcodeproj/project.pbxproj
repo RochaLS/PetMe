@@ -49,6 +49,7 @@
 		1643936F2456099800F67171 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643936E2456099800F67171 /* Food.swift */; };
 		16439371245609B500F67171 /* Treat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439370245609B500F67171 /* Treat.swift */; };
 		16439373245609D000F67171 /* Toy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439372245609D000F67171 /* Toy.swift */; };
+		164A737E245B5C1300C3069A /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A737D245B5C1300C3069A /* DismissButton.swift */; };
 		165D9A432457606E0086EFAA /* CreateFavoriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */; };
 		165D9A452457B2240086EFAA /* CreateFavoriteTreatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */; };
 		165D9A472457B6AD0086EFAA /* CreateFavoriteToyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */; };
@@ -183,6 +184,7 @@
 		1643936E2456099800F67171 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		16439370245609B500F67171 /* Treat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treat.swift; sourceTree = "<group>"; };
 		16439372245609D000F67171 /* Toy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toy.swift; sourceTree = "<group>"; };
+		164A737D245B5C1300C3069A /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteFoodViewController.swift; sourceTree = "<group>"; };
 		165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteTreatViewController.swift; sourceTree = "<group>"; };
 		165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteToyViewController.swift; sourceTree = "<group>"; };
@@ -812,6 +814,7 @@
 				165D9A482457B8100086EFAA /* AddBasicPageViewController.swift */,
 				162DA5C3245A3D4B00C656BB /* GlobalVariables.swift */,
 				162DA5C5245A887000C656BB /* TrashButton.swift */,
+				164A737D245B5C1300C3069A /* DismissButton.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */,
 				162DA5CC245AA2C900C656BB /* TreatCellDelegate.swift in Sources */,
 				16DA522A243A651D0032C1C1 /* InvitesTableViewCell.swift in Sources */,
+				164A737E245B5C1300C3069A /* DismissButton.swift in Sources */,
 				16BC2F86241C35ED00222798 /* DefaultButton.swift in Sources */,
 				16D5F0F1243C05E8008D6470 /* InvitesVC+GroupDataProviderDelegate.swift in Sources */,
 				1693761F24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift in Sources */,

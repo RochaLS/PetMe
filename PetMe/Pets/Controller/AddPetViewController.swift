@@ -13,7 +13,7 @@ import Firebase
 
 class AddPetViewController: UIViewController {
     
-    var bottomConstraint: NSLayoutConstraint?
+    var centerConstraint: NSLayoutConstraint?
     var petImageData: Data? = nil
     var petImageName = "placeholder"
     var speciesSelected: String?
@@ -28,7 +28,7 @@ class AddPetViewController: UIViewController {
                                   Vaccine(name: "Leptospirosis", isCore: false),
                                   Vaccine(name: "Borreliosis", isCore: false)
     ]
-
+    
     
     let catVaccines: [Vaccine] = [Vaccine(name: "Feline Distemper", isCore: true),
                                   Vaccine(name: "Feline Viral Rhinotracheitis", isCore: true),
@@ -38,7 +38,7 @@ class AddPetViewController: UIViewController {
                                   Vaccine(name: "Feline leukemia", isCore: false),
                                   Vaccine(name: "Bordetella", isCore: false)
     ]
-
+    
     var provider: DataManager!
     var vaccinesProvider: VaccinesDataProvider!
     var userDataProvider: UserDataProvider!
@@ -55,7 +55,7 @@ class AddPetViewController: UIViewController {
         let label = UILabel()
         label.text = "Add Pet"
         label.font = AppFonts.mainFontBold
-        label.font = label.font.withSize(20)
+        label.font = label.font.withSize(22)
         label.textAlignment = .center
         return label
     }()
@@ -115,6 +115,8 @@ class AddPetViewController: UIViewController {
         return button
     }()
     
+    let dismissButton = DismissButton()
+    
     @objc func addPhotoButtonPressed() {
         CameraHandler.shared.showActionSheet(vc: self)
         CameraHandler.shared.imagePickedBlock = { (image) in
@@ -159,9 +161,10 @@ class AddPetViewController: UIViewController {
     
     func setupViews() {
         
-//        self.view.backgroundColor = UIColor.clear
+        //        self.view.backgroundColor = UIColor.clear
         
         view.addSubview(containerView)
+        view.addSubview(dismissButton)
         
         
         containerView.addSubview(pageTitle)
@@ -174,12 +177,12 @@ class AddPetViewController: UIViewController {
         containerView.addSubview(catButton)
         
         view.addContraintsWithFormat(format: "V:[v0(\(410 + 20))]", views: containerView)
+        view.addContraintsWithFormat(format: "V:|-5-[v0]", views: dismissButton)
+        view.addContraintsWithFormat(format: "H:[v0]-5-|", views: dismissButton)
         
-        bottomConstraint = NSLayoutConstraint(item: containerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         
-        view.addConstraint(bottomConstraint!)
-        //        centerConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
-        //        view.addConstraint(centerConstraint!)
+        centerConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+        view.addConstraint(centerConstraint!)
         
         view.addContraintsWithFormat(format: "H:|[v0]|", views: containerView)
         
@@ -203,7 +206,7 @@ class AddPetViewController: UIViewController {
         
         containerView.addContraintsWithFormat(format: "H:[v1]-10-[v0]-10-|", views: addPhotoButton, uploadImageTextLabel)
         
-        containerView.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: doneButton)
+        containerView.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: doneButton)
         
         doneButton.topAnchor.constraint(equalTo: uploadImageTextLabel.bottomAnchor, constant: 20).isActive = true
         doneButton.heightAnchor.constraint(equalTo: nameTextField.heightAnchor).isActive = true
@@ -211,12 +214,14 @@ class AddPetViewController: UIViewController {
         containerView.layer.cornerRadius = 10
         containerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
+        dismissButton.addTarget(self, action: #selector(dismissPressed), for: .touchUpInside)
+        
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.view.backgroundColor = UIColor.clear
+        self.view.backgroundColor = UIColor.white
         setupViews()
         userDataProvider = UserDataProvider()
         
@@ -238,7 +243,7 @@ class AddPetViewController: UIViewController {
             
             let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
             
-            bottomConstraint?.constant = isKeyboardShowing ? -keyboardHeight! : 0
+            centerConstraint?.constant = isKeyboardShowing ? -keyboardHeight! : 0
             
             UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 
@@ -269,5 +274,9 @@ class AddPetViewController: UIViewController {
         dogButton.backgroundColor = AppColors.primaryColor
         
         speciesSelected = "dog"
+    }
+    
+    @objc func dismissPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
