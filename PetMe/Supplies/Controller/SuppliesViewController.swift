@@ -29,6 +29,8 @@ class SuppliesViewController: UIViewController {
     
     let petImageView: UIImageView = PetAvatarImageView()
     
+    var avatarRawImage: UIImage?
+    
     let titleText: UILabel = {
         let label = UILabel()
         label.font = AppFonts.mainFontMedium
@@ -69,8 +71,12 @@ class SuppliesViewController: UIViewController {
         headerView.addSubview(titleText)
         
         
-        petImageView.backgroundColor = UIColor.red
-        petImageView.image = UIImage(named: pet.imgName!)
+        if avatarRawImage != nil {
+            petImageView.image = avatarRawImage
+        } else {
+            petImageView.image = UIImage(named: "placeholder")
+        }
+        
         petImageView.layer.borderWidth = 2
         petImageView.layer.borderColor = AppColors.backgroundColor.cgColor
         titleText.text = pet.name

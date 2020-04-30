@@ -63,6 +63,7 @@ extension PetProfileViewController: UICollectionViewDelegate, UICollectionViewDa
         } else if indexPath.row == 1 {
             let controller = SuppliesViewController()
             controller.pet = pet
+            controller.avatarRawImage = avatarRawImage
             navigationController?.pushViewController(controller, animated: true)
         } else if indexPath.row == 2 {
             let controller = MoodsViewController()

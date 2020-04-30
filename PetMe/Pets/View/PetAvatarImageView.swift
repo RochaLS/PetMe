@@ -11,7 +11,7 @@ import UIKit
 class PetAvatarImageView: UIImageView {
 
     init() {
-        super.init(image: UIImage(named: "Preto"))
+        super.init(image: UIImage(named: "placeholder"))
         contentMode = .scaleToFill
         layer.masksToBounds = true
         layer.cornerRadius = 34

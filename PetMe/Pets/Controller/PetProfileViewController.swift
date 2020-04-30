@@ -59,6 +59,8 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         return label
     }()
     
+    var avatarRawImage: UIImage?
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -172,5 +174,6 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
     
     func didLoadImage(image: UIImage, reference: UIImageView) {
         reference.image = image
+        avatarRawImage = image
     }
 }
