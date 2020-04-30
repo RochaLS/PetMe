@@ -13,7 +13,7 @@ extension RemindersViewController: ReminderDataProviderDelegate {
     func setReminderData(allReminders: [Reminder]) {
         reminders = allReminders
         self.collectionView.reloadData()
-        SwiftSpinner.hide()
+//        SwiftSpinner.hide()
     }
     
     

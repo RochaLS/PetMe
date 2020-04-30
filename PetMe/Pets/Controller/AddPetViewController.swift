@@ -156,7 +156,7 @@ class AddPetViewController: UIViewController {
             
             //        provider = nil
             self.dismiss(animated: true) {
-                SwiftSpinner.show("Loading", animated: true)
+//                SwiftSpinner.show("Loading", animated: true)
             }
         }
     }
@@ -244,7 +244,7 @@ class AddPetViewController: UIViewController {
             
             let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
             
-            centerConstraint?.constant = isKeyboardShowing ? -keyboardHeight! : 0
+            centerConstraint?.constant = isKeyboardShowing ? -130 : 0
             
             UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 

@@ -13,12 +13,13 @@ import SwiftSpinner
 extension AllPetsController: DataProviderDelegate {
     func didLoadImage(image: UIImage, reference: UIImageView) {
         reference.image = image
-        SwiftSpinner.hide()
+//        SwiftSpinner.hide()
     }
     
     
     func didGetPetData(allPets: [Pet]) {
         pets = allPets
         collectionView.reloadData()
+//        SwiftSpinner.hide()
     }
 }
