@@ -50,6 +50,7 @@
 		16439371245609B500F67171 /* Treat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439370245609B500F67171 /* Treat.swift */; };
 		16439373245609D000F67171 /* Toy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439372245609D000F67171 /* Toy.swift */; };
 		164A737E245B5C1300C3069A /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A737D245B5C1300C3069A /* DismissButton.swift */; };
+		164A7380245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */; };
 		165D9A432457606E0086EFAA /* CreateFavoriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */; };
 		165D9A452457B2240086EFAA /* CreateFavoriteTreatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */; };
 		165D9A472457B6AD0086EFAA /* CreateFavoriteToyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */; };
@@ -185,6 +186,7 @@
 		16439370245609B500F67171 /* Treat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treat.swift; sourceTree = "<group>"; };
 		16439372245609D000F67171 /* Toy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toy.swift; sourceTree = "<group>"; };
 		164A737D245B5C1300C3069A /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddReminderVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteFoodViewController.swift; sourceTree = "<group>"; };
 		165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteTreatViewController.swift; sourceTree = "<group>"; };
 		165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteToyViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				1642B99B2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift */,
 				16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */,
 				168AB73724175084000B7618 /* AddReminderViewController.swift */,
+				164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1001,6 +1004,7 @@
 				162DA5C2245A2E5700C656BB /* GeneralCell+SuppliesDelegate.swift in Sources */,
 				1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */,
 				160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */,
+				164A7380245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift in Sources */,
 				16D5F0E9243BF9F9008D6470 /* GroupVC+UserDataProviderDelegateMethods.swift in Sources */,
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
 				16BC2F88241C3F7200222798 /* DefaultTextField.swift in Sources */,
