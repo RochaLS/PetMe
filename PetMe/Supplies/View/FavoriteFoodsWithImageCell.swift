@@ -32,7 +32,7 @@ class FavoriteFoodsWithImageCell: UICollectionViewCell {
     let petImageView: UIImageView = {
         let imgview = UIImageView()
         imgview.backgroundColor = UIColor.white
-        imgview.image = UIImage(named: "dog-food")
+        imgview.image = UIImage(named: "loading-placeholder")
         imgview.contentMode = .scaleAspectFit
         return imgview
     }()

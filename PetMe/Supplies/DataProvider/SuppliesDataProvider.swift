@@ -179,4 +179,18 @@ class SuppliesDataProvider {
             }
         }
     }
+    
+    func getSupplyImage(of imgName: String, to imageView: UIImageView, typeOfSupply: String) {
+        let imgRef = storageRef.child("\(typeOfSupply)/\(imgName)")
+           
+           
+           imgRef.getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+               if error != nil {
+                   print(error?.localizedDescription as Any)
+               } else {
+                   let img = UIImage(data: data!)
+                   self.delegate?.didLoadImage(image: img!, reference: imageView)
+               }
+           }
+    }
 }

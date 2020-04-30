@@ -19,7 +19,7 @@ class ToyCell: GeneralCell {
     let petImageView: UIImageView = {
         let imgview = UIImageView()
         imgview.backgroundColor = UIColor.white
-        imgview.image = UIImage(named: "dog-toy")
+        imgview.image = UIImage(named: "loading-placeholder")
         imgview.contentMode = .scaleAspectFit
         return imgview
     }()

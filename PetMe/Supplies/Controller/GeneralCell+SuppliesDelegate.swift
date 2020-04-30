@@ -6,7 +6,7 @@
 //  Copyright © 2020 Lucas Rocha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension GeneralCell: SuppliesViewControllerDelegate {
     
@@ -23,5 +23,9 @@ extension GeneralCell: SuppliesViewControllerDelegate {
     func didGetToysData(allToys: [Toy]) {
         toys = allToys
         self.collectionView.reloadData()
+    }
+    
+    func didLoadImage(image: UIImage, reference: UIImageView) {
+        reference.image = image
     }
 }

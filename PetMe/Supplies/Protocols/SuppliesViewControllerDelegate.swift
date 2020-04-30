@@ -6,7 +6,7 @@
 //  Copyright © 2020 Lucas Rocha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SuppliesViewControllerDelegate: class {
     
@@ -15,5 +15,6 @@ protocol SuppliesViewControllerDelegate: class {
     func didGetTreatsData(allTreats: [Treat])
     
     func didGetToysData(allToys: [Toy])
-   
+    
+    func didLoadImage(image: UIImage, reference: UIImageView)
 }

@@ -92,6 +92,7 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
             cell.breedSizeAnswer.text = foods[indexPath.item].breedSize
             cell.flavourAnswer.text = foods[indexPath.item].flavour
             cell.typeAnswer.text = foods[indexPath.item].type
+            provider.getSupplyImage(of: foods[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "foods")
 
             return cell
             
@@ -100,12 +101,14 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
             
             cell.brandAnswer.text = treats[indexPath.item].brand
             cell.nameAnswer.text = treats[indexPath.item].name
+            provider.getSupplyImage(of: treats[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "treats")
             
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: toysCellID , for: indexPath) as! ToyCell
 
             cell.nameAnswer.text = toys[indexPath.item].name
+             provider.getSupplyImage(of: toys[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "toys")
 
             return cell
         }

@@ -25,7 +25,7 @@ class TreatsCell: GeneralCell {
     let petImageView: UIImageView = {
         let imgview = UIImageView()
         imgview.backgroundColor = UIColor.white
-        imgview.image = UIImage(named: "dog-treat")
+        imgview.image = UIImage(named: "loading-placeholder")
         imgview.contentMode = .scaleAspectFit
         return imgview
     }()
@@ -33,10 +33,6 @@ class TreatsCell: GeneralCell {
     let nameAnswer = AnswerLabel()
     let brandAnswer = AnswerLabel()
     
-    
-//    override func setData() {
-//        provider.getTreatData(petID: GlobalVariables.petID)
-//    }
     
     override func setupViews() {
         addSubview(nameLabel)
