@@ -51,6 +51,7 @@
 		16439373245609D000F67171 /* Toy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439372245609D000F67171 /* Toy.swift */; };
 		164A737E245B5C1300C3069A /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A737D245B5C1300C3069A /* DismissButton.swift */; };
 		164A7380245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */; };
+		164A7384245B7F1200C3069A /* PolutateVaccineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A7383245B7F1200C3069A /* PolutateVaccineData.swift */; };
 		165D9A432457606E0086EFAA /* CreateFavoriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */; };
 		165D9A452457B2240086EFAA /* CreateFavoriteTreatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */; };
 		165D9A472457B6AD0086EFAA /* CreateFavoriteToyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */; };
@@ -187,6 +188,7 @@
 		16439372245609D000F67171 /* Toy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toy.swift; sourceTree = "<group>"; };
 		164A737D245B5C1300C3069A /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddReminderVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
+		164A7383245B7F1200C3069A /* PolutateVaccineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolutateVaccineData.swift; sourceTree = "<group>"; };
 		165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteFoodViewController.swift; sourceTree = "<group>"; };
 		165D9A442457B2240086EFAA /* CreateFavoriteTreatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteTreatViewController.swift; sourceTree = "<group>"; };
 		165D9A462457B6AD0086EFAA /* CreateFavoriteToyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteToyViewController.swift; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				16BCC3D8240A34B900071E8A /* VaccinesVC+DataProviderDelegateMethods.swift */,
 				16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */,
 				16A211DC240E0D24009EFEE2 /* VaccineInfo+TableViewDelegateMethods.swift */,
+				164A7383245B7F1200C3069A /* PolutateVaccineData.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1031,6 +1034,7 @@
 				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
 				16E3C209242095DD00F1B4C4 /* User.swift in Sources */,
 				16EC98B82421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift in Sources */,
+				164A7384245B7F1200C3069A /* PolutateVaccineData.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
 				164393692455F8E600F67171 /* TreatsCell.swift in Sources */,

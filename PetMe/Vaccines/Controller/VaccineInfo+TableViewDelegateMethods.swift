@@ -56,7 +56,12 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
             let cell = tableView.dequeueReusableCell(withIdentifier: about_id, for: indexPath) as! AboutTableViewCell
             cell.setupView()
             cell.mainLabel.numberOfLines = 0
-            cell.mainLabel.text = "Humans,humans, humans oh how much they love us felines we are the center of attention they feed, they clean if human is on laptop sit on the keyboard and lick the other cats. Damn that dog run up and down stairs for eat half my food and ask for more yet kitty power, catto munch salmono"
+            if aboutDataOfDogs["\(vaccine.name)"] == nil {
+                cell.mainLabel.text = aboutDataOfCats["\(vaccine.name)"]
+            } else {
+                cell.mainLabel.text = aboutDataOfDogs["\(vaccine.name)"]
+            }
+            
             return cell
         }
         

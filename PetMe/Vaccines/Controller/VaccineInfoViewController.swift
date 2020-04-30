@@ -12,13 +12,12 @@ import RLBAlertsPickers
 class VaccineInfoViewController: UIViewController {
     
     var vaccine: Vaccine!
-    
     weak var tableView: UITableView!
-    
     var provider: VaccinesDataProvider!
-    
     let cell_id = "vaccineInfo_Cell"
     let about_id = "about_cell"
+    var aboutDataOfDogs = [String:String]()
+    var aboutDataOfCats = [String:String]()
     
     var dateSelected: Date?
     
@@ -47,6 +46,7 @@ class VaccineInfoViewController: UIViewController {
         self.tableView.register(AboutTableViewCell.self, forCellReuseIdentifier: about_id)
         
         self.tableView.tableFooterView = UIView() // Remove extra lines from table view
+        populateDictWithVaccineInfo()
         
     }
     
@@ -110,8 +110,6 @@ class VaccineInfoViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
 //        alert.show()
-        
-        
         
     }
     
