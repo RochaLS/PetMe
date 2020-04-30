@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import SwiftSpinner
 
 extension AllPetsController: UserDataProviderDelegate {
     func didGetUserGroupID(id: String) {
+         SwiftSpinner.show("Loading", animated: true)
         provider.setPetData(groupID: id) // Only get pet data after getting the user group id
         currentUserGroupID = id
     }

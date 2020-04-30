@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class VaccinesViewController: UIViewController {
     
@@ -65,6 +66,7 @@ class VaccinesViewController: UIViewController {
         self.provider = VaccinesDataProvider()
         self.provider.delegate = self
         
+        SwiftSpinner.show("Loading", animated: true)
         self.provider.setVaccineData(petID: pet.id)
 
         // Do any additional setup after loading the view.

@@ -8,10 +8,12 @@
 
 import Foundation
 import UIKit
+import SwiftSpinner
 
 extension AllPetsController: DataProviderDelegate {
     func didLoadImage(image: UIImage, reference: UIImageView) {
         reference.image = image
+        SwiftSpinner.hide()
     }
     
     

@@ -7,16 +7,19 @@
 //
 
 import Foundation
+import SwiftSpinner
 
 extension MoodsViewController: MoodDataProviderDelegate {
     
     func didAddNewMood() {
         self.collectionView.reloadData()
+        SwiftSpinner.hide()
     }
     
     func didLoadMoodData(allMoods: [Mood]) {
         moods = allMoods
         self.collectionView.reloadData()
+        SwiftSpinner.hide()
     }
     
     

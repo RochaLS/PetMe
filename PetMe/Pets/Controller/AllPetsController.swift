@@ -20,7 +20,6 @@ class AllPetsController: UIViewController {
     var petImage: UIImage!
     var currentUserGroupID: String?
     
-    
     override func loadView() {
         super.loadView()
         setupViews()

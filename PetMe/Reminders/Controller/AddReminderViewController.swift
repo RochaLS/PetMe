@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftSpinner
 
 class AddReminderViewController: UIViewController {
     
@@ -105,7 +106,9 @@ class AddReminderViewController: UIViewController {
             }
             
         }
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+//            SwiftSpinner.show("Loading", animated: true)
+        }
     }
     
     // Need to refactor this later

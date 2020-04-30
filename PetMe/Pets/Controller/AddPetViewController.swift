@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FontAwesome_swift
 import Firebase
+import SwiftSpinner
 
 class AddPetViewController: UIViewController {
     
@@ -154,7 +155,9 @@ class AddPetViewController: UIViewController {
             
             
             //        provider = nil
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true) {
+                SwiftSpinner.show("Loading", animated: true)
+            }
         }
     }
     

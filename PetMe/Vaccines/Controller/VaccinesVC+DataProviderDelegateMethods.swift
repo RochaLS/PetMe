@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftSpinner
 
 extension VaccinesViewController: VaccinesDataProviderDelegate {
     func didGetVaccinesData(allVaccines: [Vaccine]) {
@@ -19,6 +20,7 @@ extension VaccinesViewController: VaccinesDataProviderDelegate {
                 non_coreVaccines.append(vaccine)
             }
         }
+        SwiftSpinner.hide()
         self.tableView.reloadData()
     }
 }

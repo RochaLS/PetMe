@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class CreateMoodViewController: UIViewController {
     
@@ -93,19 +94,25 @@ class CreateMoodViewController: UIViewController {
     @objc func happyPressed() {
         let mood = Mood(status: "Happy", created_at: Date(), id: UUID().uuidString, petID: pet.id)
         provider.addMoodDataToFirestore(moodToAdd: mood, pet: pet)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+//            SwiftSpinner.show("Loading", animated: true)
+        }
     }
     
     @objc func sadPressed() {
         let mood = Mood(status: "Sad", created_at: Date(), id: UUID().uuidString, petID: pet.id)
         provider.addMoodDataToFirestore(moodToAdd: mood, pet: pet)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+//            SwiftSpinner.show("Loading", animated: true)
+        }
     }
     
     @objc func sleepyPressed() {
         let mood = Mood(status: "Sleepy", created_at: Date(), id: UUID().uuidString, petID: pet.id)
         provider.addMoodDataToFirestore(moodToAdd: mood, pet: pet)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+//            SwiftSpinner.show("Loading", animated: true)
+        }
     }
     
     @objc func dismissPressed() {

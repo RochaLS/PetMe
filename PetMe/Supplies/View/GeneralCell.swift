@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import PMAlertController
+import SwiftSpinner
 
 class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -29,6 +30,7 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         super.init(frame: frame)
         setupViews()
         setData()
+        
         provider.delegate = self
     }
     

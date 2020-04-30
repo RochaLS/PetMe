@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class MoodsViewController: UIViewController {
     
@@ -46,8 +47,7 @@ class MoodsViewController: UIViewController {
         provider.delegate = self
         
         provider.setMoodData(pet: pet)
-        
-        
+        SwiftSpinner.show("Loading", animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

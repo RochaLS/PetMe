@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 extension GeneralCell: SuppliesViewControllerDelegate {
     
