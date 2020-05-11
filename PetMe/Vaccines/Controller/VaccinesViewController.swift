@@ -51,6 +51,12 @@ class VaccinesViewController: UIViewController {
         view.backgroundColor = AppColors.primaryColor
         navigationController?.navigationBar.tintColor = UIColor.white
     }
+    
+    override func loadView() {
+        super.loadView()
+        SwiftSpinner.show("Loading", animated: true)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +72,8 @@ class VaccinesViewController: UIViewController {
         self.provider = VaccinesDataProvider()
         self.provider.delegate = self
         
-        SwiftSpinner.show("Loading", animated: true)
         self.provider.setVaccineData(petID: pet.id)
+        SwiftSpinner.hide()
 
         // Do any additional setup after loading the view.
     }

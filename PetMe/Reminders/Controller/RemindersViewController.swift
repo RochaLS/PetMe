@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftSpinner
 
 class RemindersViewController: UIViewController {
     
@@ -27,6 +28,11 @@ class RemindersViewController: UIViewController {
         return button
         
     }()
+    
+    override func loadView() {
+        super.loadView()
+        SwiftSpinner.show("Loading", animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +57,8 @@ class RemindersViewController: UIViewController {
         if currentUser != nil {
             userDataProvider.getUserGroupID(userID: currentUser!.uid)
         }
+        
+        SwiftSpinner.hide()
     }
     
     func setupViews() {

@@ -28,6 +28,11 @@ class MoodsViewController: UIViewController {
         
     }()
     
+    override func loadView() {
+        super.loadView()
+        SwiftSpinner.show("Loading", animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +52,7 @@ class MoodsViewController: UIViewController {
         provider.delegate = self
         
         provider.setMoodData(pet: pet)
-        SwiftSpinner.show("Loading", animated: true)
+        SwiftSpinner.hide()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

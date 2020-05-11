@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import PMAlertController
+import SwiftSpinner
 
 class GroupViewController: UIViewController {
     
@@ -37,6 +38,11 @@ class GroupViewController: UIViewController {
         return button
     }()
     
+    override func loadView() {
+        super.loadView()
+        SwiftSpinner.show("Loading", animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         provider = GroupDataProvider()
@@ -62,6 +68,8 @@ class GroupViewController: UIViewController {
         view.backgroundColor = UIColor.white
         print(groupID)
         setupViews()
+        
+        SwiftSpinner.hide()
         
     }
     

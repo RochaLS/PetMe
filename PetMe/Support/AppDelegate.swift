@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseMessaging
+import SwiftSpinner
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,6 +42,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
+        
+        NetworkManager.monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": true])
+            } else {
+                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": false])
+            }
+        }
+        
+        
+        let queue = DispatchQueue(label: "Monitor")
+        NetworkManager.monitor.start(queue: queue)
         
         return true
     }
@@ -121,7 +134,7 @@ extension AppDelegate: MessagingDelegate {
         if let currentUser = Auth.auth().currentUser {
             provider.saveRegistrationToken(deviceToken: fcmToken, userID: currentUser.uid)
         }
-       
+        
         
     }
 }

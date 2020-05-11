@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 import PMAlertController
+import SwiftSpinner
 
 class SuppliesViewController: UIViewController {
     
@@ -52,6 +53,11 @@ class SuppliesViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 22)!]
     }
     
+    override func loadView() {
+        super.loadView()
+        SwiftSpinner.show("Loading", animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +73,7 @@ class SuppliesViewController: UIViewController {
         
         GlobalVariables.petID = pet.id
         
-        
+        SwiftSpinner.hide()
     }
     
     func setupView() {

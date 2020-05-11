@@ -17,6 +17,7 @@ target 'PetMe' do
   pod 'SwipeCellKit'
   pod 'PMAlertController'
   pod "SwiftSpinner"
+  pod 'NotificationBannerSwift', '~> 3.0.0'
 
 
 

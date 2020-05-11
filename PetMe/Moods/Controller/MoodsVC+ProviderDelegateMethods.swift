@@ -19,7 +19,6 @@ extension MoodsViewController: MoodDataProviderDelegate {
     func didLoadMoodData(allMoods: [Mood]) {
         moods = allMoods
         self.collectionView.reloadData()
-        SwiftSpinner.hide()
     }
     
     

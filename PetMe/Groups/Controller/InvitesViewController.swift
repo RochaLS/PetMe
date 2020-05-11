@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import PMAlertController
+import SwiftSpinner
 
 class InvitesViewController: UIViewController {
     
@@ -21,6 +22,11 @@ class InvitesViewController: UIViewController {
     var numOfMembers: Int!
     var tappedRequest: Request!
     var currentUserGroupID: String?
+    
+    override func loadView() {
+        super.loadView()
+        SwiftSpinner.show("Loading", animated: true)
+    }
     
     override func viewDidLoad() {
         
@@ -42,6 +48,8 @@ class InvitesViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMembersData), name: .didReceiveMembersData , object: nil)
+        
+        SwiftSpinner.hide()
         
     }
     
