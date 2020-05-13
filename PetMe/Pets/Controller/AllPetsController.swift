@@ -94,7 +94,7 @@ class AllPetsController: UIViewController {
             addButton.isEnabled = false
             self.statusConnectionErrorBanner.show()
             self.navigationController?.navigationBar.barStyle = .black
-//            setNeedsStatusBarAppearanceUpdate()
+            //            setNeedsStatusBarAppearanceUpdate()
         }
         
     }
@@ -129,21 +129,16 @@ class AllPetsController: UIViewController {
     
     @objc func networkDidChange(notification: Notification) {
         if let data = notification.userInfo {
+            
             let isConnected = data["isConnected"] as! Bool
             
-            if !isConnected {
-                DispatchQueue.main.async {
-                    self.addButton.isEnabled = false
-                    self.statusConnectionErrorBanner.show()
-                    self.navigationController?.navigationBar.barStyle = .black
-//                    self.setNeedsStatusBarAppearanceUpdate()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.addButton.isEnabled = true
-                    self.statusConnectionErrorBanner.dismiss()
-                    self.navigationController?.navigationBar.barStyle = .default
-//                    self.setNeedsStatusBarAppearanceUpdate()
+            DispatchQueue.main.async {
+                NetworkManager.changeViewBasedOnNetworkStatus(navigationController: self.navigationController!, buttonsToDisable: [self.addButton], status: isConnected, bannerToShow: self.statusConnectionErrorBanner) {
+                    if isConnected == true {
+                        self.addButton.isEnabled = true
+                        self.statusConnectionErrorBanner.dismiss()
+                        self.navigationController?.navigationBar.barStyle = .default
+                    }
                 }
             }
         }
