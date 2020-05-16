@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import SwiftSpinner
+import NotificationBannerSwift
 
 class AddReminderViewController: UIViewController {
     
@@ -99,16 +100,17 @@ class AddReminderViewController: UIViewController {
     
     @objc func doneButtonPressed() {
         //TODO Create reminder here:
-        if reminderTextField.text?.isEmpty == false && reminderTextField.text != "" {
-            userDataProvider.getUser(id: Auth.auth().currentUser!.uid) { (user) in
-                let newReminder = Reminder(title: self.reminderTextField.text!, id: UUID().uuidString, createdBy: user.name, createdAt: Date(), groupID: user.groupID, userID: Auth.auth().currentUser!.uid)
-                self.provider.addReminderDataToFirestore(reminder: newReminder)
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            if reminderTextField.text?.isEmpty == false && reminderTextField.text != "" {
+                userDataProvider.getUser(id: Auth.auth().currentUser!.uid) { (user) in
+                    let newReminder = Reminder(title: self.reminderTextField.text!, id: UUID().uuidString, createdBy: user.name, createdAt: Date(), groupID: user.groupID, userID: Auth.auth().currentUser!.uid)
+                    self.provider.addReminderDataToFirestore(reminder: newReminder)
+                }
+                self.dismiss(animated: true)
             }
-            
-        }
-        self.dismiss(animated: true) {
-//            SwiftSpinner.show("Loading", animated: true)
-        }
+        } else {
+            Banners.showBottomBanner(on: self)        }
+        
     }
     
     // Need to refactor this later
@@ -132,4 +134,5 @@ class AddReminderViewController: UIViewController {
     @objc func dismissPressed() {
         self.dismiss(animated: true, completion: nil)
     }
+    
 }

@@ -158,9 +158,9 @@
             filePath = "PetMe/Pets/Controller/PetProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "didLoadImage(image:reference:)"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "setupViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -176,23 +176,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "changeViewBasedOnNetworkStatus(navigationController:buttonsToDisable:status:bannerToShow:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "830C85C3-2A87-48C2-B84D-4DE0D6463336"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PetMe/Pets/Controller/AllPetsController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "networkDidChange(notification:)"
+            landmarkName = "changeViewBasedOnNetworkStatus(vc:navigationController:buttonsToDisable:status:bannerToShow:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

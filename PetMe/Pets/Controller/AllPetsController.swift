@@ -27,7 +27,7 @@ class AllPetsController: UIViewController {
     
     var currentUserGroupID: String?
     
-    let statusConnectionErrorBanner = StatusBarNotificationBanner(title: "No internet connection!", style: .danger, colors: nil)
+//    let statusConnectionErrorBanner = StatusBarNotificationBanner(title: "No internet connection!", style: .danger, colors: nil)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.style
@@ -84,15 +84,14 @@ class AllPetsController: UIViewController {
         
         SwiftSpinner.hide()
         print(NetworkManager.monitor.currentPath)
-        statusConnectionErrorBanner.autoDismiss = false
         
-        NotificationCenter.default.addObserver(self, selector: #selector(networkDidChange), name: .networkDidChange, object: nil)
         
         if NetworkManager.monitor.currentPath.status == .satisfied {
             print("Connected")
         } else {
             addButton.isEnabled = false
-            self.statusConnectionErrorBanner.show()
+            Banners.noNetwork.autoDismiss = false
+            Banners.noNetwork.show()
             self.navigationController?.navigationBar.barStyle = .black
             //            setNeedsStatusBarAppearanceUpdate()
         }
@@ -125,23 +124,6 @@ class AllPetsController: UIViewController {
             addPetViewController.currentUserGroupID = currentUserGroupID!
         }
         self.present(addPetViewController, animated: true, completion: nil)
-    }
-    
-    @objc func networkDidChange(notification: Notification) {
-        if let data = notification.userInfo {
-            
-            let isConnected = data["isConnected"] as! Bool
-            
-            DispatchQueue.main.async {
-                NetworkManager.changeViewBasedOnNetworkStatus(navigationController: self.navigationController!, buttonsToDisable: [self.addButton], status: isConnected, bannerToShow: self.statusConnectionErrorBanner) {
-                    if isConnected == true {
-                        self.addButton.isEnabled = true
-                        self.statusConnectionErrorBanner.dismiss()
-                        self.navigationController?.navigationBar.barStyle = .default
-                    }
-                }
-            }
-        }
     }
 }
 

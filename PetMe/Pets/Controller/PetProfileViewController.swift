@@ -61,7 +61,6 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
     
     var avatarRawImage: UIImage?
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
@@ -71,10 +70,10 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(true)
-         self.navigationController?.navigationBar.barTintColor = AppColors.primaryColor
-         self.navigationController?.navigationBar.tintColor = UIColor.white
-     }
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.barTintColor = AppColors.primaryColor
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,9 +109,8 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         
         petAvatarPic.image = UIImage(named: "placeholder")
         
+        
         provider.getPetImageToImageView(from: pet, to: petAvatarPic)
-        
-        
     }
     
     func setupCollectionView() {

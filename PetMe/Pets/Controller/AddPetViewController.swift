@@ -130,34 +130,37 @@ class AddPetViewController: UIViewController {
         
         provider = DataManager()
         
-        if speciesSelected != nil, nameTextField.text != "", Auth.auth().currentUser != nil {
-            userDataProvider.getUserGroupID(userID: Auth.auth().currentUser!.uid)
-            let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: speciesSelected!, groupID: currentUserGroupID)
-            //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
-            provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
-            
-            vaccinesProvider = VaccinesDataProvider()
-            
-            var vaccines = [Vaccine]()
-            
-            if newPet.species == "dog" {
-                vaccines = dogVaccines
-            } else if newPet.species == "cat" {
-                vaccines = catVaccines
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            if speciesSelected != nil, nameTextField.text != "", Auth.auth().currentUser != nil {
+                userDataProvider.getUserGroupID(userID: Auth.auth().currentUser!.uid)
+                let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: speciesSelected!, groupID: currentUserGroupID)
+                //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
+                provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
+                
+                vaccinesProvider = VaccinesDataProvider()
+                
+                var vaccines = [Vaccine]()
+                
+                if newPet.species == "dog" {
+                    vaccines = dogVaccines
+                } else if newPet.species == "cat" {
+                    vaccines = catVaccines
+                }
+                
+                for vaccine in vaccines {
+                    vaccine.pet_id = newPet.id
+                    vaccine.id = UUID().uuidString
+                }
+                
+                vaccinesProvider.addDataToFirestore(vaccines: vaccines)
+                
+                
+                //        provider = nil
+                self.dismiss(animated: true) {
+                }
             }
-            
-            for vaccine in vaccines {
-                vaccine.pet_id = newPet.id
-                vaccine.id = UUID().uuidString
-            }
-            
-            vaccinesProvider.addDataToFirestore(vaccines: vaccines)
-            
-            
-            //        provider = nil
-            self.dismiss(animated: true) {
-//                SwiftSpinner.show("Loading", animated: true)
-            }
+        } else {
+            Banners.showBottomBanner(on: self)
         }
     }
     

@@ -45,15 +45,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NetworkManager.monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
-                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": true])
+//                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": true])
             } else {
-                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": false])
+//                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": false])
             }
         }
         
         
         let queue = DispatchQueue(label: "Monitor")
         NetworkManager.monitor.start(queue: queue)
+        
+        
         
         return true
     }

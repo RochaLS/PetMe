@@ -14,17 +14,32 @@ class NetworkManager {
     
     static var monitor = NWPathMonitor()
     
-    static func changeViewBasedOnNetworkStatus(navigationController: UINavigationController, buttonsToDisable buttons: [UIButton], status: Bool, bannerToShow banner: StatusBarNotificationBanner, completion: (() -> Void)) {
+    static func changeViewBasedOnNetworkStatus(vc: UIViewController?, navigationController: UINavigationController?, buttonsToDisable buttons: [UIButton]?, status: Bool, bannerToShow banner: BaseNotificationBanner, completion: (() -> Void)) {
         
         if status == false {
             
-            for button in buttons {
-                button.isEnabled = false
+            if let buttonsArray = buttons {
+                for button in buttonsArray {
+                    button.isEnabled = false
+                }
             }
+            
             banner.autoDismiss = false
-            banner.show()
-            navigationController.navigationBar.barStyle = .black
+            
+            if vc != nil {
+                banner.show(on: vc!)
+            } else {
+                banner.show()
+            }
+            
+            if navigationController != nil {
+                navigationController!.navigationBar.barStyle = .black
+            }
         }
         completion()
+    }
+    
+    func showBottomBanner() {
+        
     }
 }

@@ -77,6 +77,7 @@
 		1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */; };
 		1690B9C0240625DE00F16BC5 /* MoodDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */; };
 		1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */; };
+		16936309246CC92500D930A3 /* Banners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16936308246CC92500D930A3 /* Banners.swift */; };
 		16937619245361B600971AB1 /* FixedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16937618245361B600971AB1 /* FixedLabel.swift */; };
 		1693761B2453669200971AB1 /* AnswerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693761A2453669200971AB1 /* AnswerLabel.swift */; };
 		1693761F24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693761E24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift */; };
@@ -215,6 +216,7 @@
 		1690B9BC240624C300F16BC5 /* MoodDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProvider.swift; sourceTree = "<group>"; };
 		1690B9BF240625DE00F16BC5 /* MoodDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataProviderDelegate.swift; sourceTree = "<group>"; };
 		1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+ProviderDelegateMethods.swift"; sourceTree = "<group>"; };
+		16936308246CC92500D930A3 /* Banners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banners.swift; sourceTree = "<group>"; };
 		16937618245361B600971AB1 /* FixedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedLabel.swift; sourceTree = "<group>"; };
 		1693761A2453669200971AB1 /* AnswerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerLabel.swift; sourceTree = "<group>"; };
 		1693761E24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -832,6 +834,7 @@
 				162DA5C3245A3D4B00C656BB /* GlobalVariables.swift */,
 				162DA5C5245A887000C656BB /* TrashButton.swift */,
 				164A737D245B5C1300C3069A /* DismissButton.swift */,
+				16936308246CC92500D930A3 /* Banners.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1039,6 +1042,7 @@
 				16BCB6FF23E2874800C91316 /* AllPetsController.swift in Sources */,
 				1642B99724187F8200E71EA3 /* ReminderDataProvider.swift in Sources */,
 				16951CC924416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift in Sources */,
+				16936309246CC92500D930A3 /* Banners.swift in Sources */,
 				162DA5C8245A95B600C656BB /* FoodCellDelegate.swift in Sources */,
 				1687A2D42412E63B0038E146 /* AboutTableViewCell.swift in Sources */,
 				1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */,

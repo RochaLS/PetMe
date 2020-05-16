@@ -48,6 +48,14 @@ class VaccineInfoViewController: UIViewController {
         self.tableView.tableFooterView = UIView() // Remove extra lines from table view
         populateDictWithVaccineInfo()
         
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            print("Connected")
+        } else {
+            Banners.noNetwork.autoDismiss = false
+            Banners.noNetwork.show()
+            self.navigationController?.navigationBar.barStyle = .black
+            //            setNeedsStatusBarAppearanceUpdate()
+        }
     }
     
     func setupViews() {
@@ -78,15 +86,28 @@ class VaccineInfoViewController: UIViewController {
     }
     
     @objc func switchButtonValueChanged(mySwitch: UISwitch) {
-        if mySwitch.isOn == true {
-            showAlertWithPicker()
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            if mySwitch.isOn == true {
+                showAlertWithPicker()
+                
+            } else {
+                
+                dateSelected = nil
+                vaccine.taken = false
+                vaccine.date = nil
+                provider.updateData(isTaken: false, date: nil, id: vaccine.id!)
+                self.tableView.reloadData()
+            }
         } else {
-            dateSelected = nil
-            vaccine.taken = false
-            vaccine.date = nil
-            provider.updateData(isTaken: false, date: nil, id: vaccine.id!)
-            self.tableView.reloadData()
+            Banners.showBottomBanner(on: nil)
+            
+            if mySwitch.isOn == true {
+                mySwitch.isOn = false
+            } else {
+                mySwitch.isOn = true
+            }
         }
+        
     }
     
     func showAlertWithPicker() {
@@ -109,9 +130,8 @@ class VaccineInfoViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
-//        alert.show()
+        //        alert.show()
         
     }
-    
 }
 

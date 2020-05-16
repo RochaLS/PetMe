@@ -74,6 +74,8 @@ class VaccinesViewController: UIViewController {
         
         self.provider.setVaccineData(petID: pet.id)
         SwiftSpinner.hide()
+        
+        
 
         // Do any additional setup after loading the view.
     }

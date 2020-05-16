@@ -83,20 +83,25 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
     
     @objc func didTapAdd() {
         //Save Stuff...
-        if treatImageData == nil {
-            treatImageName = "-"
-        }
-        
-        if let brand = brandTextField.text, let name = nameTextField.text {
-            let newTreat = Treat(name: name, brand: brand, imgName: treatImageName, petID: pet.id, id: UUID().uuidString)
-            provider.saveTreatData(petID: pet.id , imgData: treatImageData, imgName: treatImageName, treat: newTreat)
-            self.dismiss(animated: true) {
-                self.brandTextField.text = ""
-                self.nameTextField.text = ""
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            if treatImageData == nil {
+                treatImageName = "-"
             }
             
-            
+            if let brand = brandTextField.text, let name = nameTextField.text {
+                let newTreat = Treat(name: name, brand: brand, imgName: treatImageName, petID: pet.id, id: UUID().uuidString)
+                provider.saveTreatData(petID: pet.id , imgData: treatImageData, imgName: treatImageName, treat: newTreat)
+                self.dismiss(animated: true) {
+                    self.brandTextField.text = ""
+                    self.nameTextField.text = ""
+                }
+                
+                
+            }
+        } else {
+            Banners.showBottomBanner(on: self)
         }
+        
     }
     
     @objc func addPhotoButtonPressed() {

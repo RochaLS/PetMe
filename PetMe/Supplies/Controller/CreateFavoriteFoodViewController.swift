@@ -98,24 +98,27 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
     
     @objc func didTapAdd() {
         //Save Stuff...
-        if foodImageData == nil {
-            foodImageName = "-"
-        }
-        
-        if let brand = brandTextField.text, let breedSize = breedSizeTextField.text, let flavour = flavourTextField.text, let type = typeTextField.text {
-            let newFood = Food(brand: brand, breedSize: breedSize, flavour: flavour, type: type, imgName: foodImageName, id: UUID().uuidString, petID: pet.id)
-            provider.saveFoodData(petID: pet.id, imgData: foodImageData ?? nil, imgName: foodImageName , food: newFood)
-            self.dismiss(animated: true) {
-                self.brandTextField.text = ""
-                self.breedSizeTextField.text = ""
-                self.flavourTextField.text = ""
-                self.typeTextField.text = ""
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            if foodImageData == nil {
+                foodImageName = "-"
             }
             
-            
+            if let brand = brandTextField.text, let breedSize = breedSizeTextField.text, let flavour = flavourTextField.text, let type = typeTextField.text {
+                let newFood = Food(brand: brand, breedSize: breedSize, flavour: flavour, type: type, imgName: foodImageName, id: UUID().uuidString, petID: pet.id)
+                provider.saveFoodData(petID: pet.id, imgData: foodImageData ?? nil, imgName: foodImageName , food: newFood)
+                self.dismiss(animated: true) {
+                    self.brandTextField.text = ""
+                    self.breedSizeTextField.text = ""
+                    self.flavourTextField.text = ""
+                    self.typeTextField.text = ""
+                }
+            } else {
+                print("You need to fill all the forms!")
+            }
         } else {
-            print("You need to fill all the forms!")
+            Banners.showBottomBanner(on: self)
         }
+        
         
     }
     
