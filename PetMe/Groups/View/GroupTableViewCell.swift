@@ -28,15 +28,15 @@ class GroupTableViewCell: UITableViewCell {
         button.setImage(UIImage.fontAwesomeIcon(name: .times, style: .solid, textColor: AppColors.red, size: CGSize(width: 38, height: 38)), for: .normal)
         return button
     }()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -53,11 +53,16 @@ class GroupTableViewCell: UITableViewCell {
     }
     
     func setupMember(member: User) {
-         self.member = member
-     }
+        self.member = member
+    }
     
     @objc func deletePressed() {
-        self.delegate?.didTapRemove(member: member)
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            self.delegate?.didTapRemove(member: member)
+        } else {
+            Banners.showStatusBanner(on: nil, completion: nil)
+        }
+        
     }
-
+    
 }

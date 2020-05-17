@@ -107,17 +107,32 @@ class GroupViewController: UIViewController {
     
     @objc func sendInviteButtonPressed() {
         let receiverUserInfo = addMemberTextField.text
-        if let userID =  Auth.auth().currentUser?.uid {
-            if receiverUserInfo != nil && receiverUserInfo != "" {
-                let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: groupID, id: UUID().uuidString)
-                provider.saveInviteRequest(request: newRequest)
-                addMemberTextField.text = ""
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            if let userID =  Auth.auth().currentUser?.uid {
+                if receiverUserInfo != nil && receiverUserInfo != "" {
+                    let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: groupID, id: UUID().uuidString)
+                    provider.saveInviteRequest(request: newRequest)
+                    addMemberTextField.text = ""
+                }
+            }
+        } else {
+            Banners.showStatusBanner(on: nil) {
+                self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
+                self.setNeedsStatusBarAppearanceUpdate()
             }
         }
     }
     
     @objc func leaveGroupButtonPressed() {
-        showCustomAlert(title: "Are you sure?", description: "Are you sure you want to leave this group?", image:  UIImage.fontAwesomeIcon(name: .doorOpen, style: .solid, textColor: UIColor.gray, size: CGSize(width: 500, height: 500)))
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            showCustomAlert(title: "Are you sure?", description: "Are you sure you want to leave this group?", image:  UIImage.fontAwesomeIcon(name: .doorOpen, style: .solid, textColor: UIColor.gray, size: CGSize(width: 500, height: 500)))
+        } else {
+            Banners.showStatusBanner(on: nil) {
+                self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        }
+        
     }
     
     func showCustomAlert(title: String, description: String, image: UIImage) {

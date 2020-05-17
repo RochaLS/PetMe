@@ -48,14 +48,6 @@ class VaccineInfoViewController: UIViewController {
         self.tableView.tableFooterView = UIView() // Remove extra lines from table view
         populateDictWithVaccineInfo()
         
-        if NetworkManager.monitor.currentPath.status == .satisfied {
-            print("Connected")
-        } else {
-            Banners.noNetwork.autoDismiss = false
-            Banners.noNetwork.show()
-            self.navigationController?.navigationBar.barStyle = .black
-            //            setNeedsStatusBarAppearanceUpdate()
-        }
     }
     
     func setupViews() {

@@ -15,13 +15,13 @@ class InvitesTableViewCell: UITableViewCell {
     var request: Request!
     
     let mainLabel: UILabel = {
-          let label = UILabel()
-          label.text = "Join name's group?"
-          label.textColor = AppColors.black
-          label.font = AppFonts.mainFontRegular
-          label.font = label.font.withSize(18)
-          return label
-      }()
+        let label = UILabel()
+        label.text = "Join name's group?"
+        label.textColor = AppColors.black
+        label.font = AppFonts.mainFontRegular
+        label.font = label.font.withSize(18)
+        return label
+    }()
     
     let acceptButton: UIButton = {
         let button = UIButton()
@@ -30,7 +30,7 @@ class InvitesTableViewCell: UITableViewCell {
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 5
         button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
-//        button.setImage(UIImage.fontAwesomeIcon(name: .check, style: .solid, textColor: AppColors.primaryColor, size: CGSize(width: 35, height: 35)), for: .normal)
+        //        button.setImage(UIImage.fontAwesomeIcon(name: .check, style: .solid, textColor: AppColors.primaryColor, size: CGSize(width: 35, height: 35)), for: .normal)
         return button
     }()
     
@@ -42,7 +42,7 @@ class InvitesTableViewCell: UITableViewCell {
         button.layer.cornerRadius = 5
         button.contentEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
         button.titleLabel?.font = AppFonts.mainFontRegular
-//        button.setImage(UIImage.fontAwesomeIcon(name: .times, style: .solid, textColor: AppColors.red, size: CGSize(width: 35, height: 35)), for: .normal)
+        //        button.setImage(UIImage.fontAwesomeIcon(name: .times, style: .solid, textColor: AppColors.red, size: CGSize(width: 35, height: 35)), for: .normal)
         return button
     }()
     
@@ -51,10 +51,10 @@ class InvitesTableViewCell: UITableViewCell {
         // Initialization code
         setupView()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -83,11 +83,19 @@ class InvitesTableViewCell: UITableViewCell {
     }
     
     @objc func acceptButtonPressed() {
-        self.delegate?.didTapAccept(request: request)
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            self.delegate?.didTapAccept(request: request)
+        } else {
+            Banners.showStatusBanner(on: nil, completion: nil)
+        }
     }
     
     @objc func declineButtonPressed() {
-        self.delegate?.didTapDecline(request: request)
+        if NetworkManager.monitor.currentPath.status == .satisfied {
+            self.delegate?.didTapDecline(request: request)
+        } else {
+            Banners.showStatusBanner(on: nil, completion: nil)
+        }
     }
-
+    
 }

@@ -83,18 +83,6 @@ class AllPetsController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         SwiftSpinner.hide()
-        print(NetworkManager.monitor.currentPath)
-        
-        
-        if NetworkManager.monitor.currentPath.status == .satisfied {
-            print("Connected")
-        } else {
-            addButton.isEnabled = false
-            Banners.noNetwork.autoDismiss = false
-            Banners.noNetwork.show()
-            self.navigationController?.navigationBar.barStyle = .black
-            //            setNeedsStatusBarAppearanceUpdate()
-        }
         
     }
     

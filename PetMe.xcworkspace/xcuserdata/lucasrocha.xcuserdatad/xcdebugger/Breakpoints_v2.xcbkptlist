@@ -96,8 +96,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "getGroupMembers(groupID:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "57F6F567-5461-4553-888D-2676012EEC82 - 93c16b7ab410b8ac"
