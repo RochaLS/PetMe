@@ -23,6 +23,14 @@ class InvitesViewController: UIViewController {
     var tappedRequest: Request!
     var currentUserGroupID: String?
     
+    let infoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "You don't have any new invites..."
+        label.textAlignment = .center
+        label.textColor = UIColor.lightGray
+        return label
+    }()
+    
     override func loadView() {
         super.loadView()
         SwiftSpinner.show("Loading", animated: true)
@@ -63,6 +71,7 @@ class InvitesViewController: UIViewController {
         tableView.dataSource = self
         
         view.addSubview(tableView)
+        view.addSubview(infoLabel)
         
         
         
@@ -74,6 +83,9 @@ class InvitesViewController: UIViewController {
         ])
         
         self.tableView = tableView
+        
+        view.addContraintsWithFormat(format: "V:|[v0]|", views: infoLabel)
+        view.addContraintsWithFormat(format: "H:|[v0]|", views: infoLabel)
         
     }
     

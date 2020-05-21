@@ -36,6 +36,8 @@ extension VaccineInfoViewController: UITableViewDelegate, UITableViewDataSource 
                 cell.mainLabel.text = "Vaccine Received"
                 if vaccine.taken == true {
                     cell.switchButton.isOn = true
+                } else if vaccine.taken == false {
+                    cell.switchButton.isOn = false
                 }
             case 1:
                 let dateFormatter = DateFormatter()

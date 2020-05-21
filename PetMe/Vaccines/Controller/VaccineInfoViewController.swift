@@ -45,8 +45,10 @@ class VaccineInfoViewController: UIViewController {
         self.tableView.register(VaccineInfoTableViewCell.self, forCellReuseIdentifier: cell_id)
         self.tableView.register(AboutTableViewCell.self, forCellReuseIdentifier: about_id)
         
-        self.tableView.tableFooterView = UIView() // Remove extra lines from table view
+        self.tableView.tableFooterView = UIView()// Remove extra lines from table view
+        self.tableView.allowsSelection = false
         populateDictWithVaccineInfo()
+        
         
     }
     
@@ -120,7 +122,9 @@ class VaccineInfoViewController: UIViewController {
             self.provider.updateData(isTaken: true, date: self.dateSelected!, id: self.vaccine.id!)
             self.tableView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_ action) in
+            self.tableView.reloadData()
+        }))
         self.present(alert, animated: true, completion: nil)
         //        alert.show()
         

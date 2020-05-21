@@ -11,6 +11,9 @@ import UIKit
 extension InvitesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if requests.count > 0 {
+            infoLabel.isHidden = true
+        }
         return requests.count
     }
     

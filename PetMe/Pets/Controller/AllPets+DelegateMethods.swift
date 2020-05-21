@@ -10,7 +10,9 @@ import FirebaseUI
 
 extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        if pets.count > 0 {
+            infoLabel.isHidden = true
+        }
         return pets.count
     }
     

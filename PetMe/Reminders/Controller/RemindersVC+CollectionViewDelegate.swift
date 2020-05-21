@@ -12,13 +12,18 @@ import SwipeCellKit
 extension RemindersViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if reminders.count > 0 {
+            infoLabel.isHidden = true
+        }
         return reminders.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id, for: indexPath) as! ReminderCollectionViewCell
         
+        
         cell.delegate = self
+        
         
         let reminder = reminders[indexPath.row]
         let dateFormatter = DateFormatter()

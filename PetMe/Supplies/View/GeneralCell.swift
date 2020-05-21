@@ -25,6 +25,14 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
     var petID: String!
     weak var suppliesRef: SuppliesViewController!
     
+    let infoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tap on [Add] to add a new item!"
+        label.textAlignment = .center
+        label.textColor = UIColor.lightGray
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,8 +60,12 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         self.collectionView.backgroundColor = AppColors.backgroundColor
         
         addSubview(collectionView)
+        addSubview(infoLabel)
+        
         addContraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         addContraintsWithFormat(format: "H:|[v0]|", views: collectionView)
+        addContraintsWithFormat(format: "V:|[v0]|", views: infoLabel)
+        addContraintsWithFormat(format: "H:|[v0]|", views: infoLabel)
         
         collectionView.register(FavoriteFoodsWithImageCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.register(TreatsCell.self, forCellWithReuseIdentifier: treatsCellID)
@@ -88,8 +100,12 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if currentIndex == 0 {
+        if currentIndex == 0{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID , for: indexPath) as! FavoriteFoodsWithImageCell
+            
+            if foods.count > 0 {
+                infoLabel.isHidden = true
+            }
             
             cell.brandAnswer.text = foods[indexPath.item].brand
             cell.breedSizeAnswer.text = foods[indexPath.item].breedSize
@@ -104,6 +120,10 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         } else if currentIndex == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: treatsCellID, for: indexPath) as! TreatsCell
             
+            if treats.count > 0 {
+                infoLabel.isHidden = true
+            }
+            
             cell.brandAnswer.text = treats[indexPath.item].brand
             cell.nameAnswer.text = treats[indexPath.item].name
             cell.setupTreat(treat: treats[indexPath.item])
@@ -111,8 +131,12 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
             provider.getSupplyImage(of: treats[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "treats")
             
             return cell
-        } else {
+        } else if currentIndex == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: toysCellID , for: indexPath) as! ToyCell
+            
+            if toys.count > 0 {
+                infoLabel.isHidden = true
+            }
             
             cell.nameAnswer.text = toys[indexPath.item].name
             cell.setupToy(toy: toys[indexPath.item])
@@ -120,6 +144,8 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
             provider.getSupplyImage(of: toys[indexPath.item].imgName, to: cell.petImageView, typeOfSupply: "toys")
             
             return cell
+        } else {
+            return UICollectionViewCell()
         }
     }
     
