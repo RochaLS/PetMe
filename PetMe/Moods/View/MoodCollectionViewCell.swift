@@ -7,10 +7,20 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class MoodCollectionViewCell: UICollectionViewCell {
+class MoodCollectionViewCell: SwipeCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.backgroundColor = UIColor.white
+        contentView.layer.cornerRadius = 5
+        contentView.layer.borderWidth = 0
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        contentView.layer.shadowRadius = 2
+        contentView.layer.shadowOpacity = 0.3
+        
+        contentView.layer.masksToBounds = false //<-
         setupView()
     }
     
@@ -50,29 +60,19 @@ class MoodCollectionViewCell: UICollectionViewCell {
     }()
     
     func setupView() {
-    
-        addSubview(moodLabel)
-        addSubview(timelabel)
-        addSubview(datelabel)
         
-        addConstraint(NSLayoutConstraint(item: moodLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+        contentView.addSubview(moodLabel)
+        contentView.addSubview(timelabel)
+        contentView.addSubview(datelabel)
         
-        addContraintsWithFormat(format: "V:|[v0]|", views: moodLabel)
-        addContraintsWithFormat(format: "V:|-15-[v0]", views: datelabel)
-        addContraintsWithFormat(format: "H:[v0]-15-|", views: datelabel)
-        addContraintsWithFormat(format: "V:|-15-[v0]", views: timelabel)
-        addContraintsWithFormat(format: "H:|-15-[v0]", views: timelabel)
+        contentView.addConstraint(NSLayoutConstraint(item: moodLabel, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0))
         
+        contentView.addContraintsWithFormat(format: "V:|[v0]|", views: moodLabel)
+        contentView.addContraintsWithFormat(format: "V:|-15-[v0]", views: datelabel)
+        contentView.addContraintsWithFormat(format: "H:[v0]-15-|", views: datelabel)
+        contentView.addContraintsWithFormat(format: "V:|-15-[v0]", views: timelabel)
+        contentView.addContraintsWithFormat(format: "H:|-15-[v0]", views: timelabel)
         
-         backgroundColor = UIColor.white
-         layer.cornerRadius = 5
-         layer.borderWidth = 0
-         layer.shadowColor = UIColor.black.cgColor
-         layer.shadowOffset = CGSize(width: 0, height: 1)
-         layer.shadowRadius = 2
-         layer.shadowOpacity = 0.3
-         
-         layer.masksToBounds = false //<-
         
     }
 }

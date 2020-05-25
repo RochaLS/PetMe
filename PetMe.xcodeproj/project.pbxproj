@@ -27,6 +27,7 @@
 		162DA5D4245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5D3245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift */; };
 		163563E424317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */; };
 		163AB5DA247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */; };
+		163AB5DC247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AB5DB247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift */; };
 		1642B99724187F8200E71EA3 /* ReminderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */; };
 		1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */; };
 		1642B99C2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B99B2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift */; };
@@ -167,6 +168,7 @@
 		162DA5D3245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeneralCell+ToyCellDelegate.swift"; sourceTree = "<group>"; };
 		163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+TableViewDelegateMethods.swift"; sourceTree = "<group>"; };
 		163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+SwipeCellDelegateMethods.swift"; sourceTree = "<group>"; };
+		163AB5DB247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+SwipeCellDelegateMethods.swift"; sourceTree = "<group>"; };
 		1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProvider.swift; sourceTree = "<group>"; };
 		1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProviderDelegate.swift; sourceTree = "<group>"; };
 		1642B99B2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+ProviderDelegateMethods.swift"; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */,
 				16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */,
 				1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */,
+				163AB5DB247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1069,6 +1072,7 @@
 				166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */,
 				16F6BA10244634330020E445 /* GroupCellDelegate.swift in Sources */,
 				16B41CD02432C8FC00325004 /* GroupViewController.swift in Sources */,
+				163AB5DC247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift in Sources */,
 				168AB72B24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift in Sources */,
 				168AB7292417337B000B7618 /* RemindersViewController.swift in Sources */,
 				168AB73224173CBF000B7618 /* ReminderCollectionViewCell.swift in Sources */,

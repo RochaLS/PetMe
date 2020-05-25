@@ -1,5 +1,5 @@
 //
-//  AllPets+SwipeCellDelegateMethods.swift
+//  MoodsVC+SwipeCellDelegateMethods.swift
 //  PetMe
 //
 //  Created by Lucas Rocha on 2020-05-24.
@@ -9,18 +9,21 @@
 import Foundation
 import SwipeCellKit
 
-extension AllPetsController: SwipeCollectionViewCellDelegate {
+extension MoodsViewController: SwipeCollectionViewCellDelegate {
     
- func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+    func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
-            self.provider.deleteSinglePet(pet: self.pets[indexPath.row])
-            self.pets.remove(at: indexPath.row)
+            self.provider.deleteMood(mood: self.moods[indexPath.row])
+            self.moods.remove(at: indexPath.row)
         }
         
-        deleteAction.image = UIImage.fontAwesomeIcon(name: .trash, style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
+        
+        deleteAction.backgroundColor = UIColor.white
+        deleteAction.textColor =  UIColor.red
+        deleteAction.image = UIImage.fontAwesomeIcon(name: .trash, style: .solid, textColor: UIColor.red, size: CGSize(width: 30, height: 30))
         
         return [deleteAction]
         
@@ -28,9 +31,9 @@ extension AllPetsController: SwipeCollectionViewCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
         var options = SwipeOptions()
+        options.backgroundColor = UIColor.white
         options.expansionStyle = .destructiveAfterFill
+        
         return options
     }
-    
-    
 }

@@ -11,15 +11,15 @@ import SwipeCellKit
 class PetCell: SwipeCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
-        layer.cornerRadius = 8
-        layer.borderWidth = 0
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 1)
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.3
+        contentView.backgroundColor = UIColor.white
+        contentView.layer.cornerRadius = 8
+        contentView.layer.borderWidth = 0
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        contentView.layer.shadowRadius = 2
+        contentView.layer.shadowOpacity = 0.3
         
-        layer.masksToBounds = false //<-
+        contentView.layer.masksToBounds = false //<-
         
         setupViews()
     }
@@ -43,8 +43,8 @@ class PetCell: SwipeCollectionViewCell {
     
     func setupViews() {
         
-        addSubview(nameLabel)
-        addSubview(petImageView)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(petImageView)
         
 
         
@@ -52,14 +52,14 @@ class PetCell: SwipeCollectionViewCell {
         
         
         //        addContraintsWithFormat(format: "H:|-12-[v0(68)]", views: dogImageView)
-        addContraintsWithFormat(format: "V:[v0(68)]", views: petImageView)
+        contentView.addContraintsWithFormat(format: "V:[v0(68)]", views: petImageView)
         
         //Center ImageView:
         
-        addConstraint(NSLayoutConstraint(item: petImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+        contentView.addConstraint(NSLayoutConstraint(item: petImageView, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0))
         
-        addContraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
-        addContraintsWithFormat(format: "H:|-12-[v0(68)]-20-[v1]|", views: petImageView, nameLabel)
+        contentView.addContraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
+        contentView.addContraintsWithFormat(format: "H:|-12-[v0(68)]-20-[v1]|", views: petImageView, nameLabel)
     }
 }
 

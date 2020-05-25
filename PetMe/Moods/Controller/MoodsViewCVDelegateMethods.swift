@@ -22,6 +22,8 @@ extension MoodsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id, for: indexPath) as! MoodCollectionViewCell
         
+        cell.delegate = self
+        
         let mood = moods[indexPath.row]
         cell.moodLabel.text = mood.status
         
@@ -56,11 +58,11 @@ extension MoodsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         switch mood.status {
         case "Happy":
-            cell.backgroundColor = AppColors.orange
+            cell.contentView.backgroundColor = AppColors.orange
         case "Sad":
-            cell.backgroundColor = AppColors.red
+            cell.contentView.backgroundColor = AppColors.red
         case "Sleepy":
-            cell.backgroundColor = AppColors.babyBlue
+            cell.contentView.backgroundColor = AppColors.babyBlue
         default:
             print("should not get here")
         }

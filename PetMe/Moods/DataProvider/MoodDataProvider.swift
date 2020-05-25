@@ -60,4 +60,24 @@ class MoodDataProvider {
             }
         }
     }
+    
+    func deleteMood(mood: Mood) {
+        let query = db.collection("moods").document(mood.id)
+        
+        query.getDocument { (snapshot, error) in
+            if error != nil {
+                print("Error getting Mood from db! \(error!)")
+            } else {
+                if let reference = snapshot?.reference {
+                    reference.delete { (error) in
+                        if error != nil {
+                            print("Error deleting mood! \(error!)")
+                        } else {
+                            print("Mood deleted!")
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
