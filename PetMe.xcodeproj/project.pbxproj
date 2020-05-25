@@ -26,6 +26,7 @@
 		162DA5D2245AA5E100C656BB /* ToyCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5D1245AA5E100C656BB /* ToyCellDelegate.swift */; };
 		162DA5D4245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5D3245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift */; };
 		163563E424317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */; };
+		163AB5DA247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */; };
 		1642B99724187F8200E71EA3 /* ReminderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */; };
 		1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */; };
 		1642B99C2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B99B2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift */; };
@@ -165,6 +166,7 @@
 		162DA5D1245AA5E100C656BB /* ToyCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyCellDelegate.swift; sourceTree = "<group>"; };
 		162DA5D3245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeneralCell+ToyCellDelegate.swift"; sourceTree = "<group>"; };
 		163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+TableViewDelegateMethods.swift"; sourceTree = "<group>"; };
+		163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+SwipeCellDelegateMethods.swift"; sourceTree = "<group>"; };
 		1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProvider.swift; sourceTree = "<group>"; };
 		1642B999241888AD00E71EA3 /* ReminderDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProviderDelegate.swift; sourceTree = "<group>"; };
 		1642B99B2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+ProviderDelegateMethods.swift"; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */,
 				16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */,
 				16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */,
+				163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */,
 				16E85FE123E3A90E0026F52A /* AddPetViewController.swift */,
 				16D7CFD123EBD2AE0035DA5A /* PetProfileViewController.swift */,
 				16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */,
@@ -1088,6 +1091,7 @@
 				162DA5D4245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift in Sources */,
 				16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */,
 				16BC2F8F241C55EC00222798 /* LoginViewController.swift in Sources */,
+				163AB5DA247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift in Sources */,
 				166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */,
 				16439373245609D000F67171 /* Toy.swift in Sources */,
 				16DA5226243A62640032C1C1 /* InvitesViewController.swift in Sources */,

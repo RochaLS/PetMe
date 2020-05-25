@@ -20,6 +20,7 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
         
+        cell.delegate = self
         
         cell.nameLabel.text = pets[indexPath.row].name
         

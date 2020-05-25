@@ -141,4 +141,23 @@ class DataManager {
         }
         
     }
+    func deleteSinglePet(pet: Pet) {
+        let query = db.collection("pets").document("\(pet.id)")
+        
+        query.getDocument { (snapshot, error) in
+            if error == nil {
+                if let reference = snapshot?.reference {
+                    reference.delete { (error) in
+                        if error != nil {
+                            print(error!)
+                        } else {
+                            print("pet deleted")
+                        }
+                    }
+                }
+            } else {
+                print("pet not found! \(error!)")
+            }
+        }
+    }
 }

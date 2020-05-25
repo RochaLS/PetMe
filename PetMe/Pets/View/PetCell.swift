@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class PetCell: UICollectionViewCell {
+import SwipeCellKit
+class PetCell: SwipeCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white
