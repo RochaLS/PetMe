@@ -14,7 +14,7 @@ class SuppliesDataProvider {
     let db = Firestore.firestore()
     var storageRef = Storage.storage().reference()
     weak var delegate: SuppliesViewControllerDelegate?
-
+    
     
     func getFoodData(petID: String) {
         let ref = db.collection("foods").whereField("petID", isEqualTo: petID)
@@ -95,7 +95,7 @@ class SuppliesDataProvider {
                 print("\(document.documentID) => \(document.data())")
                 
                 let data = document.data()
- 
+                
                 let name = data["name"] as! String
                 let imgName = data["imgName"] as! String
                 let id = data["id"] as! String
@@ -182,20 +182,20 @@ class SuppliesDataProvider {
     
     func getSupplyImage(of imgName: String, to imageView: UIImageView, typeOfSupply: String) {
         let imgRef = storageRef.child("\(typeOfSupply)/\(imgName)")
-           
-           
-           imgRef.getData(maxSize: 5 * 1024 * 1024) { (data, error) in
-               if error != nil {
-                   print(error?.localizedDescription as Any)
-               } else {
-                   let img = UIImage(data: data!)
-                   self.delegate?.didLoadImage(image: img!, reference: imageView)
-               }
-           }
+        
+        
+        imgRef.getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+            if error != nil {
+                print(error?.localizedDescription as Any)
+            } else {
+                let img = UIImage(data: data!)
+                self.delegate?.didLoadImage(image: img!, reference: imageView)
+            }
+        }
     }
     
     func deleteFood(food: Food) {
-       let query = db.collection("foods").whereField("id", isEqualTo: food.id)
+        let query = db.collection("foods").whereField("id", isEqualTo: food.id)
         
         query.getDocuments { (querySnapshot, error) in
             if error != nil {
@@ -204,6 +204,7 @@ class SuppliesDataProvider {
                 if let snapshot = querySnapshot {
                     for doc in snapshot.documents {
                         doc.reference.delete()
+                        self.deleteImage(path: "foods\(food.imgName)")
                     }
                 }
             }
@@ -220,6 +221,7 @@ class SuppliesDataProvider {
                 if let snapshot = querySnapshot {
                     for doc in snapshot.documents {
                         doc.reference.delete()
+                        self.deleteImage(path: "treats/\(treat.imgName)")
                     }
                 }
             }
@@ -236,8 +238,20 @@ class SuppliesDataProvider {
                 if let snapshot = querySnapshot {
                     for doc in snapshot.documents {
                         doc.reference.delete()
+                        self.deleteImage(path: "toys/\(toy.imgName)")
                     }
                 }
+            }
+        }
+    }
+    
+    func deleteImage(path: String) {
+        let imgRef = storageRef.child(path)
+        imgRef.delete { (error) in
+            if error != nil {
+                print("Error deleting image! \(error!)")
+            } else {
+                print("Image deleted")
             }
         }
     }

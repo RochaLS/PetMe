@@ -126,7 +126,7 @@ class DataManager {
     func deletePets(groupID: String) {
         let query = db.collection("pets").whereField("groupID", isEqualTo: groupID)
         
-    
+        
         
         query.getDocuments { (snapshot, error) in
             if error != nil {
@@ -134,13 +134,19 @@ class DataManager {
             } else {
                 if let documents = snapshot?.documents {
                     for doc in documents {
+                        let data = doc.data()
+                        let imgName = data["img_name"] as! String
+                        
                         doc.reference.delete()
+                        self.deleteImage(path: "pets/\(imgName)")
+                        
                     }
                 }
             }
         }
         
     }
+    
     func deleteSinglePet(pet: Pet) {
         let query = db.collection("pets").document("\(pet.id)")
         
@@ -151,12 +157,24 @@ class DataManager {
                         if error != nil {
                             print(error!)
                         } else {
+                            self.deleteImage(path: "pets/\(pet.imgName!)")
                             print("pet deleted")
                         }
                     }
                 }
             } else {
                 print("pet not found! \(error!)")
+            }
+        }
+    }
+    
+    func deleteImage(path: String) {
+        let imgRef = storageRef.child(path)
+        imgRef.delete { (error) in
+            if error != nil {
+                print("Error deleting image! \(error!)")
+            } else {
+                print("Image deleted")
             }
         }
     }
