@@ -160,6 +160,7 @@ class DataManager {
                             self.deleteImage(path: "pets/\(pet.imgName!)")
                             print("pet deleted")
                         }
+                        
                     }
                 }
             } else {

@@ -12,6 +12,8 @@ import NotificationBannerSwift
 class Banners {
     static var noNetwork = StatusBarNotificationBanner(title: "No internet connection! Try again later!", style: .danger, colors: nil)
     static var noNetworkLarge = NotificationBanner(title: "No internet connection!", subtitle: "Please check your network and try again! Tap to dismiss! ", leftView: nil, rightView: nil, style: .danger, colors: nil)
+    static var emptyInfo = NotificationBanner(title: "Some information is missing!" , subtitle: "Please fill the missing text field(s)", leftView: nil, rightView: nil, style: .danger, colors: nil)
+    static var noSpeciesSelected = NotificationBanner(title: "No species selected!" , subtitle: "Please select a species.", leftView: nil, rightView: nil, style: .danger, colors: nil)
     
     static func showBottomBanner(on vc: UIViewController?) {
         Banners.noNetworkLarge.duration = 5

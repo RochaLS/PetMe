@@ -79,12 +79,17 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
             }
             
             if let name = nameTextField.text {
-                let newToy = Toy(name: name, imgName: toyImageName, petID: pet.id, id: UUID().uuidString)
-                provider.saveToyData(petID: pet.id, imgData: toyImageData!, imgName: toyImageName, toy: newToy)
-                
-                self.dismiss(animated: true) {
-                    self.nameTextField.text = ""
+                if name == "" {
+                    Banners.emptyInfo.show(queuePosition: .front, bannerPosition: .bottom, queue:.default, on: self)
+                } else {
+                    let newToy = Toy(name: name, imgName: toyImageName, petID: pet.id, id: UUID().uuidString)
+                    provider.saveToyData(petID: pet.id, imgData: toyImageData!, imgName: toyImageName, toy: newToy)
+                    
+                    self.dismiss(animated: true) {
+                        self.nameTextField.text = ""
+                    }
                 }
+                
                 
             }
         } else {

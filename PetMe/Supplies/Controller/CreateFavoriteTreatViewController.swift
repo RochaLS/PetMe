@@ -89,13 +89,16 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
             }
             
             if let brand = brandTextField.text, let name = nameTextField.text {
-                let newTreat = Treat(name: name, brand: brand, imgName: treatImageName, petID: pet.id, id: UUID().uuidString)
-                provider.saveTreatData(petID: pet.id , imgData: treatImageData, imgName: treatImageName, treat: newTreat)
-                self.dismiss(animated: true) {
-                    self.brandTextField.text = ""
-                    self.nameTextField.text = ""
+                if brand == "" || name == "" {
+                    Banners.emptyInfo.show(queuePosition: .front, bannerPosition: .bottom, queue:.default, on: self)
+                } else {
+                    let newTreat = Treat(name: name, brand: brand, imgName: treatImageName, petID: pet.id, id: UUID().uuidString)
+                    provider.saveTreatData(petID: pet.id , imgData: treatImageData, imgName: treatImageName, treat: newTreat)
+                    self.dismiss(animated: true) {
+                        self.brandTextField.text = ""
+                        self.nameTextField.text = ""
+                    }
                 }
-                
                 
             }
         } else {

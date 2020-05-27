@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 class CreateFavoriteFoodViewController: AddBasicPageViewController {
     
@@ -104,16 +105,19 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
             }
             
             if let brand = brandTextField.text, let breedSize = breedSizeTextField.text, let flavour = flavourTextField.text, let type = typeTextField.text {
-                let newFood = Food(brand: brand, breedSize: breedSize, flavour: flavour, type: type, imgName: foodImageName, id: UUID().uuidString, petID: pet.id)
-                provider.saveFoodData(petID: pet.id, imgData: foodImageData ?? nil, imgName: foodImageName , food: newFood)
-                self.dismiss(animated: true) {
-                    self.brandTextField.text = ""
-                    self.breedSizeTextField.text = ""
-                    self.flavourTextField.text = ""
-                    self.typeTextField.text = ""
+                if brand == "" || breedSize == "" || flavour == "" || type == "" {
+                    Banners.emptyInfo.show(queuePosition: .front, bannerPosition: .bottom, queue: .default, on: self)
+                } else {
+                    
+                    let newFood = Food(brand: brand, breedSize: breedSize, flavour: flavour, type: type, imgName: foodImageName, id: UUID().uuidString, petID: pet.id)
+                    provider.saveFoodData(petID: pet.id, imgData: foodImageData ?? nil, imgName: foodImageName , food: newFood)
+                    self.dismiss(animated: true) {
+                        self.brandTextField.text = ""
+                        self.breedSizeTextField.text = ""
+                        self.flavourTextField.text = ""
+                        self.typeTextField.text = ""
+                    }
                 }
-            } else {
-                print("You need to fill all the forms!")
             }
         } else {
             Banners.showBottomBanner(on: self)

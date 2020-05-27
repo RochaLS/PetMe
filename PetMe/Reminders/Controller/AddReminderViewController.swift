@@ -65,6 +65,8 @@ class AddReminderViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+         self.hideKeyboardWhenTappedAround()
+        
     }
     
     func setupViews() {
@@ -107,6 +109,8 @@ class AddReminderViewController: UIViewController {
                     self.provider.addReminderDataToFirestore(reminder: newReminder)
                 }
                 self.dismiss(animated: true)
+            } else {
+                Banners.emptyInfo.show(queuePosition: .front, bannerPosition: .bottom, queue:.default, on: self)
             }
         } else {
             Banners.showBottomBanner(on: self)        }

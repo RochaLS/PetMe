@@ -158,6 +158,11 @@ class AddPetViewController: UIViewController {
                 //        provider = nil
                 self.dismiss(animated: true) {
                 }
+            } else {
+                if speciesSelected == nil {
+                    Banners.noSpeciesSelected.show(queuePosition: .front, bannerPosition: .bottom, queue:.default, on: self)
+                }
+                Banners.emptyInfo.show(queuePosition: .front, bannerPosition: .bottom, queue:.default, on: self)
             }
         } else {
             Banners.showBottomBanner(on: self)
@@ -236,6 +241,7 @@ class AddPetViewController: UIViewController {
         
         
         view.isUserInteractionEnabled = true
+        self.hideKeyboardWhenTappedAround()
         
     }
     

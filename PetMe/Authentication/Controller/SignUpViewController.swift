@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseInstanceID
+import NotificationBannerSwift
 
 class SignUpViewController: UIViewController {
     
@@ -45,7 +46,7 @@ class SignUpViewController: UIViewController {
     
     let passwordTextField: UITextField = {
         let textField = DefaultTextField()
-        textField.placeholder = "Your Password..."
+        textField.placeholder = "Your Password (6 characters long or more)"
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -117,14 +118,16 @@ class SignUpViewController: UIViewController {
     @objc func buttonPressed() {
         if let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if error != nil {
-                    print(error!)
+                
+                if email == "" || name == "" || password == "" {
+                    let banner = NotificationBanner(title: "Authentication Error!", subtitle: "Please fill the missing text field(s)", leftView: nil, rightView: nil, style: .danger, colors: nil)
+                    banner.show(queuePosition: .front, bannerPosition: .bottom, queue: .default, on: self)
+                }
+                else if error != nil {
+                    let banner = NotificationBanner(title: "Authentication Error!", subtitle: "\(error!.localizedDescription)", leftView: nil, rightView: nil, style: .danger, colors: nil)
+                    banner.show(queuePosition: .front, bannerPosition: .bottom, queue: .default, on: self)
                 } else {
                     
-                    guard name != "" else {
-                        print("Missing user name")
-                        return
-                    }
                     
                     print("\(authResult!.user) created!")
                     

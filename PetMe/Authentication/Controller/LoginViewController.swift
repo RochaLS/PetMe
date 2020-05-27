@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseInstanceID
+import NotificationBannerSwift
 
 class LoginViewController: UIViewController {
     
@@ -117,7 +118,13 @@ class LoginViewController: UIViewController {
     @objc func buttonPressed() {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if error != nil {
+                
+                if email == "" || password == "" {
+                    let banner = NotificationBanner(title: "Authentication Error!", subtitle: "Please fill the missing text field(s)", leftView: nil, rightView: nil, style: .danger, colors: nil)
+                    banner.show(queuePosition: .front, bannerPosition: .bottom, queue: .default, on: self)
+                } else if error != nil {
+                    let banner = NotificationBanner(title: "Authentication Error!", subtitle: "\(error!.localizedDescription)", leftView: nil, rightView: nil, style: .danger, colors: nil)
+                    banner.show(queuePosition: .front, bannerPosition: .bottom, queue: .default, on: self)
                     print(error!)
                 }
                 
