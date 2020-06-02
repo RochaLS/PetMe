@@ -28,17 +28,6 @@ class SettingsViewController: UIViewController {
         navigationItem.title = "Settings"
         navigationController?.navigationBar.tintColor = UIColor.black
         setupViews()
-        
-        let currentUser = Auth.auth().currentUser
-        
-        userDataProvider = UserDataProvider()
-        userDataProvider.delegate = self
-        
-        if currentUser != nil {
-            userDataProvider.getUserGroupID(userID: currentUser!.uid)
-        }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(needsToUpdateGroupID), name: .didUpdateUserGroupID, object: nil)
     }
     
     @objc func signOutUser() {
@@ -86,15 +75,6 @@ class SettingsViewController: UIViewController {
         
     }
     
-    @objc func needsToUpdateGroupID(notification: Notification) {
-        print(self.currentUserGroupID!)
-        if let data = notification.userInfo {
-            let newGroupID = data["groupID"] as! String
-            print(newGroupID)
-            self.currentUserGroupID = newGroupID
-        }
-    }
-    
     
     func goToLogin() {
         self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
@@ -102,14 +82,12 @@ class SettingsViewController: UIViewController {
     
     func goToGroup() {
         let controller = GroupViewController()
-        controller.groupID = currentUserGroupID
         controller.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(controller, animated: true)
     }
     
     func goToInvites() {
         let controller = InvitesViewController()
-        controller.currentUserGroupID = currentUserGroupID
         controller.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(controller, animated: true)
     }

@@ -13,7 +13,7 @@ extension InvitesViewController: UserDataProviderDelegate {
         userDataProvider.checkForNumOfUsersIn(groupID: id)
         currentUserGroupID = id
     }
-    
+        
     func didGetNumberOfMembers(num: Int) {
         numOfMembers = num
 
@@ -21,8 +21,9 @@ extension InvitesViewController: UserDataProviderDelegate {
         
     }
     
-    func didUpdateUserGroupID(userID: String?, groupID: String) {
-        NotificationCenter.default.post(name: .didUpdateUserGroupID, object: nil, userInfo: ["groupID":groupID])
+    func gotMostRecentGroupIDData(groupID: String, currentUserID: String) {
+        currentUserGroupID = groupID
+        requestsProvider.getGroupMembers(groupID: groupID)
     }
 }
 

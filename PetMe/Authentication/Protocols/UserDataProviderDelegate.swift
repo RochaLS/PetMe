@@ -17,4 +17,6 @@ import Foundation
     @objc optional func didGetNumberOfMembers(num: Int)
     
     @objc optional func didUpdateUserGroupID(userID: String?, groupID: String)
+    
+    @objc optional func gotMostRecentGroupIDData(groupID: String, currentUserID: String)
 }

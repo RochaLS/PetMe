@@ -51,9 +51,7 @@ class GroupViewController: UIViewController {
         userDataProvider.delegate = self
         
         if let currentUser = Auth.auth().currentUser {
-            userDataProvider.getUserName(userID: currentUser.uid)
-            provider.getGroupMembers(groupID: groupID!)
-            provider.isUserGroupOwner(userID: currentUser.uid, groupID: groupID!)
+            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser.uid)
             
         }
         self.hideKeyboardWhenTappedAround()

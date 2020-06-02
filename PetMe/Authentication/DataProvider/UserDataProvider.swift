@@ -114,6 +114,22 @@ class UserDataProvider {
         }
     }
     
+    func getAndObserveUserGroupIDChanges(currentUserID: String) {
+        db.collection("users").document(currentUserID).addSnapshotListener { (snapshot, error) in
+            
+            guard let data = snapshot?.data() else {
+                return
+            }
+            
+            if error != nil {
+                print(error!)
+            } else {
+                let groupID = data["groupID"] as! String
+                self.delegate?.gotMostRecentGroupIDData?(groupID: groupID, currentUserID: currentUserID)
+            }
+        }
+    }
+    
     
     func isLogged() -> Bool {
         return Auth.auth().currentUser != nil

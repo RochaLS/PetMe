@@ -51,11 +51,12 @@ class InvitesViewController: UIViewController {
         requestsProvider.delegate = self
         userDataProvider.delegate = self
         
-        if let currentUserEmail = Auth.auth().currentUser?.email {
-            requestsProvider.getRequests(email: currentUserEmail)
+        if let currentUser = Auth.auth().currentUser {
+            requestsProvider.getRequests(email: currentUser.email!)
+            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser.uid)
         }
         
-        requestsProvider.getGroupMembers(groupID: currentUserGroupID!)
+    
         SwiftSpinner.hide()
         
     }

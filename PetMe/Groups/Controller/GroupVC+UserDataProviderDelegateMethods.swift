@@ -21,24 +21,20 @@ extension GroupViewController: UserDataProviderDelegate {
                 print(user.name)
                 self.provider.createGroupWithOwner(user: user)
             }
-            
-//            if userID == Auth.auth().currentUser?.uid {
-//                self.provider.getGroupMembers(groupID: self.groupID!)
-//            } else {
-//                self.groupID = groupID
-//                self.provider.getGroupMembers(groupID: groupID)
-//            }
-            
-            
             userDataProvider.getUserGroupID(userID: Auth.auth().currentUser!.uid)
-         
         }
+    }
+    
+    func gotMostRecentGroupIDData(groupID: String, currentUserID: String) {
+        self.groupID = groupID
+        userDataProvider.getUserName(userID: currentUserID)
+        provider.getGroupMembers(groupID: groupID)
+        provider.isUserGroupOwner(userID: currentUserID, groupID: groupID)
     }
     
     func didGetUserGroupID(id: String) {
         self.groupID = id
         self.provider.getGroupMembers(groupID: id)
-        NotificationCenter.default.post(name: .didUpdateUserGroupID, object: nil, userInfo: ["groupID": id])
     }
 }
  
