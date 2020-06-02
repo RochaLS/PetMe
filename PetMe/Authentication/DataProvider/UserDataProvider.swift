@@ -87,7 +87,7 @@ class UserDataProvider {
             if error != nil {
                 print("Error updating group id \(error!)")
             } else {
-                self.delegate?.didUpdateUserGroupID?(userID: userID)
+                self.delegate?.didUpdateUserGroupID?(userID: userID, groupID: newGroupID)
             }
         }
         

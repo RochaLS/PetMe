@@ -26,6 +26,7 @@
 		162DA5D2245AA5E100C656BB /* ToyCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5D1245AA5E100C656BB /* ToyCellDelegate.swift */; };
 		162DA5D4245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DA5D3245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift */; };
 		163563E424317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */; };
+		16364F9D247F3C5800D30AE1 /* SettingsVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16364F9C247F3C5800D30AE1 /* SettingsVC+UserDataProviderDelegate.swift */; };
 		163AB5DA247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */; };
 		163AB5DC247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AB5DB247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift */; };
 		1642B99724187F8200E71EA3 /* ReminderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */; };
@@ -85,6 +86,7 @@
 		1693761F24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693761E24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift */; };
 		16937621245371A500971AB1 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16937620245371A500971AB1 /* HeaderCollectionReusableView.swift */; };
 		169376232453A3D900971AB1 /* FavoriteFoodsWithImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169376222453A3D900971AB1 /* FavoriteFoodsWithImageCell.swift */; };
+		1694481A2485D31800823F4E /* UIImage+ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169448192485D31800823F4E /* UIImage+ResizeImage.swift */; };
 		16951CC924416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16951CC824416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift */; };
 		16A18EBF23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */; };
 		16A211DB240E05EA009EFEE2 /* VaccineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */; };
@@ -167,6 +169,7 @@
 		162DA5D1245AA5E100C656BB /* ToyCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToyCellDelegate.swift; sourceTree = "<group>"; };
 		162DA5D3245AA63600C656BB /* GeneralCell+ToyCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeneralCell+ToyCellDelegate.swift"; sourceTree = "<group>"; };
 		163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+TableViewDelegateMethods.swift"; sourceTree = "<group>"; };
+		16364F9C247F3C5800D30AE1 /* SettingsVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+SwipeCellDelegateMethods.swift"; sourceTree = "<group>"; };
 		163AB5DB247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+SwipeCellDelegateMethods.swift"; sourceTree = "<group>"; };
 		1642B99624187F8100E71EA3 /* ReminderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDataProvider.swift; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 		1693761E24536F4B00971AB1 /* FavoriteFoodsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		16937620245371A500971AB1 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		169376222453A3D900971AB1 /* FavoriteFoodsWithImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodsWithImageCell.swift; sourceTree = "<group>"; };
+		169448192485D31800823F4E /* UIImage+ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ResizeImage.swift"; sourceTree = "<group>"; };
 		16951CC824416D7000D44AF9 /* InvitesVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvitesVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileCollectionViewDelegateMethods.swift; sourceTree = "<group>"; };
 		16A211DA240E05EA009EFEE2 /* VaccineInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineInfoViewController.swift; sourceTree = "<group>"; };
@@ -639,6 +643,7 @@
 				16BC2F83241C341100222798 /* SignUpViewController.swift */,
 				16BC2F8E241C55EC00222798 /* LoginViewController.swift */,
 				16BC2F90241C7C7800222798 /* SettingsViewController.swift */,
+				16364F9C247F3C5800D30AE1 /* SettingsVC+UserDataProviderDelegate.swift */,
 				163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */,
 			);
 			path = Controller;
@@ -841,6 +846,7 @@
 				162DA5C5245A887000C656BB /* TrashButton.swift */,
 				164A737D245B5C1300C3069A /* DismissButton.swift */,
 				16936308246CC92500D930A3 /* Banners.swift */,
+				169448192485D31800823F4E /* UIImage+ResizeImage.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1020,6 +1026,7 @@
 				1690B9B72404CEA800F16BC5 /* ChooseMoodButton.swift in Sources */,
 				162DA5CC245AA2C900C656BB /* TreatCellDelegate.swift in Sources */,
 				16DA522A243A651D0032C1C1 /* InvitesTableViewCell.swift in Sources */,
+				16364F9D247F3C5800D30AE1 /* SettingsVC+UserDataProviderDelegate.swift in Sources */,
 				164A737E245B5C1300C3069A /* DismissButton.swift in Sources */,
 				16BC2F86241C35ED00222798 /* DefaultButton.swift in Sources */,
 				16D5F0F1243C05E8008D6470 /* InvitesVC+GroupDataProviderDelegate.swift in Sources */,
@@ -1060,6 +1067,7 @@
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,
 				164393692455F8E600F67171 /* TreatsCell.swift in Sources */,
+				1694481A2485D31800823F4E /* UIImage+ResizeImage.swift in Sources */,
 				168AB73824175084000B7618 /* AddReminderViewController.swift in Sources */,
 				162DA5D0245AA35100C656BB /* GeneralCell+TreatCellDelegate.swift in Sources */,
 				16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */,

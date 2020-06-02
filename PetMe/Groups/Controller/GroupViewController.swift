@@ -18,7 +18,7 @@ class GroupViewController: UIViewController {
     var provider: GroupDataProvider! = nil
     var userDataProvider: UserDataProvider! = nil
     var username = "User"
-    var groupID = "id"
+    var groupID: String?
     var isOwner: Bool!
     var ownerID: String?
     
@@ -52,7 +52,9 @@ class GroupViewController: UIViewController {
         
         if let currentUser = Auth.auth().currentUser {
             userDataProvider.getUserName(userID: currentUser.uid)
-            userDataProvider.getUserGroupID(userID: currentUser.uid)
+            provider.getGroupMembers(groupID: groupID!)
+            provider.isUserGroupOwner(userID: currentUser.uid, groupID: groupID!)
+            
         }
         self.hideKeyboardWhenTappedAround()
         
@@ -63,12 +65,8 @@ class GroupViewController: UIViewController {
             name: .doorOpen, style: .solid, textColor: AppColors.black, size: CGSize(width: 30, height: 30)), style: .plain, target: self, action: #selector(leaveGroupButtonPressed))
         
         
-        
-        
         view.backgroundColor = UIColor.white
-        print(groupID)
         setupViews()
-        
         SwiftSpinner.hide()
         
     }
@@ -110,7 +108,7 @@ class GroupViewController: UIViewController {
         if NetworkManager.monitor.currentPath.status == .satisfied {
             if let userID =  Auth.auth().currentUser?.uid {
                 if receiverUserInfo != nil && receiverUserInfo != "" {
-                    let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: groupID, id: UUID().uuidString)
+                    let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: groupID!, id: UUID().uuidString)
                     provider.saveInviteRequest(request: newRequest)
                     addMemberTextField.text = ""
                 }
@@ -156,7 +154,7 @@ class GroupViewController: UIViewController {
         let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
             if let currentUser = Auth.auth().currentUser {
                 if currentUser.uid == self.ownerID {
-                    self.provider.pickNewGroupOwner(currentUserID: currentUser.uid, ownerID: &self.ownerID!, members: self.members, groupID: self.groupID)
+                    self.provider.pickNewGroupOwner(currentUserID: currentUser.uid, ownerID: &self.ownerID!, members: self.members, groupID: self.groupID!)
                 }
                 self.userDataProvider.updateUserGroupID(groupToDelete: nil, newGroupID: UUID().uuidString, userID: currentUser.uid)
             }

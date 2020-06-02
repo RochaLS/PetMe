@@ -16,5 +16,5 @@ import Foundation
     
     @objc optional func didGetNumberOfMembers(num: Int)
     
-    @objc optional func didUpdateUserGroupID(userID: String?)
+    @objc optional func didUpdateUserGroupID(userID: String?, groupID: String)
 }

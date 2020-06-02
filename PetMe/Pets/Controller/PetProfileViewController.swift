@@ -171,7 +171,8 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
     }
     
     func didLoadImage(image: UIImage, reference: UIImageView) {
-        reference.image = image
-        avatarRawImage = image
+        let resizedImage = image.circle
+        reference.image = resizedImage
+        avatarRawImage = resizedImage
     }
 }

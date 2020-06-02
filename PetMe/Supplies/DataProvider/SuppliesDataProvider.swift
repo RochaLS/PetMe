@@ -160,6 +160,7 @@ class SuppliesDataProvider {
     
     func saveToyData(petID: String, imgData: Data?, imgName: String, toy: Toy) {
         let imgRef = storageRef.child("toys/\(imgName)")
+        
         imgRef.putData(imgData!, metadata: nil) { (metadata, error ) in
             if error != nil {
                 print(error!.localizedDescription)
@@ -188,8 +189,12 @@ class SuppliesDataProvider {
             if error != nil {
                 print(error?.localizedDescription as Any)
             } else {
-                let img = UIImage(data: data!)
-                self.delegate?.didLoadImage(image: img!, reference: imageView)
+                if data != nil {
+                    self.delegate?.didLoadImage(image: UIImage(data: data!)!, reference: imageView)
+                } else {
+                    self.delegate?.didLoadImage(image: UIImage(named: "loading-placeholder")!, reference: imageView)
+                }
+                
             }
         }
     }

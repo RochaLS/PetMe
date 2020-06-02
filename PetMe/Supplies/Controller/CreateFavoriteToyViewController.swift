@@ -76,14 +76,22 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
         if NetworkManager.monitor.currentPath.status == .satisfied {
             if toyImageData == nil {
                 toyImageName = "-"
+                toyImageData = UIImage(named: "loading-placeholder")?.jpegData(compressionQuality: 0.75)
+                
             }
             
             if let name = nameTextField.text {
                 if name == "" {
                     Banners.emptyInfo.show(queuePosition: .front, bannerPosition: .bottom, queue:.default, on: self)
                 } else {
+                    
                     let newToy = Toy(name: name, imgName: toyImageName, petID: pet.id, id: UUID().uuidString)
-                    provider.saveToyData(petID: pet.id, imgData: toyImageData!, imgName: toyImageName, toy: newToy)
+                    if toyImageData != nil {
+                        provider.saveToyData(petID: pet.id, imgData: toyImageData!, imgName: toyImageName, toy: newToy)
+                    } else {
+                         provider.saveToyData(petID: pet.id, imgData: nil, imgName: toyImageName, toy: newToy)
+                    }
+                    
                     
                     self.dismiss(animated: true) {
                         self.nameTextField.text = ""

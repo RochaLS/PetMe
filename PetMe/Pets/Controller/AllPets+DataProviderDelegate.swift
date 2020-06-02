@@ -12,7 +12,8 @@ import SwiftSpinner
 
 extension AllPetsController: DataProviderDelegate {
     func didLoadImage(image: UIImage, reference: UIImageView) {
-        reference.image = image
+        let resizedImg = image.circle
+        reference.image = resizedImg
 //        SwiftSpinner.hide()
     }
     

@@ -14,4 +14,5 @@ extension Notification.Name {
     static let didTapOnAdd = Notification.Name("didTapOnAdd")
     static let willShowAlert = Notification.Name("willShowAlert")
     static let networkDidChange = Notification.Name("networkDidChange")
+    static let didUpdateUserGroupID = Notification.Name("didUpdateUserGroupID")
 }

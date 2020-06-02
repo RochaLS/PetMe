@@ -55,8 +55,7 @@ class InvitesViewController: UIViewController {
             requestsProvider.getRequests(email: currentUserEmail)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMembersData), name: .didReceiveMembersData , object: nil)
-        
+        requestsProvider.getGroupMembers(groupID: currentUserGroupID!)
         SwiftSpinner.hide()
         
     }
@@ -87,16 +86,6 @@ class InvitesViewController: UIViewController {
         view.addContraintsWithFormat(format: "V:|[v0]|", views: infoLabel)
         view.addContraintsWithFormat(format: "H:|[v0]|", views: infoLabel)
         
-    }
-    
-    @objc func didReceiveMembersData(_ notification: Notification) {
-        if let data = notification.userInfo as? [String:Any] {
-            let allMembers = data["members"] as! [User]
-            let groupID = data["groupID"] as! String
-            
-            members = allMembers
-            currentUserGroupID = groupID
-        }
     }
     
 }

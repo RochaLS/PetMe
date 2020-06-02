@@ -19,7 +19,6 @@ extension GroupViewController: GroupDataProviderDelegate {
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
         
-        NotificationCenter.default.post(name: .didReceiveMembersData, object: nil , userInfo: ["members": members, "groupID": groupID])
         tableView.reloadData()
     }
     

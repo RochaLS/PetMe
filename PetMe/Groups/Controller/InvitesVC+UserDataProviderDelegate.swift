@@ -16,10 +16,13 @@ extension InvitesViewController: UserDataProviderDelegate {
     
     func didGetNumberOfMembers(num: Int) {
         numOfMembers = num
-        
-        
+
         showAlert(request: tappedRequest)
         
+    }
+    
+    func didUpdateUserGroupID(userID: String?, groupID: String) {
+        NotificationCenter.default.post(name: .didUpdateUserGroupID, object: nil, userInfo: ["groupID":groupID])
     }
 }
 
