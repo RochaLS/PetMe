@@ -71,7 +71,7 @@ class AllPetsController: UIViewController {
         let currentUser = Auth.auth().currentUser
         
         if currentUser != nil {
-            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser!.uid)
+            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser!.uid	)
         }
         
         

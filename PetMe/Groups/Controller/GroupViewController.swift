@@ -105,7 +105,10 @@ class GroupViewController: UIViewController {
         let receiverUserInfo = addMemberTextField.text
         if NetworkManager.monitor.currentPath.status == .satisfied {
             if let userID =  Auth.auth().currentUser?.uid {
-                if receiverUserInfo != nil && receiverUserInfo != "" {
+                if receiverUserInfo ==  Auth.auth().currentUser?.email {
+                    Banners.inviteError.show()
+                }
+                else if receiverUserInfo != nil && receiverUserInfo != "" {
                     let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: groupID!, id: UUID().uuidString)
                     provider.saveInviteRequest(request: newRequest)
                     addMemberTextField.text = ""
