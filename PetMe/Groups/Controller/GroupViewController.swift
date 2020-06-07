@@ -38,6 +38,14 @@ class GroupViewController: UIViewController {
         return button
     }()
     
+    let ownerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Owner: User"
+        label.textColor = UIColor.darkGray
+        label.font = AppFonts.mainFontRegular?.withSize(16)
+        return label
+    }()
+    
     override func loadView() {
         super.loadView()
         SwiftSpinner.show("Loading", animated: true)
@@ -67,6 +75,7 @@ class GroupViewController: UIViewController {
         setupViews()
         SwiftSpinner.hide()
         
+        
     }
     
     
@@ -82,16 +91,17 @@ class GroupViewController: UIViewController {
         view.addSubview(tableView)
         view.addSubview(addMemberTextField)
         view.addSubview(sendInviteButton)
+        view.addSubview(ownerLabel)
         
         
-        view.addContraintsWithFormat(format: "V:|-\(self.topbarHeight + 50 + 5)-[v0(50)]", views: addMemberTextField)
+        view.addContraintsWithFormat(format: "V:|-\(self.topbarHeight + 50 + 5)-[v0(50)]-5-[v1]", views: addMemberTextField, ownerLabel)
         view.addContraintsWithFormat(format: "H:|-5-[v0]-10-[v1]-5-|", views: addMemberTextField, sendInviteButton)
         view.addContraintsWithFormat(format: "V:|-\(self.topbarHeight + 50 + 5)-[v0(50)]", views: sendInviteButton)
-        
+        view.addContraintsWithFormat(format: "H:|-5-[v0]|", views: ownerLabel)
         
         
         NSLayoutConstraint.activate([
-            self.addMemberTextField.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
+            self.ownerLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
             self.view.bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
             self.view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
             self.view.leadingAnchor.constraint(equalTo: tableView.leadingAnchor)

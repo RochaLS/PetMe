@@ -149,7 +149,7 @@ class GroupDataProvider {
             if error != nil {
                 print("Couldn't update owner! \(error!)")
             }
-            self.delegate?.didUpdateOwner?()
+            self.delegate?.didUpdateOwner?(newOwnerID: newOwnerID)
         }
         
     }

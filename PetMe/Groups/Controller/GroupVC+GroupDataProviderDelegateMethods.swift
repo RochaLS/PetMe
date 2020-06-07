@@ -19,16 +19,29 @@ extension GroupViewController: GroupDataProviderDelegate {
             navigationItem.rightBarButtonItem?.isEnabled = false
         }
         
+        
         tableView.reloadData()
     }
     
     func didCheckForOwner(bool: Bool, ownerID: String?) {
         isOwner = bool
         self.ownerID = ownerID
+        
+        for member in members {
+            if member.userID == ownerID {
+                ownerLabel.text = "Owner: \(member.name)"
+            }
+        }
+        
         self.tableView.reloadData()
     }
     
-    func didUpdateOwner() {
+    func didUpdateOwner(newOwnerID: String) {
+        for member in members {
+            if member.userID == newOwnerID {
+               ownerLabel.text = "Owner: \(member.name)"
+            }
+        }
         self.tableView.reloadData()
     }
 }

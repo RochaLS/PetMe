@@ -85,7 +85,8 @@ class CreateFavoriteTreatViewController: AddBasicPageViewController {
         //Save Stuff...
         if NetworkManager.monitor.currentPath.status == .satisfied {
             if treatImageData == nil {
-                treatImageName = "-"
+                treatImageName = "supply-placeholder"
+                treatImageData = UIImage(named: "loading-placeholder")?.jpegData(compressionQuality: 0.75)
             }
             
             if let brand = brandTextField.text, let name = nameTextField.text {

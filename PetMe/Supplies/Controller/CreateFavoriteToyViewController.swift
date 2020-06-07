@@ -75,7 +75,7 @@ class CreateFavoriteToyViewController: AddBasicPageViewController {
         //Save Stuff...
         if NetworkManager.monitor.currentPath.status == .satisfied {
             if toyImageData == nil {
-                toyImageName = "-"
+                toyImageName = "supply-placeholder"
                 toyImageData = UIImage(named: "loading-placeholder")?.jpegData(compressionQuality: 0.75)
                 
             }

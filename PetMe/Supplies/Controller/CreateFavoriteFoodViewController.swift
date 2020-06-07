@@ -101,7 +101,8 @@ class CreateFavoriteFoodViewController: AddBasicPageViewController {
         //Save Stuff...
         if NetworkManager.monitor.currentPath.status == .satisfied {
             if foodImageData == nil {
-                foodImageName = "-"
+                foodImageName = "supply-placeholder"
+                foodImageData = UIImage(named: "loading-placeholder")?.jpegData(compressionQuality: 0.75)
             }
             
             if let brand = brandTextField.text, let breedSize = breedSizeTextField.text, let flavour = flavourTextField.text, let type = typeTextField.text {

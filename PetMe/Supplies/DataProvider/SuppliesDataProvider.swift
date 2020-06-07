@@ -112,23 +112,25 @@ class SuppliesDataProvider {
     
     func saveFoodData(petID: String, imgData: Data?, imgName: String, food: Food) {
         let imgRef = storageRef.child("foods/\(imgName)")
-        imgRef.putData(imgData!, metadata: nil) { (metadata, error ) in
-            if error != nil {
-                print(error!.localizedDescription)
-            } else {
-                self.db.collection("foods").document(food.id).setData([
-                    "brand": food.brand,
-                    "breedSize": food.breedSize,
-                    "flavour": food.flavour,
-                    "type": food.type,
-                    "id": food.id,
-                    "petID": petID,
-                    "imgName": food.imgName
-                ]) { error in
-                    if let error = error {
-                        print("Error adding document: \(error)")
-                    } else {
-                        print("Document added")
+        if let img = imgData {
+            imgRef.putData(img, metadata: nil) { (metadata, error ) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                } else {
+                    self.db.collection("foods").document(food.id).setData([
+                        "brand": food.brand,
+                        "breedSize": food.breedSize,
+                        "flavour": food.flavour,
+                        "type": food.type,
+                        "id": food.id,
+                        "petID": petID,
+                        "imgName": food.imgName
+                    ]) { error in
+                        if let error = error {
+                            print("Error adding document: \(error)")
+                        } else {
+                            print("Document added")
+                        }
                     }
                 }
             }
