@@ -39,7 +39,9 @@ class PetCell: SwipeCollectionViewCell {
         
     }()
     
-    let petImageView = PetAvatarImageView()
+    var petImageView = PetAvatarImageView()
+    
+    var index = 0
     
     func setupViews() {
         
@@ -61,7 +63,14 @@ class PetCell: SwipeCollectionViewCell {
         contentView.addContraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
         contentView.addContraintsWithFormat(format: "H:|-12-[v0(68)]-20-[v1]|", views: petImageView, nameLabel)
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        petImageView.image = UIImage(named: "placeholder")
+    }
 }
+
+
 
 extension UIView {
     func addContraintsWithFormat(format: String, views: UIView...) {

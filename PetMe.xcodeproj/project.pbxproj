@@ -133,6 +133,7 @@
 		16DA5226243A62640032C1C1 /* InvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA5225243A62640032C1C1 /* InvitesViewController.swift */; };
 		16DA5228243A648C0032C1C1 /* InvitesVC+TableViewDelateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA5227243A648C0032C1C1 /* InvitesVC+TableViewDelateMethods.swift */; };
 		16DA522A243A651D0032C1C1 /* InvitesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA5229243A651D0032C1C1 /* InvitesTableViewCell.swift */; };
+		16E2AEC3248DA7520030BCF8 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E2AEC2248DA7520030BCF8 /* UIImageView+DownloadImage.swift */; };
 		16E3C209242095DD00F1B4C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3C208242095DD00F1B4C4 /* User.swift */; };
 		16E3C20C2420AC4200F1B4C4 /* UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3C20B2420AC4200F1B4C4 /* UserDataProviderDelegate.swift */; };
 		16E3C2102420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */; };
@@ -278,6 +279,7 @@
 		16DA5225243A62640032C1C1 /* InvitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesViewController.swift; sourceTree = "<group>"; };
 		16DA5227243A648C0032C1C1 /* InvitesVC+TableViewDelateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvitesVC+TableViewDelateMethods.swift"; sourceTree = "<group>"; };
 		16DA5229243A651D0032C1C1 /* InvitesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesTableViewCell.swift; sourceTree = "<group>"; };
+		16E2AEC2248DA7520030BCF8 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		16E3C208242095DD00F1B4C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		16E3C20B2420AC4200F1B4C4 /* UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataProviderDelegate.swift; sourceTree = "<group>"; };
 		16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
@@ -678,6 +680,7 @@
 		16BCB6D623DFE82300C91316 /* PetMe */ = {
 			isa = PBXGroup;
 			children = (
+				16E2AEC1248DA7200030BCF8 /* Extensions */,
 				16E4FF952425BC8A0073C9F2 /* PetMe.entitlements */,
 				16F962D023F7868300AAEBAF /* General */,
 				16D7CFE423ECE7EA0035DA5A /* Assets */,
@@ -778,6 +781,14 @@
 				16D7CFE223ECE7E10035DA5A /* Assets.swift */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		16E2AEC1248DA7200030BCF8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				16E2AEC2248DA7520030BCF8 /* UIImageView+DownloadImage.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		16E3C207242095CB00F1B4C4 /* Model */ = {
@@ -1104,6 +1115,7 @@
 				16B808AE240770B600C6A1EA /* VaccinesViewController.swift in Sources */,
 				16BC2F8F241C55EC00222798 /* LoginViewController.swift in Sources */,
 				163AB5DA247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift in Sources */,
+				16E2AEC3248DA7520030BCF8 /* UIImageView+DownloadImage.swift in Sources */,
 				166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */,
 				16439373245609D000F67171 /* Toy.swift in Sources */,
 				16DA5226243A62640032C1C1 /* InvitesViewController.swift in Sources */,

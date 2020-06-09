@@ -14,13 +14,18 @@ extension AllPetsController: DataProviderDelegate {
     func didLoadImage(image: UIImage, reference: UIImageView) {
         let resizedImg = image.circle
         reference.image = resizedImg
-//        SwiftSpinner.hide()
+        //        SwiftSpinner.hide()
     }
     
     
     func didGetPetData(allPets: [Pet]) {
         pets = allPets
         collectionView.reloadData()
-//        SwiftSpinner.hide()
+        //        SwiftSpinner.hide()
+    }
+    
+    func didGetPetDataTest() {
+        self.collectionView.reloadData()
+        
     }
 }

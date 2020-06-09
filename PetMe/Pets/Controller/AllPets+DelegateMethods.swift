@@ -10,25 +10,29 @@ import FirebaseUI
 
 extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if pets.count > 0 {
+        if provider.pets.count > 0 {
             infoLabel.isHidden = true
         }
-        return pets.count
+        return provider.pets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cell_id , for: indexPath) as! PetCell
         
+        cell.index = indexPath.row
         cell.delegate = self
         
-        cell.nameLabel.text = pets[indexPath.row].name
+        cell.nameLabel.text = provider.pets[indexPath.row].name
         
-        if pets[indexPath.row].imgName == "placeholder" {
-            cell.petImageView.image = UIImage(named: "placeholder")
-        } else {
-            provider.getPetImageToImageView(from: pets[indexPath.row], to: cell.petImageView)
+        cell.petImageView.image = UIImage(named: "placeholder")
+        
+        if cell.index == indexPath.row {
+            cell.petImageView.getImageFromNetworkOrCached(for: provider.pets[indexPath.row])
         }
+        
+        
+        
         return cell
         
     }
@@ -45,18 +49,20 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = PetProfileViewController()
-        controller.pet = pets[indexPath.row]
+        controller.pet = provider.pets[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
         
     }
     
-    @objc func didReceiveNewData(notification: Notification) {
+    @objc func didAddNewPet(notification: Notification) {
         if let data = notification.userInfo as? [String:Pet] {
             
-            let newPet = data["NewPet"]
-            pets.append(newPet!)
+            let newPet = data["newPet"]
+            provider.pets.insert(newPet!, at: 0)
             
-            collectionView.reloadData()
+            
+            collectionView.insertItems(at: [IndexPath(item: 0, section: 0)])
+            
         }
     }
     

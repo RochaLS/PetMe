@@ -16,6 +16,8 @@ class DataManager {
     var petsRef: DocumentReference? = nil
     weak var delegate: DataProviderDelegate?
     var storageRef = Storage.storage().reference()
+    var pets = [Pet]()
+    
     
     
     
@@ -26,17 +28,21 @@ class DataManager {
             return
         }
         
-        var pets = [Pet]()
+        //        var pets = [Pet]()
         
         let ref = db.collection("pets").order(by: "created_at", descending: true).whereField("groupID", isEqualTo: groupID)
         
-        ref.addSnapshotListener { (querySnapshot, error) in
+        
+        
+        ref.getDocuments { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
                 return
             }
             
-            pets.removeAll()
+            var newPets = [Pet]()
+            
+            self.pets.removeAll()
             for document in snapshot.documents {
                 print("\(document.documentID) => \(document.data())")
                 
@@ -54,9 +60,12 @@ class DataManager {
                 let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species, groupID: groupID )
                 
                 
-                pets.append(pet)
+                newPets.append(pet)
+                
+                self.pets.append(pet)
             }
-            self.delegate?.didGetPetData!(allPets: pets)
+            //            self.delegate?.didGetPetData!(allPets: self.pets)
+            self.delegate?.didGetPetDataTest?()
         }
     }
     
@@ -79,6 +88,7 @@ class DataManager {
                 if let error = error {
                     print("Error adding document: \(error)")
                 } else {
+                    NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["newPet": pet])
                     print("Document added!")
                 }
             }
@@ -102,23 +112,39 @@ class DataManager {
                             print("Error adding document: \(error)")
                         } else {
                             print("Document added")
+                            NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["newPet": pet])
                         }
                     }
+                   
                 }
             }
         }
     }
     
+    let imageCache = NSCache<AnyObject, AnyObject>()
+    
     func getPetImageToImageView(from pet: Pet, to imageView: UIImageView) {
+        //Check cache for image first:
+        
+        if let cachedImage = imageCache.object(forKey: pet.id as AnyObject) {
+            self.delegate?.didLoadImage(image: cachedImage as! UIImage, reference: imageView)
+            return
+        }
+        
         let imgRef = storageRef.child("pets/\(pet.imgName!)")
         
         
         imgRef.getData(maxSize: 5 * 1024 * 1024) { (data, error) in
             if error != nil {
                 print(error?.localizedDescription as Any)
+                return
             } else {
-                let img = UIImage(data: data!)
-                self.delegate?.didLoadImage(image: img!, reference: imageView)
+                if let downloadedImage = UIImage(data: data!) {
+                    self.imageCache.setObject(downloadedImage, forKey: pet.id as AnyObject)
+                    self.delegate?.didLoadImage(image: downloadedImage, reference: imageView)
+                }
+                
+                
             }
         }
     }

@@ -121,12 +121,17 @@ class AddPetViewController: UIViewController {
     @objc func addPhotoButtonPressed() {
         CameraHandler.shared.showActionSheet(vc: self)
         CameraHandler.shared.imagePickedBlock = { (image) in
-            self.petImageData = image.jpegData(compressionQuality: 0.75)
+            self.petImageData = image.jpegData(compressionQuality: 0.5)
             self.petImageName = UUID().uuidString + ".jpeg"
         }
     }
     
     @objc func doneButtonPressed() {
+        
+        if petImageData == nil {
+            petImageData = UIImage(named: "placeholder")?.jpegData(compressionQuality: 0.5)
+            petImageName = "placeholder"
+        }
         
         provider = DataManager()
         

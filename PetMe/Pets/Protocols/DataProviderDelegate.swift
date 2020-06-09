@@ -13,6 +13,10 @@ import UIKit
     
     @objc optional func didGetPetData(allPets: [Pet])
     
+    @objc optional func didGetPetDataTest()
+    
+    @objc optional func didAddNewPet(pet: Pet)
+    
     func didLoadImage(image: UIImage, reference: UIImageView)
 }
 
