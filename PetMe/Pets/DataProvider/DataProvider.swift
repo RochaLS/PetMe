@@ -134,7 +134,7 @@ class DataManager {
         let imgRef = storageRef.child("pets/\(pet.imgName!)")
         
         
-        imgRef.getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+        imgRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
             if error != nil {
                 print(error?.localizedDescription as Any)
                 return
