@@ -78,6 +78,7 @@ class AllPetsController: UIViewController {
         //        setupData()
         
         navigationItem.title = "My Pets"
+        navigationItem.rightBarButtonItem = .init(image: UIImage.fontAwesomeIcon(name: .sync, style: .solid, textColor: AppColors.black, size: CGSize(width: 25, height: 25)), style: .plain, target: self, action: #selector(userTappedReload))
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -90,6 +91,7 @@ class AllPetsController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(didAddNewPet), name: .didAddNewPet, object: nil)
         
@@ -126,6 +128,13 @@ class AllPetsController: UIViewController {
             addPetViewController.currentUserGroupID = currentUserGroupID!
         }
         self.present(addPetViewController, animated: true, completion: nil)
+    }
+    
+    @objc func userTappedReload() {
+        if let groupID = currentUserGroupID {
+            provider.setPetData(groupID: groupID)
+        }
+       
     }
 }
 

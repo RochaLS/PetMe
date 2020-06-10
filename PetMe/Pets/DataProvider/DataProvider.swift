@@ -59,7 +59,7 @@ class DataManager {
                 
                 let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species, groupID: groupID )
                 
-                
+                print(pet.name)
                 newPets.append(pet)
                 
                 self.pets.append(pet)
