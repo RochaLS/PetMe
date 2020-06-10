@@ -25,7 +25,24 @@ extension AllPetsController: DataProviderDelegate {
     }
     
     func didGetPetDataTest() {
-        self.collectionView.reloadData()
+        if provider.newPets.count > 1 {
+            collectionView.reloadData()
+        } else {
+            collectionView.performBatchUpdates({
+                collectionView.insertItems(at: [IndexPath(item: provider.pets.count - 1, section: 0)])
+            }, completion: nil)
+            
+        }
         
+        
+    }
+    
+    func didDeletePet(pet: Pet) {
+        for (index, item) in provider.pets.enumerated() {
+            if pet.id == item.id {
+                collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
+                break
+            }
+        }
     }
 }

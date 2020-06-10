@@ -17,6 +17,8 @@ import UIKit
     
     @objc optional func didAddNewPet(pet: Pet)
     
+    @objc optional func didDeletePet(pet: Pet)
+    
     func didLoadImage(image: UIImage, reference: UIImageView)
 }
 

@@ -17,6 +17,7 @@ class DataManager {
     weak var delegate: DataProviderDelegate?
     var storageRef = Storage.storage().reference()
     var pets = [Pet]()
+    var newPets = [Pet]()
     
     
     
@@ -30,23 +31,24 @@ class DataManager {
         
         //        var pets = [Pet]()
         
-        let ref = db.collection("pets").order(by: "created_at", descending: true).whereField("groupID", isEqualTo: groupID)
+        let ref = db.collection("pets").order(by: "created_at", descending: false).whereField("groupID", isEqualTo: groupID)
         
         
         
-        ref.getDocuments { (querySnapshot, error) in
+        ref.addSnapshotListener() { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
                 return
             }
             
-            var newPets = [Pet]()
             
-            self.pets.removeAll()
-            for document in snapshot.documents {
-                print("\(document.documentID) => \(document.data())")
+            
+//            self.pets.removeAll()
+            self.newPets.removeAll()
+            for doc in snapshot.documentChanges(includeMetadataChanges: false) {
+                //                print("\(document.documentID) => \(document.data())")
                 
-                let data = document.data()
+                let data = doc.document.data()
                 let name = data["name"] as! String
                 let age = data["age"] as! Int
                 let img_name = data["img_name"] as! String
@@ -60,12 +62,18 @@ class DataManager {
                 let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species, groupID: groupID )
                 
                 print(pet.name)
-                newPets.append(pet)
+                self.newPets.append(pet)
                 
-                self.pets.append(pet)
+                if doc.type == .added {
+
+                    self.pets.append(pet)
+                } 
             }
-            //            self.delegate?.didGetPetData!(allPets: self.pets)
+            
             self.delegate?.didGetPetDataTest?()
+            
+            //            self.delegate?.didGetPetData!(allPets: self.pets)
+            
         }
     }
     
@@ -115,7 +123,7 @@ class DataManager {
                             NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["newPet": pet])
                         }
                     }
-                   
+                    
                 }
             }
         }
@@ -184,6 +192,8 @@ class DataManager {
                             print(error!)
                         } else {
                             self.deleteImage(path: "pets/\(pet.imgName!)")
+                            //                            self.didDeletePet(pet: pet)
+                            //                            self.listenForPetDeletion()
                             print("pet deleted")
                         }
                         
@@ -205,4 +215,24 @@ class DataManager {
             }
         }
     }
+    
+    //    func listenForPetDeletion() {
+    //        let ref = db.collection("pets")
+    //
+    //        ref.addSnapshotListener() { (querySnapshot, error) in
+    //            guard let snapshot = querySnapshot else {
+    //                print("Error fetching snapshots: \(error!)")
+    //                return
+    //            }
+    //
+    //            for doc in snapshot.documentChanges(includeMetadataChanges: false) {
+    //                if doc.type == .removed {
+    //                    let data = doc.document.data()
+    //                    let name = data["name"]
+    //                    print("name \(name) was deleted")
+    //                }
+    //
+    //            }
+    //        }
+    //    }
 }
