@@ -18,6 +18,7 @@ class DataManager {
     var storageRef = Storage.storage().reference()
     var pets = [Pet]()
     var newPets = [Pet]()
+    var deletedPet: Pet!
     
     
     
@@ -43,7 +44,7 @@ class DataManager {
             
             
             
-//            self.pets.removeAll()
+            //            self.pets.removeAll()
             self.newPets.removeAll()
             for doc in snapshot.documentChanges(includeMetadataChanges: false) {
                 //                print("\(document.documentID) => \(document.data())")
@@ -65,12 +66,20 @@ class DataManager {
                 self.newPets.append(pet)
                 
                 if doc.type == .added {
-
+                    
                     self.pets.append(pet)
-                } 
+                } else if doc.type == .removed {
+                    self.deletedPet = pet
+                }
             }
             
-            self.delegate?.didGetPetDataTest?()
+            //Basically the app will only have two documentChanges at the moment: added and removed, so the code below is gonna be enough.
+            if let petToDelete = self.deletedPet {
+                self.delegate?.didDeletePet?(pet: petToDelete)
+            } else {
+                self.delegate?.didGetPetDataTest?()
+            }
+            
             
             //            self.delegate?.didGetPetData!(allPets: self.pets)
             

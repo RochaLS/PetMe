@@ -17,7 +17,7 @@ extension AllPetsController: SwipeCollectionViewCellDelegate {
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
             self.provider.deleteSinglePet(pet: self.provider.pets[indexPath.row])
-            self.provider.pets.remove(at: indexPath.row)
+//            self.provider.pets.remove(at: indexPath.row)
         }
         
         deleteAction.image = UIImage.fontAwesomeIcon(name: .trash, style: .solid, textColor: UIColor.white, size: CGSize(width: 30, height: 30))
