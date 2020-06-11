@@ -164,6 +164,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - DZNEmptyDataSet (1.8.1)
   - Firebase/Auth (6.13.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.4.0)
@@ -290,6 +291,7 @@ PODS:
   - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Messaging
@@ -306,6 +308,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - abseil
     - BoringSSL-GRPC
+    - DZNEmptyDataSet
     - Firebase
     - FirebaseAnalyticsInterop
     - FirebaseAuth
@@ -340,6 +343,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
   FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f
@@ -371,6 +375,6 @@ SPEC CHECKSUMS:
   SwiftSpinner: 0f15c006307f8d8bbac075638927ec1361b565d7
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: 1080cfde8d4280b2985bd72e6c02202dce4ba65a
+PODFILE CHECKSUM: 2560f5e1b8dc197372c08865eb6046933331a621
 
 COCOAPODS: 1.7.4

@@ -11,6 +11,7 @@ import FirebaseAuth
 import SwiftSpinner
 import NotificationBannerSwift
 
+
 class AllPetsController: UIViewController {
     
     weak var collectionView: UICollectionView!
@@ -27,7 +28,7 @@ class AllPetsController: UIViewController {
     
     var currentUserGroupID: String?
     
-//    let statusConnectionErrorBanner = StatusBarNotificationBanner(title: "No internet connection!", style: .danger, colors: nil)
+    //    let statusConnectionErrorBanner = StatusBarNotificationBanner(title: "No internet connection!", style: .danger, colors: nil)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.style
@@ -40,14 +41,6 @@ class AllPetsController: UIViewController {
         button.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
         return button
         
-    }()
-    
-    let infoLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Tap on [+] to add a new pet!"
-        label.textAlignment = .center
-        label.textColor = UIColor.lightGray
-        return label
     }()
     
     
@@ -85,12 +78,16 @@ class AllPetsController: UIViewController {
         self.collectionView.register(PetCell.self, forCellWithReuseIdentifier: cell_id )
         self.collectionView.alwaysBounceVertical = true
         self.collectionView.backgroundColor = AppColors.backgroundColor
+        self.collectionView.emptyDataSetSource = self
+        self.collectionView.emptyDataSetDelegate = self
         
         self.navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeCurrentUserGroupID), name: .didChangeGroupID, object: nil)
         
         SwiftSpinner.hide()
         
@@ -108,14 +105,9 @@ class AllPetsController: UIViewController {
             self.view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
         ])
         self.collectionView = collectionView
-        
         self.view.addSubview(addButton)
-        self.view.addSubview(infoLabel)
-        
         self.view.addContraintsWithFormat(format: "V:[v0(60)]-\(tabBarController!.tabBar.frame.height + 10)-|", views: addButton)
         self.view.addContraintsWithFormat(format: "H:[v0(60)]-15-|", views: addButton)
-        self.view.addContraintsWithFormat(format: "V:|[v0]|", views: infoLabel)
-        self.view.addContraintsWithFormat(format: "H:|[v0]|", views: infoLabel)
         
     }
     
@@ -131,7 +123,16 @@ class AllPetsController: UIViewController {
         if let groupID = currentUserGroupID {
             provider.setPetData(groupID: groupID)
         }
-       
+    }
+    
+    @objc func didChangeCurrentUserGroupID(notification: Notification) {
+        if let data = notification.userInfo {
+            let newGroupID = data["newGroupID"] as! String
+            provider.pets.removeAll()
+            provider.counter = 0
+            provider.setPetData(groupID: newGroupID)
+        }
+        
     }
 }
 

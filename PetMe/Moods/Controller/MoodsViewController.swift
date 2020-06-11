@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import DZNEmptyDataSet
 
 class MoodsViewController: UIViewController {
     
@@ -28,14 +29,6 @@ class MoodsViewController: UIViewController {
         
     }()
     
-    let infoLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Tap on [+] to add a new mood!"
-        label.textAlignment = .center
-        label.textColor = UIColor.lightGray
-        return label
-    }()
-    
     override func loadView() {
         super.loadView()
         SwiftSpinner.show("Loading", animated: true)
@@ -54,6 +47,8 @@ class MoodsViewController: UIViewController {
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.emptyDataSetSource = self
+        self.collectionView.emptyDataSetDelegate = self
         
         self.collectionView.register(MoodCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         provider = MoodDataProvider()
@@ -85,10 +80,6 @@ class MoodsViewController: UIViewController {
         self.collectionView = collectionView
         
         self.view.addSubview(addButton)
-        self.view.addSubview(infoLabel)
-        
-        self.view.addContraintsWithFormat(format: "V:|[v0]|", views: infoLabel)
-        self.view.addContraintsWithFormat(format: "H:|[v0]|", views: infoLabel)
         self.view.addContraintsWithFormat(format: "V:[v0(60)]-\(tabBarController!.tabBar.frame.height + 10)-|", views: addButton)
         self.view.addContraintsWithFormat(format: "H:[v0(60)]-15-|", views: addButton)
         

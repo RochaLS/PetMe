@@ -12,9 +12,6 @@ import SwipeCellKit
 extension RemindersViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if reminders.count > 0 {
-            infoLabel.isHidden = true
-        }
         return reminders.count
     }
     

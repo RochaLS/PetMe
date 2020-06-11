@@ -12,9 +12,6 @@ extension MoodsViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if moods.count > 0 {
-            infoLabel.isHidden = true
-        }
         return moods.count
     }
     

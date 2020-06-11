@@ -25,5 +25,11 @@ extension InvitesViewController: UserDataProviderDelegate {
         currentUserGroupID = groupID
         requestsProvider.getGroupMembers(groupID: groupID)
     }
+    
+    func didUpdateUserGroupID(userID: String?, groupID: String) {
+        NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: ["newGroupID": groupID])
+    }
+    
+    
 }
 

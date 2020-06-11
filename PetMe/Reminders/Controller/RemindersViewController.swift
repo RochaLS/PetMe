@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import SwiftSpinner
+import DZNEmptyDataSet
 
 class RemindersViewController: UIViewController {
     
@@ -29,14 +30,6 @@ class RemindersViewController: UIViewController {
         
     }()
     
-    let infoLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Tap on [+] to add a reminder!"
-        label.textAlignment = .center
-        label.textColor = UIColor.lightGray
-        return label
-    }()
-    
     override func loadView() {
         super.loadView()
         SwiftSpinner.show("Loading", animated: true)
@@ -54,6 +47,8 @@ class RemindersViewController: UIViewController {
         setupViews()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.emptyDataSetSource = self
+        collectionView.emptyDataSetDelegate = self
         collectionView.register(ReminderCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         provider = ReminderDataProvider()
         provider.delegate = self
@@ -85,12 +80,9 @@ class RemindersViewController: UIViewController {
         self.collectionView = collectionView
         
         self.view.addSubview(addButton)
-        self.view.addSubview(infoLabel)
         
         self.view.addContraintsWithFormat(format: "V:[v0(60)]-\(tabBarController!.tabBar.frame.height + 10)-|", views: addButton)
         self.view.addContraintsWithFormat(format: "H:[v0(60)]-15-|", views: addButton)
-        self.view.addContraintsWithFormat(format: "V:|[v0]|", views: infoLabel)
-        self.view.addContraintsWithFormat(format: "H:|[v0]|", views: infoLabel)
     }
     
     @objc func plusButtonPressed() {

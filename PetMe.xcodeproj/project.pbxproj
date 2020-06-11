@@ -66,6 +66,9 @@
 		166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */; };
 		166C91FF23F6369100964FC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C91FE23F6369100964FC8 /* GoogleService-Info.plist */; };
 		166C920323F6533600964FC8 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C920223F6533500964FC8 /* Pet.swift */; };
+		1674AC822491C6510019D98F /* AllPets+EmptyDataSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674AC812491C6510019D98F /* AllPets+EmptyDataSetDelegate.swift */; };
+		1674AC842491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674AC832491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift */; };
+		1674AC882491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674AC872491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift */; };
 		167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BAACD2408CE9300519EA6 /* Vaccine.swift */; };
 		168463592409EE8C00936530 /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168463582409EE8C00936530 /* GeneralHelper.swift */; };
 		1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684635A2409EFEC00936530 /* AnimalButton.swift */; };
@@ -210,6 +213,9 @@
 		166A86ED2407835E009BEEBA /* VaccineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTableViewCell.swift; sourceTree = "<group>"; };
 		166C91FE23F6369100964FC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		166C920223F6533500964FC8 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		1674AC812491C6510019D98F /* AllPets+EmptyDataSetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+EmptyDataSetDelegate.swift"; sourceTree = "<group>"; };
+		1674AC832491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+EmptyDataSetDelegate.swift"; sourceTree = "<group>"; };
+		1674AC872491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+EmptyDataSetDelegate.swift"; sourceTree = "<group>"; };
 		167BAACD2408CE9300519EA6 /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
 		168463582409EE8C00936530 /* GeneralHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
 		1684635A2409EFEC00936530 /* AnimalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalButton.swift; sourceTree = "<group>"; };
@@ -412,6 +418,7 @@
 				16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */,
 				168AB73724175084000B7618 /* AddReminderViewController.swift */,
 				164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */,
+				1674AC872491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 				16A591AB2404CD8B00B9A239 /* CreateMoodViewController.swift */,
 				1690B9C12406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift */,
 				163AB5DB247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift */,
+				1674AC832491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -735,6 +743,7 @@
 				16BCB6FE23E2874800C91316 /* AllPetsController.swift */,
 				16D7CFDA23ECE3E70035DA5A /* AllPets+DelegateMethods.swift */,
 				16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */,
+				1674AC812491C6510019D98F /* AllPets+EmptyDataSetDelegate.swift */,
 				16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */,
 				163AB5D9247B45C000B9AD68 /* AllPets+SwipeCellDelegateMethods.swift */,
 				16E85FE123E3A90E0026F52A /* AddPetViewController.swift */,
@@ -1058,8 +1067,10 @@
 				162DA5C0245A22EB00C656BB /* Item.swift in Sources */,
 				16E4FF972429A4F30073C9F2 /* TokenDataProvider.swift in Sources */,
 				16D5F0EF243C0405008D6470 /* GroupDataProviderDelegate.swift in Sources */,
+				1674AC822491C6510019D98F /* AllPets+EmptyDataSetDelegate.swift in Sources */,
 				16D7CFE823ECEE290035DA5A /* PetAvatarImageView.swift in Sources */,
 				16F6BA12244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift in Sources */,
+				1674AC882491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift in Sources */,
 				16119C8A2434474E00B8DAE7 /* UIViewController+TopBarHeight.swift in Sources */,
 				1642B99A241888AD00E71EA3 /* ReminderDataProviderDelegate.swift in Sources */,
 				16D27B8A243E5D5E0034E48D /* InviteCellDelegate.swift in Sources */,
@@ -1083,6 +1094,7 @@
 				162DA5D0245AA35100C656BB /* GeneralCell+TreatCellDelegate.swift in Sources */,
 				16A591AC2404CD8B00B9A239 /* CreateMoodViewController.swift in Sources */,
 				16D5F0EC243C01B2008D6470 /* Request.swift in Sources */,
+				1674AC842491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift in Sources */,
 				1642B99E2418919D00E71EA3 /* RemindersVC+SwipeCellKitDelegateMethods.swift in Sources */,
 				16119C8D243458AC00B8DAE7 /* GroupDataProvider.swift in Sources */,
 				16439371245609B500F67171 /* Treat.swift in Sources */,

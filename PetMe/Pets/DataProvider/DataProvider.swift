@@ -99,7 +99,6 @@ class DataManager {
                 if let error = error {
                     print("Error adding document: \(error)")
                 } else {
-                    NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["newPet": pet])
                     print("Document added!")
                 }
             }
@@ -123,7 +122,6 @@ class DataManager {
                             print("Error adding document: \(error)")
                         } else {
                             print("Document added")
-                            NotificationCenter.default.post(name: .didAddNewPet, object: nil, userInfo: ["newPet": pet])
                         }
                     }
                     
@@ -218,24 +216,4 @@ class DataManager {
             }
         }
     }
-    
-    //    func listenForPetDeletion() {
-    //        let ref = db.collection("pets")
-    //
-    //        ref.addSnapshotListener() { (querySnapshot, error) in
-    //            guard let snapshot = querySnapshot else {
-    //                print("Error fetching snapshots: \(error!)")
-    //                return
-    //            }
-    //
-    //            for doc in snapshot.documentChanges(includeMetadataChanges: false) {
-    //                if doc.type == .removed {
-    //                    let data = doc.document.data()
-    //                    let name = data["name"]
-    //                    print("name \(name) was deleted")
-    //                }
-    //
-    //            }
-    //        }
-    //    }
 }

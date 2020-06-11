@@ -29,7 +29,8 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         let label = UILabel()
         label.text = "Tap on [Add] to add a new item!"
         label.textAlignment = .center
-        label.textColor = UIColor.lightGray
+        label.textColor = UIColor.darkGray
+        label.font = AppFonts.mainFontMedium
         return label
     }()
     
@@ -200,3 +201,4 @@ class GeneralCell: BasicCollectionViewCell, UICollectionViewDelegate, UICollecti
         NotificationCenter.default.post(name: .didTapOnAdd, object: nil, userInfo: ["index":currentIndex])
     }
 }
+

@@ -13,6 +13,7 @@ import FirebaseFirestore
 class UserDataProvider {
     let db = Firestore.firestore()
     weak var delegate: UserDataProviderDelegate?
+    var groupIDChangesCounter = 0
     
     func saveUserData(user: User) {
         db.collection("users").document(user.userID).setData([

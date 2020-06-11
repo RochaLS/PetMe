@@ -22,6 +22,7 @@ extension GroupViewController: UserDataProviderDelegate {
                 self.provider.createGroupWithOwner(user: user)
             }
             userDataProvider.getUserGroupID(userID: Auth.auth().currentUser!.uid)
+            NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: ["newGroupID":groupID])
         }
     }
     
