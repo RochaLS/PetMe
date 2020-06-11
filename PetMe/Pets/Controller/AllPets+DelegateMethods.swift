@@ -53,17 +53,4 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         navigationController?.pushViewController(controller, animated: true)
         
     }
-    
-    @objc func didAddNewPet(notification: Notification) {
-        if let data = notification.userInfo as? [String:Pet] {
-            
-//            let newPet = data["newPet"]
-//            provider.pets.insert(newPet!, at: 0)
-//            
-//            
-//            collectionView.insertItems(at: [IndexPath(item: 0, section: 0)])
-            
-        }
-    }
-    
 }

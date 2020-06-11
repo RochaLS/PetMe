@@ -92,9 +92,6 @@ class AllPetsController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(didAddNewPet), name: .didAddNewPet, object: nil)
-        
         SwiftSpinner.hide()
         
     }
