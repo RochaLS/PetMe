@@ -17,8 +17,8 @@ class DataManager {
     weak var delegate: DataProviderDelegate?
     var storageRef = Storage.storage().reference()
     var pets = [Pet]()
-    var newPets = [Pet]()
     var deletedPet: Pet!
+    var counter = 0
     
     
     
@@ -42,10 +42,7 @@ class DataManager {
                 return
             }
             
-            
-            
-            //            self.pets.removeAll()
-            self.newPets.removeAll()
+
             for doc in snapshot.documentChanges(includeMetadataChanges: false) {
                 //                print("\(document.documentID) => \(document.data())")
                 
@@ -63,7 +60,7 @@ class DataManager {
                 let pet = Pet(name: name, imgName: img_name, created_at: date, age: age, id: id, species: species, groupID: groupID )
                 
                 print(pet.name)
-                self.newPets.append(pet)
+//                self.newPets.append(pet)
                 
                 if doc.type == .added {
                     
@@ -79,9 +76,6 @@ class DataManager {
             } else {
                 self.delegate?.didGetPetDataTest?()
             }
-            
-            
-            //            self.delegate?.didGetPetData!(allPets: self.pets)
             
         }
     }

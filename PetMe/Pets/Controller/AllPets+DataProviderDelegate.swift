@@ -14,19 +14,21 @@ extension AllPetsController: DataProviderDelegate {
     func didLoadImage(image: UIImage, reference: UIImageView) {
         let resizedImg = image.circle
         reference.image = resizedImg
-        //        SwiftSpinner.hide()
     }
-    
     
     func didGetPetData(allPets: [Pet]) {
         pets = allPets
         collectionView.reloadData()
-        //        SwiftSpinner.hide()
     }
     
     func didGetPetDataTest() {
-        collectionView.insertItems(at: [IndexPath(item: provider.pets.count - 1, section: 0)])
+        if provider.counter == 0 {
+            collectionView.reloadData()
+        } else {
+            collectionView.insertItems(at: [IndexPath(item: provider.pets.count - 1, section: 0)])
+        }
         
+        provider.counter += 1
     }
     
     func didDeletePet(pet: Pet) {

@@ -302,8 +302,8 @@
             filePath = "PetMe/Pets/DataProvider/DataProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "getPetImageToImageView(from:to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -370,22 +370,6 @@
                   offsetFromSymbolStart = "248">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "33AC30A8-4695-47F1-9A4A-01A063955E2B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PetMe/Pets/Controller/AllPets+DataProviderDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "didGetPetDataTest()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
