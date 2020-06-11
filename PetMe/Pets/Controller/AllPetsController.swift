@@ -71,7 +71,6 @@ class AllPetsController: UIViewController {
         //        setupData()
         
         navigationItem.title = "My Pets"
-        navigationItem.rightBarButtonItem = .init(image: UIImage.fontAwesomeIcon(name: .sync, style: .solid, textColor: AppColors.black, size: CGSize(width: 25, height: 25)), style: .plain, target: self, action: #selector(userTappedReload))
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -119,11 +118,6 @@ class AllPetsController: UIViewController {
         self.present(addPetViewController, animated: true, completion: nil)
     }
     
-    @objc func userTappedReload() {
-        if let groupID = currentUserGroupID {
-            provider.setPetData(groupID: groupID)
-        }
-    }
     
     @objc func didChangeCurrentUserGroupID(notification: Notification) {
         if let data = notification.userInfo {
