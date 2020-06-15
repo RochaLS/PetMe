@@ -15,7 +15,6 @@ class AddReminderViewController: UIViewController {
     
     var centerConstraint: NSLayoutConstraint?
     var provider: ReminderDataProvider! = nil
-    var currentUserGroupID: String!
     var userDataProvider: UserDataProvider!
     
     let container : UIView = {

@@ -17,4 +17,6 @@ import Foundation
     @objc optional func didCheckForOwner(bool: Bool, ownerID: String?)
     
     @objc optional func didUpdateOwner(newOwnerID: String)
+    
+    @objc optional func didCreateGroupWithOwner()
 }

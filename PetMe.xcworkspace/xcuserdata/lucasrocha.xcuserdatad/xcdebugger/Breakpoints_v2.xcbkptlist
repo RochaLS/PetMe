@@ -151,22 +151,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8FC97F0B-17E3-45D0-8F4B-8A0B56F398BE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PetMe/Groups/Controller/InvitesVC+GroupDataProviderDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "didCheckForOwner(bool:ownerID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B3CF6E15-EA23-4071-97CC-D43B4A799373"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -193,22 +177,6 @@
             startingLineNumber = "15"
             endingLineNumber = "15"
             landmarkName = "didGetUserGroupID(id:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5467300D-7DFD-44CB-A2C8-1E3F7D8D25F7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PetMe/Groups/Controller/InvitesVC+GroupDataProviderDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "didGetGroupMembers(allMembers:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -247,97 +215,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C16DC4E4-0B4C-49D8-BFED-708F862903E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PetMe/Groups/Controller/GroupVC+GroupDataProviderDelegateMethods.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "didUpdateOwner(newOwnerID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E578D6B0-8F3E-427A-9870-2DD9638AF45C"
+            uuid = "E115B29A-8B74-4CB7-A955-3D7F011F5AFE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PetMe/Pets/Controller/AddPetViewController.swift"
+            filePath = "PetMe/Groups/Controller/GroupVC+UserDataProviderDelegateMethods.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "doneButtonPressed()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "gotMostRecentGroupIDData(groupID:currentUserID:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3AB60712-0940-40B1-81EE-88BE315B5FD9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PetMe/Pets/DataProvider/DataProvider.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "getPetImageToImageView(from:to:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "490ED612-61E4-48B2-B84E-7479E6372ABE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PetMe/Pets/DataProvider/DataProvider.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "setPetData(groupID:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "490ED612-61E4-48B2-B84E-7479E6372ABE - 375d5299a0130312"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PetMe.DataManager.setPetData(groupID: Swift.String) -&gt; ()"
-                  moduleName = "PetMe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lucasrocha/code/RochaLS/projects-swift/PetMe/PetMe/Pets/DataProvider/DataProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "1074">
-               </Location>
-               <Location
-                  uuid = "490ED612-61E4-48B2-B84E-7479E6372ABE - ce777c0ee3a137b3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PetMe.DataManager.setPetData(groupID: Swift.String) -&gt; ()"
-                  moduleName = "PetMe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lucasrocha/code/RochaLS/projects-swift/PetMe/PetMe/Pets/DataProvider/DataProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "248">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

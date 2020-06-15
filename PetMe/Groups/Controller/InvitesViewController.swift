@@ -21,7 +21,7 @@ class InvitesViewController: UIViewController {
     var members = [User]()
     var numOfMembers: Int!
     var tappedRequest: Request!
-    var currentUserGroupID: String?
+    
     
     let infoLabel: UILabel = {
         let label = UILabel()
@@ -53,7 +53,6 @@ class InvitesViewController: UIViewController {
         
         if let currentUser = Auth.auth().currentUser {
             requestsProvider.getRequests(email: currentUser.email!)
-            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser.uid)
         }
         
     

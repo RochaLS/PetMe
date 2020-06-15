@@ -7,13 +7,9 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 extension InvitesViewController: UserDataProviderDelegate {
-    func didGetUserGroupID(id: String) {
-        userDataProvider.checkForNumOfUsersIn(groupID: id)
-        currentUserGroupID = id
-    }
-        
     func didGetNumberOfMembers(num: Int) {
         numOfMembers = num
 
@@ -21,13 +17,11 @@ extension InvitesViewController: UserDataProviderDelegate {
         
     }
     
-    func gotMostRecentGroupIDData(groupID: String, currentUserID: String) {
-        currentUserGroupID = groupID
-        requestsProvider.getGroupMembers(groupID: groupID)
-    }
-    
     func didUpdateUserGroupID(userID: String?, groupID: String) {
-        NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: ["newGroupID": groupID])
+        if userID == Auth.auth().currentUser?.uid {
+            GlobalVariables.currentUserGroupID = groupID
+        }
+//        NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: ["newGroupID": groupID])
     }
     
     

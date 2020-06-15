@@ -19,7 +19,7 @@ extension InvitesViewController: GroupDataProviderDelegate {
         if let id = Auth.auth().currentUser?.uid {
             if bool == true {
                 var owner_ID = ownerID!
-                requestsProvider.pickNewGroupOwner(currentUserID: id, ownerID: &owner_ID, members: self.members, groupID: currentUserGroupID!)
+                requestsProvider.pickNewGroupOwner(currentUserID: id, ownerID: &owner_ID, members: self.members, groupID: GlobalVariables.currentUserGroupID)
             }
         }
     }

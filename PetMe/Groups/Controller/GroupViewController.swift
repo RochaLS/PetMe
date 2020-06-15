@@ -18,7 +18,6 @@ class GroupViewController: UIViewController {
     var provider: GroupDataProvider! = nil
     var userDataProvider: UserDataProvider! = nil
     var username = "User"
-    var groupID: String?
     var isOwner: Bool!
     var ownerID: String?
     
@@ -58,10 +57,8 @@ class GroupViewController: UIViewController {
         userDataProvider = UserDataProvider()
         userDataProvider.delegate = self
         
-        if let currentUser = Auth.auth().currentUser {
-            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser.uid)
-            
-        }
+        groupSetup()
+        
         self.hideKeyboardWhenTappedAround()
         
         navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
@@ -74,6 +71,10 @@ class GroupViewController: UIViewController {
         view.backgroundColor = UIColor.white
         setupViews()
         SwiftSpinner.hide()
+        
+        if let currentUserID = Auth.auth().currentUser?.uid { userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUserID)
+        }
+        
         
         
     }
@@ -111,6 +112,15 @@ class GroupViewController: UIViewController {
         
     }
     
+    func groupSetup() {
+        if let currentUser = Auth.auth().currentUser {
+            userDataProvider.getUserName(userID: currentUser.uid)
+            provider.getGroupMembers(groupID: GlobalVariables.currentUserGroupID)
+            provider.isUserGroupOwner(userID: currentUser.uid, groupID: GlobalVariables.currentUserGroupID)
+            
+        }
+    }
+    
     @objc func sendInviteButtonPressed() {
         let receiverUserInfo = addMemberTextField.text
         if NetworkManager.monitor.currentPath.status == .satisfied {
@@ -119,7 +129,7 @@ class GroupViewController: UIViewController {
                     Banners.inviteError.show()
                 }
                 else if receiverUserInfo != nil && receiverUserInfo != "" {
-                    let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: groupID!, id: UUID().uuidString)
+                    let newRequest = Request(receiverUserInfo:receiverUserInfo!.lowercased() , senderID: userID, senderName: username, senderGroupID: GlobalVariables.currentUserGroupID, id: UUID().uuidString)
                     provider.saveInviteRequest(request: newRequest)
                     addMemberTextField.text = ""
                 }
@@ -165,7 +175,7 @@ class GroupViewController: UIViewController {
         let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
             if let currentUser = Auth.auth().currentUser {
                 if currentUser.uid == self.ownerID {
-                    self.provider.pickNewGroupOwner(currentUserID: currentUser.uid, ownerID: &self.ownerID!, members: self.members, groupID: self.groupID!)
+                    self.provider.pickNewGroupOwner(currentUserID: currentUser.uid, ownerID: &self.ownerID!, members: self.members, groupID: GlobalVariables.currentUserGroupID)
                 }
                 self.userDataProvider.updateUserGroupID(groupToDelete: nil, newGroupID: UUID().uuidString, userID: currentUser.uid)
             }
@@ -177,7 +187,4 @@ class GroupViewController: UIViewController {
         
         self.present(alertVC, animated: true, completion: nil)
     }
-    
-    
-    
 }

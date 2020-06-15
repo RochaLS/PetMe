@@ -26,7 +26,7 @@ class AllPetsController: UIViewController {
     
     var petImage: UIImage!
     
-    var currentUserGroupID: String?
+    //    var currentUserGroupID: String?
     
     //    let statusConnectionErrorBanner = StatusBarNotificationBanner(title: "No internet connection!", style: .danger, colors: nil)
     
@@ -64,7 +64,7 @@ class AllPetsController: UIViewController {
         let currentUser = Auth.auth().currentUser
         
         if currentUser != nil {
-            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser!.uid	)
+            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUser!.uid)
         }
         
         
@@ -112,21 +112,13 @@ class AllPetsController: UIViewController {
     
     @objc func plusButtonPressed() {
         let addPetViewController = AddPetViewController()
-        if currentUserGroupID != nil {
-            addPetViewController.currentUserGroupID = currentUserGroupID!
-        }
         self.present(addPetViewController, animated: true, completion: nil)
     }
     
     
-    @objc func didChangeCurrentUserGroupID(notification: Notification) {
-        if let data = notification.userInfo {
-            let newGroupID = data["newGroupID"] as! String
-            provider.pets.removeAll()
-            provider.counter = 0
-            provider.setPetData(groupID: newGroupID)
-        }
-        
+    @objc func didChangeCurrentUserGroupID() {
+        provider.counter = 0
+        provider.setPetData(groupID: GlobalVariables.currentUserGroupID)
     }
 }
 

@@ -16,26 +16,28 @@ extension GroupViewController: UserDataProviderDelegate {
     }
     
     func didUpdateUserGroupID(userID: String?, groupID: String) {
+        
         if let id = userID {
             userDataProvider.getUser(id: id) { (user) in
                 print(user.name)
                 self.provider.createGroupWithOwner(user: user)
             }
-            userDataProvider.getUserGroupID(userID: Auth.auth().currentUser!.uid)
-            NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: ["newGroupID":groupID])
+            
+            if id == Auth.auth().currentUser?.uid {
+                GlobalVariables.currentUserGroupID = groupID
+                provider.getGroupMembers(groupID: GlobalVariables.currentUserGroupID)
+                NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: nil)
+            } else {
+                tableView.reloadData()
+            }
         }
     }
     
     func gotMostRecentGroupIDData(groupID: String, currentUserID: String) {
-        self.groupID = groupID
-        userDataProvider.getUserName(userID: currentUserID)
-        provider.getGroupMembers(groupID: groupID)
-        provider.isUserGroupOwner(userID: currentUserID, groupID: groupID)
+        GlobalVariables.currentUserGroupID = groupID
+        provider.getGroupMembers(groupID: GlobalVariables.currentUserGroupID)
+        NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: nil)
     }
     
-    func didGetUserGroupID(id: String) {
-        self.groupID = id
-        self.provider.getGroupMembers(groupID: id)
-    }
 }
  

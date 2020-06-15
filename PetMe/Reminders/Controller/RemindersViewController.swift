@@ -18,7 +18,7 @@ class RemindersViewController: UIViewController {
     var provider: ReminderDataProvider! = nil
     var userDataProvider: UserDataProvider! = nil
     var reminders = [Reminder]()
-    var currentUserGroupID: String?
+
     
     
     
@@ -52,16 +52,12 @@ class RemindersViewController: UIViewController {
         collectionView.register(ReminderCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         provider = ReminderDataProvider()
         provider.delegate = self
-        userDataProvider = UserDataProvider()
-        userDataProvider.delegate = self
-        
-        let currentUser = Auth.auth().currentUser
-        
-        if currentUser != nil {
-            userDataProvider.getUserGroupID(userID: currentUser!.uid)
-        }
         
         SwiftSpinner.hide()
+        
+        provider.setReminderData(groupID: GlobalVariables.currentUserGroupID)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeCurrentUserGroupID), name: .didChangeGroupID, object: nil)
     }
     
     func setupViews() {
@@ -87,8 +83,11 @@ class RemindersViewController: UIViewController {
     
     @objc func plusButtonPressed() {
         let controller = AddReminderViewController()
-        controller.currentUserGroupID = currentUserGroupID!
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    @objc func didChangeCurrentUserGroupID() {
+        provider.setReminderData(groupID: GlobalVariables.currentUserGroupID)
     }
     
 }

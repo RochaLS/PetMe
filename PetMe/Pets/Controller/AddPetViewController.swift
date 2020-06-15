@@ -18,7 +18,6 @@ class AddPetViewController: UIViewController {
     var petImageData: Data? = nil
     var petImageName = "placeholder"
     var speciesSelected: String?
-    var currentUserGroupID: String!
     
     let dogVaccines: [Vaccine] = [Vaccine(name: "Canine Distemper", isCore: true),
                                   Vaccine(name: "Infectious Canine Hepatitis", isCore: true),
@@ -137,8 +136,7 @@ class AddPetViewController: UIViewController {
         
         if NetworkManager.monitor.currentPath.status == .satisfied {
             if speciesSelected != nil, nameTextField.text != "", Auth.auth().currentUser != nil {
-                userDataProvider.getUserGroupID(userID: Auth.auth().currentUser!.uid)
-                let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: speciesSelected!, groupID: currentUserGroupID)
+                let newPet = Pet(name: nameTextField.text!, imgName: petImageName, created_at: Date(), age: 0, id: UUID().uuidString, species: speciesSelected!, groupID: GlobalVariables.currentUserGroupID)
                 //        provider.pushImageToStorage(data: petImageData!, img_name: newPet.imgName!)
                 provider.addPetDataToFirebase(data: petImageData, img_name: newPet.imgName!, petToAdd: newPet)
                 

@@ -142,7 +142,6 @@
 		16E3C2102420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3C20F2420AF2B00F1B4C4 /* AllPets+UserDataProviderDelegate.swift */; };
 		16E4FF972429A4F30073C9F2 /* TokenDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E4FF962429A4F30073C9F2 /* TokenDataProvider.swift */; };
 		16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E85FE123E3A90E0026F52A /* AddPetViewController.swift */; };
-		16EC98B82421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */; };
 		16F6BA10244634330020E445 /* GroupCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F6BA0F244634330020E445 /* GroupCellDelegate.swift */; };
 		16F6BA12244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F6BA11244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift */; };
 		16F8C84F2450C05900A13CCC /* SuppliesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F8C84E2450C05900A13CCC /* SuppliesViewController.swift */; };
@@ -292,7 +291,6 @@
 		16E4FF952425BC8A0073C9F2 /* PetMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetMe.entitlements; sourceTree = "<group>"; };
 		16E4FF962429A4F30073C9F2 /* TokenDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataProvider.swift; sourceTree = "<group>"; };
 		16E85FE123E3A90E0026F52A /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
-		16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		16F6BA0F244634330020E445 /* GroupCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellDelegate.swift; sourceTree = "<group>"; };
 		16F6BA11244636A20020E445 /* GroupVC+GroupCellDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupVC+GroupCellDelegateMethods.swift"; sourceTree = "<group>"; };
 		16F8C84E2450C05900A13CCC /* SuppliesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuppliesViewController.swift; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 				168AB72A24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift */,
 				1642B99D2418919D00E71EA3 /* RemindersVC+SwipeCellKitDelegateMethods.swift */,
 				1642B99B2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift */,
-				16EC98B72421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift */,
 				168AB73724175084000B7618 /* AddReminderViewController.swift */,
 				164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */,
 				1674AC872491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift */,
@@ -1084,7 +1081,6 @@
 				165D9A492457B8100086EFAA /* AddBasicPageViewController.swift in Sources */,
 				1690B9BD240624C300F16BC5 /* MoodDataProvider.swift in Sources */,
 				16E3C209242095DD00F1B4C4 /* User.swift in Sources */,
-				16EC98B82421CC0600995551 /* RemindersVC+UserDataProviderDelegate.swift in Sources */,
 				164A7384245B7F1200C3069A /* PolutateVaccineData.swift in Sources */,
 				16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */,
 				16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */,

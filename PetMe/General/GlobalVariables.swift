@@ -10,4 +10,5 @@ import Foundation
 
 struct GlobalVariables {
     static var petID = "-"
+    static var currentUserGroupID = "-"
 }

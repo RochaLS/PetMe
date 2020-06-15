@@ -11,6 +11,11 @@ import NotificationCenter
 
 
 extension GroupViewController: GroupDataProviderDelegate {
+    
+//    func didCreateGroupWithOwner() {
+//        provider.getGroupMembers(groupID: GlobalVariables)
+//    }
+    
     func didGetGroupMembers(allMembers: [User]) {
         members = allMembers
         if members.count > 1 {

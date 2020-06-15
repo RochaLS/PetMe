@@ -13,12 +13,7 @@ import PMAlertController
 extension InvitesViewController: InviteCellDelegate {
     
     func didTapAccept(request: Request) {
-        
-        if let currentUser = Auth.auth().currentUser {
-            
-            userDataProvider.getUserGroupID(userID: currentUser.uid)
-            
-        }
+        userDataProvider.checkForNumOfUsersIn(groupID: GlobalVariables.currentUserGroupID)
     }
     
     func didTapDecline(request: Request) {
@@ -49,19 +44,19 @@ extension InvitesViewController: InviteCellDelegate {
             
             let confirmAction = PMAlertAction(title: "Confirm", style: .default, action: { () in
                 
-                self.requestsProvider.isUserGroupOwner(userID: currentUser.uid, groupID: self.currentUserGroupID!)
+                self.requestsProvider.isUserGroupOwner(userID: currentUser.uid, groupID: GlobalVariables.currentUserGroupID)
                 
                 let petDataProvider = DataManager()
                 
-                if let groupID = self.currentUserGroupID {
-                    if self.numOfMembers == 1 {
-                        petDataProvider.deletePets(groupID: groupID)
-                           self.userDataProvider.updateUserGroupID(groupToDelete: groupID, newGroupID: request.senderGroupID, userID: currentUser.uid)
-                    } else {
-                         self.userDataProvider.updateUserGroupID(groupToDelete: nil, newGroupID: request.senderGroupID, userID: currentUser.uid)
-                    }
+                
+                if self.numOfMembers == 1 {
+                    petDataProvider.deletePets(groupID: GlobalVariables.currentUserGroupID)
+                    self.userDataProvider.updateUserGroupID(groupToDelete: GlobalVariables.currentUserGroupID, newGroupID: request.senderGroupID, userID: currentUser.uid)
+                } else {
+                    self.userDataProvider.updateUserGroupID(groupToDelete: nil, newGroupID: request.senderGroupID, userID: currentUser.uid)
                 }
-             
+                
+                
                 self.requestsProvider.deleteRequest(id: request.id)
             })
             

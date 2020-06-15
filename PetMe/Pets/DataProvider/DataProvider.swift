@@ -19,12 +19,20 @@ class DataManager {
     var pets = [Pet]()
     var deletedPet: Pet!
     var counter = 0
+    var currentGroupID: String!
     
     
     
     
     //MARK: - Get Data
     func setPetData(groupID: String) {
+        
+        if counter == 0 {
+            currentGroupID = groupID
+        }
+        
+        // Cleaning DataSource if user groupID has changed.
+        
         
         guard let _ = self.delegate?.didGetPetData else {
             return
@@ -37,6 +45,11 @@ class DataManager {
         
         
         ref.addSnapshotListener() { (querySnapshot, error) in
+            
+            if self.currentGroupID != groupID {
+                self.pets.removeAll()
+            }
+            
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
                 return

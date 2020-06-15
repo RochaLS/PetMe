@@ -12,9 +12,8 @@ import SwiftSpinner
 extension AllPetsController: UserDataProviderDelegate {
     
     func gotMostRecentGroupIDData(groupID: String, currentUserID: String) {
-        provider.counter = 0
         provider.setPetData(groupID: groupID) // Only get pet data after getting the user group id
-        currentUserGroupID = groupID
+        GlobalVariables.currentUserGroupID = groupID
     }
     
     

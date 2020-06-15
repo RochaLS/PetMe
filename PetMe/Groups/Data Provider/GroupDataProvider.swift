@@ -110,6 +110,8 @@ class GroupDataProvider {
         ]) { (error) in
             if error != nil {
                 print("Error creating group with owner! \(error!)")
+            } else {
+                self.delegate?.didCreateGroupWithOwner?()
             }
         }
     }
