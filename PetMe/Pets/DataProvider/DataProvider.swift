@@ -17,9 +17,10 @@ class DataManager {
     weak var delegate: DataProviderDelegate?
     var storageRef = Storage.storage().reference()
     var pets = [Pet]()
-    var deletedPet: Pet!
+    var deletedPet: Pet?
     var counter = 0
     var currentGroupID: String!
+    var listener: ListenerRegistration!
     
     
     
@@ -40,11 +41,16 @@ class DataManager {
         
         //        var pets = [Pet]()
         
+        
         let ref = db.collection("pets").order(by: "created_at", descending: false).whereField("groupID", isEqualTo: groupID)
         
         
         
-        ref.addSnapshotListener() { (querySnapshot, error) in
+        if listener != nil {
+            listener.remove()
+        }   
+        
+        listener = ref.addSnapshotListener() { (querySnapshot, error) in
             
             if self.currentGroupID != groupID {
                 self.pets.removeAll()
@@ -86,6 +92,7 @@ class DataManager {
             //Basically the app will only have two documentChanges at the moment: added and removed, so the code below is gonna be enough.
             if let petToDelete = self.deletedPet {
                 self.delegate?.didDeletePet?(pet: petToDelete)
+                self.deletedPet = nil
             } else {
                 self.delegate?.didGetPetDataTest?()
             }

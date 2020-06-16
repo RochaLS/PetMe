@@ -34,10 +34,16 @@ extension GroupViewController: UserDataProviderDelegate {
     }
     
     func gotMostRecentGroupIDData(groupID: String, currentUserID: String) {
-        GlobalVariables.currentUserGroupID = groupID
+        
+        if GlobalVariables.currentUserGroupID != groupID {
+            GlobalVariables.currentUserGroupID = groupID
+            NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: nil)
+        }
+        
         provider.getGroupMembers(groupID: GlobalVariables.currentUserGroupID)
-        NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: nil)
+        
+        
     }
     
 }
- 
+
