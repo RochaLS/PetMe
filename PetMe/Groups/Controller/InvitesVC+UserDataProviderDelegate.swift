@@ -20,8 +20,9 @@ extension InvitesViewController: UserDataProviderDelegate {
     func didUpdateUserGroupID(userID: String?, groupID: String) {
         if userID == Auth.auth().currentUser?.uid {
             GlobalVariables.currentUserGroupID = groupID
+//            NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: nil)
         }
-//        NotificationCenter.default.post(name: .didChangeGroupID, object: nil, userInfo: ["newGroupID": groupID])
+        
     }
     
     

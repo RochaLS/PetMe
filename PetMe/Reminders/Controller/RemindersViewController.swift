@@ -51,11 +51,16 @@ class RemindersViewController: UIViewController {
         collectionView.emptyDataSetDelegate = self
         collectionView.register(ReminderCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         provider = ReminderDataProvider()
+        userDataProvider = UserDataProvider()
         provider.delegate = self
+        userDataProvider.delegate = self
         
         SwiftSpinner.hide()
         
-        provider.setReminderData(groupID: GlobalVariables.currentUserGroupID)
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            userDataProvider.getAndObserveUserGroupIDChanges(currentUserID: currentUserID)
+        }
+//        provider.setReminderData(groupID: GlobalVariables.currentUserGroupID)
         
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeCurrentUserGroupID), name: .didChangeGroupID, object: nil)
     }

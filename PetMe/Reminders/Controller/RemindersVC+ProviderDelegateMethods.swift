@@ -10,7 +10,7 @@ import Foundation
 import SwiftSpinner
 
 extension RemindersViewController: ReminderDataProviderDelegate {
-    func setReminderData(allReminders: [Reminder]) {
+    func loadReminderData(allReminders: [Reminder]) {
         reminders = allReminders
         self.collectionView.reloadData()
 //        SwiftSpinner.hide()

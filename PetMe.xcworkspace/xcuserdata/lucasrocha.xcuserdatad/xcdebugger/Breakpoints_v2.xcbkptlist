@@ -199,17 +199,129 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "56CFC9EF-5EFE-40D5-9927-86BDC9059680"
+            uuid = "3899A9A8-EC2D-49AC-945C-DEEC266A2347"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetMe/Reminders/Controller/RemindersVC+ProviderDelegateMethods.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "loadReminderData(allReminders:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "885650D7-2D99-445B-AF50-2EB3CD64AF9F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetMe/Reminders/Controller/RemindersViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "didChangeCurrentUserGroupID()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45B51F91-42B7-4B63-AAA5-F6BEC63343FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetMe/Groups/Controller/GroupVC+UserDataProviderDelegateMethods.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "gotMostRecentGroupIDData(groupID:currentUserID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E08DA8F-CA52-45AB-9B90-B7508718466D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetMe/Reminders/DataProvider/ReminderDataProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "setReminderData(groupID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8FB26E9E-6AAD-4689-9D6D-C92CF85DBE3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetMe/Reminders/Controller/RemindersVC+UserDataProviderDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "gotMostRecentGroupIDData(groupID:currentUserID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "738B9AFA-1DF7-4B1B-8D48-F67C9BCA4B50"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PetMe/Authentication/DataProvider/UserDataProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "getAndObserveUserGroupIDChanges(currentUserID:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "738B9AFA-1DF7-4B1B-8D48-F67C9BCA4B50 - 2037d118a898e0fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PetMe.UserDataProvider.getAndObserveUserGroupIDChanges(currentUserID: Swift.String) -&gt; ()"
+                  moduleName = "PetMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucasrocha/code/RochaLS/projects-swift/PetMe/PetMe/Authentication/DataProvider/UserDataProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  uuid = "738B9AFA-1DF7-4B1B-8D48-F67C9BCA4B50 - a0144df2ed1b4f71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PetMe.UserDataProvider.getAndObserveUserGroupIDChanges(currentUserID: Swift.String) -&gt; ()"
+                  moduleName = "PetMe"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucasrocha/code/RochaLS/projects-swift/PetMe/PetMe/Authentication/DataProvider/UserDataProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "277">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

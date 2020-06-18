@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1604F792249B0FCD00773F02 /* RemindersVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604F791249B0FCD00773F02 /* RemindersVC+UserDataProviderDelegate.swift */; };
 		160D0A292400F0A600BADA5F /* MoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160D0A282400F0A600BADA5F /* MoodsViewController.swift */; };
 		160D0A2B2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */; };
 		160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160D0A2C2400F6C000BADA5F /* MoodCollectionViewCell.swift */; };
@@ -53,7 +54,6 @@
 		16439371245609B500F67171 /* Treat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439370245609B500F67171 /* Treat.swift */; };
 		16439373245609D000F67171 /* Toy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16439372245609D000F67171 /* Toy.swift */; };
 		164A737E245B5C1300C3069A /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A737D245B5C1300C3069A /* DismissButton.swift */; };
-		164A7380245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */; };
 		164A7384245B7F1200C3069A /* PolutateVaccineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A7383245B7F1200C3069A /* PolutateVaccineData.swift */; };
 		164A73882469DC3000C3069A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A73872469DC3000C3069A /* NetworkManager.swift */; };
 		165D9A432457606E0086EFAA /* CreateFavoriteFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */; };
@@ -153,6 +153,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1604F791249B0FCD00773F02 /* RemindersVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		160D0A282400F0A600BADA5F /* MoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoodsViewController.swift; path = PetMe/Moods/Controller/MoodsViewController.swift; sourceTree = SOURCE_ROOT; };
 		160D0A2A2400F4C300BADA5F /* MoodsViewCVDelegateMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsViewCVDelegateMethods.swift; sourceTree = "<group>"; };
 		160D0A2C2400F6C000BADA5F /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -199,7 +200,6 @@
 		16439370245609B500F67171 /* Treat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treat.swift; sourceTree = "<group>"; };
 		16439372245609D000F67171 /* Toy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toy.swift; sourceTree = "<group>"; };
 		164A737D245B5C1300C3069A /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
-		164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddReminderVC+UserDataProviderDelegate.swift"; sourceTree = "<group>"; };
 		164A7383245B7F1200C3069A /* PolutateVaccineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolutateVaccineData.swift; sourceTree = "<group>"; };
 		164A73872469DC3000C3069A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		165D9A422457606E0086EFAA /* CreateFavoriteFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFavoriteFoodViewController.swift; sourceTree = "<group>"; };
@@ -414,8 +414,8 @@
 				1642B99D2418919D00E71EA3 /* RemindersVC+SwipeCellKitDelegateMethods.swift */,
 				1642B99B2418899D00E71EA3 /* RemindersVC+ProviderDelegateMethods.swift */,
 				168AB73724175084000B7618 /* AddReminderViewController.swift */,
-				164A737F245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift */,
 				1674AC872491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift */,
+				1604F791249B0FCD00773F02 /* RemindersVC+UserDataProviderDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1052,7 +1052,6 @@
 				162DA5C2245A2E5700C656BB /* GeneralCell+SuppliesDelegate.swift in Sources */,
 				1690B9C22406306E00F16BC5 /* MoodsVC+ProviderDelegateMethods.swift in Sources */,
 				160D0A2D2400F6C000BADA5F /* MoodCollectionViewCell.swift in Sources */,
-				164A7380245B634600C3069A /* AddReminderVC+UserDataProviderDelegate.swift in Sources */,
 				16D5F0E9243BF9F9008D6470 /* GroupVC+UserDataProviderDelegateMethods.swift in Sources */,
 				16E85FE223E3A90E0026F52A /* AddPetViewController.swift in Sources */,
 				16BC2F88241C3F7200222798 /* DefaultTextField.swift in Sources */,
@@ -1099,6 +1098,7 @@
 				166A86EE2407835E009BEEBA /* VaccineTableViewCell.swift in Sources */,
 				16F6BA10244634330020E445 /* GroupCellDelegate.swift in Sources */,
 				16B41CD02432C8FC00325004 /* GroupViewController.swift in Sources */,
+				1604F792249B0FCD00773F02 /* RemindersVC+UserDataProviderDelegate.swift in Sources */,
 				163AB5DC247B4B8800B9AD68 /* MoodsVC+SwipeCellDelegateMethods.swift in Sources */,
 				168AB72B24173AB5000B7618 /* RemindersVC+CollectionViewDelegate.swift in Sources */,
 				168AB7292417337B000B7618 /* RemindersViewController.swift in Sources */,

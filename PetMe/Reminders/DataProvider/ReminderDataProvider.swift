@@ -11,13 +11,21 @@ import Firebase
 class ReminderDataProvider {
     var db = Firestore.firestore()
     var delegate: ReminderDataProviderDelegate?
+    var currentUserGroupID: String!
+    var listener: ListenerRegistration!
     
     func setReminderData(groupID: String) {
+        
+        currentUserGroupID = groupID
         
         let ref = db.collection("reminders").order(by: "createdAt", descending: true).whereField("groupID", isEqualTo: groupID)
         var reminders = [Reminder]()
         
-        ref.addSnapshotListener { (querySnapshot, error) in
+        if listener != nil {
+            listener.remove()
+        }
+        
+        listener = ref.addSnapshotListener { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
                 return
@@ -37,8 +45,9 @@ class ReminderDataProvider {
                 
                 let reminder = Reminder(title: title, id: id, createdBy: createdBy, createdAt: createdAt, groupID: groupID, userID: userID)
                 reminders.append(reminder)
-                self.delegate?.setReminderData(allReminders: reminders)
+                
             }
+            self.delegate?.loadReminderData(allReminders: reminders)
         }
     }
     
