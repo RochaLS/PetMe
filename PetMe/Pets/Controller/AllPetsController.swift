@@ -15,16 +15,12 @@ import NotificationBannerSwift
 class AllPetsController: UIViewController {
     
     weak var collectionView: UICollectionView!
-    
     var provider: DataManager! = nil
-    
     var userDataProvider: UserDataProvider! = nil
-    
     let cell_id = "pet_cell"
-    
     var pets = [Pet]()
-    
     var petImage: UIImage!
+    var cameFromNotification: Bool?
     
     //    var currentUserGroupID: String?
     
@@ -42,7 +38,6 @@ class AllPetsController: UIViewController {
         return button
         
     }()
-    
     
     override func loadView() {
         super.loadView()

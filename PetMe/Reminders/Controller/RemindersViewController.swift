@@ -55,6 +55,7 @@ class RemindersViewController: UIViewController {
         provider.delegate = self
         userDataProvider.delegate = self
         
+        
         SwiftSpinner.hide()
         
         if let currentUserID = Auth.auth().currentUser?.uid {

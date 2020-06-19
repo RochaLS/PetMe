@@ -15,4 +15,5 @@ extension Notification.Name {
     static let willShowAlert = Notification.Name("willShowAlert")
     static let networkDidChange = Notification.Name("networkDidChange")
     static let didChangeGroupID = Notification.Name("didChangeGroupID")
+    static let didReceiveReminderNotif = Notification.Name("didReceiveReminderNotif")
 }

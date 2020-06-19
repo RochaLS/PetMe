@@ -9,6 +9,8 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController {
+    
+    var cameFromNotification: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class CustomTabBarController: UITabBarController {
 //        remindersController.tabBarItem.image = UIImage.fontAwesomeIcon(name: .listAlt, style: .regular, textColor: AppColors.black, size: CGSize(width: 35, height: 35))
 //        allPetsController.tabBarItem.title = "My pets"
 //        allPetsController.tabBarItem.image = UIImage.fontAwesomeIcon(name: .paw, style: .solid, textColor: AppColors.black, size: CGSize(width: 35, height: 35))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveReminderNotification), name: .didReceiveReminderNotif, object: nil)
         tabBar.tintColor = AppColors.black
         viewControllers = [
             createNavControllerWithTitle(title: "My Pets", img: UIImage.fontAwesomeIcon(name: .paw, style: .solid, textColor: AppColors.black, size: CGSize(width: 35, height: 35)), controller: AllPetsController()),
@@ -31,7 +35,7 @@ class CustomTabBarController: UITabBarController {
         
     }
     
-    private func createNavControllerWithTitle(title: String, img: UIImage, controller: UIViewController) -> UINavigationController {
+     func createNavControllerWithTitle(title: String, img: UIImage, controller: UIViewController) -> UINavigationController {
         let viewController = controller
         let navController = UINavigationController(rootViewController: viewController)
         
@@ -39,6 +43,10 @@ class CustomTabBarController: UITabBarController {
         navController.tabBarItem.image = img
         
         return navController
+    }
+    
+    @objc func didReceiveReminderNotification() {
+        self.selectedIndex = 1
     }
 
 }

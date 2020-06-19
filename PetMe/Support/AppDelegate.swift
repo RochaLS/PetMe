@@ -169,6 +169,13 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+//
+//        guard var rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+//               return
+//           }
+        
+        
         let userInfo = response.notification.request.content.userInfo
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
@@ -179,6 +186,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         print(userInfo)
         
         completionHandler()
+      
+        NotificationCenter.default.post(name: .didReceiveReminderNotif, object: nil, userInfo: nil)
     }
 }
 

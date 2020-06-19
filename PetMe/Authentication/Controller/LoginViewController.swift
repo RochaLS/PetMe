@@ -77,6 +77,8 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveReminderNotif), name: .didReceiveReminderNotif, object: nil)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -165,5 +167,9 @@ class LoginViewController: UIViewController {
         let controller = SignUpViewController()
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    @objc func didReceiveReminderNotif() {
+        self.provider.goToReminders(from: self)
     }
 }

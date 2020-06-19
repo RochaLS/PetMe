@@ -143,5 +143,13 @@ class UserDataProvider {
         vc.present(controller, animated: true, completion: nil)
     }
     
+    func goToReminders(from vc: UIViewController) {
+        let controller = CustomTabBarController()
+        controller.selectedIndex = 1
+        controller.modalPresentationStyle = .fullScreen
+        controller.cameFromNotification = true
+        vc.present(controller, animated: true, completion: nil)
+    }
+    
 }
 
