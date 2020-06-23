@@ -18,6 +18,9 @@ extension InvitesViewController: InviteCellDelegate {
     
     func didTapDecline(request: Request) {
         requestsProvider.deleteRequest(id: request.id)
+        if cameFromNotification != nil && cameFromNotification == true {
+            self.dismiss(animated: true, completion: nil)
+        }
         
     }
     
@@ -58,6 +61,15 @@ extension InvitesViewController: InviteCellDelegate {
                 
                 
                 self.requestsProvider.deleteRequest(id: request.id)
+                
+                 self.navigationController?.popViewController(animated: true)
+                
+                if self.cameFromNotification != nil && self.cameFromNotification == true {
+                    self.dismiss(animated: true, completion: nil)
+                }
+
+               
+        
             })
             
             confirmAction.setTitleColor(AppColors.red, for: .normal)

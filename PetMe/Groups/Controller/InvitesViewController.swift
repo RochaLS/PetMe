@@ -21,6 +21,7 @@ class InvitesViewController: UIViewController {
     var members = [User]()
     var numOfMembers: Int!
     var tappedRequest: Request!
+    var cameFromNotification: Bool? // This variable is used to know how to present the VC depending on where the user coming from... 
     
     
     let infoLabel: UILabel = {

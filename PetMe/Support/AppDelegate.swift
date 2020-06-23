@@ -45,9 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NetworkManager.monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
-//                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": true])
+                //                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": true])
             } else {
-//                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": false])
+                //                NotificationCenter.default.post(name: .networkDidChange, object: nil, userInfo: ["isConnected": false])
             }
         }
         
@@ -170,10 +170,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         
-//
-//        guard var rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
-//               return
-//           }
+        //
+        //        guard var rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+        //               return
+        //           }
         
         
         let userInfo = response.notification.request.content.userInfo
@@ -183,11 +183,23 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         // Print full message.
-        print(userInfo)
+        //        print(userInfo)
+        
+        let info = GeneralHelper.extractUserInfo(userInfo: userInfo)
+        print(info)
+        
+        
+        
         
         completionHandler()
-      
-        NotificationCenter.default.post(name: .didReceiveReminderNotif, object: nil, userInfo: nil)
+        
+        // if is a reminder notification send the boolean on userInfo so the app knows where to redirect the user.
+        if info.title.contains("reminder") {
+            NotificationCenter.default.post(name: .didReceiveReminderNotif, object: nil, userInfo: ["reminderNotif": true])
+        } else {
+              NotificationCenter.default.post(name: .didReceiveReminderNotif, object: nil, userInfo: ["reminderNotif": false])
+        }
+        
     }
 }
 

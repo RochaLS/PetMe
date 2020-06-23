@@ -45,8 +45,21 @@ class CustomTabBarController: UITabBarController {
         return navController
     }
     
-    @objc func didReceiveReminderNotification() {
-        self.selectedIndex = 1
+    @objc func didReceiveReminderNotification(notification: Notification) {
+    
+        if let data = notification.userInfo {
+            if let isReminderNotif = data["reminderNotif"] as? Bool {
+                if isReminderNotif {
+                    self.selectedIndex = 1
+                } else {
+                    self.selectedIndex = 2
+                    let controller = InvitesViewController()
+                    controller.cameFromNotification = true
+                    self.present(controller, animated: true, completion: nil)
+                }
+            }
+        }
+        
     }
 
 }

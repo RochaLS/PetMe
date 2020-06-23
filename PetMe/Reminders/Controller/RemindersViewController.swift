@@ -18,11 +18,8 @@ class RemindersViewController: UIViewController {
     var provider: ReminderDataProvider! = nil
     var userDataProvider: UserDataProvider! = nil
     var reminders = [Reminder]()
+    
 
-    
-    
-    
-    
     let addButton: UIButton = {
         let button = AddButton()
         button.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
