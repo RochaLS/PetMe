@@ -4,23 +4,24 @@
 target 'PetMe' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for PetMe
-
+  
   pod 'FontAwesome.swift'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'FirebaseUI/Storage', '~> 8.0'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
   pod 'RLBAlertsPickers', '~> 1.1.1'
   pod 'SwipeCellKit'
   pod 'PMAlertController'
   pod "SwiftSpinner"
   pod 'NotificationBannerSwift', '~> 3.0.0'
   pod 'DZNEmptyDataSet'
-
-
-
-
+  
+  
+  
+  
 end

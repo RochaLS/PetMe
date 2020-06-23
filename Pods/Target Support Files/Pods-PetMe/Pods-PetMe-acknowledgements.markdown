@@ -475,6 +475,10 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
    limitations under the License.
 
 
+## FirebaseAnalytics
+
+Copyright 2019 Google
+
 ## FirebaseAnalyticsInterop
 
 
@@ -2969,6 +2973,10 @@ THE SOFTWARE.
    See the License for the specific language governing permissions and
    limitations under the License.
 
+
+## GoogleAppMeasurement
+
+Copyright 2019 Google
 
 ## GoogleDataTransport
 

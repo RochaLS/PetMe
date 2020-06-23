@@ -506,6 +506,16 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright 2019 Google</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>FirebaseAnalytics</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>
                                  Apache License
                            Version 2.0, January 2004
@@ -3074,6 +3084,16 @@ THE SOFTWARE.
 			<string>Apache</string>
 			<key>Title</key>
 			<string>GTMSessionFetcher</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2019 Google</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>GoogleAppMeasurement</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
