@@ -39,6 +39,16 @@ class AllPetsController: UIViewController {
         
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+    }
+    
     override func loadView() {
         super.loadView()
         SwiftSpinner.show("Loading Pets", animated: true)
@@ -75,11 +85,7 @@ class AllPetsController: UIViewController {
         self.collectionView.emptyDataSetSource = self
         self.collectionView.emptyDataSetDelegate = self
         
-        self.navigationController?.navigationBar.barTintColor = AppColors.backgroundColor
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 20)!]
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(didChangeCurrentUserGroupID), name: .didChangeGroupID, object: nil)
         
