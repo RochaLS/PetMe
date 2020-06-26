@@ -92,4 +92,10 @@ class SettingsViewController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    func goToTermsOfUsePageOrPrivacyPolicy(documentToOpen: String) {
+        let controller = Legal_InfoViewController()
+        controller.documentToOpen = documentToOpen
+        self.present(controller, animated: true, completion: nil)
+    }
+    
 }

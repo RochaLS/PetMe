@@ -11,7 +11,7 @@ import FontAwesome_swift
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -21,8 +21,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.attributedText = AttrStringHelper.createStringWithIcon(word: "My Group", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .users), fontSize: 20)
         } else if indexPath.row == 1 {
             cell.textLabel?.attributedText = AttrStringHelper.createStringWithIcon(word: "Invitations", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .envelope), fontSize: 20)
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 4 {
             cell.textLabel?.attributedText =  AttrStringHelper.createStringWithIcon(word: "Sign Out", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .signOutAlt), fontSize: 20)
+        } else if indexPath.row == 3 {
+            cell.textLabel?.attributedText =  AttrStringHelper.createStringWithIcon(word: "Terms and Conditions", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .file), fontSize: 20)
+        } else if indexPath.row == 2 {
+            cell.textLabel?.attributedText =  AttrStringHelper.createStringWithIcon(word: "Privacy Policy", fontAwesomeIconToAppend: String.fontAwesomeIcon(name: .shieldAlt), fontSize: 20)
         }
         cell.selectionStyle = .none
         return cell
@@ -37,8 +41,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             goToGroup()
         } else if indexPath.row == 1 {
             goToInvites()
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 4 {
             signOutUser()
+        } else if indexPath.row == 3 {
+            goToTermsOfUsePageOrPrivacyPolicy(documentToOpen: "TC")
+        } else if indexPath.row == 2 {
+            goToTermsOfUsePageOrPrivacyPolicy(documentToOpen: "PP")
         }
     }
     

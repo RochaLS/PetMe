@@ -149,6 +149,7 @@
 		16F962D423F7A65500AAEBAF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D323F7A65500AAEBAF /* DataProvider.swift */; };
 		16F962D723F7B13000AAEBAF /* DataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D623F7B13000AAEBAF /* DataProviderDelegate.swift */; };
 		16F962DA23F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */; };
+		16FAD1FE24A5CA5D00F9D4A5 /* Legal-InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAD1FD24A5CA5D00F9D4A5 /* Legal-InfoViewController.swift */; };
 		4C23223184101B9DF9195E06 /* Pods_PetMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CF660D490BDDFE224520CC /* Pods_PetMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -298,6 +299,7 @@
 		16F962D323F7A65500AAEBAF /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		16F962D623F7B13000AAEBAF /* DataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderDelegate.swift; sourceTree = "<group>"; };
 		16F962D923F7B66A00AAEBAF /* AllPets+DataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllPets+DataProviderDelegate.swift"; sourceTree = "<group>"; };
+		16FAD1FD24A5CA5D00F9D4A5 /* Legal-InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Legal-InfoViewController.swift"; sourceTree = "<group>"; };
 		32CF660D490BDDFE224520CC /* Pods_PetMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D81A0855DA202E2CC32FD5C /* Pods-PetMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMe.release.xcconfig"; path = "Target Support Files/Pods-PetMe/Pods-PetMe.release.xcconfig"; sourceTree = "<group>"; };
 		A2D8A468AF8ADB1655BFDEB4 /* Pods-PetMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMe.debug.xcconfig"; path = "Target Support Files/Pods-PetMe/Pods-PetMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 				16BC2F90241C7C7800222798 /* SettingsViewController.swift */,
 				16364F9C247F3C5800D30AE1 /* SettingsVC+UserDataProviderDelegate.swift */,
 				163563E324317D370007DA33 /* SettingsVC+TableViewDelegateMethods.swift */,
+				16FAD1FD24A5CA5D00F9D4A5 /* Legal-InfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1127,6 +1130,7 @@
 				166A86EC24077C9B009BEEBA /* VaccinesTBViewDelegateMethods.swift in Sources */,
 				16439373245609D000F67171 /* Toy.swift in Sources */,
 				16DA5226243A62640032C1C1 /* InvitesViewController.swift in Sources */,
+				16FAD1FE24A5CA5D00F9D4A5 /* Legal-InfoViewController.swift in Sources */,
 				1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */,
 				16937619245361B600971AB1 /* FixedLabel.swift in Sources */,
 				16937621245371A500971AB1 /* HeaderCollectionReusableView.swift in Sources */,
