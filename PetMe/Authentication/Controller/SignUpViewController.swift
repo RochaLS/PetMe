@@ -21,6 +21,40 @@ class SignUpViewController: UIViewController {
         return view
     }()
     
+    let infoContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        return view
+    }()
+    
+    let legalInfoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "By tapping Sign Up you agree to our:"
+        label.font = AppFonts.mainFontMedium
+        label.font = label.font.withSize(18)
+        label.textAlignment = .center
+        label.textColor = UIColor.gray
+        return label
+    }()
+    
+    let termsAndConditions: UIButton = {
+        let button = UIButton()
+        button.setTitle("Terms and Conditions", for: .normal)
+        button.backgroundColor = .clear
+        button.setTitleColor(AppColors.primaryColor, for: .normal)
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
+    let privacyPolicy: UIButton = {
+        let button = UIButton()
+        button.setTitle("Privacy Policy", for: .normal)
+        button.backgroundColor = .clear
+        button.setTitleColor(AppColors.primaryColor, for: .normal)
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign Up"
@@ -87,6 +121,7 @@ class SignUpViewController: UIViewController {
     
     func setupViews() {
         view.addSubview(container)
+
         
         
         centerConstraint = NSLayoutConstraint(item: container, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
@@ -98,20 +133,31 @@ class SignUpViewController: UIViewController {
         view.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: container)
         view.addContraintsWithFormat(format: "V:[v0(500)]" , views: container)
         
+        
         container.addSubview(titleLabel)
         container.addSubview(nameTextField)
         container.addSubview(emailTextField)
         container.addSubview(passwordTextField)
         container.addSubview(signUpButton)
         container.addSubview(goToLoginButton)
+        container.addSubview(legalInfoLabel)
+        container.addSubview(termsAndConditions)
+        container.addSubview(privacyPolicy)
         
-        container.addContraintsWithFormat(format: "V:|-10-[v0][v1(50)]-30-[v2(50)]-30-[v3(50)]-60-[v4(60)]-10-[v5(50)]|", views: titleLabel, nameTextField, emailTextField, passwordTextField, signUpButton, goToLoginButton)
+        container.addContraintsWithFormat(format: "V:|[v0]-20-[v1(50)]-20-[v2(50)]-20-[v3(50)]-30-[v4(60)]-10-[v5(50)]-10-[v6]-10-[v7]-10-[v8]|", views: titleLabel, nameTextField, emailTextField, passwordTextField, signUpButton, goToLoginButton, legalInfoLabel, termsAndConditions, privacyPolicy)
         container.addContraintsWithFormat(format: "H:|[v0]|", views: titleLabel)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: nameTextField)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: emailTextField)
         container.addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: passwordTextField)
         container.addContraintsWithFormat(format: "H:|-20-[v0]-20-|", views: signUpButton)
         container.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: goToLoginButton)
+        container.addContraintsWithFormat(format: "H:|[v0]|", views: legalInfoLabel)
+        container.addContraintsWithFormat(format: "H:|[v0]|", views: termsAndConditions)
+        container.addContraintsWithFormat(format: "H:|[v0]|", views: privacyPolicy)
+        
+         termsAndConditions.addTarget(self, action: #selector(goToTermsAndConditions), for: .touchUpInside)
+         privacyPolicy.addTarget(self, action: #selector(goToPrivacyPolicy), for: .touchUpInside)
+        
     }
     
     
@@ -172,5 +218,17 @@ class SignUpViewController: UIViewController {
         let controller = LoginViewController()
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    @objc func goToPrivacyPolicy() {
+        let controller = Legal_InfoViewController()
+        controller.documentToOpen = "PP"
+        self.present(controller, animated: true , completion: nil)
+    }
+    
+    @objc func goToTermsAndConditions() {
+        let controller = Legal_InfoViewController()
+        controller.documentToOpen = "TC"
+        self.present(controller, animated: true , completion: nil)
     }
 }
