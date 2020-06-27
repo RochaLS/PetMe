@@ -22,7 +22,7 @@ extension AllPetsController: UICollectionViewDataSource, UICollectionViewDelegat
         
         cell.nameLabel.text = provider.pets[indexPath.row].name
         
-        cell.petImageView.image = UIImage(named: "placeholder")
+        cell.petImageView.image = UIImage(named: "placeholder.jpg")
         
         if cell.index == indexPath.row {
             cell.petImageView.getImageFromNetworkOrCached(for: provider.pets[indexPath.row])

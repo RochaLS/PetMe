@@ -39,6 +39,8 @@ extension PetAvatarImageView {
                         if let downloadedImage = UIImage(data: data!) {
                             imageCache.setObject(downloadedImage, forKey: pet.imgName as AnyObject)
                             self.image = downloadedImage
+                        } else {
+                            self.image = UIImage(named: "placeholder.jpg")
                         }
                     }
                 }

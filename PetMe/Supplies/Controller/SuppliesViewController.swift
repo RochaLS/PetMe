@@ -85,7 +85,7 @@ class SuppliesViewController: UIViewController {
         if avatarRawImage != nil {
             petImageView.image = avatarRawImage
         } else {
-            petImageView.image = UIImage(named: "placeholder")
+            petImageView.image = UIImage(named: "placeholder.jpg")
         }
         
         petImageView.layer.borderWidth = 2

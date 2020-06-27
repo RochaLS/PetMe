@@ -107,7 +107,7 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         }
         
         
-        petAvatarPic.image = UIImage(named: "placeholder")
+        petAvatarPic.image = UIImage(named: "placeholder.jpg")
         
         
         provider.getPetImageToImageView(from: pet, to: petAvatarPic)

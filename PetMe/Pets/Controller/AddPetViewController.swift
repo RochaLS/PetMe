@@ -128,8 +128,8 @@ class AddPetViewController: UIViewController {
     @objc func doneButtonPressed() {
         
         if petImageData == nil {
-            petImageData = UIImage(named: "placeholder")?.jpegData(compressionQuality: 0.5)
-            petImageName = "placeholder"
+            petImageData = UIImage(named: "placeholder.jpg")?.jpegData(compressionQuality: 0.5)
+            petImageName = "placeholder.jpg"
         }
         
         provider = DataManager()
