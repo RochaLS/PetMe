@@ -1,6 +1,7 @@
 # About PetMe!
 
 ![alt text](https://github.com/RochaLS/PetMeWeb/blob/master/images/petme-brand.JPG "PetMe! brand/logo")
+Logo made by: Gabriel Figliolino
 
 
 PetMe! is your new pet companion app, add and keep track of useful information about your pet's well-being and the best part is that all this information can be shared with your family, friends, or the person who you live with.
