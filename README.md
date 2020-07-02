@@ -1,10 +1,17 @@
 # About PetMe!
 
+![alt text](https://github.com/RochaLS/PetMeWeb/blob/master/images/petme-brand.JPG "PetMe! brand/logo")
+
+
 PetMe! is your new pet companion app, add and keep track of useful information about your pet's well-being and the best part is that all this information can be shared with your family, friends, or the person who you live with.
 
 # Why I created this app
 
 I love having pets. I myself have two amazing dogs and two very cute cats and I used to live with my family. So I thought it was a little bit hard to organize all my pet's information in one place. And I thought it would be very nice to be able to share and control all this information together with my family. Then I decided to build this app to facilitate the sharing of important pet-related information between members of the same household.
+
+# Screenshots
+
+![alt text](https://github.com/RochaLS/PetMeWeb/blob/master/images/screenshots.png "UI screenshots")
 
 # Language and Libraries
 * Swift 5
@@ -20,6 +27,10 @@ I love having pets. I myself have two amazing dogs and two very cute cats and I 
 * RLBAlertsPickers
 
 # Architecture
+
+![alt text](https://github.com/RochaLS/PetMeWeb/blob/master/images/petme-architecture.png "Architecture ilustration")
+
+
 
 ## Front End
 
