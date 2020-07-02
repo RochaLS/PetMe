@@ -39,7 +39,7 @@ For this app, I decided to follow the MVC design pattern recommended by Apple, a
 
 ## Database and Storage
 
-This app uses Firestore and Firebase Storage to store all it's related data and images. I found that Firebase was very easy and simple to work with, retrieving and sending data as very straight forward.
+This app uses Firestore and Firebase Storage to store all it's related data and images. I found that Firebase was very easy and simple to work with, retrieving and sending data is very straight forward.
 
 ## Back End
 
