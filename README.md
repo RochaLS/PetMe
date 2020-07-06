@@ -72,6 +72,10 @@ To send users notifications that new pet-related data was added to the app, I us
 * Add graphs and statics in the mood section
 * Give user directions to the nearest pet shop
 
+# Download
+
+App Store: https://apps.apple.com/ca/app/petme/id1521078553
+
 # Contact Me
 
 If you have any questions please contact me at: ld.rocha@hotmail.com
