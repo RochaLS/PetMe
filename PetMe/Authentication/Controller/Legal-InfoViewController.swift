@@ -28,11 +28,11 @@ class Legal_InfoViewController: UIViewController, WKNavigationDelegate {
         setupViews()
         
         if documentToOpen == "TC" {
-            let url = URL(string: "https://frozen-crag-53374.herokuapp.com/terms-of-use.html")!
+            let url = URL(string: "https://petmeinfo.herokuapp.com/terms-of-use.html")!
             webView.load(URLRequest(url: url))
             webView.allowsBackForwardNavigationGestures = true
         } else if documentToOpen == "PP" {
-            let url = URL(string: "https://frozen-crag-53374.herokuapp.com/privacy-policy.html")!
+            let url = URL(string: "https://petmeinfo.herokuapp.com/privacy-policy.html")!
             webView.load(URLRequest(url: url))
             webView.allowsBackForwardNavigationGestures = true
         }

@@ -236,4 +236,34 @@ class DataManager {
             }
         }
     }
+    
+    func updatePetData(petID: String, name: String?, species: String?, imgName: String?, imgData: Data?) {
+        if name != nil || species != nil {
+            db.collection("pets").document(petID).updateData([
+                "name": name!,
+                "species": species!,
+            ]) { (error) in
+                if error != nil {
+                    print("Error Updating Pet \(error!)")
+                } else {
+                    print("Pet Updated")
+                }
+            }
+        }
+        if imgData != nil && imgName != nil {
+            let imgRef = storageRef.child("pets/\(imgName!)")
+            imgRef.putData(imgData!)
+            
+            db.collection("pets").document(petID).updateData([
+                "img_name": imgName!
+            ]) { (error) in
+                if error != nil {
+                    print("Error Updating Pet \(error!)")
+                } else {
+                    print("Pet Updated")
+                }
+            }
+        }
+    }
+    
 }

@@ -59,6 +59,8 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         return label
     }()
     
+    
+    
     var avatarRawImage: UIImage?
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -90,6 +92,8 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         self.collectionView.register(ProfileButtonCollectionViewCell.self, forCellWithReuseIdentifier: cell_id)
         self.collectionView.dataSource = self
@@ -174,5 +178,11 @@ class PetProfileViewController: UIViewController, DataProviderDelegate {
         let resizedImage = image.circle
         reference.image = resizedImage
         avatarRawImage = resizedImage
+    }
+    
+    @objc func editTapped() {
+        let vc = EditPetViewController()
+        vc.pet = pet
+        present(vc, animated: true)
     }
 }

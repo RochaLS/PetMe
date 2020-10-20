@@ -70,6 +70,7 @@
 		1674AC842491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674AC832491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift */; };
 		1674AC882491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674AC872491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift */; };
 		167BAACE2408CE9300519EA6 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167BAACD2408CE9300519EA6 /* Vaccine.swift */; };
+		1681617A253F71060061C9BA /* EditPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16816179253F71060061C9BA /* EditPetViewController.swift */; };
 		168463592409EE8C00936530 /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168463582409EE8C00936530 /* GeneralHelper.swift */; };
 		1684635B2409EFEC00936530 /* AnimalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684635A2409EFEC00936530 /* AnimalButton.swift */; };
 		1687A2D42412E63B0038E146 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687A2D32412E63B0038E146 /* AboutTableViewCell.swift */; };
@@ -217,6 +218,7 @@
 		1674AC832491CDC60019D98F /* MoodsVC+EmptyDataSetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodsVC+EmptyDataSetDelegate.swift"; sourceTree = "<group>"; };
 		1674AC872491D0FD0019D98F /* RemindersVC+EmptyDataSetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemindersVC+EmptyDataSetDelegate.swift"; sourceTree = "<group>"; };
 		167BAACD2408CE9300519EA6 /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
+		16816179253F71060061C9BA /* EditPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetViewController.swift; sourceTree = "<group>"; };
 		168463582409EE8C00936530 /* GeneralHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
 		1684635A2409EFEC00936530 /* AnimalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalButton.swift; sourceTree = "<group>"; };
 		1687A2D32412E63B0038E146 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
@@ -749,6 +751,7 @@
 				16E85FE123E3A90E0026F52A /* AddPetViewController.swift */,
 				16D7CFD123EBD2AE0035DA5A /* PetProfileViewController.swift */,
 				16A18EBE23EE2D0500120A9C /* PetProfileCollectionViewDelegateMethods.swift */,
+				16816179253F71060061C9BA /* EditPetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1132,6 +1135,7 @@
 				16DA5226243A62640032C1C1 /* InvitesViewController.swift in Sources */,
 				16FAD1FE24A5CA5D00F9D4A5 /* Legal-InfoViewController.swift in Sources */,
 				1613131423EE3F49000B9059 /* ProfileButtonCollectionViewCell.swift in Sources */,
+				1681617A253F71060061C9BA /* EditPetViewController.swift in Sources */,
 				16937619245361B600971AB1 /* FixedLabel.swift in Sources */,
 				16937621245371A500971AB1 /* HeaderCollectionReusableView.swift in Sources */,
 				16BCB6DA23DFE82300C91316 /* SceneDelegate.swift in Sources */,
@@ -1307,7 +1311,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lucasrocha.Pet-Me";
 				PRODUCT_NAME = "PetMe!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1332,7 +1336,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lucasrocha.Pet-Me";
 				PRODUCT_NAME = "PetMe!";
 				PROVISIONING_PROFILE_SPECIFIER = "";
