@@ -74,7 +74,7 @@ To send users notifications that new pet-related data was added to the app, I us
 
 # Download
 
-App Store: https://apps.apple.com/ca/app/petme/id1521078553
+Going through a re-branding at the moment, the app will re-released when possible in the app store.
 
 # Contact Me
 
